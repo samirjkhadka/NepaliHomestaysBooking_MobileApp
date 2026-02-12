@@ -3,14 +3,16 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { router } from 'expo-router';
 import 'react-native-reanimated';
 
+import { Platform } from 'react-native';
 import { useColorScheme } from '@/components/useColorScheme';
-import { AuthProvider } from '@/lib/auth-context';
+import { AuthProvider, useAuth } from '@/lib/auth-context';
 import { LocaleProvider } from '@/lib/i18n';
-import { getPathFromNotificationData, registerForPushNotificationsAsync, setupNotificationRedirect } from '@/lib/notifications';
+import { getPathFromNotificationData, getStoredPushToken, registerForPushNotificationsAsync, setupNotificationRedirect } from '@/lib/notifications';
+import { api } from '@/lib/api';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -52,10 +54,31 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+  const { token, user } = useAuth();
+  const [pushToken, setPushToken] = useState<string | null>(null);
 
   useEffect(() => {
-    registerForPushNotificationsAsync().then(() => {});
+    registerForPushNotificationsAsync().then((t) => {
+      if (t) setPushToken(t);
+    });
   }, []);
+
+  useEffect(() => {
+    if (!token || !user) return;
+    const platform = Platform.OS === 'ios' ? 'ios' : 'android';
+    if (pushToken) {
+      api.registerPushToken(token, pushToken, platform).catch(() => {});
+      return;
+    }
+    let cancelled = false;
+    getStoredPushToken().then((stored) => {
+      if (cancelled || !token || !user) return;
+      if (stored) api.registerPushToken(token, stored, platform).catch(() => {});
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [token, user, pushToken]);
 
   const cleanupRef = useRef<(() => void) | null>(null);
   useEffect(() => {

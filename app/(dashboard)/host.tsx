@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, RefreshControl, ScrollView, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '@/lib/auth-context';
 import { api } from '@/lib/api';
 
@@ -53,14 +54,17 @@ export default function HostDashboard() {
         <>
           <View style={styles.stats}>
             <View style={styles.stat}>
+              <Ionicons name="home-outline" size={28} color="#FFA101" style={styles.statIcon} />
               <Text style={styles.statValue}>{data.listings_count ?? 0}</Text>
               <Text style={styles.statLabel}>Listings</Text>
             </View>
             <View style={styles.stat}>
+              <Ionicons name="calendar-outline" size={28} color="#FFA101" style={styles.statIcon} />
               <Text style={styles.statValue}>{data.bookings_count ?? 0}</Text>
               <Text style={styles.statLabel}>Bookings</Text>
             </View>
             <View style={styles.stat}>
+              <Ionicons name="cash-outline" size={28} color="#FFA101" style={styles.statIcon} />
               <Text style={styles.statValue}>Rs {data.earnings ?? 0}</Text>
               <Text style={styles.statLabel}>Earnings</Text>
             </View>
@@ -78,6 +82,7 @@ export default function HostDashboard() {
         <Text style={styles.empty}>Could not load dashboard. Pull to refresh.</Text>
       )}
       <Pressable style={styles.logout} onPress={() => logout().then(() => router.replace('/(auth)/login'))}>
+        <Ionicons name="log-out-outline" size={20} color="rgba(255,255,255,0.9)" style={styles.logoutIcon} />
         <Text style={styles.logoutText}>Sign out</Text>
       </Pressable>
     </ScrollView>
@@ -90,6 +95,7 @@ const styles = StyleSheet.create({
   loader: { marginTop: 48 },
   stats: { flexDirection: 'row', justifyContent: 'space-around', marginBottom: 24 },
   stat: { alignItems: 'center' },
+  statIcon: { marginBottom: 6 },
   statValue: { fontSize: 22, fontWeight: '700', color: '#FFA101' },
   statLabel: { fontSize: 12, color: 'rgba(255,255,255,0.7)', marginTop: 4 },
   sectionTitle: { color: 'rgba(255,255,255,0.9)', fontWeight: '600', marginBottom: 12 },
@@ -101,6 +107,19 @@ const styles = StyleSheet.create({
   },
   cardText: { color: 'rgba(255,255,255,0.9)', fontSize: 14 },
   empty: { color: 'rgba(255,255,255,0.8)', textAlign: 'center', marginTop: 24 },
-  logout: { marginTop: 32, alignSelf: 'center', paddingVertical: 12, paddingHorizontal: 24 },
-  logoutText: { color: 'rgba(255,255,255,0.7)', fontSize: 15 },
+  logout: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 32,
+    alignSelf: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 28,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.3)',
+    backgroundColor: 'rgba(255,255,255,0.06)',
+  },
+  logoutIcon: { marginRight: 8 },
+  logoutText: { color: 'rgba(255,255,255,0.9)', fontSize: 16, fontWeight: '600' },
 });

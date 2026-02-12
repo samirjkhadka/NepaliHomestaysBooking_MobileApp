@@ -10,6 +10,7 @@ import {
   Switch,
 } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '@/lib/auth-context';
 import { useTranslation } from '@/lib/i18n';
@@ -235,6 +236,7 @@ export default function ProfileScreen() {
           ]);
         }}
       >
+        <Ionicons name="log-out-outline" size={20} color={colors.text.primary} style={styles.logoutIcon} />
         <Text style={styles.logoutText}>{t('profile_sign_out')}</Text>
       </Pressable>
     </ScrollView>
@@ -288,6 +290,18 @@ const styles = StyleSheet.create({
   biometricText: { flex: 1, marginRight: spacing.md },
   biometricTitle: { ...typography.body, color: colors.text.primary, fontWeight: '600' },
   biometricDesc: { ...typography.bodySm, color: colors.text.muted, marginTop: spacing.xs },
-  logout: { marginTop: spacing.lg, padding: spacing.md, alignItems: 'center' },
-  logoutText: { color: colors.text.muted, fontSize: 15 },
+  logout: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: spacing.lg,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface.card,
+  },
+  logoutIcon: { marginRight: spacing.sm },
+  logoutText: { color: colors.text.primary, fontSize: 16, fontWeight: '600' },
 });

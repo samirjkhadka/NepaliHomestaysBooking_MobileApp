@@ -15,6 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '@/lib/auth-context';
 import { api, type Listing } from '@/lib/api';
 import { colors, spacing, radius, typography } from '@/constants/theme';
+import { AMENITIES_OPTIONS } from '@/constants/facilities';
 import { getCached, setCached, cacheKeys } from '@/lib/cache';
 import { useTranslation } from '@/lib/i18n';
 import { SkeletonListingDetail } from '@/components/Skeleton';
@@ -165,17 +166,27 @@ export default function ListingDetailScreen() {
     );
   }
 
+  type ExtraServiceRow = { id: number; name: string; price_npr: number; unit: string; description?: string | null };
   const L = listing as Listing & {
     images?: { url: string }[];
     badge?: string | null;
     way_to_get_there?: string;
     amenities?: string[];
+    extra_services?: ExtraServiceRow[];
     sections?: Record<string, string>;
     host?: { id: number; name: string; avatar_url: string | null; bio: string | null };
     hosts?: HostProfile[];
     latitude?: number | null;
     longitude?: number | null;
   };
+  const amenityDisplayItems = (L.amenities ?? [])
+    .map((id) => {
+      const opt = AMENITIES_OPTIONS.find((o) => o.id === id);
+      return opt ? { id: opt.id, label: opt.label, icon: opt.icon } : null;
+    })
+    .filter((x): x is { id: string; label: string; icon: string } => x != null);
+  const extraServices = L.extra_services ?? [];
+  const unitLabels: Record<string, string> = { per_person: 'Per person', per_group: 'Per group', fixed: 'Fixed' };
 
   const imageList = L.images?.map((i) => i.url) ?? listing.image_urls ?? [];
   const images = imageList.length ? imageList : [undefined];
@@ -348,11 +359,36 @@ export default function ListingDetailScreen() {
           );
         })}
 
-        {/* What this place offers */}
-        {(L.amenities?.length ?? 0) > 0 && (
+        {/* Amenities */}
+        {amenityDisplayItems.length > 0 && (
           <>
-            <Text style={styles.sectionTitle}>What this place offers</Text>
-            <Text style={[styles.desc, styles.justified]}>{L.amenities!.join(' · ')}</Text>
+            <Text style={styles.sectionTitle}>Amenities</Text>
+            <View style={styles.amenityGrid}>
+              {amenityDisplayItems.map((item) => {
+                const iconName = `${item.icon}-outline` as keyof typeof Ionicons.glyphMap;
+                return (
+                  <View key={item.id} style={styles.amenityRow}>
+                    <Ionicons name={iconName in Ionicons.glyphMap ? iconName : 'ellipse-outline'} size={20} color={colors.accentAlt[500]} style={styles.amenityRowIcon} />
+                    <Text style={styles.amenityRowLabel}>{item.label}</Text>
+                  </View>
+                );
+              })}
+            </View>
+          </>
+        )}
+
+        {/* Extra services */}
+        {extraServices.length > 0 && (
+          <>
+            <View style={styles.divider} />
+            <Text style={styles.sectionTitle}>Extra services (paid add-ons)</Text>
+            {extraServices.map((s) => (
+              <View key={s.id} style={styles.extraServiceCard}>
+                <Text style={styles.extraServiceName}>{s.name}</Text>
+                <Text style={styles.extraServicePrice}>NPR {Number(s.price_npr).toLocaleString()} ({unitLabels[s.unit] ?? s.unit})</Text>
+                {s.description ? <Text style={[styles.desc, styles.justified]}>{s.description}</Text> : null}
+              </View>
+            ))}
           </>
         )}
 
@@ -482,6 +518,13 @@ const styles = StyleSheet.create({
   reviewerName: { fontWeight: '600', color: colors.text.primary },
   reviewDate: { fontSize: 12, color: colors.text.muted, marginTop: 2 },
   reviewTitle: { fontWeight: '500', color: colors.text.primary, marginBottom: 4 },
+  amenityGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginBottom: spacing.md },
+  amenityRow: { flexDirection: 'row', alignItems: 'center', width: '48%', paddingVertical: spacing.sm, paddingHorizontal: spacing.md, borderRadius: radius.sm, backgroundColor: colors.surface.card },
+  amenityRowIcon: { marginRight: spacing.sm },
+  amenityRowLabel: { color: colors.text.primary, fontSize: 14, flex: 1 },
+  extraServiceCard: { backgroundColor: colors.surface.card, borderRadius: radius.md, padding: spacing.md, marginBottom: spacing.sm, borderWidth: 1, borderColor: colors.border },
+  extraServiceName: { color: colors.text.primary, fontWeight: '600', marginBottom: 2 },
+  extraServicePrice: { color: colors.text.muted, fontSize: 13, marginBottom: 4 },
   starRow: { flexDirection: 'row', gap: 2, marginBottom: 4 },
   mapButton: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, backgroundColor: colors.surface.card, padding: spacing.md, borderRadius: radius.md, marginBottom: spacing.md },
   mapButtonText: { color: colors.accentAlt[500], fontWeight: '600' },

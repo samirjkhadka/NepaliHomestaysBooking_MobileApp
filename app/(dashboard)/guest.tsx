@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, RefreshControl, ScrollView, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '@/lib/auth-context';
 import { api } from '@/lib/api';
 
@@ -54,6 +55,7 @@ export default function GuestDashboard() {
         ))
       )}
       <Pressable style={styles.logout} onPress={() => logout().then(() => router.replace('/(auth)/login'))}>
+        <Ionicons name="log-out-outline" size={20} color="rgba(255,255,255,0.9)" style={styles.logoutIcon} />
         <Text style={styles.logoutText}>Sign out</Text>
       </Pressable>
     </ScrollView>
@@ -73,6 +75,19 @@ const styles = StyleSheet.create({
   },
   cardTitle: { color: '#FFA101', fontWeight: '600', marginBottom: 4 },
   cardText: { color: 'rgba(255,255,255,0.9)', fontSize: 14 },
-  logout: { marginTop: 32, alignSelf: 'center', paddingVertical: 12, paddingHorizontal: 24 },
-  logoutText: { color: 'rgba(255,255,255,0.7)', fontSize: 15 },
+  logout: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 32,
+    alignSelf: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 28,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.3)',
+    backgroundColor: 'rgba(255,255,255,0.06)',
+  },
+  logoutIcon: { marginRight: 8 },
+  logoutText: { color: 'rgba(255,255,255,0.9)', fontSize: 16, fontWeight: '600' },
 });

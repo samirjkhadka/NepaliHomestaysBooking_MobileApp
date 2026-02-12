@@ -90,6 +90,7 @@ export type CreateListingBody = {
   longitude?: number | null;
   category?: string | null;
   amenities?: string[];
+  extra_services?: { name: string; price_npr: number; unit: string; description?: string | null }[];
   image_urls?: string[];
   sections?: Record<string, string>;
 };
@@ -188,10 +189,29 @@ export const api = {
     return apiRequest<ListingsResponse>(`/api/listings?${q.toString()}`);
   },
   getListing: (id: number) => apiRequest<Listing>(`/api/listings/${id}`),
-  getBookingPreview: (listingId: number, checkIn: string, checkOut: string) =>
-    apiRequest<{ nights: number; price_per_night: number; subtotal: number; fee_label: string | null; fee_amount: number; total: number; currency: string }>(
-      `/api/listings/${listingId}/booking-preview?check_in=${encodeURIComponent(checkIn)}&check_out=${encodeURIComponent(checkOut)}`
-    ),
+  getBookingPreview: (
+    listingId: number,
+    checkIn: string,
+    checkOut: string,
+    guests?: number,
+    extraServices?: { extra_service_id: number; quantity: number }[]
+  ) => {
+    const params = new URLSearchParams({ check_in: checkIn, check_out: checkOut });
+    if (guests != null && guests >= 1) params.set('guests', String(guests));
+    if (extraServices?.length) params.set('extra_services', JSON.stringify(extraServices));
+    return apiRequest<{
+      nights: number;
+      price_per_night: number;
+      subtotal_room: number;
+      extra_services_lines?: { name: string; amount: number }[];
+      extra_services_total?: number;
+      subtotal: number;
+      fee_label: string | null;
+      fee_amount: number;
+      total: number;
+      currency: string;
+    }>(`/api/listings/${listingId}/booking-preview?${params.toString()}`);
+  },
   getListingReviews: (id: number, page?: number) =>
     apiRequest<ReviewsResponse>(`/api/listings/${id}/reviews${page != null ? `?page=${page}` : ''}`),
   getBlockedDates: (id: number) => apiRequest<{ blocked_dates?: string[] }>(`/api/listings/${id}/blocked-dates`),
@@ -224,8 +244,17 @@ export const api = {
   getBookings: (token: string) => apiRequest<BookingsResponse>('/api/bookings', { token }),
   createBooking: (token: string, body: { listing_id: number; check_in: string; check_out: string; guests: number; message?: string }) =>
     apiRequest<{ booking: Booking; message?: string }>('/api/bookings', { token, method: 'POST', body: JSON.stringify(body) }),
-  initiatePayment: (token: string, body: { listing_id: number; check_in: string; check_out: string; guests: number; message?: string }) =>
-    apiRequest<InitiatePaymentResponse>('/api/bookings/initiate-payment', { token, method: 'POST', body: JSON.stringify(body) }),
+  initiatePayment: (
+    token: string,
+    body: {
+      listing_id: number;
+      check_in: string;
+      check_out: string;
+      guests: number;
+      message?: string;
+      extra_services?: { extra_service_id: number; quantity: number }[];
+    }
+  ) => apiRequest<InitiatePaymentResponse>('/api/bookings/initiate-payment', { token, method: 'POST', body: JSON.stringify(body) }),
   getResumePayment: (token: string, bookingId: number) =>
     apiRequest<InitiatePaymentResponse>(`/api/bookings/${bookingId}/resume-payment`, { token }),
   updateBookingStatus: (token: string, bookingId: number, status: 'approved' | 'declined') =>
@@ -281,4 +310,12 @@ export const api = {
   // CMS
   getCmsSections: (place: string) => apiRequest<{ sections: { section_key: string; content: string | null; title?: string | null }[] }>(`/api/cms/sections?place=${encodeURIComponent(place)}`),
   getCmsSection: (key: string) => apiRequest<{ title: string | null; content: string | null }>(`/api/cms/sections/${key}`),
+
+  // Push notifications (Firebase / Expo)
+  registerPushToken: (token: string, pushToken: string, platform: 'ios' | 'android') =>
+    apiRequest<{ message: string }>('/api/notifications/register', {
+      token,
+      method: 'POST',
+      body: JSON.stringify({ token: pushToken, platform }),
+    }),
 };

@@ -1,6 +1,5 @@
 /**
- * Facility/amenity groups and options – aligned with frontend src/data/districts.ts
- * Used for add/edit listing checkboxes.
+ * Amenities (free inclusions) and extra service options for add/edit listing.
  */
 export type FacilityOption = { id: string; label: string };
 export type FacilityGroup = {
@@ -10,6 +9,36 @@ export type FacilityGroup = {
   options: FacilityOption[];
   hasCapacity?: boolean;
   hasPriceType?: boolean;
+};
+
+/** Predefined free amenities – multi-select, stored as listing_amenities. */
+export const AMENITIES_OPTIONS: { id: string; label: string; icon: string }[] = [
+  { id: 'wifi', label: 'WiFi', icon: 'wifi' },
+  { id: 'breakfast', label: 'Breakfast', icon: 'cafe' },
+  { id: 'veg_meals', label: 'Veg Meals', icon: 'leaf' },
+  { id: 'non_veg_meals', label: 'Non-Veg Meals', icon: 'restaurant' },
+  { id: 'parking', label: 'Parking', icon: 'car' },
+  { id: 'hot_water', label: 'Hot Water', icon: 'water' },
+  { id: 'garden', label: 'Garden', icon: 'flower' },
+  { id: 'terrace', label: 'Terrace', icon: 'home' },
+  { id: 'mountain_view', label: 'Mountain View', icon: 'trending-up' },
+  { id: 'ac', label: 'AC', icon: 'snow' },
+  { id: 'heater', label: 'Heater', icon: 'flame' },
+  { id: 'washing_machine', label: 'Washing Machine', icon: 'shirt' },
+];
+
+/** Extra service unit for paid add-ons */
+export const EXTRA_SERVICE_UNITS: { id: string; label: string }[] = [
+  { id: 'per_person', label: 'Per person' },
+  { id: 'per_group', label: 'Per group' },
+  { id: 'fixed', label: 'Fixed' },
+];
+
+export type ExtraServiceFormItem = {
+  name: string;
+  price_npr: number;
+  unit: string;
+  description?: string;
 };
 
 export const HOMESTAY_TYPES = ['individual', 'community'] as const;
@@ -30,6 +59,7 @@ export const PRICE_TYPE_OPTIONS: { id: string; label: string }[] = [
 
 export const WARD_NUMBERS = Array.from({ length: 40 }, (_, i) => i + 1);
 
+/** @deprecated Use AMENITIES_OPTIONS for new listings. Kept for backward compatibility. */
 export const FACILITY_GROUPS: FacilityGroup[] = [
   { id: 'water', label: 'Water', type: 'multi', options: [{ id: 'water_hot', label: 'Hot' }, { id: 'water_cold', label: 'Cold' }] },
   { id: 'internet', label: 'Internet', type: 'single', options: [{ id: 'wifi', label: 'Yes' }] },
