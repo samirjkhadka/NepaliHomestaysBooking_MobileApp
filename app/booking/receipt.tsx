@@ -6,6 +6,7 @@ import { useAuth } from '@/lib/auth-context';
 import { api, type Booking } from '@/lib/api';
 import { colors, spacing, radius, typography } from '@/constants/theme';
 import { useTranslation } from '@/lib/i18n';
+import { formatRs } from '@/lib/format';
 
 export default function ReceiptScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -101,7 +102,7 @@ export default function ReceiptScreen() {
 
         <View style={styles.row}>
           <Text style={styles.labelTotal}>Total amount</Text>
-          <Text style={styles.amount}>{t('listing_rs')} {total.toLocaleString()}</Text>
+          <Text style={styles.amount}>{formatRs(total)}</Text>
         </View>
 
         <View style={styles.footer}>

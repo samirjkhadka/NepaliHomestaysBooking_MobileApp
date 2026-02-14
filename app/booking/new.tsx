@@ -18,6 +18,7 @@ import { useAuth } from '@/lib/auth-context';
 import { api, type Listing } from '@/lib/api';
 import { colors, spacing, radius, typography } from '@/constants/theme';
 import { useTranslation } from '@/lib/i18n';
+import { formatRs } from '@/lib/format';
 
 function toYMD(d: Date): string {
   const y = d.getFullYear();
@@ -176,7 +177,7 @@ export default function NewBookingScreen() {
             <View key={s.id} style={styles.extraRow}>
               <View style={{ flex: 1 }}>
                 <Text style={styles.extraName}>{s.name}</Text>
-                <Text style={styles.extraMeta}>NPR {Number(s.price_npr).toLocaleString()} · {s.unit === 'per_person' ? 'Per person' : s.unit === 'per_group' ? 'Per group' : 'Fixed'}</Text>
+                <Text style={styles.extraMeta}>{formatRs(Number(s.price_npr))} · {s.unit === 'per_person' ? 'Per person' : s.unit === 'per_group' ? 'Per group' : 'Fixed'}</Text>
               </View>
               <TextInput
                 style={styles.extraQtyInput}
@@ -186,7 +187,7 @@ export default function NewBookingScreen() {
                   setExtraQuantities((prev) => ({ ...prev, [s.id]: Math.min(99, n) }));
                 }}
                 keyboardType="number-pad"
-                placeholder="0"
+                placeholder="No. of days"
                 placeholderTextColor={colors.text.muted}
               />
             </View>
@@ -211,34 +212,28 @@ export default function NewBookingScreen() {
         <View style={styles.previewBox}>
           <Text style={styles.previewTitle}>Price summary</Text>
           <View style={styles.previewRow}>
-            <Text style={styles.previewLabel}>Rs {listing?.price_per_night} × {preview.nights} night{preview.nights !== 1 ? 's' : ''}</Text>
-            <Text style={styles.previewValue}>Rs {(preview.subtotal_room ?? preview.subtotal ?? 0).toFixed(2)}</Text>
+            <Text style={styles.previewLabel}>Rs {listing?.price_per_night} × {parseInt(guests, 10) || 1} guest{(parseInt(guests, 10) || 1) !== 1 ? 's' : ''} × {preview.nights} night{preview.nights !== 1 ? 's' : ''}</Text>
+            <Text style={styles.previewValue}>{formatRs(preview.subtotal_room ?? preview.subtotal ?? 0)}</Text>
           </View>
           {preview.extra_services_lines && preview.extra_services_lines.length > 0 && preview.extra_services_total !== undefined && preview.extra_services_total > 0 && (
-            <>
-              {preview.extra_services_lines.map((line, i) => (
-                <View key={i} style={styles.previewRow}>
-                  <Text style={styles.previewLabel}>{line.name}</Text>
-                  <Text style={styles.previewValue}>Rs {line.amount.toFixed(2)}</Text>
-                </View>
-              ))}
-              <View style={styles.previewRow}>
-                <Text style={styles.previewLabel}>Extra services</Text>
-                <Text style={styles.previewValue}>Rs {preview.extra_services_total.toFixed(2)}</Text>
-              </View>
-            </>
+            <View style={styles.previewRow}>
+              <Text style={styles.previewLabel}>
+                Extra services ({preview.extra_services_lines.map((l) => l.name).join(', ')})
+              </Text>
+              <Text style={styles.previewValue}>{formatRs(preview.extra_services_total)}</Text>
+            </View>
           )}
           {preview.fee_label && preview.fee_amount !== 0 && (
             <View style={styles.previewRow}>
               <Text style={styles.previewLabel}>{preview.fee_label}</Text>
               <Text style={[styles.previewValue, preview.fee_amount < 0 && styles.previewDiscount]}>
-                {preview.fee_amount < 0 ? '−' : '+'} Rs {Math.abs(preview.fee_amount).toFixed(2)}
+                {preview.fee_amount < 0 ? '−' : '+'} {formatRs(Math.abs(preview.fee_amount))}
               </Text>
             </View>
           )}
           <View style={[styles.previewRow, styles.previewTotalRow]}>
             <Text style={styles.previewTotalLabel}>Total</Text>
-            <Text style={styles.previewTotalValue}>Rs {preview.total.toFixed(2)}</Text>
+            <Text style={styles.previewTotalValue}>{formatRs(preview.total)}</Text>
           </View>
         </View>
       )}

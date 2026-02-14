@@ -201,6 +201,7 @@ export const api = {
     if (extraServices?.length) params.set('extra_services', JSON.stringify(extraServices));
     return apiRequest<{
       nights: number;
+      guests?: number;
       price_per_night: number;
       subtotal_room: number;
       extra_services_lines?: { name: string; amount: number }[];
@@ -210,6 +211,7 @@ export const api = {
       fee_amount: number;
       total: number;
       currency: string;
+      partial_payment_min_percent?: number;
     }>(`/api/listings/${listingId}/booking-preview?${params.toString()}`);
   },
   getListingReviews: (id: number, page?: number) =>
@@ -253,6 +255,8 @@ export const api = {
       guests: number;
       message?: string;
       extra_services?: { extra_service_id: number; quantity: number }[];
+      payment_type?: 'full' | 'partial';
+      partial_percent?: number;
     }
   ) => apiRequest<InitiatePaymentResponse>('/api/bookings/initiate-payment', { token, method: 'POST', body: JSON.stringify(body) }),
   getResumePayment: (token: string, bookingId: number) =>

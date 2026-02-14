@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import {
   View,
   Text,
+  TextInput,
   StyleSheet,
   ScrollView,
   Pressable,
@@ -15,9 +16,11 @@ import { api, type Listing } from '@/lib/api';
 import { ListingImage } from '@/components/ListingImage';
 import { colors, spacing, radius, typography } from '@/constants/theme';
 import { useTranslation } from '@/lib/i18n';
+import { formatRs } from '@/lib/format';
 
 type Preview = {
   nights: number;
+  guests?: number;
   price_per_night: number;
   subtotal_room: number;
   extra_services_lines?: { name: string; amount: number }[];
@@ -27,6 +30,7 @@ type Preview = {
   fee_amount: number;
   total: number;
   currency: string;
+  partial_payment_min_percent?: number;
 };
 
 export default function ConfirmBookingScreen() {
@@ -56,23 +60,31 @@ export default function ConfirmBookingScreen() {
   const [preview, setPreview] = useState<Preview | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [paymentType, setPaymentType] = useState<'full' | 'partial'>('full');
+  const [partialPercent, setPartialPercent] = useState(25);
 
   const lid = listingId ? Number(listingId) : NaN;
   const g = guests ? parseInt(guests, 10) : 0;
+  const minPartial = (preview?.partial_payment_min_percent ?? 25);
+  const totalRounded = preview ? Math.round(preview.total) : 0;
+  const payNowAmount = paymentType === 'partial' ? Math.round((totalRounded * Math.min(99, Math.max(minPartial, partialPercent))) / 100) : totalRounded;
+  const payNowPercent = totalRounded > 0 ? Math.round((payNowAmount / totalRounded) * 100) : partialPercent;
 
   useEffect(() => {
     if (Number.isNaN(lid) || !checkIn || !checkOut) {
       setLoading(false);
       return;
     }
-    const g = guests ? parseInt(guests, 10) : 1;
+    const guestNum = guests ? parseInt(guests, 10) : 1;
     Promise.all([
       api.getListing(lid),
-      api.getBookingPreview(lid, checkIn, checkOut, g >= 1 ? g : undefined, extraServices.length ? extraServices : undefined),
+      api.getBookingPreview(lid, checkIn, checkOut, guestNum >= 1 ? guestNum : undefined, extraServices.length ? extraServices : undefined),
     ])
       .then(([list, pr]) => {
         setListing(list as Listing);
-        setPreview(pr as Preview);
+        const p = pr as Preview;
+        setPreview(p);
+        if (p?.partial_payment_min_percent != null) setPartialPercent(p.partial_payment_min_percent);
       })
       .catch(() => setListing(null))
       .finally(() => setLoading(false));
@@ -93,6 +105,8 @@ export default function ConfirmBookingScreen() {
         guests: g,
         message: (message ?? '').trim() || undefined,
         extra_services: extraServices.length ? extraServices : undefined,
+        payment_type: paymentType,
+        ...(paymentType === 'partial' ? { partial_percent: Math.max(minPartial, Math.min(99, partialPercent)) } : {}),
       });
       const bookingId = (res as { booking_id?: number }).booking_id ?? res.booking?.id;
       if (res.redirect_url) {
@@ -167,37 +181,67 @@ export default function ConfirmBookingScreen() {
       <Text style={styles.sectionTitle}>Price details</Text>
       <View style={styles.priceCard}>
         <View style={styles.priceRow}>
-          <Text style={styles.priceLabel}>Rs {preview.price_per_night} × {preview.nights} night{preview.nights !== 1 ? 's' : ''}</Text>
-          <Text style={styles.priceValue}>Rs {(preview.subtotal_room ?? preview.subtotal ?? 0).toFixed(2)}</Text>
+          <Text style={styles.priceLabel}>Rs {preview.price_per_night} × {g} guest{g !== 1 ? 's' : ''} × {preview.nights} night{preview.nights !== 1 ? 's' : ''}</Text>
+          <Text style={styles.priceValue}>{formatRs(preview.subtotal_room ?? preview.subtotal ?? 0)}</Text>
         </View>
-        {preview.extra_services_lines && preview.extra_services_lines.length > 0 && (
-          <>
-            {preview.extra_services_lines.map((line, i) => (
-              <View key={i} style={styles.priceRow}>
-                <Text style={styles.priceLabel}>{line.name}</Text>
-                <Text style={styles.priceValue}>Rs {line.amount.toFixed(2)}</Text>
-              </View>
-            ))}
-            {preview.extra_services_total !== undefined && preview.extra_services_total > 0 && (
-              <View style={styles.priceRow}>
-                <Text style={styles.priceLabel}>Extra services</Text>
-                <Text style={styles.priceValue}>Rs {preview.extra_services_total.toFixed(2)}</Text>
-              </View>
-            )}
-          </>
+        {preview.extra_services_lines && preview.extra_services_lines.length > 0 && preview.extra_services_total !== undefined && preview.extra_services_total > 0 && (
+          <View style={styles.priceRow}>
+            <Text style={styles.priceLabel}>
+              Extra services ({preview.extra_services_lines.map((l) => l.name).join(', ')})
+            </Text>
+            <Text style={styles.priceValue}>{formatRs(preview.extra_services_total)}</Text>
+          </View>
         )}
         {preview.fee_label && preview.fee_amount !== 0 && (
           <View style={styles.priceRow}>
             <Text style={styles.priceLabel}>{preview.fee_label}</Text>
             <Text style={[styles.priceValue, preview.fee_amount < 0 && styles.discount]}>
-              {preview.fee_amount < 0 ? '−' : '+'} Rs {Math.abs(preview.fee_amount).toFixed(2)}
+              {preview.fee_amount < 0 ? '−' : '+'} {formatRs(Math.abs(preview.fee_amount))}
             </Text>
           </View>
         )}
         <View style={[styles.priceRow, styles.totalRow]}>
           <Text style={styles.totalLabel}>Total ({preview.currency})</Text>
-          <Text style={styles.totalValue}>Rs {preview.total.toFixed(2)}</Text>
+          <Text style={styles.totalValue}>{formatRs(preview.total)}</Text>
         </View>
+
+        <Text style={[styles.sectionTitle, { marginTop: spacing.lg }]}>Payment</Text>
+        <View style={styles.paymentRow}>
+          <Pressable
+            style={[styles.paymentOption, paymentType === 'full' && styles.paymentOptionActive]}
+            onPress={() => setPaymentType('full')}
+          >
+            <Text style={[styles.paymentOptionText, paymentType === 'full' && styles.paymentOptionTextActive]}>Pay in full</Text>
+          </Pressable>
+          <Pressable
+            style={[styles.paymentOption, paymentType === 'partial' && styles.paymentOptionActive]}
+            onPress={() => setPaymentType('partial')}
+          >
+            <Text style={[styles.paymentOptionText, paymentType === 'partial' && styles.paymentOptionTextActive]}>Pay partial</Text>
+          </Pressable>
+        </View>
+        {paymentType === 'partial' && (
+          <View style={styles.sliderRow}>
+            <Text style={styles.sliderLabel}>Pay now: {payNowPercent}% (min {minPartial}%)</Text>
+            <TextInput
+              style={styles.sliderInput}
+              value={String(partialPercent)}
+              onChangeText={(t) => {
+                const n = parseInt(t.replace(/\D/g, ''), 10);
+                if (!Number.isNaN(n)) setPartialPercent(Math.max(minPartial, Math.min(99, n)));
+              }}
+              keyboardType="number-pad"
+              placeholder={String(minPartial)}
+            />
+            <Text style={styles.sliderHint}>Rest at checkout. No discount when paying partial.</Text>
+          </View>
+        )}
+        {paymentType === 'partial' && totalRounded > 0 && (
+          <View style={styles.priceRow}>
+            <Text style={styles.priceLabel}>Pay now ({payNowPercent}%)</Text>
+            <Text style={styles.priceValue}>{formatRs(payNowAmount)}</Text>
+          </View>
+        )}
       </View>
 
       <Pressable
@@ -210,7 +254,9 @@ export default function ConfirmBookingScreen() {
         ) : (
           <>
             <Ionicons name="card-outline" size={20} color={colors.text.primary} style={styles.btnIcon} />
-            <Text style={styles.buttonText}>Confirm and pay Rs {preview.total.toFixed(2)}</Text>
+            <Text style={styles.buttonText}>
+              {paymentType === 'partial' ? `Pay ${formatRs(payNowAmount)} now (${payNowPercent}%)` : `Confirm and pay ${formatRs(preview.total)}`}
+            </Text>
           </>
         )}
       </Pressable>
@@ -247,6 +293,15 @@ const styles = StyleSheet.create({
   totalRow: { marginTop: spacing.sm, paddingTop: spacing.sm, borderTopWidth: 1, borderTopColor: colors.surface.input },
   totalLabel: { fontWeight: '600', color: colors.text.primary, fontSize: 16 },
   totalValue: { fontWeight: '700', color: colors.text.primary, fontSize: 18 },
+  paymentRow: { flexDirection: 'row', gap: spacing.sm, marginTop: spacing.sm },
+  paymentOption: { flex: 1, paddingVertical: spacing.md, paddingHorizontal: spacing.sm, borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, alignItems: 'center' },
+  paymentOptionActive: { backgroundColor: colors.accent[500], borderColor: colors.accent[500] },
+  paymentOptionText: { color: colors.text.secondary, fontSize: 15 },
+  paymentOptionTextActive: { color: colors.text.primary, fontWeight: '600' },
+  sliderRow: { marginTop: spacing.sm, flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: spacing.sm },
+  sliderLabel: { color: colors.text.secondary, fontSize: 14 },
+  sliderInput: { width: 48, backgroundColor: colors.surface.input, borderRadius: radius.sm, padding: spacing.sm, color: colors.text.primary, fontSize: 16, textAlign: 'center' },
+  sliderHint: { width: '100%', color: colors.text.muted, fontSize: 12, marginTop: 4 },
   button: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.accent[500], borderRadius: radius.md, padding: spacing.md },
   btnIcon: { marginRight: spacing.sm },
   buttonText: { color: colors.text.primary, fontWeight: '600' },

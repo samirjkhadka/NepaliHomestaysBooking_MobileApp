@@ -15,6 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocalSearchParams } from 'expo-router';
 import { useAuth } from '@/lib/auth-context';
 import { api, type Message, type Conversation } from '@/lib/api';
+import { formatDateTime } from '@/lib/format';
 import { colors, spacing, radius, typography } from '@/constants/theme';
 
 export default function MessageThreadScreen() {
@@ -92,7 +93,7 @@ export default function MessageThreadScreen() {
         renderItem={({ item }) => (
           <View style={[styles.bubble, isOwn(item) ? styles.bubbleOwn : styles.bubbleOther]}>
             <Text style={styles.bubbleText}>{item.message}</Text>
-            <Text style={styles.bubbleTime}>{new Date(item.created_at).toLocaleString()}</Text>
+            <Text style={styles.bubbleTime}>{formatDateTime(item.created_at)}</Text>
           </View>
         )}
       />
