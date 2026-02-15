@@ -10,6 +10,7 @@ import {
   Linking,
   Platform,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '@/lib/auth-context';
@@ -69,6 +70,7 @@ export default function ListingDetailScreen() {
   const router = useRouter();
   const { token } = useAuth();
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const [listing, setListing] = useState<Listing | null>(null);
   const [reviews, setReviews] = useState<ReviewRow[]>([]);
   const [reviewsTotal, setReviewsTotal] = useState(0);
@@ -174,7 +176,7 @@ export default function ListingDetailScreen() {
     amenities?: string[];
     extra_services?: ExtraServiceRow[];
     sections?: Record<string, string>;
-    host?: { id: number; name: string; avatar_url: string | null; bio: string | null };
+    host?: { id: number; name: string; avatar_url: string | null; bio: string | null; brief_intro?: string | null; languages_spoken?: string | null };
     hosts?: HostProfile[];
     latitude?: number | null;
     longitude?: number | null;
@@ -208,9 +210,15 @@ export default function ListingDetailScreen() {
   const lat = L.latitude != null ? Number(L.latitude) : null;
   const lng = L.longitude != null ? Number(L.longitude) : null;
   const hasCoords = lat != null && lng != null && !Number.isNaN(lat) && !Number.isNaN(lng);
+  const stickyBarPaddingBottom = Math.max(insets.bottom, spacing.md);
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <View style={styles.wrapper}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={[styles.content, { paddingBottom: 100 + stickyBarPaddingBottom }]}
+      showsVerticalScrollIndicator={true}
+    >
       {error ? (
         <View style={styles.errorBar}>
           <Text style={styles.errorText}>{error}</Text>
@@ -442,29 +450,33 @@ export default function ListingDetailScreen() {
             <Text style={styles.trustText}>{line}</Text>
           </View>
         ))}
-        <Pressable
-          style={styles.bookBtn}
-          onPress={() => {
-            if (!token) {
-              Alert.alert(t('auth_sign_in'), t('listing_sign_in_to_book'), [
-                { text: t('common_cancel'), style: 'cancel' },
-                { text: t('auth_sign_in'), onPress: () => router.push('/(auth)/login') },
-              ]);
-              return;
-            }
-            router.push(`/booking/new?listingId=${listing.id}`);
-          }}
-        >
-          <Text style={styles.bookBtnText}>{t('listing_book_now')}</Text>
-        </Pressable>
-        <Text style={styles.bookHint}>You won't be charged yet</Text>
       </View>
     </ScrollView>
+    <View style={[styles.stickyBar, { paddingBottom: stickyBarPaddingBottom }]}>
+      <Pressable
+        style={styles.bookBtn}
+        onPress={() => {
+          if (!token) {
+            Alert.alert(t('auth_sign_in'), t('listing_sign_in_to_book'), [
+              { text: t('common_cancel'), style: 'cancel' },
+              { text: t('auth_sign_in'), onPress: () => router.push('/(auth)/login') },
+            ]);
+            return;
+          }
+          router.push(`/booking/new?listingId=${listing.id}`);
+        }}
+      >
+        <Text style={styles.bookBtnText}>{t('listing_book_now')}</Text>
+      </Pressable>
+      <Text style={styles.bookHint}>You won't be charged yet</Text>
+    </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  wrapper: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1 },
   content: { paddingBottom: spacing.xxl },
   centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
   empty: { color: colors.text.muted, marginBottom: spacing.md },
@@ -530,7 +542,18 @@ const styles = StyleSheet.create({
   mapButtonText: { color: colors.accentAlt[500], fontWeight: '600' },
   trustRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginBottom: 6 },
   trustText: { fontSize: 14, color: colors.text.muted },
-  bookBtn: { backgroundColor: colors.accent[500], borderRadius: radius.md, padding: spacing.md, alignItems: 'center', marginTop: spacing.sm },
+  stickyBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.md,
+    backgroundColor: colors.primary[500],
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.border,
+  },
+  bookBtn: { backgroundColor: colors.accent[500], borderRadius: radius.md, padding: spacing.md, alignItems: 'center' },
   bookBtnText: { color: colors.text.primary, fontWeight: '600', fontSize: 16 },
   bookHint: { textAlign: 'center', color: colors.text.muted, fontSize: 12, marginTop: spacing.sm },
 });

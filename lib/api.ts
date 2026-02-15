@@ -111,8 +111,9 @@ export type Booking = {
 };
 export type BookingsResponse = { bookings: Booking[] };
 
-// Favorites
-export type FavoritesResponse = { favorites: { listing_id: number; listing?: Listing }[] };
+// Favorites / Wishlist (backend returns flat favorite rows, not nested listing)
+export type FavoriteRow = { id: number; listing_id: number; listing_title: string; listing_location: string; image_url: string | null };
+export type FavoritesResponse = { favorites: FavoriteRow[] };
 
 // Profile
 export type Profile = { id: number; email: string; name?: string; phone?: string; role?: string; [key: string]: unknown };

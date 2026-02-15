@@ -10,8 +10,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAuth } from '@/lib/auth-context';
-import { api, type Booking, type Listing } from '@/lib/api';
-import { ListingBadges } from '@/components/ListingBadges';
+import { api, type Booking, type FavoriteRow } from '@/lib/api';
 import { ListingImage } from '@/components/ListingImage';
 import { colors, spacing, radius, typography } from '@/constants/theme';
 
@@ -32,7 +31,7 @@ export function GuestDashboardContent() {
   const router = useRouter();
   const { token } = useAuth();
   const [bookings, setBookings] = useState<Booking[]>([]);
-  const [favorites, setFavorites] = useState<Listing[]>([]);
+  const [favorites, setFavorites] = useState<FavoriteRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -44,8 +43,7 @@ export function GuestDashboardContent() {
         api.getFavorites(token),
       ]);
       setBookings(bookingsRes.bookings ?? []);
-      const list = (favRes.favorites ?? []).map((f) => f.listing).filter(Boolean) as Listing[];
-      setFavorites(list);
+      setFavorites(favRes.favorites ?? []);
     } catch {
       setBookings([]);
       setFavorites([]);
@@ -77,7 +75,7 @@ export function GuestDashboardContent() {
     >
       <View style={styles.header}>
         <Text style={styles.welcome}>My Bookings</Text>
-        <Text style={styles.subWelcome}>Manage your stays and favorites</Text>
+        <Text style={styles.subWelcome}>Manage your stays and wishlist</Text>
       </View>
       <Text style={styles.sectionTitle}>Upcoming & past</Text>
       {bookings.length === 0 ? (
@@ -117,29 +115,33 @@ export function GuestDashboardContent() {
           </View>
         ))
       )}
-      <Text style={styles.sectionTitle}>Favorites</Text>
+      <Text style={styles.sectionTitle}>Wishlist</Text>
       {favorites.length === 0 ? (
-        <Text style={styles.empty}>No favorites. Tap the heart on a listing to add one.</Text>
+        <Text style={styles.empty}>No saved listings yet. Tap the heart on a listing to add one.</Text>
       ) : (
-        favorites.map((item) => {
-          const imgUrl =
-            (item as { image_url?: string | null }).image_url ??
-            (item as { images?: { url: string }[] }).images?.[0]?.url ??
-            item.image_urls?.[0];
-          const badge = (item as { badge?: string }).badge ?? null;
-          return (
-            <Pressable key={item.id} style={styles.card} onPress={() => router.push(`/listing/${item.id}`)}>
+        favorites.map((item) => (
+          <View key={item.id} style={styles.card}>
+            <Pressable onPress={() => router.push(`/listing/${item.listing_id}`)}>
               <View style={styles.thumbWrap}>
-                <ListingImage uri={imgUrl} style={styles.thumb} resizeMode="cover" />
-                {badge ? <View style={styles.badge}><ListingBadges badge={badge} compact /></View> : null}
+                <ListingImage uri={item.image_url} style={styles.thumb} resizeMode="cover" />
               </View>
               <View style={styles.cardBody}>
-                <Text style={styles.cardTitle} numberOfLines={1}>{item.title}</Text>
-                <Text style={styles.cardMeta}>Rs {item.price_per_night}/night</Text>
+                <Text style={styles.cardTitle} numberOfLines={1}>{item.listing_title}</Text>
+                <Text style={styles.cardMeta}>{item.listing_location || 'Nepal'}</Text>
               </View>
             </Pressable>
-          );
-        })
+            <Pressable
+              style={[styles.smallBtn, styles.removeBtn]}
+              onPress={() => {
+                api.removeFavorite(token, item.listing_id).then(() => {
+                  setFavorites((prev) => prev.filter((f) => f.listing_id !== item.listing_id));
+                }).catch(() => {});
+              }}
+            >
+              <Text style={styles.smallBtnText}>Remove</Text>
+            </Pressable>
+          </View>
+        ))
       )}
     </ScrollView>
   );
@@ -171,6 +173,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface.input,
   },
   primaryBtn: { backgroundColor: colors.accent[500] },
+  removeBtn: { marginTop: spacing.sm },
   smallBtnText: { color: colors.text.primary, fontSize: 14, fontWeight: '500' },
   thumbWrap: { position: 'relative', marginBottom: spacing.sm },
   thumb: { width: '100%', height: 100, borderRadius: radius.sm },

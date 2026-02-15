@@ -1,31 +1,16 @@
-import { Platform } from 'react-native';
-import Constants from 'expo-constants';
-
-const DEV_SERVER_PORT = 3000;
+/** UAT API for testing. Set EXPO_PUBLIC_API_URL to use a local backend (e.g. http://192.168.1.78:3000). */
+const UAT_API_URL = 'https://testcmsapi.dghub.io';
 
 /**
  * Backend API base URL.
- * - EXPO_PUBLIC_API_URL: use if set (e.g. for physical device: http://192.168.1.x:3000).
- * - In dev, Expo Go on a physical device uses the same host as the Metro bundler so API works.
- * - Android emulator: 10.0.2.2 to reach host machine.
- * - iOS simulator: localhost or 127.0.0.1.
+ * - EXPO_PUBLIC_API_URL: use if set (e.g. local: http://192.168.1.78:3000 when testing against your machine).
+ * - Otherwise uses UAT (https://testcmsapi.dghub.io).
  */
 function getApiBaseUrl(): string {
-  if (process.env.EXPO_PUBLIC_API_URL) {
+  if (process.env.EXPO_PUBLIC_API_URL?.trim()) {
     return process.env.EXPO_PUBLIC_API_URL.replace(/\/$/, '');
   }
-  // Expo Go on device: use the host your phone uses to reach the dev server (same machine as backend).
-  const debuggerHost = Constants.expoConfig?.hostUri ?? Constants.debuggerHost;
-  if (__DEV__ && debuggerHost) {
-    const host = debuggerHost.split(':')[0];
-    if (host && host !== 'localhost' && host !== '127.0.0.1') {
-      return `http://${host}:${DEV_SERVER_PORT}`;
-    }
-  }
-  if (Platform.OS === 'android') {
-    return `http://10.0.2.2:${DEV_SERVER_PORT}`;
-  }
-  return `http://127.0.0.1:${DEV_SERVER_PORT}`;
+  return UAT_API_URL;
 }
 
 export const API_BASE_URL = getApiBaseUrl();
