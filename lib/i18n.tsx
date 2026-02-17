@@ -38,6 +38,10 @@ const translations: Record<Locale, Record<string, string>> = {
     home_error_load: 'Could not load. Pull to retry.',
     home_retry: 'Retry',
     home_per_night: '/night',
+    no_reviews_yet: 'No reviews yet',
+    reviews: 'reviews',
+    view_homestay: 'View homestay',
+    explore_homestays: 'Explore Homestays',
 
     // Splash
     splash_discover: 'Discover authentic Nepal',
@@ -202,6 +206,10 @@ const translations: Record<Locale, Record<string, string>> = {
     home_error_load: 'लोड गर्न सकिएन। पुन: प्रयास गर्न स्वाइप गर्नुहोस्।',
     home_retry: 'पुन: प्रयास',
     home_per_night: '/रात',
+    no_reviews_yet: 'अहिलेसम्म कुनै समीक्षा छैन',
+    reviews: 'समीक्षाहरू',
+    view_homestay: 'होमस्टे हेर्नुहोस्',
+    explore_homestays: 'होमस्टेहरू अन्वेषण गर्नुहोस्',
 
     splash_discover: 'वास्तविक नेपाल अन्वेषण गर्नुहोस्',
     splash_book_title: 'तपाईंको बसाइ बुक गर्नुहोस्',

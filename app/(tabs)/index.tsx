@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,8 @@ import {
   Pressable,
   RefreshControl,
   Dimensions,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { api, type Listing } from '@/lib/api';
@@ -18,7 +20,9 @@ import { getCached, setCached, cacheKeys } from '@/lib/cache';
 import { useTranslation } from '@/lib/i18n';
 import { SkeletonListingCard } from '@/components/Skeleton';
 
-const CARD_WIDTH = Dimensions.get('window').width - spacing.lg * 2;
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const HERO_CARD_WIDTH = SCREEN_WIDTH - spacing.lg * 2;
+const HERO_CARD_HEIGHT = 280;
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -28,6 +32,9 @@ export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [heroIndex, setHeroIndex] = useState(0);
+  const heroScrollRef = useRef<ScrollView>(null);
+  const heroIndexRef = useRef(0);
 
   async function load(forceRefresh = false) {
     if (!forceRefresh) {
@@ -65,6 +72,24 @@ export default function HomeScreen() {
     load();
   }, []);
 
+  useEffect(() => {
+    heroIndexRef.current = heroIndex;
+  }, [heroIndex]);
+
+  useEffect(() => {
+    if (hero.length <= 1) return;
+    const interval = setInterval(() => {
+      const next = (heroIndexRef.current + 1) % hero.length;
+      heroIndexRef.current = next;
+      setHeroIndex(next);
+      heroScrollRef.current?.scrollTo({
+        x: next * (HERO_CARD_WIDTH + spacing.md),
+        animated: true,
+      });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [hero.length]);
+
   const showSkeleton = loading && hero.length === 0 && featured.length === 0;
 
   if (showSkeleton) {
@@ -76,7 +101,7 @@ export default function HomeScreen() {
         <Text style={styles.sectionTitle}>{t('home_discover')}</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.heroScroll} style={styles.heroContainer}>
           {[1, 2].map((i) => (
-            <View key={i} style={[styles.heroCard, { width: CARD_WIDTH }]}>
+            <View key={i} style={[styles.heroCard, { width: HERO_CARD_WIDTH }]}>
               <SkeletonListingCard />
             </View>
           ))}
@@ -117,34 +142,77 @@ export default function HomeScreen() {
       )}
       <Text style={styles.sectionTitle}>{t('home_discover')}</Text>
       {hero.length > 0 && (
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.heroScroll}
-          style={styles.heroContainer}
-        >
-          {hero.map((item) => {
-            const imgUrl =
-              (item as { image_url?: string | null }).image_url ??
-              (item as { images?: { url: string }[] }).images?.[0]?.url ??
-              item.image_urls?.[0];
-            const badge = (item as { badge?: string }).badge ?? null;
-            return (
-              <Pressable
-                key={item.id}
-                style={styles.heroCard}
-                onPress={() => router.push(`/listing/${item.id}`)}
-              >
-                <ListingImage uri={imgUrl} style={styles.heroImage} resizeMode="cover" />
-                {badge ? <View style={styles.heroBadge}><ListingBadges badge={badge} compact /></View> : null}
-                <View style={styles.heroOverlay}>
-                  <Text style={styles.heroTitle} numberOfLines={2}>{item.title}</Text>
-                  <Text style={styles.heroPrice}>{t('listing_rs')} {item.price_per_night}{t('home_per_night')}</Text>
+        <>
+          <ScrollView
+            ref={heroScrollRef}
+            horizontal
+            pagingEnabled={false}
+            snapToInterval={HERO_CARD_WIDTH + spacing.md}
+            snapToAlignment="start"
+            decelerationRate="fast"
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.heroScroll}
+            style={styles.heroContainer}
+            onMomentumScrollEnd={(e: NativeSyntheticEvent<NativeScrollEvent>) => {
+              const i = Math.round(
+                e.nativeEvent.contentOffset.x / (HERO_CARD_WIDTH + spacing.md)
+              );
+              const idx = Math.max(0, Math.min(i, hero.length - 1));
+              heroIndexRef.current = idx;
+              setHeroIndex(idx);
+            }}
+          >
+            {hero.map((item) => {
+              const imgUrl =
+                (item as { image_url?: string | null }).image_url ??
+                (item as { images?: { url: string }[] }).images?.[0]?.url ??
+                item.image_urls?.[0];
+              const rating = (item as { average_rating?: number }).average_rating;
+              const reviewCount = (item as { review_count?: number }).review_count ?? 0;
+              const reviewText =
+                reviewCount === 0
+                  ? t('no_reviews_yet')
+                  : `${Number(rating ?? 0).toFixed(1)} (${reviewCount} ${t('reviews')})`;
+              return (
+                <View key={item.id} style={styles.heroCard}>
+                  <ListingImage uri={imgUrl} style={styles.heroImage} resizeMode="cover" />
+                  <View style={styles.heroGradient} />
+                  <View style={styles.heroContent}>
+                    <Text style={styles.heroTitle} numberOfLines={2}>{item.title}</Text>
+                    {item.location ? (
+                      <Text style={styles.heroLocation} numberOfLines={1}>{item.location}</Text>
+                    ) : null}
+                    <Text style={styles.heroPrice}>
+                      {t('listing_rs')} {Number(item.price_per_night ?? 0).toLocaleString()}{t('home_per_night')}
+                    </Text>
+                    <Text style={styles.heroReviews}>{reviewText}</Text>
+                    <View style={styles.heroActions}>
+                      <Pressable
+                        style={({ pressed }) => [styles.heroBtnPrimary, pressed && styles.heroBtnPressed]}
+                        onPress={() => router.push(`/listing/${item.id}`)}
+                      >
+                        <Text style={styles.heroBtnPrimaryText}>{t('view_homestay')}</Text>
+                      </Pressable>
+                      <Pressable
+                        style={({ pressed }) => [styles.heroBtnSecondary, pressed && styles.heroBtnPressed]}
+                        onPress={() => router.push('/(tabs)/search')}
+                      >
+                        <Text style={styles.heroBtnSecondaryText}>{t('explore_homestays')}</Text>
+                      </Pressable>
+                    </View>
+                  </View>
                 </View>
-              </Pressable>
-            );
-          })}
-        </ScrollView>
+              );
+            })}
+          </ScrollView>
+          {hero.length > 1 && (
+            <View style={styles.heroDots}>
+              {hero.map((_, i) => (
+                <View key={i} style={[styles.heroDot, i === heroIndex && styles.heroDotActive]} />
+              ))}
+            </View>
+          )}
+        </>
       )}
       <Text style={styles.sectionTitle}>{t('home_featured')}</Text>
       {featured.length === 0 ? (
@@ -194,14 +262,39 @@ const styles = StyleSheet.create({
   retryBtn: { paddingVertical: spacing.xs, paddingHorizontal: spacing.md },
   retryBtnText: { color: colors.accentAlt[500], fontWeight: '600' },
   sectionTitle: { ...typography.subtitle, color: colors.text.primary, paddingHorizontal: spacing.lg, marginBottom: spacing.md },
-  heroScroll: { paddingHorizontal: spacing.lg, gap: spacing.md, paddingBottom: spacing.md },
-  heroContainer: { maxHeight: 260 },
-  heroCard: { width: CARD_WIDTH, marginRight: spacing.md, borderRadius: radius.lg, overflow: 'hidden' },
-  heroImage: { width: '100%', height: 220 },
-  heroBadge: { position: 'absolute', top: spacing.sm, left: spacing.sm },
-  heroOverlay: { position: 'absolute', bottom: 0, left: 0, right: 0, padding: spacing.md, backgroundColor: 'rgba(0,0,0,0.5)' },
-  heroTitle: { color: '#fff', fontWeight: '600', fontSize: 16 },
-  heroPrice: { color: colors.accentAlt[500], fontSize: 14, marginTop: 4 },
+  heroScroll: { paddingHorizontal: spacing.lg, paddingBottom: spacing.sm },
+  heroContainer: { marginBottom: spacing.sm },
+  heroCard: { width: HERO_CARD_WIDTH, height: HERO_CARD_HEIGHT, marginRight: spacing.md, borderRadius: radius.lg, overflow: 'hidden', position: 'relative' },
+  heroImage: { ...StyleSheet.absoluteFillObject, width: '100%', height: '100%' },
+  heroGradient: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: '70%',
+    backgroundColor: 'rgba(0,0,0,0.45)',
+  },
+  heroContent: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: spacing.md,
+    paddingBottom: spacing.lg,
+  },
+  heroTitle: { color: '#fff', fontWeight: '700', fontSize: 18, textShadowColor: 'rgba(0,0,0,0.8)', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 4 },
+  heroLocation: { color: 'rgba(255,255,255,0.95)', fontSize: 14, marginTop: 4, textShadowColor: 'rgba(0,0,0,0.8)', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 2 },
+  heroPrice: { color: colors.accentAlt[500], fontSize: 15, marginTop: 4, fontWeight: '600' },
+  heroReviews: { color: 'rgba(255,255,255,0.9)', fontSize: 13, marginTop: 2 },
+  heroActions: { flexDirection: 'row', gap: spacing.sm, marginTop: spacing.md, flexWrap: 'wrap' },
+  heroBtnPrimary: { backgroundColor: colors.accent[500], paddingVertical: spacing.sm, paddingHorizontal: spacing.md, borderRadius: radius.md },
+  heroBtnPrimaryText: { color: colors.text.primary, fontWeight: '600', fontSize: 14 },
+  heroBtnSecondary: { borderWidth: 1, borderColor: 'rgba(255,255,255,0.9)', paddingVertical: spacing.sm, paddingHorizontal: spacing.md, borderRadius: radius.md },
+  heroBtnSecondaryText: { color: '#fff', fontWeight: '600', fontSize: 14 },
+  heroBtnPressed: { opacity: 0.85 },
+  heroDots: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 6, paddingVertical: spacing.md },
+  heroDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.4)' },
+  heroDotActive: { backgroundColor: colors.accentAlt[500], width: 10, height: 10, borderRadius: 5 },
   featuredGrid: { paddingHorizontal: spacing.lg, gap: spacing.md },
   featuredCard: { backgroundColor: colors.surface.card, borderRadius: radius.lg, overflow: 'hidden', marginBottom: spacing.md },
   featuredImageWrap: { position: 'relative' },
