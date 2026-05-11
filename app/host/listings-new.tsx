@@ -413,7 +413,7 @@ export default function NewListingScreen() {
               style={[styles.amenityChip, selected && styles.amenityChipActive]}
               onPress={() => toggleAmenity(opt.id)}
             >
-              <Ionicons name={iconName in Ionicons.glyphMap ? iconName : 'ellipse-outline'} size={20} color={selected ? colors.text.primary : colors.text.muted} style={styles.amenityIcon} />
+              <Ionicons name={iconName in Ionicons.glyphMap ? iconName : 'ellipse-outline'} size={20} color={selected ? colors.text.onAccent : colors.text.muted} style={styles.amenityIcon} />
               <Text style={[styles.amenityChipText, selected && styles.amenityChipTextActive]}>{opt.label}</Text>
             </Pressable>
           );
@@ -501,7 +501,7 @@ export default function NewListingScreen() {
       <Pressable style={styles.button} onPress={submit} disabled={loading}>
         {loading ? <ActivityIndicator color="#fff" /> : (
           <View style={styles.buttonInner}>
-            <Ionicons name="add-circle-outline" size={20} color={colors.text.primary} style={styles.btnIcon} />
+            <Ionicons name="add-circle-outline" size={20} color={colors.text.onAccent} style={styles.btnIcon} />
             <Text style={styles.buttonText}>Submit for approval</Text>
           </View>
         )}
@@ -511,7 +511,7 @@ export default function NewListingScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg, paddingBottom: spacing.xxl },
   sectionHead: { ...typography.subtitle, color: colors.accentAlt[500], marginTop: spacing.lg, marginBottom: spacing.sm },
   label: { color: colors.text.secondary, marginBottom: 4 },
@@ -527,7 +527,7 @@ const styles = StyleSheet.create({
   chip: { paddingHorizontal: spacing.md, paddingVertical: spacing.sm, borderRadius: radius.full, backgroundColor: colors.surface.card, marginRight: spacing.sm, marginBottom: spacing.sm },
   chipActive: { backgroundColor: colors.accent[500] },
   chipText: { color: colors.text.secondary, fontSize: 14 },
-  chipTextActive: { color: colors.text.primary, fontWeight: '600' },
+  chipTextActive: { color: colors.text.onAccent, fontWeight: '600' },
   placeholder: { color: colors.text.muted, fontSize: 14, marginBottom: spacing.md },
   loaderInline: { marginBottom: spacing.md },
   dropdown: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: colors.surface.input, borderRadius: radius.md, padding: spacing.md, marginBottom: spacing.md, borderWidth: 1, borderColor: colors.border },
@@ -539,20 +539,28 @@ const styles = StyleSheet.create({
   modalOption: { padding: spacing.md, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.surface.input },
   modalOptionActive: { backgroundColor: colors.accent[500] },
   modalOptionText: { color: colors.text.primary, fontSize: 16 },
-  modalOptionTextActive: { color: colors.text.primary, fontWeight: '600' },
+  modalOptionTextActive: { color: colors.text.onAccent, fontWeight: '600' },
   amenityGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginBottom: spacing.md },
   amenityIcon: { marginRight: spacing.sm },
   amenityChip: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: spacing.sm, paddingVertical: spacing.sm, borderRadius: radius.sm, backgroundColor: colors.surface.card, marginRight: spacing.xs, marginBottom: spacing.xs, maxWidth: '100%' },
   amenityChipActive: { backgroundColor: colors.accent[500] },
   amenityChipText: { color: colors.text.secondary, fontSize: 14, flex: 1, textAlign: 'justify' as const },
-  amenityChipTextActive: { color: colors.text.primary, fontWeight: '600' },
+  amenityChipTextActive: { color: colors.text.onAccent, fontWeight: '600' },
   extraList: { marginBottom: spacing.md },
   extraCard: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.surface.card, borderRadius: radius.md, padding: spacing.md, marginBottom: spacing.sm, borderWidth: 1, borderColor: colors.border },
   extraCardName: { color: colors.text.primary, fontWeight: '600', marginBottom: 2 },
   extraCardPrice: { color: colors.text.muted, fontSize: 13, marginBottom: 2 },
   extraCardDesc: { color: colors.text.secondary, fontSize: 13 },
   extraCardBtn: { padding: spacing.sm, marginLeft: spacing.xs },
-  extraModalContent: { backgroundColor: colors.primary[600], borderRadius: radius.md, padding: spacing.lg, maxWidth: 400, width: '100%' },
+  extraModalContent: {
+    backgroundColor: colors.surface.card,
+    borderRadius: radius.md,
+    padding: spacing.lg,
+    maxWidth: 400,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
   modalInput: { backgroundColor: colors.surface.input, borderRadius: radius.sm, padding: spacing.md, color: colors.text.primary, fontSize: 16, marginBottom: spacing.md, borderWidth: 1, borderColor: colors.border },
   modalButtons: { flexDirection: 'row', justifyContent: 'flex-end', gap: spacing.sm, marginTop: spacing.md },
   modalBtnCancel: { paddingVertical: spacing.sm, paddingHorizontal: spacing.md },
@@ -565,5 +573,5 @@ const styles = StyleSheet.create({
   thumb: { width: 80, height: 80, borderRadius: radius.sm, marginRight: spacing.sm },
   button: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.accent[500], borderRadius: radius.md, padding: spacing.md, marginTop: spacing.lg },
   buttonInner: { flexDirection: 'row', alignItems: 'center' },
-  buttonText: { color: colors.text.primary, fontWeight: '600' },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600' },
 });

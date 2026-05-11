@@ -50,9 +50,9 @@ export default function AboutScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg, paddingBottom: spacing.xxl },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   section: { marginBottom: spacing.xl },
   title: { ...typography.subtitle, color: colors.text.primary, marginBottom: spacing.sm },
   body: { ...typography.body, color: colors.text.secondary, lineHeight: 24 },

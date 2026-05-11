@@ -112,7 +112,7 @@ export default function ReceiptScreen() {
       </View>
 
       <Pressable style={styles.button} onPress={() => router.replace(`/booking/${booking.id}`)}>
-        <Ionicons name="document-text-outline" size={20} color={colors.text.primary} style={styles.btnIcon} />
+        <Ionicons name="document-text-outline" size={20} color={colors.text.onAccent} style={styles.btnIcon} />
         <Text style={styles.buttonText}>View booking</Text>
       </Pressable>
       <Pressable style={styles.secondaryBtn} onPress={() => router.replace('/(tabs)/dashboard')}>
@@ -123,9 +123,9 @@ export default function ReceiptScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg, paddingBottom: spacing.xxl },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   empty: { color: colors.text.muted, marginBottom: spacing.md },
   receipt: {
     backgroundColor: colors.surface.card,
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.sm,
   },
   btnIcon: { marginRight: spacing.sm },
-  buttonText: { color: colors.text.primary, fontWeight: '600' },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600' },
   secondaryBtn: { alignItems: 'center', padding: spacing.md },
   secondaryBtnText: { color: colors.accentAlt[500] },
 });

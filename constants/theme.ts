@@ -1,37 +1,50 @@
 /**
- * Design tokens – aligned with frontend (Nepali_homestays_final_logo)
- * Primary: #0F233E (navy), Accent: #FB6F08 / #FFA101 (orange/amber)
+ * Light theme — warm cream, forest, terracotta, saffron (aligned with frontend `src/index.css`).
  */
 export const colors = {
+  /** Page background (HSL ~35 30% 97%) */
+  background: '#F9F7F4',
+  /** Nav / chrome (forest — frontend `--secondary`) */
+  forest: {
+    500: '#2A4A3F',
+    600: '#223D33',
+  },
+  /** Terracotta scale (frontend `--primary`) */
   primary: {
-    50: '#E8EBF0',
-    500: '#0F233E',
-    600: '#0D1E36',
-    900: '#070F1E',
+    50: '#FDF6F3',
+    100: '#F5E6DF',
+    500: '#C45D42',
+    600: '#A84E37',
+    900: '#3D2920',
   },
   secondary: {
-    500: '#5A6F8F',
+    500: '#5C6778',
   },
+  /** Same terracotta as buttons / CTAs */
   accent: {
-    100: '#FFE4D1',
-    500: '#FB6F08',
-    600: '#E56407',
+    100: '#FCEBD9',
+    500: '#C45D42',
+    600: '#A84E37',
   },
+  /** Saffron highlights (frontend `--accent`) */
   accentAlt: {
-    500: '#FFA101',
+    500: '#E8AA2E',
+    600: '#C98F1E',
   },
   text: {
-    primary: '#FFFFFF',
-    secondary: 'rgba(255,255,255,0.85)',
-    muted: 'rgba(255,255,255,0.7)',
-    inverse: '#0F233E',
+    primary: '#2C2419',
+    secondary: 'rgba(44,36,25,0.78)',
+    muted: 'rgba(44,36,25,0.55)',
+    inverse: '#2C2419',
+    /** Text on terracotta / forest filled buttons */
+    onAccent: '#FEFDFB',
   },
   surface: {
-    card: 'rgba(255,255,255,0.08)',
-    input: 'rgba(255,255,255,0.12)',
-    elevated: 'rgba(255,255,255,0.06)',
+    card: '#FEFCF9',
+    input: '#FFFFFF',
+    elevated: '#EEEBE6',
   },
-  border: 'rgba(255,255,255,0.2)',
+  border: '#E5DFD5',
   success: '#22c55e',
   error: '#ef4444',
   warning: '#f59e0b',

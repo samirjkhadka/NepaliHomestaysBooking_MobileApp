@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, ActivityIndicator, useLocalSearchParams } from 'react-native';
-import { useNavigation } from 'expo-router';
+import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { api } from '@/lib/api';
 import { colors, spacing, typography } from '@/constants/theme';
 
@@ -16,7 +16,9 @@ const SLUG_TO_KEY: Record<string, string> = {
 };
 
 export default function CmsScreen() {
-  const { slug } = useLocalSearchParams<{ slug: string }>();
+  const params = useLocalSearchParams<{ slug: string | string[] }>();
+  const rawSlug = params.slug;
+  const slug = Array.isArray(rawSlug) ? rawSlug[0] : rawSlug;
   const key = slug ? (SLUG_TO_KEY[slug] || slug.replace(/-/g, '_')) : '';
   const [section, setSection] = useState<{ title: string | null; content: string | null } | null>(null);
   const [loading, setLoading] = useState(true);
@@ -64,9 +66,9 @@ export default function CmsScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg, paddingBottom: spacing.xxl },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   title: { ...typography.subtitle, color: colors.text.primary, marginBottom: spacing.md },
   body: { ...typography.body, color: colors.text.secondary, lineHeight: 24 },
   muted: { color: colors.text.muted },

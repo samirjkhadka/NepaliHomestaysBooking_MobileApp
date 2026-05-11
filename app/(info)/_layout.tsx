@@ -1,11 +1,13 @@
 import { Stack } from 'expo-router';
+import { colors } from '@/constants/theme';
 
 export default function InfoLayout() {
   return (
     <Stack
       screenOptions={{
-        headerStyle: { backgroundColor: '#0F233E' },
-        headerTintColor: '#fff',
+        headerStyle: { backgroundColor: colors.forest[500] },
+        headerTintColor: colors.text.onAccent,
+        headerTitleStyle: { color: colors.text.onAccent },
         headerBackTitleVisible: false,
       }}
     >

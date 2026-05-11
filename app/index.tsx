@@ -4,6 +4,7 @@ import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAuth } from '@/lib/auth-context';
 import { setPendingDeepLink } from '@/lib/deep-link';
+import { colors } from '@/constants/theme';
 
 export default function Index() {
   const router = useRouter();
@@ -27,7 +28,7 @@ export default function Index() {
   if (loading) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#FB6F08" />
+        <ActivityIndicator size="large" color={colors.accent[500]} />
       </View>
     );
   }
@@ -39,6 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#0F233E',
+    backgroundColor: colors.background,
   },
 });

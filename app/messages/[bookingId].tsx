@@ -14,18 +14,22 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocalSearchParams } from 'expo-router';
 import { useAuth } from '@/lib/auth-context';
+import { useTranslation } from '@/lib/i18n';
 import { api, type Message, type Conversation } from '@/lib/api';
+import { canSendMessagesForBookingStatus } from '@/lib/booking-messaging';
 import { formatDateTime } from '@/lib/format';
 import { colors, spacing, radius, typography } from '@/constants/theme';
 
 export default function MessageThreadScreen() {
   const { bookingId } = useLocalSearchParams<{ bookingId: string }>();
   const { token, user } = useAuth();
+  const { t } = useTranslation();
   const [messages, setMessages] = useState<Message[]>([]);
   const [conversation, setConversation] = useState<Conversation | null>(null);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
+  const [canSend, setCanSend] = useState(true);
   const flatListRef = useRef<FlatList>(null);
 
   const insets = useSafeAreaInsets();
@@ -42,6 +46,22 @@ export default function MessageThreadScreen() {
       setLoading(false);
       return;
     }
+    let cancelled = false;
+    (async () => {
+      try {
+        const guestRes = await api.getBookings(token);
+        let b = guestRes.bookings?.find((x) => x.id === bid);
+        if (!b && user?.role?.toLowerCase() === 'host') {
+          const h = await api.getHostDashboard(token);
+          b = h.bookings?.find((x) => x.id === bid);
+        }
+        if (!cancelled) {
+          setCanSend(b ? canSendMessagesForBookingStatus(b.status) : true);
+        }
+      } catch {
+        if (!cancelled) setCanSend(true);
+      }
+    })();
     api.getMessages(token).then((res) => {
       const conv = (res.conversations ?? []).find((c) => c.booking_id === bid);
       setConversation(conv ?? null);
@@ -49,11 +69,14 @@ export default function MessageThreadScreen() {
     api.getMessagesThread(token, bid, true).then((res) => {
       setMessages(res.messages ?? []);
     }).catch(() => setMessages([])).finally(() => setLoading(false));
-  }, [token, bid]);
+    return () => {
+      cancelled = true;
+    };
+  }, [token, bid, user?.role]);
 
   async function send() {
     const text = input.trim();
-    if (!text || !token || sending) return;
+    if (!text || !token || sending || !canSend) return;
     if (!otherUserId) {
       Alert.alert('Cannot send', 'Loading conversation. Please try again in a moment.');
       return;
@@ -92,41 +115,58 @@ export default function MessageThreadScreen() {
         ListEmptyComponent={<Text style={styles.empty}>No messages yet. Say hello!</Text>}
         renderItem={({ item }) => (
           <View style={[styles.bubble, isOwn(item) ? styles.bubbleOwn : styles.bubbleOther]}>
-            <Text style={styles.bubbleText}>{item.message}</Text>
-            <Text style={styles.bubbleTime}>{formatDateTime(item.created_at)}</Text>
+            <Text style={[styles.bubbleText, isOwn(item) ? styles.bubbleTextOwn : styles.bubbleTextOther]}>{item.message}</Text>
+            <Text style={[styles.bubbleTime, isOwn(item) && styles.bubbleTimeOwn]}>{formatDateTime(item.created_at)}</Text>
           </View>
         )}
       />
       <View style={[styles.footer, { paddingBottom: Math.max(insets.bottom, spacing.md) }]}>
-        <TextInput
-          style={styles.input}
-          placeholder="Message..."
-          placeholderTextColor={colors.text.muted}
-          value={input}
-          onChangeText={setInput}
-          multiline
-          maxLength={10000}
-        />
-        <Pressable style={styles.sendBtn} onPress={send} disabled={!input.trim() || sending}>
-          {sending ? <ActivityIndicator size="small" color="#fff" /> : <Text style={styles.sendBtnText}>Send</Text>}
-        </Pressable>
+        {canSend ? (
+          <>
+            <TextInput
+              style={styles.input}
+              placeholder="Message..."
+              placeholderTextColor={colors.text.muted}
+              value={input}
+              onChangeText={setInput}
+              multiline
+              maxLength={10000}
+              accessibilityLabel="Message input"
+            />
+            <Pressable
+              style={styles.sendBtn}
+              onPress={send}
+              disabled={!input.trim() || sending}
+              accessibilityRole="button"
+              accessibilityLabel="Send message"
+            >
+              {sending ? <ActivityIndicator size="small" color="#fff" /> : <Text style={styles.sendBtnText}>Send</Text>}
+            </Pressable>
+          </>
+        ) : (
+          <Text style={styles.mutedBanner}>{t('messages_cannot_send')}</Text>
+        )}
       </View>
     </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   list: { padding: spacing.lg, paddingBottom: spacing.sm },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   empty: { color: colors.text.muted, textAlign: 'center', marginTop: spacing.xl },
   bubble: { maxWidth: '80%', padding: spacing.md, borderRadius: radius.lg, marginBottom: spacing.sm },
   bubbleOwn: { alignSelf: 'flex-end', backgroundColor: colors.accent[500] },
   bubbleOther: { alignSelf: 'flex-start', backgroundColor: colors.surface.card },
-  bubbleText: { color: colors.text.primary },
+  bubbleText: { fontSize: 16 },
+  bubbleTextOwn: { color: colors.text.onAccent },
+  bubbleTextOther: { color: colors.text.primary },
   bubbleTime: { fontSize: 11, color: colors.text.muted, marginTop: 4 },
+  bubbleTimeOwn: { color: 'rgba(254,253,251,0.85)' },
   footer: { flexDirection: 'row', padding: spacing.sm, gap: spacing.sm, alignItems: 'flex-end', borderTopWidth: 1, borderTopColor: colors.border },
   input: { flex: 1, backgroundColor: colors.surface.input, borderRadius: radius.md, padding: spacing.sm, color: colors.text.primary, maxHeight: 100 },
   sendBtn: { backgroundColor: colors.accent[500], borderRadius: radius.md, paddingHorizontal: spacing.md, paddingVertical: spacing.sm, justifyContent: 'center', minHeight: 40 },
-  sendBtnText: { color: colors.text.primary, fontWeight: '600' },
+  sendBtnText: { color: colors.text.onAccent, fontWeight: '600' },
+  mutedBanner: { flex: 1, color: colors.text.muted, fontSize: 14, paddingVertical: spacing.sm, textAlign: 'center' },
 });

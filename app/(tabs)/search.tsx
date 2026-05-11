@@ -18,6 +18,10 @@ import { ListingBadges } from '@/components/ListingBadges';
 import { ListingImage } from '@/components/ListingImage';
 import { colors, spacing, radius, typography } from '@/constants/theme';
 
+const HOMESTAY_TYPES = ['individual', 'community'] as const;
+const HOMESTAY_CATEGORIES = ['rural', 'urban', 'eco', 'cultural', 'farmstay'] as const;
+type SortKey = 'default' | 'price_asc' | 'price_desc';
+
 export default function SearchScreen() {
   const router = useRouter();
   const { t } = useTranslation();
@@ -29,6 +33,10 @@ export default function SearchScreen() {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [guests, setGuests] = useState('');
+  const [titleQuery, setTitleQuery] = useState('');
+  const [category, setCategory] = useState<string>('');
+  const [homestayType, setHomestayType] = useState<string>('');
+  const [sort, setSort] = useState<SortKey>('default');
   const [results, setResults] = useState<Listing[]>([]);
   const [searching, setSearching] = useState(false);
   const [searched, setSearched] = useState(false);
@@ -53,6 +61,8 @@ export default function SearchScreen() {
     try {
       const res = await api.getListings({
         location: location.trim() || undefined,
+        title: titleQuery.trim() || undefined,
+        category: category || undefined,
         province_id: provinceId ?? undefined,
         district_id: districtId ?? undefined,
         minPrice: minPrice ? Number(minPrice) : undefined,
@@ -60,7 +70,16 @@ export default function SearchScreen() {
         guests: guests ? Number(guests) : undefined,
         limit: 50,
       });
-      setResults(res.listings ?? []);
+      let list = res.listings ?? [];
+      if (homestayType) {
+        list = list.filter((l) => (l.type || '').toLowerCase() === homestayType.toLowerCase());
+      }
+      if (sort === 'price_asc') {
+        list = [...list].sort((a, b) => Number(a.price_per_night) - Number(b.price_per_night));
+      } else if (sort === 'price_desc') {
+        list = [...list].sort((a, b) => Number(b.price_per_night) - Number(a.price_per_night));
+      }
+      setResults(list);
     } catch {
       setResults([]);
     } finally {
@@ -89,7 +108,19 @@ export default function SearchScreen() {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.label}>Location (text)</Text>
+      <Text style={styles.label}>{t('search_homestay_name')}</Text>
+      <View style={styles.inputRow}>
+        <Ionicons name="search-outline" size={20} color={colors.text.muted} style={styles.inputIcon} />
+        <TextInput
+          style={styles.input}
+          placeholder={t('search_homestay_name')}
+          placeholderTextColor={colors.text.muted}
+          value={titleQuery}
+          onChangeText={setTitleQuery}
+          accessibilityLabel={t('search_homestay_name')}
+        />
+      </View>
+      <Text style={styles.label}>{t('search_placeholder')}</Text>
       <View style={styles.inputRow}>
         <Ionicons name="location-outline" size={20} color={colors.text.muted} style={styles.inputIcon} />
         <TextInput
@@ -100,6 +131,38 @@ export default function SearchScreen() {
           onChangeText={setLocation}
         />
       </View>
+      <Text style={styles.label}>{t('search_category')}</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipScroll}>
+        <Pressable style={[styles.chip, !category && styles.chipActive]} onPress={() => setCategory('')}>
+          <Text style={[styles.chipText, !category && styles.chipTextActive]}>{t('search_any')}</Text>
+        </Pressable>
+        {HOMESTAY_CATEGORIES.map((c) => (
+          <Pressable key={c} style={[styles.chip, category === c && styles.chipActive]} onPress={() => setCategory(c)}>
+            <Text style={[styles.chipText, category === c && styles.chipTextActive]}>{c}</Text>
+          </Pressable>
+        ))}
+      </ScrollView>
+      <Text style={styles.label}>{t('search_type')}</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipScroll}>
+        <Pressable style={[styles.chip, !homestayType && styles.chipActive]} onPress={() => setHomestayType('')}>
+          <Text style={[styles.chipText, !homestayType && styles.chipTextActive]}>{t('search_any')}</Text>
+        </Pressable>
+        {HOMESTAY_TYPES.map((ty) => (
+          <Pressable key={ty} style={[styles.chip, homestayType === ty && styles.chipActive]} onPress={() => setHomestayType(ty)}>
+            <Text style={[styles.chipText, homestayType === ty && styles.chipTextActive]}>{ty}</Text>
+          </Pressable>
+        ))}
+      </ScrollView>
+      <Text style={styles.label}>{t('search_sort_label')}</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipScroll}>
+        {(['default', 'price_asc', 'price_desc'] as SortKey[]).map((s) => (
+          <Pressable key={s} style={[styles.chip, sort === s && styles.chipActive]} onPress={() => setSort(s)}>
+            <Text style={[styles.chipText, sort === s && styles.chipTextActive]}>
+              {s === 'default' ? t('search_sort_default') : s === 'price_asc' ? t('search_sort_price_low') : t('search_sort_price_high')}
+            </Text>
+          </Pressable>
+        ))}
+      </ScrollView>
       <Text style={styles.label}>Province</Text>
       <View style={styles.row}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipScroll}>
@@ -207,7 +270,7 @@ export default function SearchScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg, paddingBottom: spacing.xxl },
   label: { color: colors.text.secondary, fontSize: 14, marginBottom: spacing.xs },
   inputRow: {
@@ -236,7 +299,7 @@ const styles = StyleSheet.create({
   },
   chipActive: { backgroundColor: colors.accent[500] },
   chipText: { color: colors.text.secondary, fontSize: 14 },
-  chipTextActive: { color: colors.text.primary, fontWeight: '600' },
+  chipTextActive: { color: colors.text.onAccent, fontWeight: '600' },
   button: {
     backgroundColor: colors.accent[500],
     borderRadius: radius.md,
@@ -245,7 +308,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
     marginBottom: spacing.lg,
   },
-  buttonText: { color: colors.text.primary, fontWeight: '600', fontSize: 16 },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600', fontSize: 16 },
   resultCount: { color: colors.text.secondary, marginBottom: spacing.md },
   empty: { color: colors.text.muted },
   list: { marginTop: spacing.sm },

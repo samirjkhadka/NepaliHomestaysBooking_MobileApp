@@ -63,7 +63,7 @@ export function SkeletonListingDetail() {
 }
 
 const styles = StyleSheet.create({
-  skeleton: { backgroundColor: colors.surface.card },
+  skeleton: { backgroundColor: 'rgba(44,36,25,0.08)' },
   card: { marginBottom: spacing.md },
   image: { marginBottom: spacing.sm },
   mb: { marginBottom: spacing.sm },

@@ -1,5 +1,5 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -8,7 +8,6 @@ import { router } from 'expo-router';
 import 'react-native-reanimated';
 
 import { Platform } from 'react-native';
-import { useColorScheme } from '@/components/useColorScheme';
 import { AuthProvider, useAuth } from '@/lib/auth-context';
 import { LocaleProvider } from '@/lib/i18n';
 import { getPathFromNotificationData, getStoredPushToken, registerForPushNotificationsAsync, setupNotificationRedirect } from '@/lib/notifications';
@@ -53,7 +52,6 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
   const { token, user } = useAuth();
   const [pushToken, setPushToken] = useState<string | null>(null);
 
@@ -98,7 +96,7 @@ function RootLayoutNav() {
   }, []);
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={DefaultTheme}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="(splash)" />

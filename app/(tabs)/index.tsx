@@ -9,6 +9,8 @@ import {
   Dimensions,
   NativeSyntheticEvent,
   NativeScrollEvent,
+  Image,
+  Linking,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { api, type Listing } from '@/lib/api';
@@ -24,11 +26,43 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const HERO_CARD_WIDTH = SCREEN_WIDTH - spacing.lg * 2;
 const HERO_CARD_HEIGHT = 280;
 
+type FeedItem = { id: string; title: string; excerpt?: string; url: string; date?: string; category?: string };
+type VideoEntry = { url: string; title?: string };
+
+function youtubeVideoId(url: string): string | null {
+  if (!url?.trim()) return null;
+  const m = url.trim().match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return m ? m[1] : null;
+}
+
+function buildHomeVideoPreview(landingUrl: string | null | undefined, gallery: VideoEntry[]): VideoEntry[] {
+  const seen = new Set<string>();
+  const combined: VideoEntry[] = [];
+  const landing = landingUrl?.trim() || null;
+  if (landing) {
+    const key = youtubeVideoId(landing) || landing;
+    if (!seen.has(key)) {
+      seen.add(key);
+      combined.push({ url: landing, title: 'Featured video' });
+    }
+  }
+  for (const v of gallery) {
+    const key = youtubeVideoId(v.url) || v.url;
+    if (!seen.has(key)) {
+      seen.add(key);
+      combined.push(v);
+    }
+  }
+  return combined.slice(0, 8);
+}
+
 export default function HomeScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const [hero, setHero] = useState<Listing[]>([]);
   const [featured, setFeatured] = useState<Listing[]>([]);
+  const [blogPreview, setBlogPreview] = useState<FeedItem[]>([]);
+  const [videoPreview, setVideoPreview] = useState<VideoEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -47,11 +81,20 @@ export default function HomeScreen() {
     }
     setError(null);
     try {
-      const [heroRes, featuredRes] = await Promise.all([api.getHero(), api.getFeatured()]);
+      const [heroRes, featuredRes, newsRes, landingRes, videosRes] = await Promise.all([
+        api.getHero(),
+        api.getFeatured(),
+        api.getNewsFeed().catch(() => ({ items: [] as FeedItem[] })),
+        api.getSettingsLanding().catch(() => ({ landing_youtube_url: null as string | null })),
+        api.getSettingsVideos().catch(() => ({ videos: [] as VideoEntry[] })),
+      ]);
       const h = heroRes.listings ?? [];
       const f = featuredRes.listings ?? [];
       setHero(h);
       setFeatured(f);
+      const blogs = Array.isArray(newsRes.items) ? newsRes.items.slice(0, 8) : [];
+      setBlogPreview(blogs);
+      setVideoPreview(buildHomeVideoPreview(landingRes.landing_youtube_url, videosRes.videos ?? []));
       await Promise.all([
         setCached(cacheKeys.hero, h),
         setCached(cacheKeys.featured, f),
@@ -61,6 +104,8 @@ export default function HomeScreen() {
       if (forceRefresh) {
         setHero([]);
         setFeatured([]);
+        setBlogPreview([]);
+        setVideoPreview([]);
       }
     } finally {
       setLoading(false);
@@ -246,6 +291,63 @@ export default function HomeScreen() {
           })}
         </View>
       )}
+
+      <View style={styles.previewSection}>
+        <View style={styles.previewHeaderRow}>
+          <Text style={styles.previewSectionTitle}>{t('home_blogs')}</Text>
+          <Pressable onPress={() => router.push('/(info)/blogs')} hitSlop={8}>
+            <Text style={styles.viewAll}>{t('home_view_all')}</Text>
+          </Pressable>
+        </View>
+        {blogPreview.length === 0 ? (
+          <Text style={styles.previewEmpty}>{t('home_blogs_empty')}</Text>
+        ) : (
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.previewScroll}>
+            {blogPreview.map((item) => (
+              <Pressable
+                key={item.id}
+                style={styles.blogCard}
+                onPress={() => item.url && Linking.openURL(item.url)}
+              >
+                <Text style={styles.blogCardTitle} numberOfLines={2}>{item.title}</Text>
+                {item.excerpt ? <Text style={styles.blogCardExcerpt} numberOfLines={2}>{item.excerpt}</Text> : null}
+              </Pressable>
+            ))}
+          </ScrollView>
+        )}
+      </View>
+
+      <View style={styles.previewSection}>
+        <View style={styles.previewHeaderRow}>
+          <Text style={styles.previewSectionTitle}>{t('home_videos')}</Text>
+          <Pressable onPress={() => router.push('/(info)/videos')} hitSlop={8}>
+            <Text style={styles.viewAll}>{t('home_view_all')}</Text>
+          </Pressable>
+        </View>
+        {videoPreview.length === 0 ? (
+          <Text style={styles.previewEmpty}>{t('home_videos_empty')}</Text>
+        ) : (
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.previewScroll}>
+            {videoPreview.slice(0, 8).map((video, index) => {
+              const id = youtubeVideoId(video.url);
+              const thumbnail = id ? `https://img.youtube.com/vi/${id}/mqdefault.jpg` : null;
+              const title = video.title?.trim() || `Video ${index + 1}`;
+              const watchUrl = id ? `https://www.youtube.com/watch?v=${id}` : video.url;
+              return (
+                <Pressable key={id || String(index)} style={styles.videoCard} onPress={() => Linking.openURL(watchUrl)}>
+                  {thumbnail ? (
+                    <Image source={{ uri: thumbnail }} style={styles.videoThumb} resizeMode="cover" />
+                  ) : (
+                    <View style={styles.videoThumbPlaceholder} />
+                  )}
+                  <Text style={styles.videoCardTitle} numberOfLines={2}>{title}</Text>
+                </Pressable>
+              );
+            })}
+          </ScrollView>
+        )}
+      </View>
+
       <Pressable style={styles.searchCta} onPress={() => router.push('/(tabs)/search')}>
         <Text style={styles.searchCtaText}>{t('home_search_cta')}</Text>
       </Pressable>
@@ -254,7 +356,7 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { paddingBottom: spacing.xxl },
   header: { paddingHorizontal: spacing.lg, paddingTop: spacing.sm, paddingBottom: spacing.md },
   errorBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, backgroundColor: 'rgba(239,68,68,0.2)' },
@@ -288,7 +390,7 @@ const styles = StyleSheet.create({
   heroReviews: { color: 'rgba(255,255,255,0.9)', fontSize: 13, marginTop: 2 },
   heroActions: { flexDirection: 'row', gap: spacing.sm, marginTop: spacing.md, flexWrap: 'wrap' },
   heroBtnPrimary: { backgroundColor: colors.accent[500], paddingVertical: spacing.sm, paddingHorizontal: spacing.md, borderRadius: radius.md },
-  heroBtnPrimaryText: { color: colors.text.primary, fontWeight: '600', fontSize: 14 },
+  heroBtnPrimaryText: { color: colors.text.onAccent, fontWeight: '600', fontSize: 14 },
   heroBtnSecondary: { borderWidth: 1, borderColor: 'rgba(255,255,255,0.9)', paddingVertical: spacing.sm, paddingHorizontal: spacing.md, borderRadius: radius.md },
   heroBtnSecondaryText: { color: '#fff', fontWeight: '600', fontSize: 14 },
   heroBtnPressed: { opacity: 0.85 },
@@ -312,5 +414,30 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     alignItems: 'center',
   },
-  searchCtaText: { color: colors.text.primary, fontWeight: '600', fontSize: 16 },
+  searchCtaText: { color: colors.text.onAccent, fontWeight: '600', fontSize: 16 },
+  previewSection: { marginTop: spacing.lg },
+  previewHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.sm,
+  },
+  previewSectionTitle: { ...typography.subtitle, color: colors.text.primary, flex: 1, paddingRight: spacing.sm },
+  viewAll: { color: colors.accentAlt[500], fontWeight: '600', fontSize: 14 },
+  previewScroll: { paddingHorizontal: spacing.lg, gap: spacing.md, paddingBottom: spacing.sm },
+  previewEmpty: { ...typography.bodySm, color: colors.text.muted, paddingHorizontal: spacing.lg, marginBottom: spacing.sm },
+  blogCard: {
+    width: 220,
+    backgroundColor: colors.surface.card,
+    borderRadius: radius.lg,
+    padding: spacing.md,
+    marginRight: spacing.md,
+  },
+  blogCardTitle: { color: colors.text.primary, fontWeight: '600', fontSize: 15, marginBottom: spacing.xs },
+  blogCardExcerpt: { color: colors.text.muted, fontSize: 13, lineHeight: 18 },
+  videoCard: { width: 200, marginRight: spacing.md },
+  videoThumb: { width: 200, height: 112, borderRadius: radius.md, backgroundColor: colors.surface.input },
+  videoThumbPlaceholder: { width: 200, height: 112, borderRadius: radius.md, backgroundColor: colors.surface.input },
+  videoCardTitle: { color: colors.text.primary, fontSize: 13, fontWeight: '600', marginTop: spacing.xs },
 });

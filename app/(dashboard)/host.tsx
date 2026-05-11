@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '@/lib/auth-context';
 import { api } from '@/lib/api';
+import { colors, spacing } from '@/constants/theme';
 
 export default function HostDashboard() {
   const router = useRouter();
@@ -45,26 +46,26 @@ export default function HostDashboard() {
       style={styles.container}
       contentContainerStyle={styles.content}
       refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#FFA101" />
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.accentAlt[500]} />
       }
     >
       {loading ? (
-        <ActivityIndicator size="large" color="#FB6F08" style={styles.loader} />
+        <ActivityIndicator size="large" color={colors.accent[500]} style={styles.loader} />
       ) : data ? (
         <>
           <View style={styles.stats}>
             <View style={styles.stat}>
-              <Ionicons name="home-outline" size={28} color="#FFA101" style={styles.statIcon} />
+              <Ionicons name="home-outline" size={28} color={colors.accentAlt[500]} style={styles.statIcon} />
               <Text style={styles.statValue}>{data.listings_count ?? 0}</Text>
               <Text style={styles.statLabel}>Listings</Text>
             </View>
             <View style={styles.stat}>
-              <Ionicons name="calendar-outline" size={28} color="#FFA101" style={styles.statIcon} />
+              <Ionicons name="calendar-outline" size={28} color={colors.accentAlt[500]} style={styles.statIcon} />
               <Text style={styles.statValue}>{data.bookings_count ?? 0}</Text>
               <Text style={styles.statLabel}>Bookings</Text>
             </View>
             <View style={styles.stat}>
-              <Ionicons name="cash-outline" size={28} color="#FFA101" style={styles.statIcon} />
+              <Ionicons name="cash-outline" size={28} color={colors.accentAlt[500]} style={styles.statIcon} />
               <Text style={styles.statValue}>Rs {data.earnings ?? 0}</Text>
               <Text style={styles.statLabel}>Earnings</Text>
             </View>
@@ -82,7 +83,7 @@ export default function HostDashboard() {
         <Text style={styles.empty}>Could not load dashboard. Pull to refresh.</Text>
       )}
       <Pressable style={styles.logout} onPress={() => logout().then(() => router.replace('/(auth)/login'))}>
-        <Ionicons name="log-out-outline" size={20} color="rgba(255,255,255,0.9)" style={styles.logoutIcon} />
+        <Ionicons name="log-out-outline" size={20} color={colors.text.primary} style={styles.logoutIcon} />
         <Text style={styles.logoutText}>Sign out</Text>
       </Pressable>
     </ScrollView>
@@ -90,36 +91,47 @@ export default function HostDashboard() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#0F233E' },
-  content: { padding: 24, paddingBottom: 48 },
-  loader: { marginTop: 48 },
-  stats: { flexDirection: 'row', justifyContent: 'space-around', marginBottom: 24 },
+  container: { flex: 1, backgroundColor: colors.background },
+  content: { padding: spacing.lg, paddingBottom: spacing.xxl },
+  loader: { marginTop: spacing.xxl },
+  stats: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: spacing.lg,
+    paddingVertical: spacing.md,
+    backgroundColor: colors.surface.card,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
   stat: { alignItems: 'center' },
   statIcon: { marginBottom: 6 },
-  statValue: { fontSize: 22, fontWeight: '700', color: '#FFA101' },
-  statLabel: { fontSize: 12, color: 'rgba(255,255,255,0.7)', marginTop: 4 },
-  sectionTitle: { color: 'rgba(255,255,255,0.9)', fontWeight: '600', marginBottom: 12 },
+  statValue: { fontSize: 22, fontWeight: '700', color: colors.accentAlt[500] },
+  statLabel: { fontSize: 12, color: colors.text.muted, marginTop: 4 },
+  sectionTitle: { color: colors.text.primary, fontWeight: '600', marginBottom: spacing.sm },
   card: {
-    backgroundColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: colors.surface.card,
     borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
+    padding: spacing.md,
+    marginBottom: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
-  cardText: { color: 'rgba(255,255,255,0.9)', fontSize: 14 },
-  empty: { color: 'rgba(255,255,255,0.8)', textAlign: 'center', marginTop: 24 },
+  cardText: { color: colors.text.secondary, fontSize: 14 },
+  empty: { color: colors.text.muted, textAlign: 'center', marginTop: spacing.lg },
   logout: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 32,
+    marginTop: spacing.lg,
     alignSelf: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 28,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.3)',
-    backgroundColor: 'rgba(255,255,255,0.06)',
+    borderColor: colors.border,
+    backgroundColor: colors.surface.card,
   },
-  logoutIcon: { marginRight: 8 },
-  logoutText: { color: 'rgba(255,255,255,0.9)', fontSize: 16, fontWeight: '600' },
+  logoutIcon: { marginRight: spacing.sm },
+  logoutText: { color: colors.text.primary, fontSize: 16, fontWeight: '600' },
 });

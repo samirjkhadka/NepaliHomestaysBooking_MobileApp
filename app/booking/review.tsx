@@ -62,7 +62,7 @@ export default function LeaveReviewScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg },
   label: { color: colors.text.secondary, marginBottom: spacing.sm },
   starRow: { flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.lg },
@@ -71,5 +71,5 @@ const styles = StyleSheet.create({
   input: { backgroundColor: colors.surface.input, borderRadius: radius.md, padding: spacing.md, color: colors.text.primary, fontSize: 16 },
   textArea: { minHeight: 100 },
   button: { backgroundColor: colors.accent[500], borderRadius: radius.md, padding: spacing.md, alignItems: 'center', marginTop: spacing.md },
-  buttonText: { color: colors.text.primary, fontWeight: '600' },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600' },
 });

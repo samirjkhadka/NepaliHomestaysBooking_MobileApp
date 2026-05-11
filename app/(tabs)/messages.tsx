@@ -80,14 +80,14 @@ export default function MessagesScreen() {
 }
 
 const styles = StyleSheet.create({
-  list: { padding: spacing.lg, paddingBottom: spacing.xxl, backgroundColor: colors.primary[500] },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  list: { padding: spacing.lg, paddingBottom: spacing.xxl, backgroundColor: colors.background },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   empty: { color: colors.text.muted, textAlign: 'center', marginTop: spacing.xl },
   card: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'rgba(255,255,255,0.14)',
+    backgroundColor: colors.surface.card,
     borderRadius: radius.lg,
     padding: spacing.md,
     marginBottom: spacing.md,

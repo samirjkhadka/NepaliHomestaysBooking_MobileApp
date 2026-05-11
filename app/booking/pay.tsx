@@ -134,7 +134,7 @@ export default function PaymentWebViewScreen() {
 }
 
 const styles = StyleSheet.create({
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   loadingText: { color: colors.text.secondary, marginTop: spacing.md },
   errorText: { color: colors.error },
   backHint: { color: colors.accentAlt[500] },

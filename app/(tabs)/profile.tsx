@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   Alert,
   Switch,
+  TextInput,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -24,9 +25,14 @@ const BIOMETRIC_STORAGE_KEY = '@nepali_homestays_biometric_enabled';
 
 export default function ProfileScreen() {
   const router = useRouter();
-  const { user, token, logout } = useAuth();
+  const { user, token, logout, refreshUser } = useAuth();
   const { t, locale, setLocale } = useTranslation();
-  const [profile, setProfile] = useState<{ name?: string; email?: string; phone?: string } | null>(null);
+  const [profile, setProfile] = useState<{ name?: string; email?: string; phone?: string; bio?: string } | null>(null);
+  const [editName, setEditName] = useState('');
+  const [editPhone, setEditPhone] = useState('');
+  const [editBio, setEditBio] = useState('');
+  const [savingProfile, setSavingProfile] = useState(false);
+  const [becomingHost, setBecomingHost] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showChangePassword, setShowChangePassword] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
@@ -38,11 +44,68 @@ export default function ProfileScreen() {
 
   useEffect(() => {
     if (token) {
-      api.getProfile(token).then(setProfile).catch(() => setProfile(null)).finally(() => setLoading(false));
+      api
+        .getProfile(token)
+        .then((p) => {
+          setProfile(p);
+          setEditName(typeof p.name === 'string' ? p.name : '');
+          setEditPhone(typeof p.phone === 'string' ? p.phone : '');
+          setEditBio(typeof p.bio === 'string' ? p.bio : '');
+        })
+        .catch(() => setProfile(null))
+        .finally(() => setLoading(false));
     } else {
       setLoading(false);
     }
   }, [token]);
+
+  async function handleSaveProfile() {
+    if (!token) return;
+    setSavingProfile(true);
+    try {
+      await api.updateProfile(token, {
+        name: editName.trim() || undefined,
+        phone: editPhone.trim() || undefined,
+        bio: editBio.trim() || undefined,
+      });
+      const p = await api.getProfile(token);
+      setProfile(p);
+      await refreshUser();
+      Alert.alert(t('common_success'), t('profile_profile_updated'));
+    } catch (e: unknown) {
+      const message = e && typeof e === 'object' && 'message' in e ? String((e as { message: string }).message) : t('profile_update_failed');
+      Alert.alert(t('auth_invalid_input'), message);
+    } finally {
+      setSavingProfile(false);
+    }
+  }
+
+  function handleBecomeHost() {
+    if (!token) return;
+    Alert.alert(t('profile_become_host'), t('profile_become_host_confirm'), [
+      { text: t('common_cancel'), style: 'cancel' },
+      {
+        text: t('profile_become_host'),
+        onPress: async () => {
+          setBecomingHost(true);
+          try {
+            await api.becomeHost(token);
+            await refreshUser();
+            Alert.alert(t('common_success'), t('profile_become_host_success'));
+            if (token) {
+              const p = await api.getProfile(token);
+              setProfile(p);
+            }
+          } catch (e: unknown) {
+            const message = e && typeof e === 'object' && 'message' in e ? String((e as { message: string }).message) : 'Request failed';
+            Alert.alert(t('auth_invalid_input'), message);
+          } finally {
+            setBecomingHost(false);
+          }
+        },
+      },
+    ]);
+  }
 
   useEffect(() => {
     (async () => {
@@ -112,12 +175,89 @@ export default function ProfileScreen() {
       {/* Account */}
       <Text style={styles.sectionHeader}>{t('profile_section_account')}</Text>
       <View style={styles.card}>
-        <Text style={styles.label}>{t('profile_name')}</Text>
-        <Text style={styles.value}>{profile?.name ?? user?.email ?? '—'}</Text>
         <Text style={styles.label}>{t('auth_email')}</Text>
         <Text style={styles.value}>{profile?.email ?? user?.email ?? '—'}</Text>
+        <Text style={styles.label}>{t('profile_name')}</Text>
+        <TextInput
+          style={styles.input}
+          value={editName}
+          onChangeText={setEditName}
+          placeholder={t('profile_name')}
+          placeholderTextColor={colors.text.muted}
+          accessibilityLabel={t('profile_name')}
+        />
         <Text style={styles.label}>{t('auth_phone')}</Text>
-        <Text style={styles.valueLast}>{profile?.phone ?? '—'}</Text>
+        <TextInput
+          style={styles.input}
+          value={editPhone}
+          onChangeText={setEditPhone}
+          placeholder={t('auth_phone')}
+          placeholderTextColor={colors.text.muted}
+          keyboardType="phone-pad"
+          accessibilityLabel={t('auth_phone')}
+        />
+        <Text style={styles.label}>{t('profile_bio')}</Text>
+        <TextInput
+          style={[styles.input, styles.inputMultiline]}
+          value={editBio}
+          onChangeText={setEditBio}
+          placeholder={t('profile_bio_placeholder')}
+          placeholderTextColor={colors.text.muted}
+          multiline
+          textAlignVertical="top"
+          accessibilityLabel={t('profile_bio')}
+        />
+        <Pressable
+          style={[styles.button, styles.buttonFull]}
+          onPress={handleSaveProfile}
+          disabled={savingProfile}
+          accessibilityRole="button"
+          accessibilityLabel={t('profile_save_profile')}
+        >
+          {savingProfile ? <ActivityIndicator color="#fff" size="small" /> : <Text style={styles.buttonText}>{t('profile_save_profile')}</Text>}
+        </Pressable>
+      </View>
+
+      {user?.role?.toLowerCase() === 'guest' ? (
+        <>
+          <Text style={styles.sectionHeader}>{t('profile_section_host')}</Text>
+          <View style={styles.card}>
+            <Text style={styles.cardMeta}>{t('profile_become_host_desc')}</Text>
+            <Pressable
+              style={[styles.button, styles.buttonFull, { marginTop: spacing.md }]}
+              onPress={handleBecomeHost}
+              disabled={becomingHost}
+              accessibilityRole="button"
+              accessibilityLabel={t('profile_become_host')}
+            >
+              {becomingHost ? (
+                <ActivityIndicator color="#fff" size="small" />
+              ) : (
+                <Text style={styles.buttonText}>{t('profile_become_host')}</Text>
+              )}
+            </Pressable>
+          </View>
+        </>
+      ) : null}
+
+      <Text style={styles.sectionHeader}>{t('nav_messages')}</Text>
+      <View style={styles.card}>
+        <Pressable
+          style={styles.rowAction}
+          onPress={() => {
+            if (!token) {
+              Alert.alert(t('auth_sign_in'), t('messages_empty'), [
+                { text: t('common_cancel'), style: 'cancel' },
+                { text: t('auth_sign_in'), onPress: () => router.replace('/(auth)/login') },
+              ]);
+              return;
+            }
+            router.push('/(tabs)/messages');
+          }}
+        >
+          <Text style={styles.rowActionText}>{t('profile_messages_cta')}</Text>
+          <Text style={styles.chevron}>›</Text>
+        </Pressable>
       </View>
 
       {/* Security */}
@@ -244,9 +384,9 @@ export default function ProfileScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg, paddingBottom: spacing.xxl },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   header: { marginBottom: spacing.lg },
   sectionHeader: {
     ...typography.subtitle,
@@ -263,6 +403,18 @@ const styles = StyleSheet.create({
   label: { color: colors.text.muted, fontSize: 12, marginBottom: 4 },
   value: { color: colors.text.primary, fontSize: 16, marginBottom: spacing.md },
   valueLast: { color: colors.text.primary, fontSize: 16 },
+  input: {
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    padding: spacing.sm,
+    color: colors.text.primary,
+    marginBottom: spacing.md,
+    backgroundColor: colors.background,
+  },
+  inputMultiline: { minHeight: 100 },
+  buttonFull: { flex: 0, alignSelf: 'stretch', width: '100%' },
+  cardMeta: { color: colors.text.muted, fontSize: 14, lineHeight: 20 },
   sectionTitle: { ...typography.subtitle, color: colors.text.primary, marginBottom: spacing.md },
   inputRow: { marginBottom: spacing.md },
   row: { flexDirection: 'row', gap: spacing.md, marginTop: spacing.sm },
@@ -272,7 +424,7 @@ const styles = StyleSheet.create({
   langBtn: { flex: 1, padding: spacing.sm, borderRadius: radius.md, backgroundColor: colors.surface.input, alignItems: 'center' },
   langBtnActive: { backgroundColor: colors.accent[500] },
   langBtnText: { color: colors.text.secondary, fontSize: 14 },
-  langBtnTextActive: { color: colors.text.primary, fontWeight: '600' },
+  langBtnTextActive: { color: colors.text.onAccent, fontWeight: '600' },
   button: {
     flex: 1,
     backgroundColor: colors.accent[500],
@@ -280,7 +432,7 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     alignItems: 'center',
   },
-  buttonText: { color: colors.text.primary, fontWeight: '600' },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600' },
   buttonSecondary: {
     padding: spacing.md,
     alignItems: 'center',

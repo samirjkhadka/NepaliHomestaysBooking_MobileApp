@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Image, ImageSourcePropType, StyleProp, ImageStyle } from 'react-native';
 import { getImageUrl } from '@/lib/api';
+import { colors } from '@/constants/theme';
 
 const LOGO_SOURCE: ImageSourcePropType = require('@/assets/images/Nepali_homestays_without_bg.png');
 
@@ -22,7 +23,7 @@ export function ListingImage({ uri, style, resizeMode = 'cover' }: ListingImageP
 
   if (showLogo) {
     return (
-      <View style={[style, { alignItems: 'center', justifyContent: 'center', backgroundColor: '#0F233E' }]}>
+      <View style={[style, { alignItems: 'center', justifyContent: 'center', backgroundColor: colors.surface.elevated }]}>
         <Image
           source={LOGO_SOURCE}
           style={[{ width: '60%', height: '60%', maxWidth: 120, maxHeight: 90 }]}

@@ -239,7 +239,7 @@ export default function NewBookingScreen() {
       )}
 
       <Pressable style={styles.button} onPress={goToConfirm}>
-        <Ionicons name="arrow-forward-circle-outline" size={20} color={colors.text.primary} style={styles.btnIcon} />
+        <Ionicons name="arrow-forward-circle-outline" size={20} color={colors.text.onAccent} style={styles.btnIcon} />
         <Text style={styles.buttonText}>Continue to confirmation</Text>
       </Pressable>
 
@@ -250,19 +250,23 @@ export default function NewBookingScreen() {
             mode="date"
             minimumDate={datePickerMode === 'checkOut' && checkIn ? new Date(checkIn + 'T12:00:00') : new Date()}
             display="default"
+            themeVariant="light"
             onChange={onDateChange}
           />
         ) : (
           <Modal visible transparent animationType="slide">
             <Pressable style={styles.modalOverlay} onPress={() => setDatePickerMode(null)}>
               <Pressable style={styles.modalContent} onPress={(e) => e.stopPropagation()}>
-                <DateTimePicker
-                  value={tempDate}
-                  mode="date"
-                  minimumDate={datePickerMode === 'checkOut' && checkIn ? new Date(checkIn + 'T12:00:00') : new Date()}
-                  display="default"
-                  onChange={(_, d) => d && setTempDate(d)}
-                />
+                <View style={styles.modalPickerWrap}>
+                  <DateTimePicker
+                    value={tempDate}
+                    mode="date"
+                    minimumDate={datePickerMode === 'checkOut' && checkIn ? new Date(checkIn + 'T12:00:00') : new Date()}
+                    display="inline"
+                    themeVariant="light"
+                    onChange={(_, d) => d && setTempDate(d)}
+                  />
+                </View>
                 <View style={styles.modalButtons}>
                   <Pressable style={styles.modalBtn} onPress={() => setDatePickerMode(null)}>
                     <Text style={styles.modalBtnTextCancel}>{t('common_cancel')}</Text>
@@ -281,9 +285,9 @@ export default function NewBookingScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   title: { ...typography.subtitle, color: colors.text.primary, marginBottom: 4 },
   meta: { color: colors.text.muted, marginBottom: spacing.lg },
   sectionTitle: { ...typography.subtitle, color: colors.accentAlt[500], marginTop: spacing.md, marginBottom: spacing.sm },
@@ -310,12 +314,24 @@ const styles = StyleSheet.create({
   previewTotalValue: { fontWeight: '700', color: colors.text.primary },
   button: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.accent[500], borderRadius: radius.md, padding: spacing.md },
   btnIcon: { marginRight: spacing.sm },
-  buttonText: { color: colors.text.primary, fontWeight: '600' },
-  modalOverlay: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.5)' },
-  modalContent: { backgroundColor: colors.surface.card, borderTopLeftRadius: radius.lg, borderTopRightRadius: radius.lg, padding: spacing.lg, minHeight: 320 },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600' },
+  modalOverlay: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.45)' },
+  modalContent: {
+    backgroundColor: colors.surface.input,
+    borderTopLeftRadius: radius.lg,
+    borderTopRightRadius: radius.lg,
+    padding: spacing.lg,
+    paddingBottom: spacing.xl,
+  },
+  modalPickerWrap: {
+    backgroundColor: colors.surface.input,
+    borderRadius: radius.md,
+    overflow: 'hidden',
+    alignSelf: 'stretch',
+  },
   modalButtons: { flexDirection: 'row', justifyContent: 'flex-end', gap: spacing.md, marginTop: spacing.md },
   modalBtn: { paddingVertical: spacing.sm, paddingHorizontal: spacing.md },
   modalBtnPrimary: { backgroundColor: colors.accent[500], borderRadius: radius.md },
-  modalBtnText: { color: colors.text.primary, fontWeight: '600' },
+  modalBtnText: { color: colors.text.onAccent, fontWeight: '600' },
   modalBtnTextCancel: { color: colors.text.muted },
 });

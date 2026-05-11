@@ -97,7 +97,7 @@ export default function ResetPasswordScreen() {
               <ActivityIndicator color="#fff" />
             ) : (
               <>
-                <Ionicons name="key-outline" size={20} color={colors.text.primary} style={styles.buttonIcon} />
+                <Ionicons name="key-outline" size={20} color={colors.text.onAccent} style={styles.buttonIcon} />
                 <Text style={styles.buttonText}>{t('auth_reset_password_btn')}</Text>
               </>
             )}
@@ -112,7 +112,7 @@ export default function ResetPasswordScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   kav: { flex: 1 },
   scroll: { flexGrow: 1, padding: spacing.lg, paddingTop: spacing.xxl },
   content: { flex: 1, padding: spacing.lg, justifyContent: 'center' },
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
   },
   buttonIcon: { marginRight: spacing.sm },
-  buttonText: { color: colors.text.primary, fontWeight: '600', fontSize: 16 },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600', fontSize: 16 },
   link: { marginTop: spacing.lg, alignItems: 'center' },
   linkText: { color: colors.accentAlt[500], fontSize: 15 },
   error: { color: colors.text.secondary, textAlign: 'center', marginBottom: spacing.md },

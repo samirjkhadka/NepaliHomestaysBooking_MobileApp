@@ -96,7 +96,7 @@ export default function BlockedDatesScreen() {
           <Ionicons name="chevron-forward" size={20} color={colors.text.muted} />
         </Pressable>
         <Pressable style={styles.button} onPress={addDate} disabled={saving || !newDate.trim()}>
-          {saving ? <ActivityIndicator size="small" color="#fff" /> : <><Ionicons name="ban-outline" size={18} color={colors.text.primary} style={styles.btnIcon} /><Text style={styles.buttonText}>Block</Text></>}
+          {saving ? <ActivityIndicator size="small" color="#fff" /> : <><Ionicons name="ban-outline" size={18} color={colors.text.onAccent} style={styles.btnIcon} /><Text style={styles.buttonText}>Block</Text></>}
         </Pressable>
       </View>
       {showPicker && (
@@ -106,13 +106,23 @@ export default function BlockedDatesScreen() {
             mode="date"
             minimumDate={new Date()}
             display="default"
+            themeVariant="light"
             onChange={(_, d) => { if (d) { setNewDate(toYMD(d)); setShowPicker(false); } }}
           />
         ) : (
           <Modal visible transparent animationType="slide">
             <Pressable style={styles.modalOverlay} onPress={() => setShowPicker(false)}>
               <Pressable style={styles.modalContent} onPress={(e) => e.stopPropagation()}>
-                <DateTimePicker value={tempDate} mode="date" minimumDate={new Date()} display="default" onChange={(_, d) => d && setTempDate(d)} />
+                <View style={styles.modalPickerWrap}>
+                  <DateTimePicker
+                    value={tempDate}
+                    mode="date"
+                    minimumDate={new Date()}
+                    display="inline"
+                    themeVariant="light"
+                    onChange={(_, d) => d && setTempDate(d)}
+                  />
+                </View>
                 <View style={styles.modalButtons}>
                   <Pressable style={styles.modalBtn} onPress={() => setShowPicker(false)}><Text style={styles.modalBtnTextCancel}>Cancel</Text></Pressable>
                   <Pressable style={[styles.modalBtn, styles.modalBtnPrimary]} onPress={() => { setNewDate(toYMD(tempDate)); setShowPicker(false); }}><Text style={styles.modalBtnText}>OK</Text></Pressable>
@@ -137,9 +147,9 @@ export default function BlockedDatesScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   title: { ...typography.subtitle, color: colors.text.primary, marginBottom: 4 },
   meta: { color: colors.text.muted, marginBottom: spacing.lg },
   label: { color: colors.text.secondary, marginBottom: spacing.sm },
@@ -149,13 +159,25 @@ const styles = StyleSheet.create({
   dateInputText: { flex: 1, marginBottom: 0 },
   button: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.accent[500], borderRadius: radius.md, paddingHorizontal: spacing.lg, justifyContent: 'center' },
   btnIcon: { marginRight: spacing.xs },
-  buttonText: { color: colors.text.primary, fontWeight: '600' },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600' },
   modalOverlay: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.5)' },
-  modalContent: { backgroundColor: colors.surface.card, borderTopLeftRadius: radius.lg, borderTopRightRadius: radius.lg, padding: spacing.lg, minHeight: 320 },
+  modalContent: {
+    backgroundColor: colors.surface.input,
+    borderTopLeftRadius: radius.lg,
+    borderTopRightRadius: radius.lg,
+    padding: spacing.lg,
+    paddingBottom: spacing.xl,
+  },
+  modalPickerWrap: {
+    backgroundColor: colors.surface.input,
+    borderRadius: radius.md,
+    overflow: 'hidden',
+    alignSelf: 'stretch',
+  },
   modalButtons: { flexDirection: 'row', justifyContent: 'flex-end', gap: spacing.md, marginTop: spacing.md },
   modalBtn: { paddingVertical: spacing.sm, paddingHorizontal: spacing.md },
   modalBtnPrimary: { backgroundColor: colors.accent[500], borderRadius: radius.md },
-  modalBtnText: { color: colors.text.primary, fontWeight: '600' },
+  modalBtnText: { color: colors.text.onAccent, fontWeight: '600' },
   modalBtnTextCancel: { color: colors.text.muted },
   sectionTitle: { ...typography.subtitle, color: colors.text.primary, marginBottom: spacing.md },
   empty: { color: colors.text.muted },

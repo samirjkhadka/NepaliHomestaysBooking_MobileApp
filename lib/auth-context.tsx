@@ -15,6 +15,8 @@ type AuthContextType = {
   signup: (body: { email: string; password: string; name: string; phone: string; role?: 'guest' | 'host' }) => Promise<void>;
   logout: () => Promise<void>;
   setUserAndToken: (user: User, token: string) => Promise<void>;
+  /** Re-fetch profile and merge role/name into stored user (e.g. after become-host). */
+  refreshUser: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -90,8 +92,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await AsyncStorage.multiRemove([TOKEN_KEY, USER_KEY]);
   }, []);
 
+  const refreshUser = useCallback(async () => {
+    if (!token) return;
+    try {
+      const p = await api.getProfile(token);
+      setUser((prev) => {
+        if (!prev) return prev;
+        const next: User = {
+          ...prev,
+          id: p.id ?? prev.id,
+          email: (p.email as string) ?? prev.email,
+          role: (p.role as string) ?? prev.role,
+          name: typeof p.name === 'string' ? p.name : prev.name,
+          phone: typeof p.phone === 'string' ? p.phone : prev.phone,
+        };
+        AsyncStorage.setItem(USER_KEY, JSON.stringify(next)).catch(() => {});
+        return next;
+      });
+    } catch {
+      /* ignore */
+    }
+  }, [token]);
+
   return (
-    <AuthContext.Provider value={{ user, token, loading, login, verifyOtp, signup, logout, setUserAndToken }}>
+    <AuthContext.Provider value={{ user, token, loading, login, verifyOtp, signup, logout, setUserAndToken, refreshUser }}>
       {children}
     </AuthContext.Provider>
   );

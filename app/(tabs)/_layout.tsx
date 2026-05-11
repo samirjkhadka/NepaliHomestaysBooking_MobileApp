@@ -30,11 +30,12 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: colors.accentAlt[500],
+        tabBarActiveTintColor: colors.accent[500],
         tabBarInactiveTintColor: colors.text.muted,
-        tabBarStyle: { backgroundColor: colors.primary[600], borderTopColor: colors.border },
-        headerStyle: { backgroundColor: colors.primary[500] },
-        headerTintColor: colors.text.primary,
+        tabBarStyle: { backgroundColor: colors.surface.card, borderTopColor: colors.border },
+        headerStyle: { backgroundColor: colors.forest[500] },
+        headerTintColor: colors.text.onAccent,
+        headerTitleStyle: { color: colors.text.onAccent },
       }}
     >
       <Tabs.Screen
@@ -63,6 +64,7 @@ export default function TabLayout() {
         options={{
           title: t('nav_messages'),
           tabBarIcon: ({ color }) => <TabBarIcon name="envelope" color={color} />,
+          href: null,
         }}
       />
       <Tabs.Screen

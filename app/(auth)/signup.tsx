@@ -133,7 +133,7 @@ export default function SignupScreen() {
                 <ActivityIndicator color="#fff" />
               ) : (
                 <>
-                  <Ionicons name="person-add-outline" size={20} color={colors.text.primary} style={styles.buttonIcon} />
+                  <Ionicons name="person-add-outline" size={20} color={colors.text.onAccent} style={styles.buttonIcon} />
                   <Text style={styles.buttonText}>{t('auth_sign_up')}</Text>
                 </>
               )}
@@ -151,7 +151,7 @@ export default function SignupScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   kav: { flex: 1 },
   scroll: { flexGrow: 1, padding: spacing.lg, paddingTop: spacing.md },
   content: { paddingBottom: spacing.lg },
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
   },
   buttonIcon: { marginRight: spacing.sm },
-  buttonText: { color: colors.text.primary, fontWeight: '600', fontSize: 16 },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600', fontSize: 16 },
   link: { marginTop: INPUT_SPACING, alignItems: 'center' },
   linkText: { color: colors.accentAlt[500], fontSize: 15 },
 });

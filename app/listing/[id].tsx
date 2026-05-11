@@ -9,6 +9,7 @@ import {
   Alert,
   Linking,
   Platform,
+  Share,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -22,6 +23,7 @@ import { useTranslation } from '@/lib/i18n';
 import { SkeletonListingDetail } from '@/components/Skeleton';
 import { ListingBadges } from '@/components/ListingBadges';
 import { ListingImage } from '@/components/ListingImage';
+import { HtmlContent } from '@/components/HtmlContent';
 
 const IMG_W = Dimensions.get('window').width;
 
@@ -44,7 +46,18 @@ const SECTION_LABELS: Record<string, string> = {
 
 const TRUST_BADGES = ['Free cancellation for 48 hours', 'Verified homestay host', 'Secure payment process'];
 
-type HostProfile = { id: number; name: string; avatar_url: string | null; bio: string | null; brief_intro?: string | null; superhost?: boolean; local_expert?: boolean; languages_spoken?: string | null; is_primary?: boolean; sort_order?: number };
+type HostProfile = {
+  id: number;
+  name: string;
+  avatar_url: string | null;
+  bio: string | null;
+  brief_intro?: string | null;
+  superhost?: boolean;
+  local_expert?: boolean;
+  languages_spoken?: string | null;
+  is_primary?: boolean;
+  sort_order?: number;
+};
 type ReviewRow = { id: number; rating: number; title: string | null; comment: string | null; reviewer_name?: string; created_at: string };
 
 function formatReviewDate(iso: string): string {
@@ -77,6 +90,7 @@ export default function ListingDetailScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [favoriteIds, setFavoriteIds] = useState<Set<number>>(new Set());
+  const [nearbyListings, setNearbyListings] = useState<Listing[]>([]);
 
   const numId = id ? Number(id) : NaN;
 
@@ -119,6 +133,39 @@ export default function ListingDetailScreen() {
       setFavoriteIds(ids);
     }).catch(() => {});
   }, [token]);
+
+  useEffect(() => {
+    const loc = String(listing?.location ?? '').trim();
+    const lid = listing?.id;
+    if (!lid || !loc) {
+      setNearbyListings([]);
+      return;
+    }
+    let cancelled = false;
+    api
+      .getListings({ location: loc, limit: 8, page: 1 })
+      .then((res) => {
+        if (cancelled) return;
+        const rows = (res.listings ?? []).filter((x) => x.id !== lid).slice(0, 4);
+        setNearbyListings(rows);
+      })
+      .catch(() => {
+        if (!cancelled) setNearbyListings([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [listing?.id, listing?.location]);
+
+  async function shareListing() {
+    if (!listing) return;
+    const msg = [listing.title, listing.location].filter(Boolean).join('\n');
+    try {
+      await Share.share({ title: listing.title, message: msg });
+    } catch {
+      /* user dismissed */
+    }
+  }
 
   async function toggleFavorite() {
     if (Number.isNaN(numId)) return;
@@ -196,11 +243,19 @@ export default function ListingDetailScreen() {
   const showBadges = L.badge != null && L.badge !== '';
   const primaryHost = L.hosts?.find((h) => h.is_primary) ?? L.hosts?.[0] ?? L.host;
   const hostName = primaryHost?.name ?? 'Host';
-  const hostBio = primaryHost?.bio ?? primaryHost?.brief_intro ?? null;
-  const hostLanguages = primaryHost?.languages_spoken?.trim() ?? null;
+  const hostBio =
+    (typeof primaryHost?.brief_intro === 'string' && primaryHost.brief_intro.trim()) ||
+    (typeof primaryHost?.bio === 'string' && primaryHost.bio.trim()) ||
+    null;
+  const hostLanguages =
+    typeof primaryHost?.languages_spoken === 'string' && primaryHost.languages_spoken.trim()
+      ? primaryHost.languages_spoken.trim()
+      : null;
   const isSuperhost = primaryHost && 'superhost' in primaryHost && Boolean(primaryHost.superhost);
   const isCulturalExpert = primaryHost && 'local_expert' in primaryHost && Boolean(primaryHost.local_expert);
-  const coHosts = (L.hosts ?? []).filter((h) => !h.is_primary).sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0));
+  const coHosts = (L.hosts ?? [])
+    .filter((h) => !h.is_primary)
+    .sort((a, b) => Number(a.sort_order ?? 0) - Number(b.sort_order ?? 0));
   const averageRating = reviews.length ? reviews.reduce((s, r) => s + r.rating, 0) / reviews.length : 0;
   const sections = L.sections ?? {};
   const sectionEntries = Object.entries(sections).filter(
@@ -242,12 +297,17 @@ export default function ListingDetailScreen() {
           <ListingBadges badge={L.badge!} compact={false} />
         </View>
       ) : null}
-      <Pressable style={styles.favBtn} onPress={toggleFavorite}>
+      <Pressable style={styles.favBtn} onPress={toggleFavorite} accessibilityRole="button" accessibilityLabel={isFav ? 'Remove from favorites' : 'Add to favorites'}>
         <Text style={styles.favBtnText}>{isFav ? '♥' : '♡'}</Text>
       </Pressable>
 
       <View style={styles.body}>
-        <Text style={styles.title}>{listing.title}</Text>
+        <View style={styles.titleRow}>
+          <Text style={[styles.title, styles.titleFlex]}>{listing.title}</Text>
+          <Pressable onPress={shareListing} accessibilityRole="button" accessibilityLabel={t('listing_share')} hitSlop={8}>
+            <Ionicons name="share-outline" size={26} color={colors.accent[500]} />
+          </Pressable>
+        </View>
         <View style={styles.metaRow}>
           <Text style={styles.meta}>
             {t('listing_rs')} {listing.price_per_night}{t('home_per_night')} · {listing.location || 'Nepal'}
@@ -266,7 +326,11 @@ export default function ListingDetailScreen() {
         <View style={styles.divider} />
         <View style={styles.hostRow}>
           <View style={styles.avatarWrap}>
-            <ListingImage uri={primaryHost?.avatar_url} style={styles.avatar} resizeMode="cover" />
+            <ListingImage
+              uri={typeof primaryHost?.avatar_url === 'string' ? primaryHost.avatar_url : undefined}
+              style={styles.avatar}
+              resizeMode="cover"
+            />
           </View>
           <View style={styles.hostInfo}>
             <Text style={styles.hostTitle}>Entire homestay hosted by {hostName}</Text>
@@ -289,12 +353,24 @@ export default function ListingDetailScreen() {
             {coHosts.map((h) => (
               <View key={h.id} style={styles.hostRow}>
                 <View style={styles.avatarWrap}>
-                  <ListingImage uri={h.avatar_url} style={styles.avatarSmall} resizeMode="cover" />
+                  <ListingImage
+                    uri={typeof h.avatar_url === 'string' ? h.avatar_url : undefined}
+                    style={styles.avatarSmall}
+                    resizeMode="cover"
+                  />
                 </View>
                 <View style={styles.hostInfo}>
                   <Text style={styles.hostName}>{h.name}</Text>
-                  {h.languages_spoken?.trim() ? <Text style={styles.meta}>{h.languages_spoken}</Text> : null}
-                  {(h.brief_intro || h.bio) ? <Text style={[styles.desc, styles.justified]}>{h.brief_intro || h.bio}</Text> : null}
+                  {typeof h.languages_spoken === 'string' && h.languages_spoken.trim() ? (
+                    <Text style={styles.meta}>{h.languages_spoken}</Text>
+                  ) : null}
+                  {(() => {
+                    const bioText =
+                      (typeof h.brief_intro === 'string' && h.brief_intro.trim()) ||
+                      (typeof h.bio === 'string' && h.bio.trim()) ||
+                      '';
+                    return bioText ? <Text style={[styles.desc, styles.justified]}>{bioText}</Text> : null;
+                  })()}
                 </View>
               </View>
             ))}
@@ -330,7 +406,7 @@ export default function ListingDetailScreen() {
         {/* About this place */}
         <View style={styles.divider} />
         <Text style={styles.sectionTitle}>About this place</Text>
-        <Text style={[styles.desc, styles.justified]}>{listing.description || 'No description provided.'}</Text>
+        <HtmlContent content={listing.description || 'No description provided.'} />
 
         {/* Dynamic sections */}
         {sectionEntries.map(([key, content]) => {
@@ -354,7 +430,7 @@ export default function ListingDetailScreen() {
               return (
                 <View key={key} style={styles.section}>
                   <Text style={styles.sectionTitle}>{label}</Text>
-                  <Text style={[styles.desc, styles.justified]}>{content}</Text>
+                  <HtmlContent content={content} />
                 </View>
               );
             }
@@ -362,7 +438,7 @@ export default function ListingDetailScreen() {
           return (
             <View key={key} style={styles.section}>
               <Text style={styles.sectionTitle}>{label}</Text>
-              <Text style={[styles.desc, styles.justified]}>{content}</Text>
+              <HtmlContent content={content} />
             </View>
           );
         })}
@@ -429,18 +505,42 @@ export default function ListingDetailScreen() {
         ))}
         {reviewsTotal === 0 && <Text style={styles.meta}>No reviews yet.</Text>}
 
+        {nearbyListings.length > 0 ? (
+          <>
+            <View style={styles.divider} />
+            <Text style={styles.sectionTitle}>{t('listing_nearby_title')}</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.nearbyRow}>
+              {nearbyListings.map((n) => {
+                const img = (n as { images?: { url: string }[] }).images?.[0]?.url ?? n.image_urls?.[0];
+                return (
+                  <Pressable key={n.id} style={styles.nearbyCard} onPress={() => router.push(`/listing/${n.id}`)}>
+                    <ListingImage uri={img} style={styles.nearbyImg} resizeMode="cover" />
+                    <Text style={styles.nearbyTitle} numberOfLines={2}>{n.title}</Text>
+                    <Text style={styles.nearbyMeta}>{t('listing_rs')} {n.price_per_night}{t('home_per_night')}</Text>
+                  </Pressable>
+                );
+              })}
+            </ScrollView>
+          </>
+        ) : null}
+
         {/* Location & directions */}
         <View style={styles.divider} />
         <Text style={styles.sectionTitle}>Location & directions</Text>
         {hasCoords ? (
-          <Pressable style={styles.mapButton} onPress={() => openMap(lat!, lng!, listing.title)}>
+          <Pressable
+            style={styles.mapButton}
+            onPress={() => openMap(lat!, lng!, listing.title)}
+            accessibilityRole="button"
+            accessibilityLabel="View on map"
+          >
             <Ionicons name="map-outline" size={24} color={colors.text.primary} />
             <Text style={styles.mapButtonText}>View on map</Text>
           </Pressable>
         ) : (
           <Text style={styles.meta}>Exact map location not set.</Text>
         )}
-        {howToGetThere ? <Text style={[styles.desc, styles.justified]}>{howToGetThere}</Text> : <Text style={styles.meta}>Directions not provided.</Text>}
+        {howToGetThere ? <HtmlContent content={howToGetThere} /> : <Text style={styles.meta}>Directions not provided.</Text>}
 
         {/* Book & trust badges */}
         <View style={styles.divider} />
@@ -475,10 +575,10 @@ export default function ListingDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  wrapper: { flex: 1, backgroundColor: colors.primary[500] },
+  wrapper: { flex: 1, backgroundColor: colors.background },
   container: { flex: 1 },
   content: { paddingBottom: spacing.xxl },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   empty: { color: colors.text.muted, marginBottom: spacing.md },
   errorBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, backgroundColor: 'rgba(239,68,68,0.2)' },
   errorText: { color: colors.error, fontSize: 14 },
@@ -494,7 +594,14 @@ const styles = StyleSheet.create({
   divider: { height: 1, backgroundColor: colors.border, marginVertical: spacing.lg },
   sectionTitle: { ...typography.subtitle, color: colors.text.primary, marginTop: spacing.md, marginBottom: spacing.sm },
   section: { marginBottom: spacing.lg },
-  title: { ...typography.title, color: colors.text.primary, marginBottom: spacing.sm },
+  titleRow: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.sm, marginBottom: spacing.sm },
+  titleFlex: { flex: 1 },
+  title: { ...typography.title, color: colors.text.primary, marginBottom: 0 },
+  nearbyRow: { flexDirection: 'row', gap: spacing.md, paddingVertical: spacing.sm },
+  nearbyCard: { width: 160, backgroundColor: colors.surface.card, borderRadius: radius.lg, overflow: 'hidden' },
+  nearbyImg: { width: '100%', height: 100 },
+  nearbyTitle: { fontSize: 14, fontWeight: '600', color: colors.text.primary, padding: spacing.sm, paddingBottom: 0 },
+  nearbyMeta: { fontSize: 12, color: colors.text.muted, paddingHorizontal: spacing.sm, paddingBottom: spacing.sm },
   metaRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8 },
   meta: { color: colors.text.muted, fontSize: 14, marginBottom: 4 },
   ratingRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
@@ -549,11 +656,11 @@ const styles = StyleSheet.create({
     right: 0,
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.md,
-    backgroundColor: colors.primary[500],
+    backgroundColor: colors.surface.card,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: colors.border,
   },
   bookBtn: { backgroundColor: colors.accent[500], borderRadius: radius.md, padding: spacing.md, alignItems: 'center' },
-  bookBtnText: { color: colors.text.primary, fontWeight: '600', fontSize: 16 },
+  bookBtnText: { color: colors.text.onAccent, fontWeight: '600', fontSize: 16 },
   bookHint: { textAlign: 'center', color: colors.text.muted, fontSize: 12, marginTop: spacing.sm },
 });

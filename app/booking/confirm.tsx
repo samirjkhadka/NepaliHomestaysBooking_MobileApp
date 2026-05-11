@@ -31,6 +31,7 @@ type Preview = {
   total: number;
   currency: string;
   partial_payment_min_percent?: number;
+  payment_methods_available?: { npx?: boolean; himalpay?: boolean };
 };
 
 export default function ConfirmBookingScreen() {
@@ -62,6 +63,7 @@ export default function ConfirmBookingScreen() {
   const [submitting, setSubmitting] = useState(false);
   const [paymentType, setPaymentType] = useState<'full' | 'partial'>('full');
   const [partialPercent, setPartialPercent] = useState(25);
+  const [paymentProvider, setPaymentProvider] = useState<'npx' | 'himalpay'>('npx');
 
   const lid = listingId ? Number(listingId) : NaN;
   const g = guests ? parseInt(guests, 10) : 0;
@@ -85,6 +87,10 @@ export default function ConfirmBookingScreen() {
         const p = pr as Preview;
         setPreview(p);
         if (p?.partial_payment_min_percent != null) setPartialPercent(p.partial_payment_min_percent);
+        const m = p.payment_methods_available ?? {};
+        if (m.npx && !m.himalpay) setPaymentProvider('npx');
+        else if (!m.npx && m.himalpay) setPaymentProvider('himalpay');
+        else setPaymentProvider('npx');
       })
       .catch(() => setListing(null))
       .finally(() => setLoading(false));
@@ -98,6 +104,8 @@ export default function ConfirmBookingScreen() {
     }
     setSubmitting(true);
     try {
+      const methods = preview.payment_methods_available ?? {};
+      const online = methods.npx === true || methods.himalpay === true;
       const res = await api.initiatePayment(token, {
         listing_id: listing.id,
         check_in: checkIn,
@@ -106,9 +114,16 @@ export default function ConfirmBookingScreen() {
         message: (message ?? '').trim() || undefined,
         extra_services: extraServices.length ? extraServices : undefined,
         payment_type: paymentType,
+        ...(online ? { payment_provider: paymentProvider } : {}),
         ...(paymentType === 'partial' ? { partial_percent: Math.max(minPartial, Math.min(99, partialPercent)) } : {}),
       });
       const bookingId = (res as { booking_id?: number }).booking_id ?? res.booking?.id;
+      if ((res as { reservation_without_payment?: boolean }).reservation_without_payment) {
+        const msg = (res as { confirmation_message?: string }).confirmation_message || 'Reservation received.';
+        Alert.alert('Reservation received', msg);
+        router.replace('/(tabs)/dashboard');
+        return;
+      }
       if (res.redirect_url) {
         router.replace({
           pathname: '/booking/pay',
@@ -205,6 +220,31 @@ export default function ConfirmBookingScreen() {
           <Text style={styles.totalValue}>{formatRs(preview.total)}</Text>
         </View>
 
+        {preview.payment_methods_available?.npx &&
+          preview.payment_methods_available?.himalpay && (
+          <>
+            <Text style={[styles.sectionTitle, { marginTop: spacing.lg }]}>Pay with</Text>
+            <View style={styles.paymentRow}>
+              <Pressable
+                style={[styles.paymentOption, paymentProvider === 'npx' && styles.paymentOptionActive]}
+                onPress={() => setPaymentProvider('npx')}
+              >
+                <Text style={[styles.paymentOptionText, paymentProvider === 'npx' && styles.paymentOptionTextActive]}>
+                  Pay via e-bank, m-bank
+                </Text>
+              </Pressable>
+              <Pressable
+                style={[styles.paymentOption, paymentProvider === 'himalpay' && styles.paymentOptionActive]}
+                onPress={() => setPaymentProvider('himalpay')}
+              >
+                <Text style={[styles.paymentOptionText, paymentProvider === 'himalpay' && styles.paymentOptionTextActive]}>
+                  Pay via N-cash
+                </Text>
+              </Pressable>
+            </View>
+          </>
+        )}
+
         <Text style={[styles.sectionTitle, { marginTop: spacing.lg }]}>Payment</Text>
         <View style={styles.paymentRow}>
           <Pressable
@@ -253,7 +293,7 @@ export default function ConfirmBookingScreen() {
           <ActivityIndicator color="#fff" />
         ) : (
           <>
-            <Ionicons name="card-outline" size={20} color={colors.text.primary} style={styles.btnIcon} />
+            <Ionicons name="card-outline" size={20} color={colors.text.onAccent} style={styles.btnIcon} />
             <Text style={styles.buttonText}>
               {paymentType === 'partial' ? `Pay ${formatRs(payNowAmount)} now (${payNowPercent}%)` : `Confirm and pay ${formatRs(preview.total)}`}
             </Text>
@@ -268,9 +308,9 @@ export default function ConfirmBookingScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: spacing.lg, paddingBottom: spacing.xxl },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.primary[500] },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.background },
   loadingText: { color: colors.text.muted, marginTop: spacing.md },
   errorText: { color: colors.error },
   backBtn: { marginTop: spacing.md },
@@ -297,12 +337,12 @@ const styles = StyleSheet.create({
   paymentOption: { flex: 1, paddingVertical: spacing.md, paddingHorizontal: spacing.sm, borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, alignItems: 'center' },
   paymentOptionActive: { backgroundColor: colors.accent[500], borderColor: colors.accent[500] },
   paymentOptionText: { color: colors.text.secondary, fontSize: 15 },
-  paymentOptionTextActive: { color: colors.text.primary, fontWeight: '600' },
+  paymentOptionTextActive: { color: colors.text.onAccent, fontWeight: '600' },
   sliderRow: { marginTop: spacing.sm, flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: spacing.sm },
   sliderLabel: { color: colors.text.secondary, fontSize: 14 },
   sliderInput: { width: 48, backgroundColor: colors.surface.input, borderRadius: radius.sm, padding: spacing.sm, color: colors.text.primary, fontSize: 16, textAlign: 'center' },
   sliderHint: { width: '100%', color: colors.text.muted, fontSize: 12, marginTop: 4 },
   button: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: colors.accent[500], borderRadius: radius.md, padding: spacing.md },
   btnIcon: { marginRight: spacing.sm },
-  buttonText: { color: colors.text.primary, fontWeight: '600' },
+  buttonText: { color: colors.text.onAccent, fontWeight: '600' },
 });

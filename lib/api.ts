@@ -2,7 +2,7 @@ import { API_BASE_URL, getImageUrl } from '@/constants/config';
 
 export { getImageUrl };
 
-export type User = { id: number; email: string; role: string };
+export type User = { id: number; email: string; role: string; name?: string; phone?: string };
 
 export async function apiRequest<T>(
   path: string,
@@ -51,6 +51,8 @@ export type VerifyBody = { email: string; otp: string };
 export type VerifyResponse = { token: string; user: User };
 
 // Listings
+export type ListingHostRef = { id: number; name?: string; email?: string; is_primary?: boolean; [key: string]: unknown };
+
 export type Listing = {
   id: number;
   title: string;
@@ -66,6 +68,10 @@ export type Listing = {
   longitude?: number;
   is_active?: boolean;
   owner_id?: number;
+  host_id?: number;
+  status?: string;
+  disabled_by_admin?: boolean;
+  hosts?: ListingHostRef[];
   average_rating?: number;
   review_count?: number;
   province_name?: string;
@@ -126,9 +132,11 @@ export type MunicipalitiesResponse = { municipalities: Municipality[] };
 
 // Host
 export type HostDashboardResponse = {
+  current_user_id?: number;
   listings_count?: number;
   bookings_count?: number;
   earnings?: number;
+  earnings_currency?: string;
   listings?: Listing[];
   bookings?: Booking[];
   reviews?: unknown[];
@@ -141,7 +149,14 @@ export type MessagesListResponse = { conversations: Conversation[] };
 export type MessagesThreadResponse = { messages: Message[] };
 
 // Payment
-export type InitiatePaymentResponse = { redirect_url?: string; redirect_form?: Record<string, string>; booking?: Booking };
+export type InitiatePaymentResponse = {
+  redirect_url?: string;
+  redirect_form?: Record<string, string>;
+  booking?: Booking;
+  reservation_without_payment?: boolean;
+  booking_id?: number;
+  confirmation_message?: string;
+};
 
 export const api = {
   // Auth
@@ -177,6 +192,9 @@ export const api = {
   getFeatured: () => apiRequest<ListingsResponse>('/api/listings/featured'),
   getListings: (params: {
     location?: string;
+    title?: string;
+    category?: string;
+    type?: string;
     minPrice?: number;
     maxPrice?: number;
     guests?: number;
@@ -213,6 +231,7 @@ export const api = {
       total: number;
       currency: string;
       partial_payment_min_percent?: number;
+      payment_methods_available?: { npx?: boolean; himalpay?: boolean };
     }>(`/api/listings/${listingId}/booking-preview?${params.toString()}`);
   },
   getListingReviews: (id: number, page?: number) =>
@@ -258,12 +277,39 @@ export const api = {
       extra_services?: { extra_service_id: number; quantity: number }[];
       payment_type?: 'full' | 'partial';
       partial_percent?: number;
+      payment_provider?: 'npx' | 'himalpay';
     }
   ) => apiRequest<InitiatePaymentResponse>('/api/bookings/initiate-payment', { token, method: 'POST', body: JSON.stringify(body) }),
   getResumePayment: (token: string, bookingId: number) =>
     apiRequest<InitiatePaymentResponse>(`/api/bookings/${bookingId}/resume-payment`, { token }),
-  updateBookingStatus: (token: string, bookingId: number, status: 'approved' | 'declined') =>
-    apiRequest<{ booking?: Booking }>(`/api/bookings/${bookingId}`, { token, method: 'PATCH', body: JSON.stringify({ status }) }),
+  cancelBookingAsGuest: (token: string, bookingId: number) =>
+    apiRequest<{ message: string }>(`/api/bookings/${bookingId}/cancel`, { token, method: 'POST' }),
+  updateBookingStatus: (token: string, bookingId: number, status: string) =>
+    apiRequest<{ booking?: Booking; message?: string }>(`/api/bookings/${bookingId}`, { token, method: 'PATCH', body: JSON.stringify({ status }) }),
+
+  becomeHost: (token: string) =>
+    apiRequest<{ message: string }>('/api/profile/become-host', { token, method: 'POST', body: '{}' }),
+
+  addCoHost: (
+    token: string,
+    listingId: number,
+    body: {
+      email: string;
+      name?: string;
+      phone?: string;
+      bio?: string;
+      brief_intro?: string;
+      languages_spoken?: string;
+      avatar_url?: string;
+    }
+  ) =>
+    apiRequest<{ message: string; user_id?: number }>(`/api/host/listings/${listingId}/hosts`, {
+      token,
+      method: 'POST',
+      body: JSON.stringify(body),
+    }),
+  removeCoHost: (token: string, listingId: number, userId: number) =>
+    apiRequest<{ message: string }>(`/api/host/listings/${listingId}/hosts/${userId}`, { token, method: 'DELETE' }),
 
   // Provinces
   getProvinces: () => apiRequest<Province[]>('/api/provinces'),
@@ -281,7 +327,8 @@ export const api = {
 
   // Host
   getHostDashboard: (token: string) => apiRequest<HostDashboardResponse>('/api/host/dashboard', { token }),
-  getHostReviews: (token: string) => apiRequest<{ reviews: unknown[] }>('/api/host/reviews', { token }),
+  getHostReviews: (token: string, page = 1, limit = 50) =>
+    apiRequest<{ reviews: unknown[]; total?: number }>(`/api/host/reviews?page=${page}&limit=${limit}`, { token }),
 
   // Reviews
   createReview: (token: string, body: { booking_id: number; rating: number; title?: string; comment?: string }) =>

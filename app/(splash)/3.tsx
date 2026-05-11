@@ -27,7 +27,7 @@ export default function Splash3() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.primary[500] },
+  container: { flex: 1, backgroundColor: colors.background },
   skip: { position: 'absolute', top: spacing.lg, right: spacing.lg, zIndex: 10, paddingVertical: spacing.sm, paddingHorizontal: spacing.md },
   skipText: { color: colors.accentAlt[500], fontWeight: '600', fontSize: 15 },
   hero: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 160 },
@@ -36,5 +36,5 @@ const styles = StyleSheet.create({
   subtitle: { ...typography.subtitle, color: colors.accentAlt[500], textAlign: 'center', marginBottom: spacing.md },
   tagline: { ...typography.bodySm, color: colors.text.secondary, textAlign: 'center' },
   next: { position: 'absolute', bottom: spacing.xl, alignSelf: 'center', paddingVertical: spacing.md, paddingHorizontal: spacing.xl, backgroundColor: colors.accent[500], borderRadius: radius.full },
-  nextText: { color: colors.text.primary, fontWeight: '600', fontSize: 16 },
+  nextText: { color: colors.text.onAccent, fontWeight: '600', fontSize: 16 },
 });
