@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Check-In Instructions | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&family=Manrope:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdbd2",
+                    "outline-variant": "#e2beba",
+                    "on-error-container": "#93000a",
+                    "outline": "#8e706c",
+                    "on-tertiary-fixed": "#001f2a",
+                    "primary-container": "#b32821",
+                    "on-background": "#1b1c19",
+                    "on-surface-variant": "#5a413d",
+                    "surface-container-high": "#eae8e3",
+                    "secondary-container": "#fc9174",
+                    "on-tertiary-container": "#addff8",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#ffb4aa",
+                    "on-primary-container": "#ffccc6",
+                    "inverse-on-surface": "#f2f1ec",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#f0eee9",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "surface-tint": "#b32821",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "on-primary-fixed-variant": "#910a0c",
+                    "on-error": "#ffffff",
+                    "background": "#fbf9f4",
+                    "surface-dim": "#dbdad5",
+                    "on-secondary-fixed": "#3c0800",
+                    "on-primary-fixed": "#410001",
+                    "on-surface": "#1b1c19",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#316479",
+                    "surface": "#fbf9f4",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "surface-container-low": "#f5f3ee",
+                    "secondary": "#9a442d",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "error": "#ba1a1a",
+                    "tertiary": "#134c61",
+                    "tertiary-fixed": "#bde9ff",
+                    "surface-container-highest": "#e4e2dd",
+                    "primary-fixed": "#ffdad5",
+                    "surface-variant": "#e4e2dd",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#900a0c",
+                    "on-secondary-container": "#742814",
+                    "inverse-surface": "#30312e",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#fbf9f4",
+                    "primary-fixed-dim": "#ffb4aa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "gutter": "20px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "xl": "80px",
+                    "sm": "12px",
+                    "lg": "48px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Be Vietnam Pro"],
+                    "body-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(#e2beba 0.5px, transparent 0.5px), radial-gradient(#e2beba 0.5px, #fbf9f4 0.5px);
+            background-size: 10px 10px;
+            background-position: 0 0, 5px 5px;
+            opacity: 0.2;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -10px rgba(179, 40, 33, 0.08);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop py-base">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:bg-primary-fixed/10 p-2 rounded-full transition-colors active:scale-95 duration-150">arrow_back</button>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="h-10 w-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a traveler with a warm, friendly smile, set against a soft-focus background of a wooden mountain lodge. The lighting is golden and natural, emphasizing a high-end, clean aesthetic that blends modern photography with a rustic Himalayan feel. The color palette is composed of soft creams, rich browns, and deep reds to match the brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMmcNYV7k_bjnRCH2CXRKuKoMPfsiStJdnXP62rtaa4w-KpatBaLpuye7QnxlII_2QKTqJMa9WSFC5M0dcKnt3v6uoStXrYGdBs5H3sVmOntFqxJ4mUU3NySp2Y-1m_pF6A-OqNxz_a3oV-PFL7uRwU3cKKyHQ44SC_Dt9JaSrcCcd5D0ChQLuUxR1nxDwpSOIGQDYrj5aek7-sNZPlr5yMnSLhVjd0ZNBTeHZeL7xDOMGiZUnh63xe5ykQUmoMfxU0J5LCZ3Aolg"/>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg space-y-lg">
+<!-- Header Section -->
+<section class="space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                Ready for arrival
+            </div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Your Stay at Mountain Hearth</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Namaste! We are so excited to welcome you to our home. Please find the details below to make your check-in as smooth as a morning mist over the valley.</p>
+</section>
+<!-- Bento Grid for Instructions -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- WiFi Details (Glassmorphism Card) -->
+<div class="md:col-span-4 glass-panel rounded-xl p-md border border-outline-variant flex flex-col justify-between custom-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 dhaka-pattern -mr-8 -mt-8 rounded-full"></div>
+<div class="space-y-4 relative z-10">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">wifi</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Wi-Fi Connection</h3>
+<p class="text-on-surface-variant text-body-md mt-1">High-speed satellite internet</p>
+</div>
+</div>
+<div class="mt-8 p-4 bg-surface-container rounded-lg border border-outline-variant/30 space-y-2 relative z-10">
+<div class="flex justify-between items-center">
+<span class="text-label-sm text-on-surface-variant">Network</span>
+<span class="font-bold text-on-surface">Aamas_Kitchen_Guest</span>
+</div>
+<div class="flex justify-between items-center group/pass">
+<span class="text-label-sm text-on-surface-variant">Password</span>
+<span class="font-bold text-on-surface flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
+                            himalayan_hearth
+                            <span class="material-symbols-outlined text-[18px]">content_copy</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Arrival Directions (Map & Landmarks) -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden custom-shadow grid grid-cols-1 md:grid-cols-2">
+<div class="p-md space-y-md">
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">How to find us</h3>
+<p class="text-body-md text-on-surface-variant">Located in the heart of Phaplu, just past the old monastery.</p>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold">1</div>
+<div class="text-body-md">
+<span class="font-bold block">The Red Gate</span>
+                                Look for the carved wooden gate with brass bells 200m past the airstrip.
+                            </div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold">2</div>
+<div class="text-body-md">
+<span class="font-bold block">The Prayer Flags</span>
+                                Turn right at the tall cedar tree adorned with colorful prayer flags.
+                            </div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold">3</div>
+<div class="text-body-md">
+<span class="font-bold block">Welcome Bell</span>
+                                Please ring the large bell at the entrance to notify the family.
+                            </div>
+</div>
+</div>
+</div>
+<div class="relative min-h-[300px] h-full border-l border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A highly detailed artistic map of a mountain village area. The map uses earthy tones, warm terracotta accents, and soft cream backgrounds, featuring illustrated landmarks like a traditional stupa, a dense pine forest, and a rustic red-gated lodge. The style is clean, modern cartography with organic, hand-drawn textures and subtle paper grain overlays." data-location="Solukhumbu, Nepal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbw6hyowG9gHOJxTSg82lcPfdIH37HM_jnEEL_qrSX8qJYfxt8mjgoMnRJWeyy2QO1UOiZOsVS9_XaRGDZO4B3jaW8asJKHNb2SKq15-bYSKL1apDQOKhujQlpV08GbuK9oqf9WcVD6jeVOhQvCwPTcVIZK1a-SRm6JYlyjT-Mv0uaQuUZsBSjrw7KndrhDLL5FW3KPE1KSRQV-wOXyx0MLWNDp0Iz_iFmi9R2Ec9e4__FPWHBinO7Qeo0-FzV_SMFeWPd9wfjnKI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+<button class="absolute bottom-4 right-4 bg-surface px-4 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined">directions</span>
+<span class="text-label-sm">Open in Maps</span>
+</button>
+</div>
+</div>
+<!-- House Rules (Asymmetric Layout) -->
+<div class="md:col-span-7 bg-surface-container rounded-xl p-md border border-outline-variant relative overflow-hidden">
+<div class="absolute bottom-0 right-0 p-8 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]">assignment</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">House Rules & Customs</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-gutter">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">do_not_step</span>
+<div>
+<p class="font-bold text-on-surface">Shoes Off</p>
+<p class="text-label-sm text-on-surface-variant">Please leave your footwear at the mudroom entrance.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">notifications_off</span>
+<div>
+<p class="font-bold text-on-surface">Quiet Hours</p>
+<p class="text-label-sm text-on-surface-variant">From 9:00 PM to 6:00 AM to respect other guests and neighbors.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">cooking</span>
+<div>
+<p class="font-bold text-on-surface">No Smoking</p>
+<p class="text-label-sm text-on-surface-variant">Our home is built with ancient timber; smoking is strictly prohibited.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">local_cafe</span>
+<div>
+<p class="font-bold text-on-surface">Communal Meals</p>
+<p class="text-label-sm text-on-surface-variant">Dinner is served at 7:00 PM in the central kitchen hall.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Contact/Arrival Card -->
+<div class="md:col-span-5 flex flex-col gap-gutter">
+<div class="bg-primary p-lg rounded-xl text-on-primary flex flex-col justify-center items-center text-center space-y-6 relative overflow-hidden group">
+<div class="absolute inset-0 dhaka-pattern opacity-10"></div>
+<div class="space-y-2 relative z-10">
+<h3 class="font-headline-md text-headline-md">Have you arrived?</h3>
+<p class="text-body-md opacity-90">Click below to let your host, Pasang, know you've reached the property.</p>
+</div>
+<button class="relative z-10 w-full py-4 bg-surface-container-lowest text-primary font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-secondary-fixed transition-all active:scale-95 shadow-lg" id="notifyBtn">
+<span class="material-symbols-outlined">hail</span>
+                        Notify Host I've Arrived
+                    </button>
+<script>
+                        document.getElementById('notifyBtn').addEventListener('click', function() {
+                            this.innerHTML = '<span class="material-symbols-outlined animate-pulse">check_circle</span> Notifying Pasang...';
+                            this.classList.add('opacity-80');
+                            setTimeout(() => {
+                                this.innerHTML = '<span class="material-symbols-outlined">verified</span> Host Notified!';
+                                this.classList.remove('bg-surface-container-lowest');
+                                this.classList.add('bg-green-100', 'text-green-800');
+                            }, 1500);
+                        });
+                    </script>
+</div>
+<div class="bg-secondary-fixed p-md rounded-xl flex items-center justify-between border border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A warm and welcoming portrait of a middle-aged Sherpa woman, Pasang, wearing a traditional colorful striped apron. She is standing in a brightly lit kitchen with steam rising in the background. The aesthetic is high-quality, authentic, and evocative of Himalayan hospitality, featuring rich earth tones and soft, natural window light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOw2JrGi4Vll1T_nIt5Ge7M47EMJIygcKhb8tnZTIc1JHxdYb0nJckqwSoX4EH596ulZX0czwRJ3pAfZxXRsYwbbnfA7XgD5qge_11Nn38BE30XRWGv--nsW269DFlfTwRFjJQKfH8gRrL7GNFF6D_TrcJ88VrnrSy00Fo2uwUowL4X8nvoMvVOkdA8IMzer4slxnDNAk37E5Vrt06EFUeu0TJ8kxi277xlfJMmoAza2guADAr-r0JtzQqU0nwH0C6HhMf92QVius"/>
+</div>
+<div>
+<p class="font-bold text-on-secondary-fixed-variant">Pasang (Your Host)</p>
+<p class="text-label-sm text-on-secondary-fixed-variant opacity-80">Online & Ready</p>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition-all">
+<span class="material-symbols-outlined">chat</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Success Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center px-4 hidden" id="successModal">
+<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm"></div>
+<div class="relative bg-surface rounded-2xl p-lg max-w-sm w-full custom-shadow text-center space-y-6 border border-outline-variant">
+<div class="w-20 h-20 bg-primary-fixed text-primary rounded-full flex items-center justify-center mx-auto">
+<span class="material-symbols-outlined text-[48px]">door_open</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-headline-md">Welcome Home!</h4>
+<p class="text-body-md text-on-surface-variant">Pasang is coming down to meet you now. Please make yourself comfortable on the porch.</p>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold" onclick="document.getElementById('successModal').classList.add('hidden')">Got it</button>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container dark:bg-surface-container-high border-t border-outline-variant/30 shadow-sm rounded-t-xl md:hidden">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined">redeem</span>
+<span class="font-label-sm text-label-sm">Rewards</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-sm text-label-sm">Inbox</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<!-- Spacer for mobile nav -->
+<div class="h-24 md:hidden"></div>
+</body></html>

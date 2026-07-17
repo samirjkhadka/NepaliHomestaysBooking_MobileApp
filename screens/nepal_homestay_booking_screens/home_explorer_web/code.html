@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen | Authentic Himalayan Hospitality</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1b1c19",
+                        "tertiary-container": "#134c61",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#ff998c",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "on-primary-fixed-variant": "#910b0c",
+                        "on-secondary-container": "#752814",
+                        "primary": "#680003",
+                        "on-secondary-fixed-variant": "#7c2e18",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container-highest": "#e4e2dd",
+                        "primary-fixed": "#ffdad5",
+                        "surface-container-high": "#eae8e3",
+                        "surface-dim": "#dbdad5",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e4e2dd",
+                        "on-surface-variant": "#5a413d",
+                        "surface-container": "#f0eee9",
+                        "impact-teal": "#316479",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fbf9f4",
+                        "outline": "#8e706c",
+                        "on-tertiary-fixed-variant": "#144c61",
+                        "surface-grain": "#fbf9f4",
+                        "on-surface": "#1b1c19",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdbd2",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#30312e",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "secondary": "#9a442d",
+                        "surface-container-low": "#f5f3ee",
+                        "on-tertiary-container": "#8abbd4",
+                        "primary-container": "#900a0c",
+                        "tertiary": "#003546",
+                        "tertiary-fixed": "#bee9ff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#410001",
+                        "surface-tint": "#b32821",
+                        "on-secondary-fixed": "#3c0800",
+                        "surface": "#fbf9f4",
+                        "error": "#ba1a1a",
+                        "background": "#fbf9f4",
+                        "outline-variant": "#e2beba",
+                        "inverse-primary": "#ffb4aa",
+                        "dhaka-red": "#b32821",
+                        "secondary-container": "#fd9174",
+                        "tertiary-fixed-dim": "#9ccee7",
+                        "on-tertiary-fixed": "#001f2a",
+                        "earth-brown": "#5a413d",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "gutter": "20px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "label-xs-bold": ["Manrope"],
+                        "body-sm-italic": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-xs-bold": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-sm-italic": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .dhaka-divider {
+            height: 1px;
+            background: linear-gradient(90deg, #b32821 0%, #ffdad5 50%, #b32821 100%);
+            opacity: 0.3;
+        }
+        .grainy-surface {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .active-nav-border {
+            border-bottom: 2px solid #b32821;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md grainy-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base max-w-screen-xl mx-auto">
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-dhaka-red dark:text-primary-fixed-dim">
+                Aama's Kitchen
+            </div>
+<div class="hidden md:flex items-center space-x-md font-body-md text-body-md">
+<a class="text-dhaka-red font-bold border-b-2 border-dhaka-red pb-1" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Experiences</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Marketplace</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Community</a>
+</div>
+<div class="flex items-center space-x-sm">
+<button class="material-symbols-outlined p-xs text-on-surface-variant hover:bg-surface-container-high/50 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined p-xs text-on-surface-variant hover:bg-surface-container-high/50 rounded-full transition-all">account_circle</button>
+<button class="hidden md:block bg-dhaka-red text-on-primary px-md py-xs rounded-full font-label-sm text-label-sm hover:scale-95 active:scale-90 transition-transform">Book Now</button>
+</div>
+</nav>
+</header>
+<main class="space-y-xl pb-xl">
+<!-- Hero Section -->
+<section class="relative w-full h-[870px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0" data-alt="A grand, high-resolution panoramic shot of a traditional Himalayan stone house with intricately carved wooden windows, nestled against the backdrop of snow-capped peaks. The lighting is soft morning golden hour, casting long shadows across the terraced fields surrounding the heritage building. The overall mood is serene and authentic, emphasizing the rustic textures of stone and wood in a modern heritage travel style. Warm earthy tones dominate the scene." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCZjp0BJRvh89GIZN9H3VdbLrMSHEHsD45M-MxL62OX3tEgbWq0ga_MMi_waA9967SoKwLrtUPP_qb8XcghDPEPefQdqJs9eVEYuHk-7JMNtEZWUmtu4205twdPZ8KcmX6MvjzOKQFc4W2Fyd9NIiY0C3sKXo3VbLKJzkqhhIhLLUdRAZfOvd6N3U9j3lrKSdjgRHwgLKXbYX0s1oUZtxA5GAh5uJpeCLBNr7rk43QQoUsj6IbizvqD7EMwvno7mCDUeimJ2GvD2-8')"></div>
+<div class="absolute inset-0 bg-black/30 z-10"></div>
+<div class="relative z-20 text-center px-margin-mobile max-w-3xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-md drop-shadow-lg">
+                    Taste the Soul of the Himalayas
+                </h1>
+<p class="text-white/90 text-body-lg font-body-lg mb-lg drop-shadow-md">
+                    Immersive homestays and authentic culinary journeys curated by local families.
+                </p>
+<!-- Search Integration -->
+<div class="bg-surface-container-lowest rounded-xl p-base md:p-sm shadow-xl flex flex-col md:flex-row items-center gap-base md:gap-sm">
+<div class="flex items-center flex-1 w-full border-b md:border-b-0 md:border-r border-outline-variant/30 px-sm py-xs">
+<span class="material-symbols-outlined text-dhaka-red mr-xs">location_on</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface" placeholder="Where to?" type="text"/>
+</div>
+<div class="flex items-center flex-1 w-full border-b md:border-b-0 md:border-r border-outline-variant/30 px-sm py-xs">
+<span class="material-symbols-outlined text-dhaka-red mr-xs">calendar_month</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface" placeholder="When?" type="text"/>
+</div>
+<button class="w-full md:w-auto bg-dhaka-red text-on-primary px-lg py-sm rounded-lg font-label-sm text-label-sm hover:scale-95 transition-transform flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">search</span>
+                        Search
+                    </button>
+</div>
+</div>
+</section>
+<!-- Flavor First: Regional Specialties -->
+<section class="max-w-screen-xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-lg gap-sm">
+<div>
+<span class="text-dhaka-red font-label-sm text-label-sm tracking-widest uppercase mb-xs block">Heritage Cuisine</span>
+<h2 class="font-display-lg-mobile md:font-headline-md text-display-lg-mobile md:text-headline-md text-on-surface">Flavor First: Regional Specialties</h2>
+</div>
+<button class="text-dhaka-red font-label-sm text-label-sm flex items-center hover:translate-x-1 transition-transform">
+                    Explore All Regions <span class="material-symbols-outlined ml-xs">arrow_forward</span>
+</button>
+</div>
+<!-- Horizontal Overflow Scrolling on Mobile, Grid on Desktop -->
+<div class="flex md:grid md:grid-cols-4 gap-gutter overflow-x-auto pb-md -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 scrollbar-hide">
+<!-- Category Card 1 -->
+<div class="min-w-[240px] group cursor-pointer">
+<div class="relative h-64 rounded-xl overflow-hidden mb-sm border border-outline-variant/30">
+<div class="absolute inset-0 scale-105 group-hover:scale-100 transition-transform duration-500" data-alt="A close-up, high-detail food photograph of traditional Newari Bara and Choila served on a tactile bronze plate. The scene is illuminated by warm, directional light highlighting the rich textures of the spiced meat and lentil pancake. The aesthetic is sophisticated and grounded, using earthy browns and deep reds of the design system." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTh4OgN_B43vZiRjoejMCco17tc7JvkLfIWDPS7IeFMzmcFU90am3u3hwFwe4C4lhTjbV2S9LbfEQgReDIhNZjEwzcFt-ibA5gK9Nnnk3KH3SUAewbRbKV3jjjEIFxglfwVDyaC8hdUDyM_1ozezXytXsOBEgfgJv4sbaXLNArWE8KWlSnC9klSuKg-ThjKcuWdhEb8Qxe10jpYTC6OPDqYIUgVXbuNG3mURoocIJzXGgkq89ypZvcORoUI7z4OdqFJRfLj7gKo5c')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<h3 class="text-white font-headline-md text-headline-md">Newari</h3>
+<p class="text-white/80 font-label-sm text-label-sm">Kathmandu Valley</p>
+</div>
+</div>
+</div>
+<!-- Category Card 2 -->
+<div class="min-w-[240px] group cursor-pointer">
+<div class="relative h-64 rounded-xl overflow-hidden mb-sm border border-outline-variant/30">
+<div class="absolute inset-0 scale-105 group-hover:scale-100 transition-transform duration-500" data-alt="A vibrant, colorful culinary display of Thakali Dal Bhat set in a rustic mountain kitchen. The copper bowls are filled with golden lentils, crisp greens, and mountain rice. The lighting is natural and bright, streaming through a window to create a warm, inviting heritage atmosphere. Colors are balanced between copper, deep greens, and warm whites." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvqyskm_4Xrdcaa_wnreWmHXP6gOl2rP7GDlWcyjzuS1uWbtTbELfsyIP2sdYzLB8zBMDQhAWHGZGH8-qSiOitC960hDd7pZLXDAnS7NNBQLenfi2U3AdZ8eGLlO5pOV7HhrxUs6T8euD3uhjsk7POCDyCNUfWy8t8sa_pbdd_VTXfJ7ls3XtBndUd9vmTEp-rW8qwEpKeQAo8TPihmCxQJTITYxSUUt__Q1Uyx6LaJV-NWnz3sTRo6B2_5HaShZo9rl4FAwzn-Oc')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<h3 class="text-white font-headline-md text-headline-md">Thakali</h3>
+<p class="text-white/80 font-label-sm text-label-sm">Annapurna Trail</p>
+</div>
+</div>
+</div>
+<!-- Category Card 3 -->
+<div class="min-w-[240px] group cursor-pointer">
+<div class="relative h-64 rounded-xl overflow-hidden mb-sm border border-outline-variant/30">
+<div class="absolute inset-0 scale-105 group-hover:scale-100 transition-transform duration-500" data-alt="Authentic Himalayan Sherpa cuisine featuring steaming bowls of Thukpa and butter tea on a rough-hewn wooden table. In the background, blurred hints of a stone fireplace and woven tapestries add to the heritage feel. The lighting is cozy and intimate, with deep contrasts and warm color palettes of mahogany and amber." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUaOLJxuxb6DFqtUa_MiEmOLM1yu9CiIfAg94EIk-tZu-l3ZcIlPo-SSy2TjuzePXXNZtvCMzUecS_tCDXii1iYldiyjLoMECpf_GNbsihgbKBzqAXo7X7nvLE4CyXQn38s3SI2wE9JAVAR_Y4xjare6__NoasYr_HDGd5ng0d7YjK3s5OvsnEaZEHqf4sHKqrJQBfqS9-s1VjVR_gN2atf1mdz3R9NkBn7y_ots7qBGaL_7LsNpYyTGqmDdy5nvd0eVS9gMpVnCU')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<h3 class="text-white font-headline-md text-headline-md">Sherpa</h3>
+<p class="text-white/80 font-label-sm text-label-sm">Everest Highlands</p>
+</div>
+</div>
+</div>
+<!-- Category Card 4 -->
+<div class="min-w-[240px] group cursor-pointer">
+<div class="relative h-64 rounded-xl overflow-hidden mb-sm border border-outline-variant/30">
+<div class="absolute inset-0 scale-105 group-hover:scale-100 transition-transform duration-500" data-alt="Traditional Terai region Maithili cuisine served on a fresh green banana leaf. The array of spicy fish curry and colorful vegetable sides creates a striking visual contrast against the natural leaf. Bright, high-key lighting reflects the warmth of the southern plains, featuring vibrant reds and sun-drenched yellows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvgDOf-hJ9tzUoLuceEzulGmGXQZmHpFBnBaCXEUoevEkUfJWc2CfCbMdF4YXEsKCDKoKwQXemkWOtEfsedx7tkvdDs_N7MuRQRQJFL0oPyOYKZA47bWXtKdx3dZN2kAKQVYdG6HrEPtWyOhqPNSUi8X3lDkvI8Y21yM_rI2kxAwYZxLFPVqNEQBtbz9enJRVVfkVxpOdv042qdMQRLZ9VnYCAn9YWjHPOgsMWRPZh-0ud9qwcYwSaUeXMc4RSKZnBqZPNJPDdihA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<h3 class="text-white font-headline-md text-headline-md">Maithili</h3>
+<p class="text-white/80 font-label-sm text-label-sm">Terai Plains</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dhaka Pattern Divider -->
+<div class="dhaka-divider max-w-screen-xl mx-auto px-margin-mobile"></div>
+<!-- Impact Homestays Section -->
+<section class="max-w-screen-xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-lg">
+<span class="text-impact-teal font-label-sm text-label-sm tracking-widest uppercase mb-xs block">Sustainable Impact</span>
+<h2 class="font-display-lg-mobile md:font-headline-md text-display-lg-mobile md:text-headline-md text-on-surface">Featured Impact Homestays</h2>
+<p class="text-on-surface-variant max-w-2xl mt-sm font-body-md text-body-md">Every booking directly supports local education and female-led micro-enterprises in rural Nepal.</p>
+</div>
+<!-- Bento Grid Layout for Impact Homestays -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Featured Card (Bento span 7) -->
+<div class="md:col-span-7 group relative bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 flex flex-col md:flex-row shadow-sm hover:shadow-md transition-shadow">
+<div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+<div class="w-full h-full scale-105 group-hover:scale-100 transition-transform duration-700" data-alt="A wide-angle, atmospheric interior shot of a sun-filled, guest room in a traditional Himalayan homestay. Natural light filters through hand-loomed curtains, illuminating the reclaimed wood furniture and white linen. The style is minimalist yet warm, a perfect blend of modern luxury and heritage craft. Tonal layering of whites, creams, and earth-browns." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCEJnjGZkkFLyK4kaguECvo_yuDs8DCBhbbhzTKD6UyiOZ6vgAK_4u0c7ljDM3oMqPoY01dH8YrHVTQomd8CvBRDR1g0Fkh8GMLtrJvR1j3lpaMjNaqYYlfJb__mXC-jH-cfO9g2lOpeyPAgO8CIWDvkLJ3EzW1iMP2YVOtiD8XQwT15oF2DVLw76aFWase235SfjyAdoXf56ifQmPU8U4vU_9DtKJPD1pcQHfXdFERt2yENfjBwiFJyyUgWvp2giTJzDot0VTy8Zg')"></div>
+</div>
+<div class="w-full md:w-1/2 p-md flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-xs mb-sm">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-xs py-[2px] rounded font-label-xs-bold text-label-xs-bold">IMPACT 100%</span>
+<span class="flex items-center text-impact-teal font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] mr-[2px]">eco</span> Carbon Neutral
+                                </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Aama Sunita’s Stone Lodge</h3>
+<p class="text-on-surface-variant font-body-sm-italic text-body-sm-italic italic mb-md">Ghandruk, Annapurna Region</p>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-3">Join Sunita and her daughters for morning yoga overlooking the valley followed by a masterclass in high-altitude organic farming and dal-bhat preparation.</p>
+</div>
+<div class="mt-lg flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-dhaka-red">$85<span class="text-label-sm text-on-surface-variant font-normal">/night</span></span>
+<button class="bg-surface-container-highest text-primary border border-primary/20 px-md py-xs rounded-lg font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-all">Details</button>
+</div>
+</div>
+</div>
+<!-- Impact Tile 1 (Bento span 5) -->
+<div class="md:col-span-5 bg-tertiary-container text-on-tertiary-container rounded-xl p-lg flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] mb-md" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-xs">4,200+</div>
+<div class="font-label-xs-bold text-label-xs-bold uppercase tracking-widest opacity-80">Local Farmers Supported</div>
+<p class="mt-md font-body-md text-body-md px-md">Through our regional marketplace, we ensure fair-trade distribution of organic produce across Nepal.</p>
+</div>
+<!-- Adventure Card 1 (Bento span 4) -->
+<div class="md:col-span-4 group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm hover:translate-y-[-4px] transition-all">
+<div class="h-48 overflow-hidden relative">
+<div class="w-full h-full scale-105 group-hover:scale-100 transition-transform duration-700" data-alt="A portrait-style image of an elderly Nepalese woman with kind, weathered hands kneading dough in a traditional outdoor kitchen. The lighting is soft and golden, highlighting the fine textures of her face and the flour-dusted surface. The mood is respectful and deeply personal, emphasizing human connection and heritage craft. Earthy, warm lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5It3isJtz05JPaPuf6E9wqy4Qc6p-LohjUhIatO6oBGMHgtQ3oxuwlLK4EvkyzC_nNXwmw0z5JFS5hqyNXfLq10-KffGxHtduAUcbYJwjqvwwxhYwM4RLhHNcYg9L3aYLNmzDoj_kTkA_PJ_euG3e8TdWsVNdQbHx5kSYxDvPvuCQpJsl5GT6TrlG-K6CPx-tAp9I_GofBi3FucuQXvM9i-D8g-gdf6YzJEOJBbHoh8B581niTPCN7lJJOYHw0EAeauqVhtlebbk')"></div>
+<div class="absolute top-sm right-sm bg-white/90 backdrop-blur-sm p-xs rounded-full shadow-md">
+<span class="material-symbols-outlined text-dhaka-red">favorite</span>
+</div>
+</div>
+<div class="p-md">
+<h4 class="font-headline-md text-on-surface text-[18px]">The Potter’s Hearth</h4>
+<p class="text-on-surface-variant font-body-sm-italic text-body-sm-italic mb-sm">Bhaktapur, Kathmandu Valley</p>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-impact-teal text-[16px]">school</span>
+<span class="text-label-sm font-label-sm text-impact-teal">Supports local school</span>
+</div>
+</div>
+</div>
+<!-- Adventure Card 2 (Bento span 4) -->
+<div class="md:col-span-4 group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm hover:translate-y-[-4px] transition-all">
+<div class="h-48 overflow-hidden relative">
+<div class="w-full h-full scale-105 group-hover:scale-100 transition-transform duration-700" data-alt="A stunning outdoor scene of a modern, minimalist treehouse-style lodge built using traditional Himalayan bamboo and local stone. It overlooks a mist-covered river gorge at sunset. The architectural lighting is warm and subtle, integrating with the natural environment. A sophisticated blend of organic textures and contemporary design." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOHWfVSeeK7XyyzQjTOiOkscLg54_jzaUiZz-8bJQq8xKbMlxNYLHq6Wg2JQLikhGKNkmvyfxVvGnVeeDCicFJNFXdLHcuT7QkNiNlXFe1W_UhoyuTEPkciwul36YghXH2RFJEqfgoLc4h3wBgHSeOnt-NVed1vy8prmRywB2KgPCkUTKS9WfgfpUZiaek8WoKfED1RmsS7I0JdOLVMQDAJNkaVPnCqE_BxuMo-UNdZDrAU1Dk2wvazarPZuR2EzoTuljdrBogEa8')"></div>
+</div>
+<div class="p-md">
+<h4 class="font-headline-md text-on-surface text-[18px]">River Bend Retreat</h4>
+<p class="text-on-surface-variant font-body-sm-italic text-body-sm-italic mb-sm">Balthali, Kavre</p>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-impact-teal text-[16px]">water_drop</span>
+<span class="text-label-sm font-label-sm text-impact-teal">Clean water project</span>
+</div>
+</div>
+</div>
+<!-- Impact Tile 2 (Bento span 4) -->
+<div class="md:col-span-4 bg-dhaka-red text-on-primary rounded-xl p-md flex flex-col justify-between border-t-4 border-white/20">
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-white/80">Journey Progress</h4>
+<p class="font-headline-md text-headline-md mt-xs">Community Seed Bank</p>
+</div>
+<div class="mt-lg">
+<div class="flex justify-between text-label-xs-bold mb-xs">
+<span>$12,450 Raised</span>
+<span>82%</span>
+</div>
+<div class="w-full h-2 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-white w-[82%]"></div>
+</div>
+</div>
+<p class="mt-md text-white/90 text-label-sm">Preserving 14 rare heirloom grain varieties from the Humla district.</p>
+</div>
+</div>
+</section>
+<!-- Atmosphere Banner -->
+<section class="w-full py-xl bg-surface-container-low border-y border-outline-variant/20 relative overflow-hidden">
+<!-- Decorative Dhaka Pattern Background -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #b32821 0px, #b32821 10px, transparent 10px, transparent 20px);"></div>
+<div class="max-w-screen-xl mx-auto px-margin-mobile text-center relative z-10">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-earth-brown mb-md">"Food is the most primitive form of comfort."</h2>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant italic">— Aama Laxmi, Founder of Ghandruk Women's Cooperative</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg bg-surface-container-highest dark:bg-inverse-surface border-t border-dhaka-red/20 font-body-sm-italic text-body-sm-italic text-on-surface dark:text-inverse-on-surface">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto gap-lg">
+<div class="text-center md:text-left">
+<div class="font-display-lg-mobile text-display-lg-mobile text-dhaka-red mb-xs">Aama's Kitchen</div>
+<p class="max-w-xs opacity-70">Empowering local families through sustainable, heritage-driven tourism across the Himalayan range.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Sustainability</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Host Login</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Contact</a>
+</div>
+<div class="flex flex-col items-center md:items-end">
+<div class="flex space-x-sm mb-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-dhaka-red transition-colors">public</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-dhaka-red transition-colors">volunteer_activism</button>
+</div>
+<p class="text-on-surface-variant opacity-60">© 2024 Aama's Kitchen. Authentic Himalayan Hospitality.</p>
+</div>
+</div>
+</footer>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth reveal for sections
+            const observerOptions = {
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>

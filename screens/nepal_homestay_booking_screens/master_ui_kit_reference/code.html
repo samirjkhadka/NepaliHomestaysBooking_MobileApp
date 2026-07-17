@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen | Design System Master Kit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .grainy-surface {
+            background-color: #fbf9f4;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .dhaka-pattern {
+            background: repeating-linear-gradient(
+                45deg,
+                #b32821,
+                #b32821 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            height: 4px;
+            width: 100%;
+        }
+        .dhaka-divider {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, #e2beba 50%, transparent);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f5f3ee;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #8e706c;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdad5",
+                        "on-tertiary-container": "#8abbd4",
+                        "on-error": "#ffffff",
+                        "on-background": "#1b1c19",
+                        "on-secondary-fixed-variant": "#7c2e18",
+                        "inverse-surface": "#30312e",
+                        "inverse-primary": "#ffb4aa",
+                        "tertiary-fixed-dim": "#9ccee7",
+                        "inverse-on-surface": "#f2f1ec",
+                        "tertiary-container": "#134c61",
+                        "primary-container": "#900a0c",
+                        "on-primary": "#ffffff",
+                        "earth-brown": "#5a413d",
+                        "on-tertiary-fixed-variant": "#144c61",
+                        "surface-grain": "#fbf9f4",
+                        "surface-bright": "#fbf9f4",
+                        "surface-container-low": "#f5f3ee",
+                        "surface": "#fbf9f4",
+                        "on-surface": "#1b1c19",
+                        "surface-variant": "#e4e2dd",
+                        "primary": "#680003",
+                        "on-error-container": "#93000a",
+                        "background": "#fbf9f4",
+                        "surface-container-high": "#eae8e3",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "secondary": "#9a442d",
+                        "on-secondary-container": "#752814",
+                        "on-primary-fixed-variant": "#910b0c",
+                        "secondary-fixed": "#ffdbd2",
+                        "surface-tint": "#b32821",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-surface-variant": "#5a413d",
+                        "outline": "#8e706c",
+                        "tertiary-fixed": "#bee9ff",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "on-primary-container": "#ff998c",
+                        "surface-container": "#f0eee9",
+                        "surface-dim": "#dbdad5",
+                        "secondary-container": "#fd9174",
+                        "tertiary": "#003546",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "dhaka-red": "#b32821",
+                        "outline-variant": "#e2beba",
+                        "on-primary-fixed": "#410001",
+                        "on-tertiary-fixed": "#001f2a",
+                        "impact-teal": "#316479",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "margin-desktop": "64px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-sm-italic": ["Manrope"],
+                        "label-xs-bold": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm-italic": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-xs-bold": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="grainy-surface text-on-surface custom-scrollbar selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Top Navigation Anchor -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-surface-dim border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile py-sm md:px-margin-desktop">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-inverse-primary tracking-tight">Aama's Kitchen <span class="text-on-surface-variant font-label-sm text-label-sm ml-2 opacity-60">v1.0 UI Kit</span></h1>
+<div class="hidden md:flex gap-md items-center">
+<span class="font-label-sm text-label-sm text-primary font-bold">Design Tokens</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container transition-colors px-2 py-1 rounded">Components</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container transition-colors px-2 py-1 rounded">Guide</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+</div>
+<button class="md:hidden p-2 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="max-w-screen-xl mx-auto px-margin-mobile md:px-margin-desktop py-lg space-y-xl">
+<!-- Design Tokens Section -->
+<section class="space-y-md" id="tokens">
+<div class="flex items-end gap-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Core Tokens</h2>
+<div class="flex-grow h-px bg-outline-variant/30 mb-2"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+<div class="space-y-xs">
+<div class="h-16 w-full rounded-xl bg-primary border border-outline-variant/20"></div>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Madder Red</p>
+<p class="font-body-sm-italic text-body-sm-italic text-outline opacity-70">#680003</p>
+</div>
+<div class="space-y-xs">
+<div class="h-16 w-full rounded-xl bg-secondary border border-outline-variant/20"></div>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Stone Grey</p>
+<p class="font-body-sm-italic text-body-sm-italic text-outline opacity-70">#9a442d</p>
+</div>
+<div class="space-y-xs">
+<div class="h-16 w-full rounded-xl bg-surface-grain border border-outline-variant/20"></div>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Cream</p>
+<p class="font-body-sm-italic text-body-sm-italic text-outline opacity-70">#fbf9f4</p>
+</div>
+<div class="space-y-xs">
+<div class="h-16 w-full rounded-xl bg-impact-teal border border-outline-variant/20"></div>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Impact Teal</p>
+<p class="font-body-sm-italic text-body-sm-italic text-outline opacity-70">#316479</p>
+</div>
+<div class="space-y-xs">
+<div class="h-16 w-full rounded-xl bg-earth-brown border border-outline-variant/20"></div>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Earth Brown</p>
+<p class="font-body-sm-italic text-body-sm-italic text-outline opacity-70">#5a413d</p>
+</div>
+<div class="space-y-xs">
+<div class="h-16 w-full rounded-xl bg-dhaka-red border border-outline-variant/20"></div>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Dhaka Red</p>
+<p class="font-body-sm-italic text-body-sm-italic text-outline opacity-70">#b32821</p>
+</div>
+</div>
+</section>
+<!-- Buttons Section -->
+<section class="space-y-md" id="buttons">
+<div class="flex items-end gap-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Interactions</h2>
+<div class="flex-grow h-px bg-outline-variant/30 mb-2"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Primary Column -->
+<div class="space-y-md p-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Primary Actions</h3>
+<div class="flex flex-col gap-sm">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm py-3 px-6 rounded-lg active:scale-95 transition-transform flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">explore</span>
+                            Start Journey
+                        </button>
+<button class="bg-primary/80 text-on-primary font-label-sm text-label-sm py-3 px-6 rounded-lg cursor-not-allowed opacity-50 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">lock</span>
+                            Locked Path
+                        </button>
+</div>
+</div>
+<!-- Secondary Column -->
+<div class="space-y-md p-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Secondary &amp; Tonal</h3>
+<div class="flex flex-col gap-sm">
+<button class="bg-surface-container-highest text-primary border border-primary/20 font-label-sm text-label-sm py-3 px-6 rounded-lg active:scale-95 transition-transform flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">menu_book</span>
+                            View Stories
+                        </button>
+<button class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm py-3 px-6 rounded-lg active:scale-95 transition-transform flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">local_mall</span>
+                            Marketplace
+                        </button>
+</div>
+</div>
+<!-- Ghost Column -->
+<div class="space-y-md p-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Ghost &amp; Subtle</h3>
+<div class="flex flex-col gap-sm">
+<button class="text-primary hover:bg-primary/5 font-label-sm text-label-sm py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">share</span>
+                            Share Tradition
+                        </button>
+<button class="text-on-surface-variant font-body-md text-body-md py-3 px-6 rounded-lg flex items-center justify-center gap-xs group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            Learn More
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Form Elements -->
+<section class="space-y-md" id="inputs">
+<div class="flex items-end gap-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Input Controls</h2>
+<div class="flex-grow h-px bg-outline-variant/30 mb-2"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Text Fields -->
+<div class="space-y-gutter">
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-on-surface ml-1">Journey Destination (Default)</label>
+<input class="w-full bg-surface-container-lowest border-outline-variant rounded-lg p-3 text-body-md font-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-outline/50" placeholder="e.g. Annapurna Base Camp" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-primary ml-1">Current Focus (Active)</label>
+<input class="w-full bg-surface-container-lowest border-primary border-2 rounded-lg p-3 text-body-md font-body-md outline-none" type="text" value="Kathmandu Valley Exploration"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-sm text-label-sm text-error ml-1">Validation Error</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-error border rounded-lg p-3 text-body-md font-body-md outline-none" type="text" value="Invalid Location"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-error">error</span>
+</div>
+<p class="font-label-xs-bold text-label-xs-bold text-error mt-1 ml-1">This region requires a special permit.</p>
+</div>
+</div>
+<!-- Selection Controls -->
+<div class="space-y-gutter flex flex-col justify-center">
+<div class="bg-surface-container-low p-md rounded-xl space-y-md border border-outline-variant/20">
+<h3 class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Travel Preferences</h3>
+<div class="space-y-sm">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-lowest" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Sustainable Lodging</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-lowest" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Cultural Workshops</span>
+</label>
+</div>
+<div class="dhaka-divider"></div>
+<div class="space-y-sm">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input checked="" class="w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-surface-container-lowest" name="travel_mode" type="radio"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Solo Explorer</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-surface-container-lowest" name="travel_mode" type="radio"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Guided Group</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Information Cards -->
+<section class="space-y-md" id="cards">
+<div class="flex items-end gap-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Information Architecture</h2>
+<div class="flex-grow h-px bg-outline-variant/30 mb-2"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Homestay Card -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(104,0,3,0.04)] border border-outline-variant/20 flex flex-col hover:translate-y-[-4px] transition-transform duration-300">
+<div class="dhaka-pattern"></div>
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A warm, inviting traditional Nepalese homestay room with hand-woven textile blankets, wooden carvings, and a window overlooking the misty Himalayan foothills during sunset. The lighting is golden and soft, capturing a sense of cozy modern heritage and authentic hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwKy6SV3u9u6huJiYvG69lZRSJw6qewDomPdqr49qvO4JQJxImoO_5S05sZJqJv_Zj7lCXjfKcJUV8yQQhHDVdtLb8_rL0BXEfpC92ALoxUAikgGhDSk9KVf3vOhc18AVYuzYW6bAPCust4-NCm1QDZHLYOpli73325siejOtQyOzU3T2q4SgmRFd7lgUSGH-DN0vVESlbtS6HRv3NWaklw4hlDpPijeVS0I9t1BbG0VJr4FbIbpw9FcZYbp5CTltQkjLH9053npY"/>
+<div class="absolute top-3 right-3 bg-surface/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold">4.9</span>
+</div>
+</div>
+<div class="p-md space-y-xs flex-grow">
+<p class="font-label-xs-bold text-label-xs-bold text-secondary uppercase">Dhampus Village</p>
+<h4 class="font-headline-md text-headline-md leading-tight">Aama's Hilltop Retreat</h4>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">Experience authentic Gurung hospitality with home-cooked meals.</p>
+</div>
+<div class="p-md pt-0">
+<button class="w-full py-2 bg-surface-container-highest text-primary font-label-sm text-label-sm rounded-lg hover:bg-primary hover:text-on-primary transition-all">Check Availability</button>
+</div>
+</div>
+<!-- Experience Card -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(104,0,3,0.04)] border border-outline-variant/20 flex flex-col group">
+<div class="p-md space-y-md">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-container">temple_hindu</span>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full font-label-xs-bold text-label-xs-bold">POPULAR</span>
+</div>
+<div class="space-y-xs">
+<h4 class="font-headline-md text-headline-md">Pottery in Bhaktapur</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">A 4-hour hands-on session with a master artisan in the ancient city square.</p>
+</div>
+<div class="flex items-center gap-md pt-2">
+<div class="flex flex-col">
+<span class="font-label-xs-bold text-label-xs-bold text-outline">DURATION</span>
+<span class="font-label-sm text-label-sm">4 Hours</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs-bold text-label-xs-bold text-outline">COST</span>
+<span class="font-label-sm text-label-sm">Rs. 2,500</span>
+</div>
+</div>
+</div>
+<div class="mt-auto bg-surface-container p-sm flex items-center justify-between group-hover:bg-primary transition-colors">
+<span class="font-label-sm text-label-sm text-primary group-hover:text-on-primary">Book Experience</span>
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Impact Card -->
+<div class="bg-impact-teal rounded-xl p-md text-on-tertiary flex flex-col justify-between relative overflow-hidden shadow-xl">
+<div class="absolute -right-8 -top-8 opacity-10">
+<span class="material-symbols-outlined text-[160px]">eco</span>
+</div>
+<div class="space-y-xs relative z-10">
+<span class="material-symbols-outlined text-tertiary-fixed text-3xl">volunteer_activism</span>
+<h4 class="font-headline-md text-headline-md">Your Impact</h4>
+<p class="font-body-sm-italic text-body-sm-italic text-tertiary-fixed">Sustainable contributions through Aama's platform.</p>
+</div>
+<div class="grid grid-cols-2 gap-sm mt-lg relative z-10">
+<div class="bg-white/10 backdrop-blur-sm p-sm rounded-lg">
+<span class="block font-display-lg-mobile text-display-lg-mobile leading-none">12</span>
+<span class="font-label-xs-bold text-label-xs-bold uppercase text-tertiary-fixed">Trees Planted</span>
+</div>
+<div class="bg-white/10 backdrop-blur-sm p-sm rounded-lg">
+<span class="block font-display-lg-mobile text-display-lg-mobile leading-none">4</span>
+<span class="font-label-xs-bold text-label-xs-bold uppercase text-tertiary-fixed">Local Families</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Badges & Chips -->
+<section class="space-y-md" id="badges">
+<div class="flex items-end gap-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Identity Markers</h2>
+<div class="flex-grow h-px bg-outline-variant/30 mb-2"></div>
+</div>
+<div class="bg-surface-container-low p-lg rounded-2xl flex flex-wrap gap-md items-center border border-outline-variant/20">
+<!-- Level Badge -->
+<div class="flex items-center bg-surface-container-lowest rounded-full pr-4 pl-1 py-1 shadow-sm border border-outline-variant/30">
+<div class="w-8 h-8 rounded-full bg-dhaka-red text-on-primary flex items-center justify-center font-bold text-sm">4</div>
+<span class="ml-2 font-label-sm text-label-sm text-on-surface">Pathfinder Level</span>
+</div>
+<!-- Heritage Protector -->
+<div class="flex items-center gap-xs px-4 py-2 rounded-full bg-secondary text-on-secondary shadow-md">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Heritage Protector</span>
+</div>
+<!-- Status Chips -->
+<div class="px-4 py-1.5 rounded-full border-2 border-primary text-primary font-label-sm text-label-sm">
+                    Active Journey
+                </div>
+<div class="px-4 py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">lock_open</span>
+                    Unlocked
+                </div>
+<div class="px-4 py-1.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">verified</span>
+                    Artisan Verified
+                </div>
+<!-- Journey Tracker (Compact) -->
+<div class="flex flex-col gap-1 min-w-[200px]">
+<div class="flex justify-between font-label-xs-bold text-label-xs-bold text-outline uppercase">
+<span>Journey Progress</span>
+<span>75%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Himalayan Icons -->
+<section class="space-y-md" id="icons">
+<div class="flex items-end gap-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Custom Icon Suite</h2>
+<div class="flex-grow h-px bg-outline-variant/30 mb-2"></div>
+</div>
+<div class="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-gutter text-center">
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">terrain</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Himalayas</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">skillet</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Kitchen</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">temple_hindu</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Temple</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">footprint</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Trek</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">local_mall</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Pottery</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">eco</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Organic</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">landscape</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Vista</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">prayer_times</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Prayer</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">festival</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Heritage</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">volunteer_activism</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Aama</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">explore</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Guide</p>
+</div>
+<div class="p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary text-3xl">local_florist</span>
+<p class="font-label-xs-bold text-label-xs-bold mt-1 text-outline">Flora</p>
+</div>
+</div>
+</section>
+<!-- Footer Spacer -->
+<div class="h-xl"></div>
+</main>
+<!-- Floating UI Navigation Anchor -->
+<nav class="fixed bottom-0 left-0 w-full bg-surface dark:bg-surface-container-lowest border-t border-outline-variant/20 shadow-[0_-4px_12px_rgba(179,40,33,0.05)] flex justify-around items-center px-4 pb-4 pt-2 z-50 md:hidden">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1.5">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-4 py-1.5">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard_customize</span>
+<span class="font-label-sm text-label-sm">UI Kit</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1.5">
+<span class="material-symbols-outlined">local_mall</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1.5">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions and UI Logic
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if(this.classList.contains('cursor-not-allowed')) return;
+                
+                const ripple = document.createElement('div');
+                ripple.className = 'ripple absolute rounded-full bg-white/20 pointer-events-none transform scale-0 animate-ping';
+                ripple.style.left = `${e.clientX - this.getBoundingClientRect().left}px`;
+                ripple.style.top = `${e.clientY - this.getBoundingClientRect().top}px`;
+                ripple.style.width = ripple.style.height = '100px';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Sticky Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md', 'backdrop-blur-md', 'bg-surface/90');
+            } else {
+                header.classList.remove('shadow-md', 'backdrop-blur-md', 'bg-surface/90');
+            }
+        });
+    </script>
+</body></html>

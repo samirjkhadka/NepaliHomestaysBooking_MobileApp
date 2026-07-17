@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking History | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Manrope:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f0eee9",
+                        "on-primary-fixed": "#410001",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "on-secondary-container": "#742814",
+                        "on-background": "#1b1c19",
+                        "primary-fixed": "#ffdad5",
+                        "surface-dim": "#dbdad5",
+                        "surface-container-high": "#eae8e3",
+                        "secondary-fixed": "#ffdbd2",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "surface-tint": "#b32821",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#8e706c",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fc9174",
+                        "on-primary-container": "#ffccc6",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e2dd",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "surface": "#fbf9f4",
+                        "surface-bright": "#fbf9f4",
+                        "on-surface": "#1b1c19",
+                        "tertiary-fixed": "#bde9ff",
+                        "secondary": "#9a442d",
+                        "outline-variant": "#e2beba",
+                        "primary-container": "#b32821",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e4e2dd",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#30312e",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#addff8",
+                        "background": "#fbf9f4",
+                        "on-primary-fixed-variant": "#910a0c",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "primary": "#900a0c",
+                        "on-surface-variant": "#5a413d",
+                        "inverse-primary": "#ffb4aa",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#316479",
+                        "on-secondary-fixed": "#3c0800",
+                        "tertiary": "#134c61"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(#900a0c 0.5px, transparent 0.5px), radial-gradient(#900a0c 0.5px, #fbf9f4 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+        .active-tab-indicator {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+                menu
+            </button>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary dark:text-primary-fixed tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+                account_circle
+            </button>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-margin-mobile md:px-margin-desktop pt-8">
+<!-- Page Title -->
+<div class="mb-8">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background">Your Journeys</h2>
+<p class="text-on-surface-variant font-body-md mt-2">Manage your stays in the heart of the Himalayas.</p>
+</div>
+<!-- Booking Navigation Tabs -->
+<div class="relative bg-surface-container-low p-1 rounded-xl flex mb-8 w-fit mx-auto md:mx-0">
+<button class="relative z-10 px-8 py-2 font-label-sm text-label-sm transition-colors duration-300 text-on-primary" id="tab-upcoming" onclick="switchTab('upcoming')">
+                Upcoming
+            </button>
+<button class="relative z-10 px-8 py-2 font-label-sm text-label-sm transition-colors duration-300 text-on-surface-variant" id="tab-past" onclick="switchTab('past')">
+                Past
+            </button>
+<div class="absolute top-1 left-1 h-[calc(100%-8px)] w-[calc(50%-4px)] bg-primary-container rounded-lg active-tab-indicator shadow-sm" id="tab-indicator"></div>
+</div>
+<!-- Upcoming Section -->
+<div class="grid grid-cols-1 gap-6" id="upcoming-content">
+<!-- Upcoming Card 1 -->
+<div class="group relative overflow-hidden bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col md:flex-row hover:shadow-[0_8px_24px_rgba(179,40,33,0.08)] transition-all duration-300">
+<div class="relative h-48 md:h-auto md:w-72 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A warm, inviting Himalayan homestay nestled in a lush green valley with terraced hills in the background. The architecture features traditional stone walls and wooden carvings, under the soft morning sunlight of a clear blue sky. High-quality travel photography style with vibrant earthy tones and a peaceful, serene atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChwj38lE0Q6tQ88Ggwtf2ikTAN8TCHRFjvUvACseGF9KeFNxGwrXCgX7jwMeQlvXlXO3MngUUayeV1vQXtQhlmEGDrDoypwXspO2ceQb-odv3Ih2R7pxrKX4WGZrMk-lZJ-lnpGh1IWY2UiUZfHfox_EW8rJMkDoBklRVVTeHtsit67kBDjgjahBOpDjE_oZdREMmkodL-Qn7C8Mp1dNWzM4MLJanKCTbLzig_8c1lk5jckbW0NagdoBGp019_hMTwd8lsmwVVVmw"/>
+<div class="absolute top-3 left-3 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-[11px] uppercase tracking-wider">Upcoming</div>
+</div>
+<div class="p-6 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Riverside Aama’s Cottage</h3>
+<span class="font-headline-md text-headline-md text-primary">$450</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-body-md text-body-md">Oct 12 – Oct 18, 2023</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-on-surface-variant text-[12px] font-label-sm">2 Guests</span>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-on-surface-variant text-[12px] font-label-sm">Breakfast Incl.</span>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 md:flex-none px-6 py-2 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm hover:brightness-110 active:scale-95 transition-all">View Details</button>
+<button class="flex-1 md:flex-none px-6 py-2 border border-outline text-on-surface-variant rounded-lg font-label-sm text-label-sm hover:bg-surface-container transition-all">Modify</button>
+</div>
+</div>
+<div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">more_vert</span>
+</div>
+</div>
+</div>
+<!-- Past Section (Hidden by default) -->
+<div class="hidden grid grid-cols-1 gap-6" id="past-content">
+<!-- Past Card 1 -->
+<div class="group relative overflow-hidden bg-surface-container border border-outline-variant rounded-xl flex flex-col md:flex-row opacity-90 hover:opacity-100 transition-all duration-300">
+<div class="relative h-48 md:h-auto md:w-72 overflow-hidden grayscale-[30%]">
+<img class="w-full h-full object-cover" data-alt="Interior of a traditional Nepali kitchen with a glowing clay hearth, brass pots, and hand-woven rugs. The mood is cozy and authentic, lit by warm amber firelight. Minimalist yet tactile aesthetic, celebrating local craftsmanship and mountain heritage colors of terracotta and deep wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsw4lcNNSMwxwD6hMiJErdPc_1mH0Lrury_mnPoaGvfSld2DyvtmHPxaXzG634m2MdT0VfSXDctCwbk2lgC0l0ADI8h6x7aaxxQlq8L0q4kkgEMoLRirn3-CmHfxRgsI1NKNb5RPLCHVtyEjOHtscWudj69daDMfFeiPj94w8jOQEa67DnkmxZQ57TcCX-a5rcSNyP95GuMwxG4OwDWXBPh3L463zwwgUPySxJoNg1ehYLFcp10SXB2gkqn1wg2b0Ua41UDW_2AjA"/>
+<div class="absolute top-3 left-3 bg-surface-dim text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-[11px] uppercase tracking-wider">Completed</div>
+</div>
+<div class="p-6 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Annapurna Hearth Home</h3>
+<span class="font-headline-md text-headline-md text-on-surface-variant">$320</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[18px]">event_available</span>
+<span class="font-body-md text-body-md">Aug 05 – Aug 09, 2023</span>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-2 font-label-sm text-label-sm text-on-surface-variant">Your Review</span>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="px-6 py-2 bg-secondary text-on-secondary rounded-lg font-label-sm text-label-sm hover:brightness-110 transition-all">Book Again</button>
+<button class="px-6 py-2 border border-outline text-on-surface-variant rounded-lg font-label-sm text-label-sm hover:bg-surface-container transition-all">Invoice</button>
+</div>
+</div>
+</div>
+<!-- Cancelled Card -->
+<div class="group relative overflow-hidden bg-surface-container-low border border-outline-variant/30 rounded-xl flex flex-col md:flex-row opacity-60">
+<div class="relative h-48 md:h-auto md:w-72 overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="A misty mountain view from a wooden balcony, with clouds rolling through pine trees. The atmosphere is quiet and ethereal, with cool blue and grey tones dominating the palette. A sense of a missed opportunity or a quiet moment in nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjIknuJLzX3SgXqDtGt86tYDM88cavuWwxwKhBMUOQPH1mVUYLAYwz6ErXQlGy7KQHTY3tdM5i9iZ4KjREah7i6HcmJz--Naj6ejpwyhoYYUI37Ln1sna9kiPlOP4u-QtFj0h3LdUf6-tEGOKjUoL_Dtqf3b-XpcDtW2FB-Qr_clJkEaMvd3uyfi2X_vHQvjOKfeZiaWZwIoQIfmDNpg3kI4uAxU12sE6UJ0bFn0G67wvm9vZo6okVR4BSEygZYnor0Yc8LUWmeJc"/>
+<div class="absolute top-3 left-3 bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-sm text-[11px] uppercase tracking-wider">Cancelled</div>
+</div>
+<div class="p-6 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface-variant">Lakeside Heritage Inn</h3>
+<span class="font-headline-md text-headline-md text-on-surface-variant line-through">$210</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+<span class="font-body-md text-body-md">Jul 20 – Jul 22, 2023</span>
+</div>
+<p class="text-[12px] text-error">Cancelled by guest on Jul 15. Full refund processed.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface-container-lowest dark:bg-surface-container-high shadow-sm md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Decorative Pattern Background -->
+<div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden opacity-20">
+<div class="absolute -top-24 -right-24 w-96 h-96 dhaka-pattern rounded-full"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 dhaka-pattern rounded-full"></div>
+</div>
+<script>
+        function switchTab(tab) {
+            const indicator = document.getElementById('tab-indicator');
+            const upcomingBtn = document.getElementById('tab-upcoming');
+            const pastBtn = document.getElementById('tab-past');
+            const upcomingContent = document.getElementById('upcoming-content');
+            const pastContent = document.getElementById('past-content');
+
+            if (tab === 'upcoming') {
+                indicator.style.transform = 'translateX(0)';
+                upcomingBtn.classList.add('text-on-primary');
+                upcomingBtn.classList.remove('text-on-surface-variant');
+                pastBtn.classList.remove('text-on-primary');
+                pastBtn.classList.add('text-on-surface-variant');
+                
+                upcomingContent.classList.remove('hidden');
+                pastContent.classList.add('hidden');
+            } else {
+                indicator.style.transform = 'translateX(calc(100% + 4px))';
+                pastBtn.classList.add('text-on-primary');
+                pastBtn.classList.remove('text-on-surface-variant');
+                upcomingBtn.classList.remove('text-on-primary');
+                upcomingBtn.classList.add('text-on-surface-variant');
+
+                upcomingContent.classList.add('hidden');
+                pastContent.classList.remove('hidden');
+            }
+        }
+    </script>
+</body></html>

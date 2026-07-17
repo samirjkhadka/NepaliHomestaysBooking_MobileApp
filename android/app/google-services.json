@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "14588631652",
+    "project_id": "nepali-homestays",
+    "storage_bucket": "nepali-homestays.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14588631652:android:ad585ec8275a3111659d71",
+        "android_client_info": {
+          "package_name": "com.himalayanfoxtechnology.nepali_homestays"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0_z8w4euh2iu8nI-Q3XfALFYmpG9o6io"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

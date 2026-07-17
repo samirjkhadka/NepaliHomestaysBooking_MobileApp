@@ -1,41 +1,29 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
 
-# dependencies
-node_modules/
+# IDE
+.idea/
+*.iml
+.vscode/
 
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
+# Misc
+.DS_Store
+*.log
 
-# Native
-.kotlin/
-*.orig.*
+# Native secrets
 *.jks
+*.keystore
 *.p8
 *.p12
-*.key
 *.mobileprovision
+key.properties
 
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
-.DS_Store
-*.pem
-
-# local env files
-.env*.local
-
-# typescript
-*.tsbuildinfo
-
-# generated native folders
-/ios
-/android
+# Screens design pack can stay tracked; ignore local OS junk
+**/.DS_Store

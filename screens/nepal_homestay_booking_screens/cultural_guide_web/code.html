@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen | Himalayan Cultural Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .dhaka-pattern-divider {
+            height: 2px;
+            background: linear-gradient(90deg, #b32821 0%, #b32821 25%, #ffffff 25%, #ffffff 50%, #b32821 50%, #b32821 75%, #ffffff 75%, #ffffff 100%);
+            background-size: 8px 100%;
+        }
+        .grainy-surface {
+            background-color: #fbf9f4;
+            background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
+        }
+        .text-dhaka-red { color: #b32821; }
+        .bg-dhaka-red { background-color: #b32821; }
+        .border-dhaka-red { border-color: #b32821; }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+    </style>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#dbdad5",
+                      "outline-variant": "#e2beba",
+                      "on-surface": "#1b1c19",
+                      "on-primary-fixed": "#410001",
+                      "surface": "#fbf9f4",
+                      "impact-teal": "#316479",
+                      "on-tertiary-fixed-variant": "#144c61",
+                      "dhaka-red": "#b32821",
+                      "tertiary-fixed": "#bee9ff",
+                      "surface-container": "#f0eee9",
+                      "secondary": "#9a442d",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#ffdbd2",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#900a0c",
+                      "outline": "#8e706c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#7c2e18",
+                      "surface-container-highest": "#e4e2dd",
+                      "background": "#fbf9f4",
+                      "inverse-on-surface": "#f2f1ec",
+                      "tertiary": "#003546",
+                      "earth-brown": "#5a413d",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-container": "#8abbd4",
+                      "on-secondary-fixed": "#3c0800",
+                      "inverse-surface": "#30312e",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "on-secondary-container": "#752814",
+                      "on-background": "#1b1c19",
+                      "on-surface-variant": "#5a413d",
+                      "on-tertiary-fixed": "#001f2a",
+                      "surface-container-low": "#f5f3ee",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#9ccee7",
+                      "surface-tint": "#b32821",
+                      "surface-bright": "#fbf9f4",
+                      "inverse-primary": "#ffb4aa",
+                      "on-primary-container": "#ff998c",
+                      "secondary-fixed-dim": "#ffb4a1",
+                      "on-secondary": "#ffffff",
+                      "primary": "#680003",
+                      "surface-variant": "#e4e2dd",
+                      "secondary-container": "#fd9174",
+                      "primary-fixed": "#ffdad5",
+                      "on-primary-fixed-variant": "#910b0c",
+                      "surface-container-high": "#eae8e3",
+                      "surface-grain": "#fbf9f4",
+                      "tertiary-container": "#134c61"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "lg": "48px",
+                      "gutter": "20px",
+                      "xl": "80px",
+                      "margin-desktop": "64px",
+                      "base": "8px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Manrope"],
+                      "body-md": ["Manrope"],
+                      "label-xs-bold": ["Manrope"],
+                      "display-lg": ["Be Vietnam Pro"],
+                      "body-sm-italic": ["Manrope"],
+                      "display-lg-mobile": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Manrope"]
+              },
+              "fontSize": {
+                      "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-xs-bold": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm-italic": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="grainy-surface text-on-surface selection:bg-dhaka-red/20">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop py-base max-w-screen-xl mx-auto">
+<div class="font-display-lg text-display-lg text-dhaka-red dark:text-primary-fixed-dim">Aama's Kitchen</div>
+<div class="hidden md:flex items-center space-x-md">
+<a class="font-body-md text-body-md text-dhaka-red font-bold border-b-2 border-dhaka-red pb-1" href="#">Explore</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Experiences</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Marketplace</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Community</a>
+</div>
+<div class="flex items-center space-x-sm">
+<span class="material-symbols-outlined text-on-surface-variant p-2 cursor-pointer hover:bg-surface-container-high/50 rounded-full transition-all">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant p-2 cursor-pointer hover:bg-surface-container-high/50 rounded-full transition-all">account_circle</span>
+<button class="bg-dhaka-red text-on-primary font-label-sm text-label-sm px-md py-2 rounded-lg hover:scale-95 active:scale-90 transition-transform">Book Now</button>
+</div>
+</nav>
+</header>
+<main class="max-w-screen-xl mx-auto flex min-h-screen relative">
+<!-- SideNav (Heritage Tracking) -->
+<aside class="hidden lg:flex h-[calc(100vh-80px)] w-72 sticky top-20 flex-col p-md space-y-md border-r border-outline-variant/20">
+<div class="bg-surface-container-low rounded-xl p-md">
+<div class="flex items-center space-x-sm mb-base">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A portrait of a warm, smiling young traveler with a leather journal, wearing a traditional handmade wool scarf. The lighting is golden and soft, set against a blurred Himalayan village background. The image has a clean, tactile documentary style with rich earthy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLP6oYVeuWRpCSQYvEVJQOQj3a8RHR3hf7Npr7QaM9Z24ohX-aXuIN0m9yjx2qko8k_Qaq6ahF1cEwZ_p2wGRIZTNH8WA8MoY6kMVc-CJKy0abK56_JdZSJxuZmf6yKeCFZ9u5tnxdwklml7cH8jwQREuWg8Q8LYRT_5ww9nPOgR0T9x3FK92NRvHKzulFRZJFuCsnuPIRzF1x5FqHyXJvqTLDYoNrUcNIVaQJ_RRBG9xfkDfsr-T1hRREiX5sQBlJ0PJLFRAa-40"/>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-dhaka-red">Welcome, Traveler</div>
+<div class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">Himalayan Hearth Member</div>
+</div>
+</div>
+<!-- Journey Tracker -->
+<div class="mt-md">
+<div class="flex justify-between items-end mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface">Cultural IQ</span>
+<span class="font-label-xs-bold text-label-xs-bold text-dhaka-red">75%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-dhaka-red w-[75%]"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col space-y-xs">
+<a class="flex items-center space-x-sm p-sm bg-secondary-container text-on-secondary-container rounded-lg font-bold translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label-sm text-label-sm">Cultural Guide</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-label-sm text-label-sm">My Bookings</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Favorites</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-sm text-label-sm">Messages</span>
+</a>
+</div>
+<div class="pt-md">
+<div class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase tracking-widest mb-sm">Heritage Badges</div>
+<div class="grid grid-cols-3 gap-base">
+<div class="aspect-square bg-surface-container-high rounded-lg flex items-center justify-center group cursor-pointer" title="Tea Master">
+<span class="material-symbols-outlined text-dhaka-red scale-110 group-hover:scale-125 transition-transform" style="font-variation-settings: 'FILL' 1;">local_cafe</span>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg flex items-center justify-center group cursor-pointer" title="Temple Respect">
+<span class="material-symbols-outlined text-dhaka-red scale-110 group-hover:scale-125 transition-transform" style="font-variation-settings: 'FILL' 1;">temple_buddhist</span>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg flex items-center justify-center opacity-30 grayscale cursor-not-allowed">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-lg">
+<button class="w-full py-md px-base bg-surface-container-highest border border-dhaka-red/20 text-dhaka-red font-label-sm text-label-sm rounded-lg hover:bg-dhaka-red hover:text-on-primary transition-all">
+                    Switch to Host Mode
+                </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<section class="flex-1 px-margin-desktop py-xl">
+<!-- Editorial Header -->
+<header class="mb-xl max-w-3xl">
+<div class="dhaka-pattern-divider w-24 mb-md"></div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-base">Navigating the <span class="text-dhaka-red italic">Himalayan Hearth</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A curated companion for the conscious traveler. Understand the subtle rhythms, sacred rituals, and linguistic melodies that define life in Nepal.</p>
+</header>
+<!-- Interactive Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Temple Etiquette Section (Bento Large) -->
+<article class="md:col-span-8 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 flex flex-col md:flex-row group">
+<div class="md:w-1/2 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A serene, wide-angle shot of a golden stupa in Kathmandu during sunset. Monks in deep saffron robes are seen walking in a clockwise direction around the base. The lighting is warm and ethereal, highlighting the intricate wood carvings and the smell of burning incense is almost palpable. High-fidelity photography style with deep reds and gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLN-v_j-xnTwoPZv_py3toUGMVmfmP66YwRPuoCNCM_7OnUJtwQWDLbaq0kT1QBIdTeutw9b3uIOyAiUjD2bVOqBeVGPxmm3_BTIfixmCIUC17ylEX-hktiqMsHPg9WKN4NnX9glZnhQNDpLmim7XcLX8GCEthCyx80ntdCZxe9bYjm2ml7-Zvb3DLU43iThYHPXpHM970Ac7OcRJ9YM7323J-DAHI3_GXixxYSiZXlgQyPomYaEFBL274uo-0nlEU579K809ryUE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-md text-white">
+<span class="font-label-xs-bold text-label-xs-bold uppercase tracking-widest bg-dhaka-red px-2 py-1 rounded w-fit mb-xs">Sacred Sites</span>
+<h2 class="font-headline-md text-headline-md">Temple Etiquette</h2>
+</div>
+</div>
+<div class="md:w-1/2 p-md flex flex-col justify-center">
+<ul class="space-y-sm font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start space-x-sm">
+<span class="material-symbols-outlined text-dhaka-red shrink-0">sync</span>
+<span>Always walk <strong>clockwise</strong> around stupas and temples.</span>
+</li>
+<li class="flex items-start space-x-sm">
+<span class="material-symbols-outlined text-dhaka-red shrink-0">do_not_step</span>
+<span>Remove shoes before entering inner sanctums or private homes.</span>
+</li>
+<li class="flex items-start space-x-sm">
+<span class="material-symbols-outlined text-dhaka-red shrink-0">no_photography</span>
+<span>Seek permission before taking photos of devotees or ceremonies.</span>
+</li>
+</ul>
+<button class="mt-md text-dhaka-red font-label-sm text-label-sm flex items-center space-x-xs hover:translate-x-1 transition-transform">
+<span>Deep Dive Guide</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Impact Tile (Bento Square) -->
+<aside class="md:col-span-4 bg-impact-teal rounded-xl p-md text-white flex flex-col justify-between shadow-lg">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl">volunteer_activism</span>
+<div class="text-right">
+<div class="font-label-xs-bold text-label-xs-bold uppercase tracking-tighter opacity-70">Impact Score</div>
+<div class="font-display-lg text-[40px] leading-none">92</div>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-xs">Conscious Traveler</h3>
+<p class="font-body-sm-italic text-body-sm-italic opacity-80">You've supported 3 local artisans and visited 5 cultural landmarks with zero-waste practices.</p>
+</div>
+</aside>
+<!-- Basic Phrases (Bento Medium) -->
+<article class="md:col-span-6 bg-surface-container-lowest rounded-xl p-md border border-outline-variant/30 shadow-sm">
+<div class="flex items-center space-x-sm mb-md">
+<div class="p-2 bg-secondary-fixed rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-fixed">translate</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Basic Nepali Phrases</h2>
+</div>
+<div class="space-y-md">
+<div class="p-sm bg-surface-container rounded-lg flex justify-between items-center group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface">Namaste</div>
+<div class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">Hello / I bow to the divine in you</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">volume_up</span>
+</div>
+<div class="p-sm bg-surface-container rounded-lg flex justify-between items-center group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface">Dhanyabaad</div>
+<div class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">Thank you</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">volume_up</span>
+</div>
+<div class="p-sm bg-surface-container rounded-lg flex justify-between items-center group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface">Mitho Chha</div>
+<div class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">It is delicious</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">volume_up</span>
+</div>
+</div>
+</article>
+<!-- Food Rituals (Bento Medium) -->
+<article class="md:col-span-6 bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A top-down, artistic flat lay of a traditional Nepalese Dal Bhat set on a hand-beaten brass plate. The meal includes vibrant lentil soup, spiced mustard greens, colorful pickles, and fluffy rice. Soft side-lighting emphasizes the tactile texture of the brass and the steam rising from the food. Organic, warm aesthetic with rich earth-brown and red tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCASj6D7HnvkaYR_vPhUYCypkuTLzpq7QhoBmnp1Q5AhS4jh-6wLVGZNzHNpRrIVVH78QZzJ-je3yn17av29ZNZeF0PR0F7JBNYXhoXxNKIsCWPx2zCqJ5JFt1UlW-6urpvbKB93QVDMRFwNjh85WHlU6F4FbwC5zeBZDaV3OXr5_9Hu1B5y7xuy6uqsgEk7wVBNZsgnATWyOYLf7dji8fcCkYA0JV5fC9boTmBMZL9tR4BkZA2i_KdJn17-5Vh9u3YEbZwGy32vw"/>
+<div class="absolute inset-0 bg-black/20"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<h2 class="font-headline-md text-headline-md">Traditional Food Rituals</h2>
+</div>
+</div>
+<div class="p-md flex-1">
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Eating in Nepal is a communal and spiritual act. Dal Bhat is more than just food; it's the rhythm of life.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-surface-dim"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-surface-dim"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-surface-dim"></div>
+</div>
+<span class="font-label-xs-bold text-label-xs-bold text-on-surface-variant">+42 Explorers joined a feast</span>
+</div>
+</div>
+<div class="px-md pb-md">
+<div class="flex items-center space-x-sm bg-surface-container-low p-sm rounded-lg border-l-4 border-dhaka-red">
+<span class="material-symbols-outlined text-dhaka-red">info</span>
+<p class="font-body-sm-italic text-body-sm-italic">Use your right hand only when eating with your fingers.</p>
+</div>
+</div>
+</article>
+</div>
+<!-- Experience Cards (Atmospheric Overflow) -->
+<div class="mt-xl">
+<div class="flex justify-between items-end mb-md">
+<h3 class="font-display-lg text-headline-md text-on-surface">Cultural Immersions</h3>
+<a class="font-label-sm text-label-sm text-dhaka-red underline underline-offset-4" href="#">View All</a>
+</div>
+<div class="flex space-x-gutter overflow-x-auto pb-md scrollbar-hide -mx-4 px-4 snap-x">
+<!-- Adventure Card 1 -->
+<div class="min-w-[300px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 snap-start hover:shadow-md transition-shadow">
+<div class="h-40 relative">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of an artisan's hands meticulously weaving a traditional Dhaka pattern on a wooden loom. The lighting is focused and warm, highlighting the intricate threads and the dusty, golden atmosphere of the workshop. A very tactile, heritage-focused image with deep reds and vibrant geometric shapes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-ybWx7ZvINDlhaUzfBlEsv2JKIoswm9RqA54zlYMI3Bi8nFrvv6Gxc-2YLkcK9Vf70G2dpL3R24Yn4l3LhL59lkL7tUgWAtzGRpHZpTFpZJIcNRU-I-daVuNTxcluAu6_l0A-q9Ht-w6oGAguVVuPpjXL6P9g8S7GkMIwGQJ7FACIjj1UMyBce2ZK0B3J5uBLsFKqf3IN-UtxI9zdGk-nxUMdtaMvcx02R7iQ3qLcJsRNg0f8JLY29blTfpKf11A9xmJtpgVfKrs"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded font-label-xs-bold text-label-xs-bold text-dhaka-red">Top Rated</div>
+</div>
+<div class="p-sm">
+<div class="font-label-xs-bold text-label-xs-bold text-dhaka-red uppercase mb-xs">Workshop</div>
+<h4 class="font-label-sm text-label-sm text-on-surface mb-xs">Dhaka Weaving Masterclass</h4>
+<div class="flex items-center text-on-surface-variant font-body-sm-italic text-body-sm-italic">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span>
+<span>Patan, Nepal</span>
+</div>
+</div>
+</div>
+<!-- Adventure Card 2 -->
+<div class="min-w-[300px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 snap-start hover:shadow-md transition-shadow">
+<div class="h-40 relative">
+<img class="w-full h-full object-cover" data-alt="A macro shot of a clay pot being shaped on a pottery wheel in Bhaktapur Square. The artisan's hands are covered in smooth terracotta clay, and the background shows the ancient brick architecture of the city blurred in the golden afternoon sun. Tactile, warm, and grounded aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPq5FVn1me3zUBTGV7sO3mUv2j6_hqDBYJkpkf0ZWsJ6N9copzxLsqGufVvX_km8NhreRTF_xyJh-vpn8dJJQzFrVSkAOdhNl9SD4IlHxI0FMwt2nj_HkBfJAtlscAEYeVkQj5EaDUSuetK8ZIp1l-zjkYPefIWW7VtcDbdK-HVpy9TICV59vHnt6ZhLFoIhRjlW6NA9zJNU0GY8owb8H0kM5M7bv2I93BgUD7L8TFSLQ7l3f0fT0Km5E3XT1fOzmDUk4rIKham2k"/>
+</div>
+<div class="p-sm">
+<div class="font-label-xs-bold text-label-xs-bold text-dhaka-red uppercase mb-xs">Authentic Visit</div>
+<h4 class="font-label-sm text-label-sm text-on-surface mb-xs">Bhaktapur Pottery Tour</h4>
+<div class="flex items-center text-on-surface-variant font-body-sm-italic text-body-sm-italic">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span>
+<span>Bhaktapur, Nepal</span>
+</div>
+</div>
+</div>
+<!-- Adventure Card 3 -->
+<div class="min-w-[300px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 snap-start hover:shadow-md transition-shadow">
+<div class="h-40 relative">
+<img class="w-full h-full object-cover" data-alt="A wide, atmospheric shot of a traditional Nepalese kitchen with a copper pot over an open wood-burning fire. An elderly woman, Aama, is seen tending the fire, her face lit by the warm glow. The room is filled with hanging dried herbs and the steam of slow-cooked lentils. Deeply personal, warm, and authentic travel documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEHeqXyB0tFccYWZSwfMMYm_Bkv-i_ogGWpWK5LYX08Y9T2KHf5ttf9_9MuPoZfUS-umCj4z8W3W17ir67DRE-wVElT00PRA2G_OsBIvs8YMY63-SKk9dfeap8kLzbQMZJQfAyEdHEXfhBuB8_TXxhYdpqfNzw_7d7vKxCXxjr8bMSU4MP_EsoVr2WqWGRiUHYg2Gx225ZW-QfQj4Qbbf1zHII-u0okGHMLJPIQVM9IqqSV9q-rXHhjfH2piJhU1DPTql7C_F18nU"/>
+</div>
+<div class="p-sm">
+<div class="font-label-xs-bold text-label-xs-bold text-dhaka-red uppercase mb-xs">Food Experience</div>
+<h4 class="font-label-sm text-label-sm text-on-surface mb-xs">Aama’s Hearth Cooking</h4>
+<div class="flex items-center text-on-surface-variant font-body-sm-italic text-body-sm-italic">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span>
+<span>Bandipur, Nepal</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg bg-surface-container-highest dark:bg-inverse-surface border-t border-dhaka-red/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-screen-xl mx-auto space-y-md md:space-y-0">
+<div class="font-display-lg-mobile text-display-lg-mobile text-dhaka-red">Aama's Kitchen</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-all" href="#">About Us</a>
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-all" href="#">Sustainability</a>
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-all" href="#">Host Login</a>
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-all" href="#">Privacy Policy</a>
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-all" href="#">Contact</a>
+</div>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface dark:text-inverse-on-surface opacity-60">
+                © 2024 Aama's Kitchen. Authentic Himalayan Hospitality.
+            </p>
+</div>
+</footer>
+<!-- Interactive Elements Scripts -->
+<script>
+        // Micro-interaction for phrase highlighting
+        document.querySelectorAll('.group.cursor-pointer').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.add('scale-[0.98]');
+                setTimeout(() => item.classList.remove('scale-[0.98]'), 100);
+            });
+        });
+
+        // Floating effect for active badge
+        const badge = document.querySelector('.material-symbols-outlined[style*="FILL"]');
+        if (badge) {
+            badge.parentElement.classList.add('animate-float');
+        }
+    </script>
+</body></html>

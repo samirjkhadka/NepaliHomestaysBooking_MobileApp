@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guest Details | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;family=Be+Vietnam+Pro:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "primary": "#900a0c",
+                    "outline-variant": "#e2beba",
+                    "on-primary-fixed-variant": "#910a0c",
+                    "on-tertiary-fixed": "#001f2a",
+                    "on-primary-container": "#ffccc6",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbf9f4",
+                    "surface-container": "#f0eee9",
+                    "on-secondary-fixed": "#3c0800",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "inverse-primary": "#ffb4aa",
+                    "surface-container-high": "#eae8e3",
+                    "tertiary-fixed": "#bde9ff",
+                    "inverse-on-surface": "#f2f1ec",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1c19",
+                    "surface-dim": "#dbdad5",
+                    "primary-container": "#b32821",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "on-secondary-container": "#742814",
+                    "tertiary": "#134c61",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#410001",
+                    "surface": "#fbf9f4",
+                    "surface-tint": "#b32821",
+                    "on-surface": "#1b1c19",
+                    "secondary-container": "#fc9174",
+                    "surface-variant": "#e4e2dd",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "on-surface-variant": "#5a413d",
+                    "background": "#fbf9f4",
+                    "tertiary-container": "#316479",
+                    "secondary": "#9a442d",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdad5",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffdbd2",
+                    "surface-container-highest": "#e4e2dd",
+                    "outline": "#8e706c",
+                    "surface-container-low": "#f5f3ee",
+                    "on-tertiary-container": "#addff8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "sm": "12px",
+                    "gutter": "20px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "label-sm": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(var(--tw-colors-outline-variant) 0.5px, transparent 0.5px);
+            background-size: 8px 8px;
+        }
+        .glass-panel {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        .organic-shadow {
+            box-shadow: 0 10px 30px -5px rgba(179, 40, 33, 0.05);
+        }
+        input:focus + label, input:not(:placeholder-shown) + label {
+            transform: translateY(-24px) scale(0.85);
+            color: #9a442d;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-xs w-full max-w-[1280px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform p-2 hover:bg-surface-container-low rounded-full">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Guest Info</h1>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs">1</span>
+<span class="text-on-surface font-semibold">Details</span>
+</div>
+<div class="w-8 h-px bg-outline-variant"></div>
+<div class="flex items-center gap-2 opacity-50">
+<span class="w-6 h-6 rounded-full border border-outline text-on-surface flex items-center justify-center text-xs">2</span>
+<span class="text-on-surface">Payment</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional and friendly user profile portrait of a young traveler against a soft-focus Himalayan mountain background. The lighting is warm and natural, suggesting a sunset glow. The style is clean, modern, and high-fidelity, matching the premium travel aesthetic of the brand's heritage-modern fusion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-rm9Shkh_D5FyYAYHXm9rtFgNYlXJCdSuq5tJFBvGqHY9Vcaijv5USUEolAty4wl_2zS9KvmbIBdKjJdn4VQREVfYAkovfRMK8bS9nGrt81fAlO2WtyRaILYKR56fIJj3L6uAW8R_KMSqL-vNA8wNkCTy8jtdg_r7Z8iw8F_oR0A-byP6rLV_dQXx91a3o5TMRPzcoKTbi1kVpQ0F8UUm_rd9fKQ5wvny5gvTIAq3SKxmIHyz75Ekbm0jHxaywZz7Zk3bZcs-H6U"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Form Section -->
+<div class="lg:col-span-7 space-y-8">
+<section class="space-y-6">
+<div class="space-y-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Who's traveling?</h2>
+<p class="text-on-surface-variant">We'll use these details to prepare your authentic stay at Aama's Kitchen.</p>
+</div>
+<form class="space-y-6">
+<!-- Name Fields -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="relative group">
+<input class="peer w-full px-4 py-4 bg-surface border border-outline-variant rounded-lg focus:outline-none focus:border-secondary transition-colors bg-transparent" id="first_name" placeholder=" " type="text"/>
+<label class="absolute left-4 top-4 text-on-surface-variant pointer-events-none transition-all origin-left" for="first_name">First Name</label>
+</div>
+<div class="relative group">
+<input class="peer w-full px-4 py-4 bg-surface border border-outline-variant rounded-lg focus:outline-none focus:border-secondary transition-colors bg-transparent" id="last_name" placeholder=" " type="text"/>
+<label class="absolute left-4 top-4 text-on-surface-variant pointer-events-none transition-all origin-left" for="last_name">Last Name</label>
+</div>
+</div>
+<!-- Contact Info -->
+<div class="relative group">
+<input class="peer w-full px-4 py-4 bg-surface border border-outline-variant rounded-lg focus:outline-none focus:border-secondary transition-colors bg-transparent" id="email" placeholder=" " type="email"/>
+<label class="absolute left-4 top-4 text-on-surface-variant pointer-events-none transition-all origin-left" for="email">Email Address</label>
+<p class="text-xs text-on-surface-variant mt-1 px-1">We'll send your booking confirmation and local guide here.</p>
+</div>
+<div class="relative group">
+<div class="flex gap-2">
+<select class="w-32 px-4 py-4 bg-surface border border-outline-variant rounded-lg focus:outline-none focus:border-secondary appearance-none">
+<option>🇳🇵 +977</option>
+<option>🇺🇸 +1</option>
+<option>🇬🇧 +44</option>
+<option>🇮🇳 +91</option>
+</select>
+<div class="relative flex-1">
+<input class="peer w-full px-4 py-4 bg-surface border border-outline-variant rounded-lg focus:outline-none focus:border-secondary transition-colors bg-transparent" id="phone" placeholder=" " type="tel"/>
+<label class="absolute left-4 top-4 text-on-surface-variant pointer-events-none transition-all origin-left" for="phone">Phone Number</label>
+</div>
+</div>
+</div>
+<!-- Special Requests -->
+<div class="space-y-4 pt-4">
+<h3 class="font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">volunteer_activism</span>
+                            Message for the Host
+                        </h3>
+<p class="text-sm text-on-surface-variant">Are you celebrating something? Do you have dietary requirements or need help with mountain transportation?</p>
+<div class="relative group">
+<textarea class="peer w-full px-4 py-4 bg-surface border border-outline-variant rounded-lg focus:outline-none focus:border-secondary transition-colors bg-transparent resize-none" id="message" placeholder=" " rows="4"></textarea>
+<label class="absolute left-4 top-4 text-on-surface-variant pointer-events-none transition-all origin-left" for="message">Share your thoughts with Aama...</label>
+</div>
+</div>
+<!-- Quick Options Bento -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox"/>
+<div class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl group-hover:bg-surface-container-low peer-checked:bg-secondary-container peer-checked:border-secondary transition-all">
+<span class="material-symbols-outlined text-primary mb-2">set_meal</span>
+<span class="text-xs font-bold text-center">Vegetarian Meals</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox"/>
+<div class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl group-hover:bg-surface-container-low peer-checked:bg-secondary-container peer-checked:border-secondary transition-all">
+<span class="material-symbols-outlined text-primary mb-2">airport_shuttle</span>
+<span class="text-xs font-bold text-center">Airport Pickup</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox"/>
+<div class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl group-hover:bg-surface-container-low peer-checked:bg-secondary-container peer-checked:border-secondary transition-all">
+<span class="material-symbols-outlined text-primary mb-2">celebration</span>
+<span class="text-xs font-bold text-center">Special Occasion</span>
+</div>
+</label>
+</div>
+<!-- Action Buttons -->
+<div class="pt-6 flex flex-col md:flex-row gap-4">
+<button class="flex-1 bg-primary text-on-primary py-4 rounded-full font-bold text-lg hover:shadow-lg active:scale-95 transition-all organic-shadow" type="submit">
+                            Proceed to Payment
+                        </button>
+<button class="px-8 py-4 border border-outline text-on-surface-variant rounded-full font-semibold hover:bg-surface-container transition-colors" type="button">
+                            Save for Later
+                        </button>
+</div>
+</form>
+</section>
+</div>
+<!-- Sidebar Summary -->
+<aside class="lg:col-span-5">
+<div class="sticky top-28 space-y-gutter">
+<!-- Booking Summary Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden organic-shadow">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A breathtaking view of a traditional Nepali stone and wood homestay with a slate roof, overlooking terraced green hills and distant snow-capped Himalayan peaks. The lighting is crisp morning sun, casting long soft shadows. The style is documentary-fine-art with warm earthy tones of terracotta and deep wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUC0Y1qivyzJx56ZYz_yzrkoRgF7I28MpsEdknbVOHedZcpa9igCu1TzDyLlfUjuH0732EVTDRr0tZYxcAIJk6uG5_CujBtO7HMZrrOJCr1uA1BAqJjsiw76qWvPnT3eZz834hP7dVe9Gis6a-dpAc4-mE8VsLkIHsFPNuOp41NSmos2jEdhr20EwkjrhgQIGqhvYIpsOP3icpY55i-Xbq7J9cphudYrdamIa5H2SCIaIFWJ3lXbndrLeG3WRG-VBQm01KiIvmFN8"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur rounded-full text-xs font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                            4.9
+                        </div>
+</div>
+<div class="p-6 space-y-6">
+<div class="space-y-1">
+<h3 class="font-headline-md text-lg text-on-surface">Himalayan Sunrise Room</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                Dhampus Village, Nepal
+                            </p>
+</div>
+<div class="grid grid-cols-2 gap-4 py-4 border-y border-outline-variant">
+<div class="space-y-1">
+<span class="text-xs uppercase tracking-wider text-outline">Check-in</span>
+<p class="font-bold text-on-surface">Oct 24, 2024</p>
+</div>
+<div class="space-y-1">
+<span class="text-xs uppercase tracking-wider text-outline">Check-out</span>
+<p class="font-bold text-on-surface">Oct 28, 2024</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">$45.00 x 4 nights</span>
+<span class="font-semibold">$180.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Community Service Fee</span>
+<span class="font-semibold">$12.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Local Heritage Tax</span>
+<span class="font-semibold">$5.50</span>
+</div>
+<div class="pt-4 border-t border-outline-variant flex justify-between items-end">
+<div>
+<span class="text-xs font-bold text-primary">TOTAL (USD)</span>
+<p class="text-2xl font-bold text-on-surface">$197.50</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-outline uppercase font-bold">Earns 197 pts</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Heritage Card -->
+<div class="dhaka-pattern p-6 rounded-xl border border-outline-variant bg-surface-container-low flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">temple_hindu</span>
+<div class="space-y-1">
+<h4 class="font-bold text-on-surface">Authentic Support</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">By booking this homestay, you're directly contributing to the preservation of local Dhampus architecture and supporting a female-led kitchen collective.</p>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant shadow-[0_-2px_10px_rgba(179,40,33,0.05)]">
+<div class="flex justify-around items-center w-full px-4 py-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 opacity-50">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 opacity-50">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 opacity-50">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</div>
+</nav>
+<script>
+        // Micro-interactions for form inputs
+        document.querySelectorAll('input, textarea').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.parentElement.classList.add('scale-[1.01]');
+            });
+            el.addEventListener('blur', () => {
+                el.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Toggle bento selection
+        document.querySelectorAll('.group input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    e.target.nextElementSibling.classList.add('shadow-inner');
+                } else {
+                    e.target.nextElementSibling.classList.remove('shadow-inner');
+                }
+            });
+        });
+    </script>
+</body></html>

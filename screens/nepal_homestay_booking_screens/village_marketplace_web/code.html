@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Village Marketplace | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&amp;family=Manrope:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        
+        .dhaka-pattern {
+            background-image: repeating-linear-gradient(
+                45deg,
+                #b32821 0px,
+                #b32821 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            height: 1px;
+            width: 100%;
+            opacity: 0.2;
+        }
+
+        .grainy-surface {
+            background-color: #fbf9f4;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f0eee9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #b32821;
+            border-radius: 10px;
+        }
+
+        .shadow-soft-tint {
+            box-shadow: 0 10px 30px -10px rgba(179, 40, 33, 0.08);
+        }
+
+        .hover-card-rise {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .hover-card-rise:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(179, 40, 33, 0.12);
+        }
+    </style>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#dbdad5",
+                      "outline-variant": "#e2beba",
+                      "on-surface": "#1b1c19",
+                      "on-primary-fixed": "#410001",
+                      "surface": "#fbf9f4",
+                      "impact-teal": "#316479",
+                      "on-tertiary-fixed-variant": "#144c61",
+                      "dhaka-red": "#b32821",
+                      "tertiary-fixed": "#bee9ff",
+                      "surface-container": "#f0eee9",
+                      "secondary": "#9a442d",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#ffdbd2",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#900a0c",
+                      "outline": "#8e706c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#7c2e18",
+                      "surface-container-highest": "#e4e2dd",
+                      "background": "#fbf9f4",
+                      "inverse-on-surface": "#f2f1ec",
+                      "tertiary": "#003546",
+                      "earth-brown": "#5a413d",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-container": "#8abbd4",
+                      "on-secondary-fixed": "#3c0800",
+                      "inverse-surface": "#30312e",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "on-secondary-container": "#752814",
+                      "on-background": "#1b1c19",
+                      "on-surface-variant": "#5a413d",
+                      "on-tertiary-fixed": "#001f2a",
+                      "surface-container-low": "#f5f3ee",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#9ccee7",
+                      "surface-tint": "#b32821",
+                      "surface-bright": "#fbf9f4",
+                      "inverse-primary": "#ffb4aa",
+                      "on-primary-container": "#ff998c",
+                      "secondary-fixed-dim": "#ffb4a1",
+                      "on-secondary": "#ffffff",
+                      "primary": "#680003",
+                      "surface-variant": "#e4e2dd",
+                      "secondary-container": "#fd9174",
+                      "primary-fixed": "#ffdad5",
+                      "on-primary-fixed-variant": "#910b0c",
+                      "surface-container-high": "#eae8e3",
+                      "surface-grain": "#fbf9f4",
+                      "tertiary-container": "#134c61"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "lg": "48px",
+                      "gutter": "20px",
+                      "xl": "80px",
+                      "margin-desktop": "64px",
+                      "base": "8px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Manrope"],
+                      "body-md": ["Manrope"],
+                      "label-xs-bold": ["Manrope"],
+                      "display-lg": ["Be Vietnam Pro"],
+                      "body-sm-italic": ["Manrope"],
+                      "display-lg-mobile": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Manrope"]
+              },
+              "fontSize": {
+                      "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-xs-bold": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm-italic": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="grainy-surface text-on-surface custom-scrollbar selection:bg-primary-fixed selection:text-primary">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop py-base max-w-screen-xl mx-auto">
+<div class="flex items-center gap-base">
+<span class="font-display-lg text-display-lg text-dhaka-red dark:text-primary-fixed-dim">Aama's Kitchen</span>
+</div>
+<div class="hidden md:flex items-center space-x-md font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Experiences</a>
+<a class="text-dhaka-red font-bold border-b-2 border-dhaka-red pb-1" href="#">Marketplace</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Community</a>
+</div>
+<div class="flex items-center space-x-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high/50 transition-all rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high/50 transition-all rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<button class="ml-base bg-primary text-on-primary font-label-sm text-label-sm px-md py-sm rounded-lg hover:bg-primary-container transition-transform active:scale-95">
+                    Book Now
+                </button>
+</div>
+</nav>
+</header>
+<main class="max-w-screen-xl mx-auto px-margin-desktop py-xl flex flex-col md:flex-row gap-xl">
+<!-- Sidebar Navigation -->
+<aside class="w-full md:w-64 shrink-0">
+<div class="sticky top-32 space-y-md">
+<div class="pb-base border-b border-outline-variant/30">
+<h3 class="font-headline-md text-headline-md text-earth-brown">Categories</h3>
+</div>
+<nav class="flex flex-col space-y-sm font-label-sm text-label-sm">
+<a class="flex items-center justify-between p-sm bg-secondary-container text-on-secondary-container rounded-lg font-bold" href="#">
+<span class="flex items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="all_inclusive">all_inclusive</span>
+                            All Treasures
+                        </span>
+<span class="text-xs opacity-70">24</span>
+</a>
+<a class="flex items-center justify-between p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="flex items-center gap-sm">
+<span class="material-symbols-outlined group-hover:text-dhaka-red" data-icon="dry_cleaning">dry_cleaning</span>
+                            Textiles
+                        </span>
+<span class="text-xs opacity-50">8</span>
+</a>
+<a class="flex items-center justify-between p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="flex items-center gap-sm">
+<span class="material-symbols-outlined group-hover:text-dhaka-red" data-icon="skillet">skillet</span>
+                            Pantry
+                        </span>
+<span class="text-xs opacity-50">12</span>
+</a>
+<a class="flex items-center justify-between p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="flex items-center gap-sm">
+<span class="material-symbols-outlined group-hover:text-dhaka-red" data-icon="brush">brush</span>
+                            Crafts
+                        </span>
+<span class="text-xs opacity-50">4</span>
+</a>
+</nav>
+<div class="p-md bg-surface-container-low border border-outline-variant/20 rounded-xl mt-xl">
+<div class="dhaka-pattern mb-sm"></div>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">
+                        Every purchase directly supports local artisans and preserves Himalayan weaving traditions.
+                    </p>
+</div>
+</div>
+</aside>
+<!-- Main Marketplace Content -->
+<div class="flex-1 space-y-xl">
+<!-- Featured Artisan Section (Bento Highlight) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter bg-surface-container-lowest rounded-xl overflow-hidden shadow-soft-tint border border-outline-variant/30">
+<div class="md:col-span-7 h-full min-h-[300px]">
+<div class="w-full h-full" data-alt="A cinematic, high-resolution portrait of an elderly Nepalese woman artisan with deeply lined hands, weaving a complex Dhaka pattern on a traditional wooden loom. The scene is bathed in warm, natural morning sunlight filtering through a rustic village window, highlighting the rich textures of the thread and the earthy tones of her heritage clothing. The mood is respectful and timeless, with a focus on artisanal craftsmanship and cultural pride." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbK5K7l_9CWlSHAK_Uaxg7sVYrBcWCKhsq9vizvGywC8si7NCz6ILcZ7-hxI9l-UpEL9QjquFLzvKXxzyaVulsXq0g6nLOqO6bbOoD4PjHl6mbvSaDIF-dUbIcNsPfGYr_JCCq_iT9uohxOf-yFYAX_7-xCh7Ib-AS2PT-SHjDHHuA4ylQitFUdZqU-yX1--qDhOO_4J3hle0P-yvxtAKK_h6LmWnYNVtkO_xAKC8kQYZfkU1kLlBNODFF71xEoHtTBaW6YSD_CO8')"></div>
+</div>
+<div class="md:col-span-5 p-lg flex flex-col justify-center space-y-md">
+<span class="inline-block px-sm py-xs bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-xs-bold text-label-xs-bold rounded-full uppercase tracking-widest">Featured Artisan</span>
+<h2 class="font-headline-md text-headline-md text-primary">Aama Maya's Heritage</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Aama Maya has been weaving for over 50 years in the Khumbu region. Her "Mountain Soul" Pashmina is colored with natural dyes made from rhododendron petals and wild herbs found near her village.
+                    </p>
+<button class="flex items-center gap-xs font-label-sm text-label-sm text-dhaka-red group">
+                        Read her full story
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Product Grid -->
+<section>
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-md text-headline-md text-earth-brown">Handcrafted Treasures</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Authentic goods from the heart of the village.</p>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sort by:</span>
+<select class="bg-transparent border-none font-label-sm text-label-sm text-dhaka-red focus:ring-0 cursor-pointer">
+<option>Latest Arrivals</option>
+<option>Price: Low to High</option>
+<option>Popularity</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="group hover-card-rise bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative aspect-[4/5] overflow-hidden">
+<div class="w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="A close-up shot of a luxurious, hand-spun Pashmina shawl in a deep madder-red color, showcasing the delicate and intricate weave patterns typical of Himalayan heritage crafts. The lighting is soft and directional, emphasizing the softness and tactile quality of the wool. The background is a clean, neutral surface that makes the rich red color pop, maintaining a modern luxury aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-MA4hCywpR-exUBJcR0493DFDBNaamr5U6Q7fb6ZVb8HIb1GasHP69YQpLAUGJgBX5noA_whO7IuI4R2mjd7nCuwfBlPXfE4BQDG6QXIE_aRfWXYri2p0NnQBrztI62RuziCgBJO-f5io6jtl8IMeuij_Bk7a3xPybZBWAjaeTE2CunHXjdm4gJmBc0Q0tb3wLrDTTIoQlRq-BDyKwMNMyywJ-tfl1Xr3dzfDbjgTT_58Xz7sWX2a71occKNfCBUlQVsoAck2hJ0')"></div>
+<button class="absolute top-sm right-sm bg-surface/80 backdrop-blur-md p-xs rounded-full text-dhaka-red hover:bg-dhaka-red hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-md" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-xs-bold text-label-xs-bold text-impact-teal uppercase">Textiles</span>
+<span class="font-headline-md text-headline-md text-dhaka-red">$120</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-dhaka-red transition-colors mb-xs">Mountain Mist Pashmina</h3>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">by Artisan Maya</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-lg">
+                                Hand-combed chyangra wool from high-altitude goats, dyed with indigenous wild rhododendron petals.
+                            </p>
+<button class="mt-auto w-full flex justify-center items-center gap-sm bg-surface-container-high py-sm rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-dhaka-red hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group hover-card-rise bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative aspect-[4/5] overflow-hidden">
+<div class="w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="A set of small, hand-labeled burlap sacks containing vibrant, colorful Nepalese spices like turmeric, red chili flakes, and Himalayan peppercorns. The arrangement is rustic yet refined, set on a dark, textured slate surface with scattered whole spices around the bags. The lighting is moody and warm, evocative of a traditional village pantry but presented with a clean, modern design sensibility." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6FyOCysO3E850D9iWgwfboLd4VQRmQ6E8OjjzQITXJ0W0REvOsVTt94FlYq3K2sv3O11_CMoziMPcJDFeXNJUo0lk9roFlTzcCL04JPL53bJIU5QzysD5B_pRVwfGMgw6uCfIoDk8sAPSlrhOK9IDxduW4LRMpQ02gagqIVNlUgAdOGX4ZVmRjkliZmP-zAOEPd9al2grAEkzymhz1QCTUBKUXeSOdHumfWPhHmT9IOSuxQ3xuup5iM8rWg229JMTVAzun_x4r7E')"></div>
+<button class="absolute top-sm right-sm bg-surface/80 backdrop-blur-md p-xs rounded-full text-dhaka-red hover:bg-dhaka-red hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-md" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-xs-bold text-label-xs-bold text-impact-teal uppercase">Pantry</span>
+<span class="font-headline-md text-headline-md text-dhaka-red">$18</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-dhaka-red transition-colors mb-xs">Kitchen Heritage Spice Kit</h3>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">by Chef Lakpa</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-lg">
+                                A curated selection of organic turmeric, wild Timur pepper, and hand-ground Himalayan rock salt.
+                            </p>
+<button class="mt-auto w-full flex justify-center items-center gap-sm bg-surface-container-high py-sm rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-dhaka-red hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group hover-card-rise bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative aspect-[4/5] overflow-hidden">
+<div class="w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="An intricately hand-woven textile featuring a traditional Nepalese Dhaka geometric pattern in vibrant shades of primary red, black, and white. The camera angle is top-down, highlighting the precision and symmetry of the weaving. The fabric is slightly draped to show its texture and high-quality craftsmanship, set against a soft, sunlit wooden floor for a warm, grounded heritage feel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFPEqS2Eu-Gx60BnfHMu36mG8UMRTT0nSr3-UXzEBLIOhs8sXoO6KETUxpnoG7Yc5ueq-rXLEEVxoawXRWUfKywMqdsjO2MAjYbzvUjE8EtA1Vka6u3tp7Evq3-K5UWgbDxWS26s-ynE5_LSQOBfRNqWdwBh1Hq2lN5I17htdeAH8h4UASpXVrURupwF6mGd6_ywwkMvxqcRCJETJiyYbaGaCnIAoM3fREFZUs8aS0cosCfZmISdkNbRQLBkUnTwPH1MlnnO0oQRg')"></div>
+<button class="absolute top-sm right-sm bg-surface/80 backdrop-blur-md p-xs rounded-full text-dhaka-red hover:bg-dhaka-red hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-md" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-xs-bold text-label-xs-bold text-impact-teal uppercase">Textiles</span>
+<span class="font-headline-md text-headline-md text-dhaka-red">$65</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-dhaka-red transition-colors mb-xs">Dhaka Weave Table Runner</h3>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">by The Tehrathum Collective</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-lg">
+                                Traditional geometric patterns representing the mountains and valleys of Eastern Nepal.
+                            </p>
+<button class="mt-auto w-full flex justify-center items-center gap-sm bg-surface-container-high py-sm rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-dhaka-red hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group hover-card-rise bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative aspect-[4/5] overflow-hidden">
+<div class="w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="A collection of hand-carved wooden prayer bowls and utensils, showing the natural grain of Himalayan walnut wood. The surfaces are polished to a soft sheen, with subtle traditional carvings around the rims. The setting is a minimalist wooden table in a brightly lit space with a few green plant leaves in the background, combining organic heritage with modern interior design." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3uftGvAt1gmbMZPxPv5SWcaJZvpZJnMHzEtv40Z-a7OZhG5Ui2zTy_9qoY-W-VPlivw51TeH6-j8xw-7JPNEdEUe0JUmo8UIDfclMbhDsJcD8_ecVSfkSzMBdQKMXgw_MhXNn4PExFGaRLgPNQgzhC_2dWljxeIO7XpulNEkMV__BJKPH-YwDeCA6pLANvNeWKxomX7txvEnwA9KldzHuWpk5O2x5iNMl5CTZ6XqVj5xok0fE6z0tLN_v-8t1_AbbAmpLskG7uUk')"></div>
+<button class="absolute top-sm right-sm bg-surface/80 backdrop-blur-md p-xs rounded-full text-dhaka-red hover:bg-dhaka-red hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-md" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-xs-bold text-label-xs-bold text-impact-teal uppercase">Crafts</span>
+<span class="font-headline-md text-headline-md text-dhaka-red">$42</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-dhaka-red transition-colors mb-xs">Hand-Carved Walnut Bowl</h3>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">by Artisan Pema</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-lg">
+                                Each bowl is carved from a single piece of reclaimed walnut wood, finished with cold-pressed mustard oil.
+                            </p>
+<button class="mt-auto w-full flex justify-center items-center gap-sm bg-surface-container-high py-sm rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-dhaka-red hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group hover-card-rise bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative aspect-[4/5] overflow-hidden">
+<div class="w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="Glass jars of golden, raw Himalayan wild honey, reflecting the light with a deep amber glow. The jars have minimalist cream-colored labels and are sealed with rustic twine and wax. The background features a soft-focus image of mountain wildflowers and distant snowy peaks, emphasizing the purity and natural origin of the product in a high-end gourmet style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAx587eveQr2KAxGmPSHkqs1JeNVSj4EXte7wueCmlhZ5B5DldjBtlsSlWwZFq9WqUhUXn37aFnQwQgGNtGURrqRxLNEEq3_BBn8QusU67LeGFCUlSXJoKj6sC4hXUzotDJ3KsXGNo_imIzZw5cCdcIk9NaQlc7DEZvEUyjsEY37hpaicZ0nW-0pNXkuBGKggzT58fFP9shjjlInghF9ONl8E7acuFbRv_vQwpRlcYaZMZ1tglYSPNZ6TlvwbCEeuUa5oB6f5vr4mQ')"></div>
+<button class="absolute top-sm right-sm bg-surface/80 backdrop-blur-md p-xs rounded-full text-dhaka-red hover:bg-dhaka-red hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-md" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-xs-bold text-label-xs-bold text-impact-teal uppercase">Pantry</span>
+<span class="font-headline-md text-headline-md text-dhaka-red">$28</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-dhaka-red transition-colors mb-xs">Wild Cliff Honey</h3>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">by The Honey Hunters</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-lg">
+                                Rare, raw honey harvested from the world's largest honey bees in the high cliffs of Annapurna.
+                            </p>
+<button class="mt-auto w-full flex justify-center items-center gap-sm bg-surface-container-high py-sm rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-dhaka-red hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                                Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group hover-card-rise bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 flex flex-col">
+<div class="relative aspect-[4/5] overflow-hidden">
+<div class="w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="A beautiful, handcrafted singing bowl made of an alloy of seven metals, resting on a small, silk-embroidered cushion with Himalayan motifs. The bowl's surface shows a subtle, hammered texture and a rich dark bronze patina. The setting is serene, with soft focus incense smoke curling in the background, creating a calm, spiritual, and deeply cultural atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9nKbmkA2HFoxdeY0tcfT6enxfalj6o8N8W4xrSJf7_qldooCUN1_ZQsL586V8iZsnggz-NdpBqt8RP_SvMl76OcGYnwso6KnOshHSJegv_7NNvr39tFzJiVgt0JhDhEH7KF_CrTht53nlX3yxAmwOp_pxmbN156JRA_CkKxCr2u7UAHwcsUElqfufPd0aB47N9c0Q8uW5PUO8LDQK-2r4D5J4RED2POzGo-x_j5bLYtxdJlk0Fc4kb7JrhmPWWEJRJt6PQ7gMepc')"></div>
+<button class="absolute top-sm right-sm bg-surface/80 backdrop-blur-md p-xs rounded-full text-dhaka-red hover:bg-dhaka-red hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-md" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-xs-bold text-label-xs-bold text-impact-teal uppercase">Crafts</span>
+<span class="font-headline-md text-headline-md text-dhaka-red">$85</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-dhaka-red transition-colors mb-xs">Seven-Metal Singing Bowl</h3>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">by Kathmandu Artisans</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-lg">
+                                Traditional alloy hand-hammered for resonance and healing, accompanied by a suede-wrapped mallet.
+                            </p>
+<button class="mt-auto w-full flex justify-center items-center gap-sm bg-surface-container-high py-sm rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-dhaka-red hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                                Add to Cart
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Sustainable Impact Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-impact-teal/5 p-lg rounded-xl border border-impact-teal/20 space-y-sm">
+<span class="material-symbols-outlined text-impact-teal text-4xl" data-icon="payments">payments</span>
+<h4 class="font-headline-md text-headline-md text-impact-teal">Fair Trade</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">We ensure 85% of each sale goes directly to the individual artisan or their local collective.</p>
+</div>
+<div class="bg-dhaka-red/5 p-lg rounded-xl border border-dhaka-red/20 space-y-sm">
+<span class="material-symbols-outlined text-dhaka-red text-4xl" data-icon="forest">forest</span>
+<h4 class="font-headline-md text-headline-md text-dhaka-red">Zero-Waste</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Our packaging is made from handmade Lokta paper, which is 100% biodegradable and forest-friendly.</p>
+</div>
+<div class="bg-earth-brown/5 p-lg rounded-xl border border-earth-brown/20 space-y-sm">
+<span class="material-symbols-outlined text-earth-brown text-4xl" data-icon="history_edu">history_edu</span>
+<h4 class="font-headline-md text-headline-md text-earth-brown">Preservation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Each purchase funds apprenticeship programs for village youth to learn ancestral crafts.</p>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface border-t border-dhaka-red/20 py-lg">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-screen-xl mx-auto w-full gap-md">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-display-lg-mobile text-display-lg-mobile text-dhaka-red">Aama's Kitchen</span>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mt-xs">Authentic Himalayan Hospitality.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md font-body-sm-italic text-body-sm-italic">
+<a class="text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">Sustainability</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">Host Login</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">Contact</a>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm opacity-60">
+                © 2024 Aama's Kitchen.
+            </div>
+</div>
+</footer>
+<!-- FAB for Cart Summary -->
+<button class="fixed bottom-margin-mobile right-margin-mobile bg-dhaka-red text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40 group">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-surface">2</span>
+</button>
+<script>
+        // Micro-interaction for Add to Cart
+        document.querySelectorAll('button').forEach(button => {
+            if (button.innerText.includes('Add to Cart')) {
+                button.addEventListener('click', function() {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Added';
+                    this.classList.add('bg-impact-teal', 'text-on-primary');
+                    this.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('bg-impact-teal', 'text-on-primary');
+                        this.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body></html>

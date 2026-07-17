@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Bookings | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#ffdad5",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#752814",
+                    "surface-dim": "#dbdad5",
+                    "on-tertiary-fixed": "#001f2a",
+                    "inverse-surface": "#30312e",
+                    "background": "#fbf9f4",
+                    "surface-tint": "#b32821",
+                    "tertiary-fixed-dim": "#9ccee7",
+                    "primary": "#680003",
+                    "surface-container-highest": "#e4e2dd",
+                    "on-tertiary-fixed-variant": "#144c61",
+                    "secondary-container": "#fd9174",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "on-primary-fixed": "#410001",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#bee9ff",
+                    "impact-teal": "#316479",
+                    "surface-container": "#f0eee9",
+                    "primary-container": "#900a0c",
+                    "surface-bright": "#fbf9f4",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#ffb4aa",
+                    "tertiary": "#003546",
+                    "inverse-on-surface": "#f2f1ec",
+                    "surface-container-low": "#f5f3ee",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#3c0800",
+                    "on-tertiary-container": "#8abbd4",
+                    "surface-variant": "#e4e2dd",
+                    "outline-variant": "#e2beba",
+                    "tertiary-container": "#134c61",
+                    "on-tertiary": "#ffffff",
+                    "dhaka-red": "#b32821",
+                    "surface-grain": "#fbf9f4",
+                    "on-surface": "#1b1c19",
+                    "surface": "#fbf9f4",
+                    "on-secondary-fixed-variant": "#7c2e18",
+                    "secondary-fixed": "#ffdbd2",
+                    "on-primary-fixed-variant": "#910b0c",
+                    "surface-container-high": "#eae8e3",
+                    "on-surface-variant": "#5a413d",
+                    "earth-brown": "#5a413d",
+                    "secondary": "#9a442d",
+                    "on-primary-container": "#ff998c",
+                    "outline": "#8e706c",
+                    "on-background": "#1b1c19"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "margin-mobile": "16px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "base": "8px",
+                    "gutter": "20px",
+                    "margin-desktop": "64px",
+                    "xs": "4px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-xs-bold": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "body-sm-italic": ["Manrope"],
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "label-xs-bold": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm-italic": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .dhaka-divider {
+            height: 1px;
+            background: repeating-linear-gradient(90deg, #b32821 0px, #b32821 4px, transparent 4px, transparent 8px);
+            opacity: 0.3;
+        }
+        .grainy-surface {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .adventure-card-shadow {
+            box-shadow: 0 4px 20px rgba(179, 40, 33, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface grainy-surface min-h-screen font-body-md text-on-surface">
+<!-- Desktop Side Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant/20 flex flex-col p-md space-y-sm z-50">
+<div class="mb-lg">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-dhaka-red">Aama's Kitchen</h1>
+<div class="mt-md">
+<p class="font-headline-md text-headline-md text-on-surface">Welcome, Traveler</p>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">Himalayan Hearth Member</p>
+</div>
+</div>
+<nav class="flex-grow space-y-xs">
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-sm p-sm bg-secondary-container text-on-secondary-container rounded-lg font-bold font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_available</span>
+                My Bookings
+            </a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">favorite</span>
+                Favorites
+            </a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">mail</span>
+                Messages
+            </a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto">
+<button class="w-full bg-surface-container-highest text-primary font-label-sm text-label-sm py-sm rounded-lg hover:bg-surface-container-high transition-all">
+                Switch to Host Mode
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 p-margin-desktop max-w-screen-xl mx-auto">
+<!-- Header -->
+<header class="mb-lg">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-xs">My Himalayan Journeys</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Track your adventures across the peaks and valleys.</p>
+</div>
+<div class="flex gap-sm items-center">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<div class="w-10 h-10 rounded-full bg-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+</div>
+</div>
+<div class="dhaka-divider mt-md"></div>
+</header>
+<!-- Filters -->
+<div class="flex items-center gap-md mb-md">
+<button class="px-md py-sm bg-dhaka-red text-on-primary rounded-full font-label-sm text-label-sm transition-transform active:scale-95">All Bookings</button>
+<button class="px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-sm text-label-sm transition-colors">Completed</button>
+<button class="px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-sm text-label-sm transition-colors">Upcoming</button>
+<button class="px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-full font-label-sm text-label-sm transition-colors">Cancelled</button>
+</div>
+<!-- Booking Grid -->
+<div class="grid grid-cols-1 gap-md">
+<!-- Active/Upcoming Booking (Spotlight) -->
+<section class="bg-surface-container-lowest rounded-xl border-t-4 border-dhaka-red adventure-card-shadow overflow-hidden group">
+<div class="flex flex-col md:flex-row h-full">
+<div class="w-full md:w-1/3 h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A breathtaking, cinematic shot of a traditional hand-crafted stone cottage nestled in the misty Himalayan foothills during sunrise. The lighting is golden and soft, highlighting the natural textures of the landscape. The aesthetic is clean, modern heritage with a focus on tactile authenticity and organic warmth, perfectly aligned with a luxury travel brand's visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC12SsXqLoRjQS93--fws24Ul2sOu2xObrMyfuDBigB4jzSwL6WD9z6vYNYsQ5PHYloMg6uUR0I06P4xVZKCg13xO7YNB8QBaOeEQ8GlgHeJC1GfUnNDS9bKpLKpfPGOYiuk_xPcaMLL-2y43RzOSX8lw9njr-ZOGbA6VRr5i7g2UPvRMz90Bsib2WJYteMXFATCv0O7hm0NIIO0gHpWf_kqeTb357Edf4buPZQuKNFlsAO9Rqtd-QuVBWxF1Ihsnt05HFDJUERdOk"/>
+</div>
+<div class="p-lg flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-primary-fixed text-on-primary-fixed font-label-xs-bold text-label-xs-bold px-sm py-xs rounded uppercase">Upcoming Journey</span>
+<p class="font-headline-md text-headline-md text-dhaka-red">$1,240 Total</p>
+</div>
+<h3 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-xs">Langtang Valley Heritage Home</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+                                Oct 12, 2024 - Oct 18, 2024 (6 Nights)
+                            </p>
+</div>
+<div class="flex gap-md mt-lg">
+<button class="bg-dhaka-red text-on-primary font-label-sm text-label-sm px-lg py-sm rounded-lg transition-transform active:scale-95 flex items-center gap-xs">
+                                View Itinerary
+                                <span class="material-symbols-outlined text-sm">map</span>
+</button>
+<button class="text-dhaka-red border border-dhaka-red/20 font-label-sm text-label-sm px-lg py-sm rounded-lg hover:bg-dhaka-red/5 transition-colors">
+                                Contact Host
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Past Bookings Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mt-base">
+<!-- Past Entry 1 -->
+<article class="bg-surface-container-lowest rounded-xl adventure-card-shadow overflow-hidden flex flex-col hover:-translate-y-1 transition-transform border border-outline-variant/30">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A warm, inviting interior of a Nepalese homestay room, featuring authentic wooden beams and hand-woven Dhaka fabrics in deep reds and earth tones. Soft afternoon light filters through a window showing distant mountain peaks. The photography style is sharp, professional, and captures a mood of serene, modern cultural immersion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9cm4ZKmbD723T2feCrWVowXcLZLT2_dxy3GOliptXc4vie9MFbWZg1OK4erlYFendM6KkM_S4xbCH2Kg0rlHQNGlgkECeA2_GE_pQbkbq5vDOxwGy07p_Svkh9btEEtf4BC5uQEcG7XFZpCQkKHJzlgQHwDTKaVC7PE-IKqngLlAlS5TFYlUu0NKjJVre58iIG94JQ-J8LVZHGDNK4YeE49hGwf8nkx9SckVX4IPnlgT1NxCLs4rQFhx17KJ4oX3eQpLMzTNkS1s"/>
+<div class="absolute top-sm right-sm">
+<span class="bg-surface-container-highest/90 backdrop-blur-sm text-on-surface font-label-xs-bold text-label-xs-bold px-sm py-xs rounded">Completed</span>
+</div>
+</div>
+<div class="p-md flex flex-grow flex-col">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Aama’s Hearth - Mustang</h4>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">Aug 05 - Aug 10, 2024 • $850</p>
+<div class="mt-auto pt-md border-t border-outline-variant/20 flex justify-between items-center">
+<a class="text-dhaka-red font-label-sm text-label-sm flex items-center gap-xs hover:underline" href="#">
+                                Rate Your Stay
+                                <span class="material-symbols-outlined text-sm">star</span>
+</a>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-dhaka-red cursor-pointer">download</span>
+</div>
+</div>
+</article>
+<!-- Past Entry 2 -->
+<article class="bg-surface-container-lowest rounded-xl adventure-card-shadow overflow-hidden flex flex-col hover:-translate-y-1 transition-transform border border-outline-variant/30">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A beautiful terrace overlook from a boutique Himalayan lodge, set against a backdrop of the Annapurna range at dusk. The sky is painted in deep oranges and violets, reflecting the warmth of the hospitality. The visual style is refined, focusing on high-end travel luxury blended with traditional mountain architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxtwbQHmN6AjOgncSTgEdtR0xP6drD0z0K9m1nkILdpakMQuGXWlYugC3Scn4FGPndseBKHHiYDKVo5iqezJyA9iPPS2xuuzPd97PPoPH4i05p90Y1_iMxPLGKU1z07KegbQVxPBGR60XUZLCTvMPZFDYvGW4Qcsl6MUzYLV7DVraaDl9oYCchiBDaVUVXzKq-QowXrrgdtkB6YLlfSpUBB8yE6PpkwTDDhGqqaHake4Ot4BgDfA4ZiZqfSVRaAzhFPT1NH3u8lgI"/>
+<div class="absolute top-sm right-sm">
+<span class="bg-surface-container-highest/90 backdrop-blur-sm text-on-surface font-label-xs-bold text-label-xs-bold px-sm py-xs rounded">Completed</span>
+</div>
+</div>
+<div class="p-md flex flex-grow flex-col">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Pokhara Peak View Lodge</h4>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">May 20 - May 22, 2024 • $320</p>
+<div class="mt-auto pt-md border-t border-outline-variant/20 flex justify-between items-center">
+<a class="text-dhaka-red font-label-sm text-label-sm flex items-center gap-xs hover:underline" href="#">
+                                View Details
+                                <span class="material-symbols-outlined text-sm">visibility</span>
+</a>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-dhaka-red cursor-pointer">receipt_long</span>
+</div>
+</div>
+</article>
+<!-- Past Entry 3 (Cancelled) -->
+<article class="bg-surface-container-lowest rounded-xl adventure-card-shadow overflow-hidden flex flex-col opacity-80 border border-outline-variant/30">
+<div class="h-48 relative grayscale">
+<img class="w-full h-full object-cover" data-alt="A misty, atmospheric mountain path lined with colorful prayer flags in a high-altitude Nepalese village. The lighting is cool and foggy, creating a sense of distance and quietude. The aesthetic maintains the brand's heritage focus but with a more somber, muted color palette suited for a cancelled travel event." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOxFaxx6t-qwlsh1ppPda_wi1wUVrNmClDaP31XGR5RScuebOFipsxrkA3l4hEH0m1RWHr0_vmUBsj6eykLJNsTR6NZWJ_FyWhkCntmuaQT8i5QoZtLZaNKTyD40cpaksrf1WVjAtvNJ3-_-peV6IM8e-tlDbs1qQpQ5Tt2nyj4XhT7N-uG463OS3MJ1dj94jQf7NcLMg1je4_rJNdaB9QD6SwenY6Cja5bmh6-rZBcNCDtp7V3FT92MEfYZXSKDbn_DpW9QJyv0w"/>
+<div class="absolute top-sm right-sm">
+<span class="bg-error-container text-on-error-container font-label-xs-bold text-label-xs-bold px-sm py-xs rounded">Cancelled</span>
+</div>
+</div>
+<div class="p-md flex flex-grow flex-col">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Ghorepani Tea House</h4>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">Apr 10 - Apr 12, 2024 • $140 Refunded</p>
+<div class="mt-auto pt-md border-t border-outline-variant/20 flex justify-between items-center">
+<button class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-xs">
+                                Rebook
+                                <span class="material-symbols-outlined text-sm">refresh</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</div>
+<!-- Pagination/Footer Context -->
+<footer class="mt-xl pt-lg border-t border-dhaka-red/20 flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">© 2024 Aama's Kitchen. Authentic Himalayan Hospitality.</p>
+<div class="flex gap-md">
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-colors" href="#">Sustainability</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-colors" href="#">Contact Support</a>
+</div>
+</footer>
+</main>
+<!-- Floating Micro-Interaction Trigger (Bottom Right) -->
+<div class="fixed bottom-margin-desktop right-margin-desktop z-50">
+<button class="bg-dhaka-red text-on-primary w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:rotate-12 transition-transform active:scale-90 group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">help</span>
+<span class="absolute right-16 bg-on-surface text-white px-md py-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity font-label-sm text-label-sm">Need help with a booking?</span>
+</button>
+</div>
+<script>
+        // Simple interactive effects for the dashboard
+        document.querySelectorAll('article, section').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.borderColor = 'rgba(179, 40, 33, 0.4)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.borderColor = '';
+            });
+        });
+    </script>
+</body></html>

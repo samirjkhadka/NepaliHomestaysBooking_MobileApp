@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen | Heritage Progress</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grainy-surface {
+            background-image: url("https://www.transparenttextures.com/patterns/felt.png");
+            background-color: #fbf9f4;
+        }
+        .dhaka-pattern {
+            background: repeating-linear-gradient(
+                45deg,
+                #b32821,
+                #b32821 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            height: 4px;
+            width: 100%;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 190, 186, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdad5",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#752814",
+                        "surface-dim": "#dbdad5",
+                        "on-tertiary-fixed": "#001f2a",
+                        "inverse-surface": "#30312e",
+                        "background": "#fbf9f4",
+                        "surface-tint": "#b32821",
+                        "tertiary-fixed-dim": "#9ccee7",
+                        "primary": "#680003",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-tertiary-fixed-variant": "#144c61",
+                        "secondary-container": "#fd9174",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "on-primary-fixed": "#410001",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bee9ff",
+                        "impact-teal": "#316479",
+                        "surface-container": "#f0eee9",
+                        "primary-container": "#900a0c",
+                        "surface-bright": "#fbf9f4",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb4aa",
+                        "tertiary": "#003546",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container-low": "#f5f3ee",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-tertiary-container": "#8abbd4",
+                        "surface-variant": "#e4e2dd",
+                        "outline-variant": "#e2beba",
+                        "tertiary-container": "#134c61",
+                        "on-tertiary": "#ffffff",
+                        "dhaka-red": "#b32821",
+                        "surface-grain": "#fbf9f4",
+                        "on-surface": "#1b1c19",
+                        "surface": "#fbf9f4",
+                        "on-secondary-fixed-variant": "#7c2e18",
+                        "secondary-fixed": "#ffdbd2",
+                        "on-primary-fixed-variant": "#910b0c",
+                        "surface-container-high": "#eae8e3",
+                        "on-surface-variant": "#5a413d",
+                        "earth-brown": "#5a413d",
+                        "secondary": "#9a442d",
+                        "on-primary-container": "#ff998c",
+                        "outline": "#8e706c",
+                        "on-background": "#1b1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "gutter": "20px",
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "label-xs-bold": ["Manrope"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-sm-italic": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-xs-bold": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm-italic": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="grainy-surface text-on-surface selection:bg-primary-fixed">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
+<div class="flex justify-between items-center px-margin-desktop py-base max-w-screen-xl mx-auto">
+<div class="font-display-lg text-display-lg text-dhaka-red dark:text-primary-fixed-dim">Aama's Kitchen</div>
+<nav class="hidden md:flex items-center space-x-md font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Experiences</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Marketplace</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Community</a>
+</nav>
+<div class="flex items-center space-x-sm">
+<button class="material-symbols-outlined p-xs text-on-surface-variant hover:bg-surface-container-high/50 transition-all rounded-full">notifications</button>
+<button class="material-symbols-outlined p-xs text-dhaka-red hover:bg-surface-container-high/50 transition-all rounded-full">account_circle</button>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-md py-xs rounded-full scale-95 active:scale-90 transition-transform">Book Now</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Only visible on Desktop, using absolute positioning relative to content wrapper for layout) -->
+<aside class="hidden md:flex h-screen w-64 fixed left-0 top-0 pt-32 flex-col p-md space-y-sm bg-surface-container-low border-r border-outline-variant/20 z-40">
+<div class="px-sm mb-lg">
+<h2 class="font-headline-md text-headline-md text-dhaka-red">Welcome, Traveler</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Himalayan Hearth Member</p>
+</div>
+<nav class="space-y-xs">
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center space-x-sm p-sm bg-secondary-container text-on-secondary-container rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_available</span>
+<span class="font-label-sm text-label-sm">My Bookings</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Favorites</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-sm text-label-sm">Messages</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-sm">
+<button class="w-full py-sm px-md bg-tertiary-container text-on-tertiary-container rounded-xl font-label-sm text-label-sm hover:opacity-90 transition-opacity">
+                Switch to Host Mode
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 px-margin-mobile md:px-margin-desktop py-lg max-w-screen-xl mx-auto space-y-xl">
+<!-- Header Section -->
+<section class="space-y-sm">
+<div class="dhaka-pattern mb-xs"></div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Your Heritage Journey</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Every dish cooked, every word learned, and every temple visited weaves you closer to the heart of the Himalayas. Track your path to cultural mastery.
+            </p>
+</section>
+<!-- Bento Grid: Journey Stats -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Journey Tracker Card -->
+<div class="md:col-span-2 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-dhaka-red mb-base">Cultural Mastery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">You've unlocked 62% of the Himalayan Heritage curriculum.</p>
+</div>
+<div class="space-y-md">
+<div class="space-y-xs">
+<div class="flex justify-between items-end">
+<span class="font-label-sm text-label-sm text-earth-brown uppercase">Cuisine Mastery</span>
+<span class="font-label-sm text-label-sm text-dhaka-red">85%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-dhaka-red transition-all duration-1000 ease-out" style="width: 85%"></div>
+</div>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-end">
+<span class="font-label-sm text-label-sm text-earth-brown uppercase">Language Fluency</span>
+<span class="font-label-sm text-label-sm text-dhaka-red">30%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-dhaka-red transition-all duration-1000 ease-out" style="width: 30%"></div>
+</div>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-end">
+<span class="font-label-sm text-label-sm text-earth-brown uppercase">Artisanal Crafts</span>
+<span class="font-label-sm text-label-sm text-dhaka-red">45%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-dhaka-red transition-all duration-1000 ease-out" style="width: 45%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Spotlight: Next Adventure -->
+<div class="bg-surface-container-highest rounded-xl overflow-hidden shadow-sm relative group cursor-pointer border border-outline-variant/30">
+<div class="absolute top-0 left-0 w-full h-1 bg-dhaka-red"></div>
+<div class="h-48 w-full bg-cover bg-center" data-alt="A warm, sun-drenched Nepalese kitchen where an elderly woman with deep laughter lines is teaching a young traveler how to fold delicate momo dumplings. The lighting is soft and golden, highlighting the steam rising from a bamboo basket. The overall aesthetic is rustic, tactile, and deeply authentic, matching the Himalayan heritage brand." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBs6nq2ig1vANvHcvY9w1GIYq3AJ9Eny8DAk0m74yXai45OmkTjba_8cLe9RxJpF58CpR1d292PoTYx8sclhL2E1W_XlY3wwDrn7FQy78N3ORAdwtSSVdHx-7LOn_w97nrhzyrpnkZkhWXLE2Qc0c7dyZQeFWWyvJleC05ri7BffEnmcHDfOA_hs7z7NEflpaLjPwgYyDI5ca8MP9QVX21W8YZQATzoDqM8OrRx90BsMrWpcPnXLrwNzGusUpzFPkuyKgKn4AfcDBI')"></div>
+<div class="p-md space-y-xs">
+<div class="flex items-center space-x-xs text-dhaka-red">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span class="font-label-xs-bold text-label-xs-bold uppercase">Recommended Next Step</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Newari Wood Carving</h4>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">Unlock the "Patan Craftsman" badge this Saturday.</p>
+</div>
+</div>
+</section>
+<!-- Impact Tiles -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-lowest p-md rounded-xl text-center border border-outline-variant/30 flex flex-col items-center justify-center space-y-xs">
+<span class="material-symbols-outlined text-dhaka-red text-3xl">restaurant_menu</span>
+<div class="text-3xl font-bold text-on-surface">12</div>
+<div class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Recipes Mastered</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl text-center border border-outline-variant/30 flex flex-col items-center justify-center space-y-xs">
+<span class="material-symbols-outlined text-dhaka-red text-3xl">translate</span>
+<div class="text-3xl font-bold text-on-surface">450</div>
+<div class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Words Learned</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl text-center border border-outline-variant/30 flex flex-col items-center justify-center space-y-xs">
+<span class="material-symbols-outlined text-dhaka-red text-3xl">history_edu</span>
+<div class="text-3xl font-bold text-on-surface">3</div>
+<div class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Ceremonies Attended</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl text-center border border-outline-variant/30 flex flex-col items-center justify-center space-y-xs">
+<span class="material-symbols-outlined text-dhaka-red text-3xl">volunteer_activism</span>
+<div class="text-3xl font-bold text-on-surface">84</div>
+<div class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Heritage Credits</div>
+</div>
+</section>
+<!-- Badges Grid -->
+<section class="space-y-md">
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-dhaka-red">military_tech</span>
+                    Earned Badges
+                </h2>
+<button class="font-label-sm text-label-sm text-dhaka-red hover:underline">View All Collection</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-gutter">
+<!-- Badge 1 -->
+<div class="glass-card p-md rounded-xl flex flex-col items-center text-center space-y-sm hover:scale-105 transition-transform cursor-pointer">
+<div class="w-20 h-20 bg-primary-fixed flex items-center justify-center rounded-full border-2 border-dhaka-red shadow-inner">
+<span class="material-symbols-outlined text-dhaka-red text-4xl" style="font-variation-settings: 'FILL' 1;">oven_gen</span>
+</div>
+<div>
+<h5 class="font-label-sm text-label-sm text-on-surface">Sel Roti Master</h5>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Cuisine • Lvl 3</p>
+</div>
+</div>
+<!-- Badge 2 -->
+<div class="glass-card p-md rounded-xl flex flex-col items-center text-center space-y-sm hover:scale-105 transition-transform cursor-pointer">
+<div class="w-20 h-20 bg-primary-fixed flex items-center justify-center rounded-full border-2 border-dhaka-red shadow-inner">
+<span class="material-symbols-outlined text-dhaka-red text-4xl" style="font-variation-settings: 'FILL' 1;">temple_buddhist</span>
+</div>
+<div>
+<h5 class="font-label-sm text-label-sm text-on-surface">Temple Etiquette</h5>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Tradition • Lvl 1</p>
+</div>
+</div>
+<!-- Badge 3 -->
+<div class="glass-card p-md rounded-xl flex flex-col items-center text-center space-y-sm hover:scale-105 transition-transform cursor-pointer">
+<div class="w-20 h-20 bg-primary-fixed flex items-center justify-center rounded-full border-2 border-dhaka-red shadow-inner">
+<span class="material-symbols-outlined text-dhaka-red text-4xl" style="font-variation-settings: 'FILL' 1;">hiking</span>
+</div>
+<div>
+<h5 class="font-label-sm text-label-sm text-on-surface">Path Finder</h5>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Journey • Lvl 2</p>
+</div>
+</div>
+<!-- Badge 4 -->
+<div class="glass-card p-md rounded-xl flex flex-col items-center text-center space-y-sm hover:scale-105 transition-transform cursor-pointer">
+<div class="w-20 h-20 bg-primary-fixed flex items-center justify-center rounded-full border-2 border-dhaka-red shadow-inner">
+<span class="material-symbols-outlined text-dhaka-red text-4xl" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+</div>
+<div>
+<h5 class="font-label-sm text-label-sm text-on-surface">Namaste Ambassador</h5>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Language • Lvl 4</p>
+</div>
+</div>
+<!-- Badge 5 (Locked) -->
+<div class="bg-surface-container p-md rounded-xl flex flex-col items-center text-center space-y-sm grayscale opacity-50 relative overflow-hidden group">
+<div class="w-20 h-20 bg-surface-variant flex items-center justify-center rounded-full border-2 border-outline-variant shadow-inner">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">lock</span>
+</div>
+<div>
+<h5 class="font-label-sm text-label-sm text-on-surface">Mountain Bard</h5>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase">Folklore • Locked</p>
+</div>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="font-label-xs-bold text-label-xs-bold bg-surface p-base rounded shadow-lg text-dhaka-red">Learn more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Timeline -->
+<section class="space-y-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Memories</h2>
+<div class="space-y-sm">
+<!-- Timeline Item 1 -->
+<div class="flex gap-md group">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 bg-dhaka-red rounded-full"></div>
+<div class="w-px h-full bg-outline-variant/30 group-last:bg-transparent"></div>
+</div>
+<div class="pb-md flex-1">
+<div class="font-label-xs-bold text-label-xs-bold text-on-surface-variant mb-xs">OCT 24, 2024</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 hover:border-dhaka-red/30 transition-colors">
+<h6 class="font-label-sm text-label-sm text-on-surface">Finished "Introduction to Himalayan Spices"</h6>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">Mastered the use of jimbu and timur in traditional soups.</p>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="flex gap-md group">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 bg-dhaka-red rounded-full"></div>
+<div class="w-px h-full bg-outline-variant/30 group-last:bg-transparent"></div>
+</div>
+<div class="pb-md flex-1">
+<div class="font-label-xs-bold text-label-xs-bold text-on-surface-variant mb-xs">OCT 21, 2024</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 hover:border-dhaka-red/30 transition-colors">
+<h6 class="font-label-sm text-label-sm text-on-surface">Reached "Hearthside Speaker" Level</h6>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">Can now order a full meal and express gratitude in Nepali.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg bg-surface-container-highest dark:bg-inverse-surface border-t border-dhaka-red/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-screen-xl mx-auto space-y-md md:space-y-0">
+<div class="font-display-lg-mobile text-display-lg-mobile text-dhaka-red">Aama's Kitchen</div>
+<nav class="flex flex-wrap justify-center gap-md">
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">About Us</a>
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">Sustainability</a>
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">Host Login</a>
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">Privacy Policy</a>
+<a class="font-body-sm-italic text-body-sm-italic text-on-surface-variant hover:text-dhaka-red transition-opacity" href="#">Contact</a>
+</nav>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface dark:text-inverse-on-surface opacity-70">
+                © 2024 Aama's Kitchen. Authentic Himalayan Hospitality.
+            </p>
+</div>
+</footer>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-md rounded-t-xl shadow-lg border-t border-outline-variant/20 px-md py-base flex justify-around items-center z-50">
+<button class="flex flex-col items-center space-y-xs text-on-surface-variant">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] uppercase font-bold">Explore</span>
+</button>
+<button class="flex flex-col items-center space-y-xs text-dhaka-red">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="text-[10px] uppercase font-bold">Journey</span>
+</button>
+<button class="flex flex-col items-center space-y-xs text-on-surface-variant">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] uppercase font-bold">Saved</span>
+</button>
+<button class="flex flex-col items-center space-y-xs text-on-surface-variant">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] uppercase font-bold">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple Micro-interaction: Update progress bar on scroll or load
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressBars = document.querySelectorAll('.bg-dhaka-red');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 200);
+            });
+        });
+    </script>
+</body></html>

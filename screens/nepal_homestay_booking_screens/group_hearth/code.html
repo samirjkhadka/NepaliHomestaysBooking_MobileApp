@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Group Hearth | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Be Vietnam+Pro:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#8e706c",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f2f1ec",
+                    "secondary": "#9a442d",
+                    "outline-variant": "#e2beba",
+                    "on-tertiary-container": "#addff8",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "surface": "#fbf9f4",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "on-secondary": "#ffffff",
+                    "primary": "#900a0c",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#ffb4aa",
+                    "surface-container-highest": "#e4e2dd",
+                    "primary-fixed": "#ffdad5",
+                    "on-tertiary-fixed": "#001f2a",
+                    "on-surface": "#1b1c19",
+                    "tertiary-fixed": "#bde9ff",
+                    "on-primary-container": "#ffccc6",
+                    "surface-container-low": "#f5f3ee",
+                    "surface-tint": "#b32821",
+                    "background": "#fbf9f4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#910a0c",
+                    "on-error": "#ffffff",
+                    "surface-container": "#f0eee9",
+                    "secondary-fixed": "#ffdbd2",
+                    "tertiary-container": "#316479",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fbf9f4",
+                    "on-primary-fixed": "#410001",
+                    "primary-container": "#b32821",
+                    "on-background": "#1b1c19",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "tertiary": "#134c61",
+                    "inverse-surface": "#30312e",
+                    "surface-dim": "#dbdad5",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "secondary-container": "#fc9174",
+                    "surface-variant": "#e4e2dd",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#5a413d",
+                    "on-secondary-fixed": "#3c0800",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "surface-container-high": "#eae8e3",
+                    "on-secondary-container": "#742814"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "gutter": "20px",
+                    "margin-mobile": "16px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "margin-desktop": "64px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "display-lg-mobile": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .dhaka-pattern {
+        background-image: radial-gradient(#e2beba 0.5px, transparent 0.5px);
+        background-size: 12px 12px;
+      }
+      .glass-morphism {
+        background: rgba(251, 249, 244, 0.8);
+        backdrop-filter: blur(12px);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #e2beba;
+        border-radius: 10px;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary/30">
+<!-- Top Navigation Anchor -->
+<header class="w-full top-0 sticky bg-surface border-b border-outline-variant/30 z-40 flex justify-between items-center px-margin-mobile py-sm md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-bold text-primary transition-colors" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">My Journey</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Market</a>
+</nav>
+<div class="w-10 h-10 rounded-full border-2 border-primary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a young traveler with a warm, friendly expression, wearing a traditional handmade wool beanie. The lighting is soft and golden, suggesting a late afternoon in the Himalayas. The photo has a premium editorial feel with a shallow depth of field, focusing on the texture of the wool and the traveler's authentic smile against a blurred mountain background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOW9ce5yt8Di_uEOhR9wX71DqrO2wtm0niqBcBUXJcvMxvJvHLioA17Y8Dgfb6ZYWpWDnrU2dOoWIyZjwLuTA6Vspm6nCysD7X2MSYrBrTHuHaofCpVDwAex_w59DAH2RwopC74MCt7CaGTGROsw80V8uiFmkqE2xQm1glGmha8PpDvgU-A-apmgZQWBzXD6Sof5W6v5eowYyeITKeAvDZYK2wH4quBGBuD2GxAuGhN-L_I2SIZeW3c7tAv8vH1OGsIxnewo0Ab6o"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop pt-8 pb-32">
+<!-- Hero Header -->
+<section class="mb-xl">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-8">
+<div>
+<span class="text-secondary font-label-sm uppercase tracking-widest mb-2 block">Group Hearth</span>
+<h2 class="font-display-lg text-display-lg text-on-surface leading-tight">Annapurna Circuit Expedition</h2>
+<p class="text-on-surface-variant mt-2 max-w-xl text-body-lg">A shared space for the Mountain Seekers group to coordinate, track expenses, and immortalize moments from the trail.</p>
+</div>
+<div class="flex -space-x-4">
+<!-- Group Members Avatars -->
+<div class="w-12 h-12 rounded-full border-2 border-surface bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a male hiker with a rugged beard and outdoor gear, looking thoughtfully into the distance. Cinematic natural lighting and earth tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAXWw-SO9qK8uH4s_9mFFCri77oAMiQw2Q8Lt8evxAH4G0P-H7EADVXG2mWiGROlk3ih2F5rIOO7yymsJ3FzT3H4LJ0PY4fnG4akFrrcgmSQUQcYMvEnsGt8HDCfedB_hmXgp8Ivaa4MhLvBUWA6prmw2yoiJGJCZgbxrl5mx-9HHLt1D8fInKtxGiDjMR77ZT1JYmbutmRKr4Ik87FKsl1B8RNiM9mzV5AE0PJEh8ErxvitPRwtvxcirnTZGjakw9C9RB6_5-uNA"/>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-surface bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of a smiling woman in her 30s with a backpack, wearing high-performance trekking gear. Bright, airy mountain lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvK10YheA0bNoxE0hAPuvmovZDMezXFLgE9p2uF0EHEaL2gcbHqfRX0Spsa16SSlzXenOp8bHNKwhuFAeOuGn7gg_8WNPXupZ4hAosqzgVlek3aHoeFXIE66dtALjUT5qGqEGrhtRrOBwIqaL59zL02Y5WqiEaLGQwpdIr4Ci2Ag_20EUpaGNBM_Ywt1YCBMmSFJhQRzgEjC-OpRCWM9bJe4EqF2hMNLnWFl7VBAyCVO2NsWjt-RFJewDvsFSmJxf2SI8BI3D18TI"/>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-surface bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Action shot of a climber adjusting their gear, focused and professional. Soft focus background of a snow-capped peak." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSHdEg6Dgr2x--Iiw9TcksGMroEfK6_tYBDGaQJ0N9Ydj1SRB85URdwz5GxXLsdjl2Yft5ar5C6nzfUU7yBcxzUV6oNJTZNh5fT328nbaYKzgU62d94zQeh_RVezS-3sY6wQR5aqMjbjeoUL3j5-4LduNU_tTtEZARnRHw1IaOV4fTEBXilMwH4JP9GJai-1m8ndgoNF2wbRA5RQIx2GhtuCr-PEgNzzIjL68jd4tOUEpnEFIp2i5OPKlt9J0diMDLX9ifHNAIAio"/>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-surface bg-secondary text-white flex items-center justify-center font-bold">+2</div>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Itinerary & Map (Bento Large) -->
+<div class="md:col-span-8 space-y-gutter">
+<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant/30 overflow-hidden relative group">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">Active Trail: Day 4</h3>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-sm flex items-center gap-2 active:scale-95 transition-all shadow-lg shadow-primary/20" onclick="pingGroup()">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                Ping Group
+                            </button>
+</div>
+<!-- Map Visual Placeholder -->
+<div class="h-[300px] w-full rounded-lg relative overflow-hidden mb-6 border border-outline-variant/20">
+<div class="absolute inset-0 bg-surface-container-highest flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-80" data-alt="A topographical map style illustration of a Himalayan trekking route. The map shows contour lines, a winding red trail marker, and small icons representing teahouses and peaks. The aesthetic is clean, modern, and minimalist with a palette of soft greys, terracotta accents, and charcoal lines, mimicking a professional high-end GPS hiking application." data-location="Annapurna, Nepal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuKevjNw9gRf3cBol0p8IEEzs9vG0FX9cdHLGLLWb3cx4bAf_Lza5zbmYz3w3HO3KzouwXHA3770d_HAT6AcjUD6I2o6b0hkaSTfYjl9T3Qp21iwSZOB5dejtLqOx7vTGNF5NCl7Ewe0sjnV1g7MByvTpna7w2_3YinNiZr8EP327A1tyKJyZievp827o3D-88BtIs21ROqXtGFINQna5pTw1dOyBIrZVZuP2VGx8jPArPhHo-BdP3rqMHfbq9datB1paw6ZrTAxs"/>
+<!-- Ping Overlays -->
+<div class="absolute top-1/2 left-1/3 w-4 h-4 bg-primary rounded-full animate-ping"></div>
+<div class="absolute top-1/2 left-1/3 w-4 h-4 bg-primary rounded-full border-2 border-on-primary"></div>
+<div class="absolute top-[45%] left-[40%] w-3 h-3 bg-secondary rounded-full border-2 border-on-primary"></div>
+</div>
+</div>
+<!-- Daily Milestones -->
+<div class="flex gap-4 overflow-x-auto pb-2 custom-scrollbar">
+<div class="min-w-[200px] bg-surface-container-highest p-4 rounded-lg border-l-4 border-secondary">
+<span class="text-secondary font-bold text-xs">08:00 AM</span>
+<h4 class="font-bold text-on-surface">Chame Departure</h4>
+<p class="text-xs text-on-surface-variant mt-1">Check-out from Himalayan Lodge</p>
+</div>
+<div class="min-w-[200px] bg-surface-container-highest p-4 rounded-lg border-l-4 border-outline">
+<span class="text-outline font-bold text-xs">12:30 PM</span>
+<h4 class="font-bold text-on-surface">Bhratang Lunch</h4>
+<p class="text-xs text-on-surface-variant mt-1">Apple orchard tea break</p>
+</div>
+<div class="min-w-[200px] bg-surface-container-highest p-4 rounded-lg border-l-4 border-outline opacity-60">
+<span class="text-outline font-bold text-xs">04:00 PM</span>
+<h4 class="font-bold text-on-surface">Upper Pisang</h4>
+<p class="text-xs text-on-surface-variant mt-1">Arrival at Tukuche Peak View</p>
+</div>
+</div>
+</div>
+<!-- Memory Wall (Bento Medium) -->
+<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant/30">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">Shared Memory Wall</h3>
+<button class="text-primary font-label-sm flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined">add_a_photo</span> Add Photos
+                            </button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+<div class="aspect-square rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A group of smiling friends sitting around a wooden table in a traditional Sherpa teahouse. In the center is a large steaming pot of Dal Bhat. The room is warmly lit by the orange glow of a wood-burning stove, with colorful prayer flags visible in the background through a window. The style is warm, authentic, and evocative of Himalayan hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfZ06QSvgAOewdPV-M69dZSSzZU_X51THTizIWuy8MNKdrBuCVT6c8iXLAr9QVSqIFtT4p4WNVFogqyDdB_9Xt8GGeTWqnESyw08ehI7yRDV9bb-cQ6n_bq6NJCk-8do2qQ3tw1TIsetu1_VbLkrFvUqdybJ4hQSoscNSbN_IX1BdWUJFfzfUH-kR4iHcAxSNnMiKG8LmxiDZGYsxRH_03MBqzNRzTFbb58OlpfaCO7q1ZyXrmpLt9RlFEXQi5PViKRDcKOqOS0Ds"/>
+<div class="absolute bottom-2 right-2 w-6 h-6 rounded-full border border-white overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" data-alt="Close up thumbnail of a female hiker's face." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABrpu5iGLgNzanBHsijEKR9LWSGc4HxWmctosFNj_v2Huq0TQckUzNRGAIp1EqUN1XX4si2W5e3TmeOb59szzkOWaulTKD8uW1rVEWjveq8dy6eVEWlWxJxwfxTSvsIkfLbCEwWAXiQJGnqhnqbheX7VIhIP7lHyqVtbwH3gdU0ccWnkcZwsOb47fhMV2GKUzb_GAcAvfeTLDDsnd9iUtN4u2IKLqVdMmYGbR1DLyixnljLWUcZLB6c6360i4yZ63bYYXtrz9OdZ8"/>
+</div>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A breathtaking landscape photo of the morning sun hitting the summit of a jagged Himalayan peak. The sky is a crisp, deep blue, and the lower slopes are covered in mist. Fine details of snow and rock are visible. Professional travel photography style with high contrast and natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUwDfjGdgWOTHZU6sfHxcf1RQaFEJtcNKfcknu4U3Gco07drBbJjMwWdLxj0LkwC_v3uWuVngAiYaK6uEJqlP2G7bmqHZK-OKd1m8hbO5vsrenrdbk4VwAfOrXXWlk1nA2PiWb_RGdTashyoN5ia7G96_b9MKaR0KSzUurua51LbGvxy05uhUEgxobZHKcUZEp-yN3uubGfCA4PnJgDNdjXWNHecO1uvDU331RxNxMR3ivavJS2xzAC_V7bKOt7tUJyslZOIgvJL0"/>
+<div class="absolute bottom-2 right-2 w-6 h-6 rounded-full border border-white overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" data-alt="Close up thumbnail of a male hiker's face." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVk-Y1EqAChfvO2xcLTE_tA2Bau1uOy9eJC3yIfq04hB13sOer21gy2MpP2N4QeoHJ2JtHJw4JyWls5xPod5KIZJai0Y5YnXBhR06ezBe-Xoi455VE2KbYdhYLu7Z32uAps_07Q9G0k2K6I5pob2Gt0pS_Q4pl-XtuxMHAdmUbkP6yzoE8_xCBvpnTXIP_zynPQZUVm3KiwhFDI7DnGPGrowdUSau_ezHD4vQJTrFh8OvmWi06UQyp9w7n0FNtx1MTBEDJEcUw1Zc"/>
+</div>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up of a pair of well-worn hiking boots resting on a stone ledge, with a vast valley stretched out below in soft focus. The lighting is diffused and serene, capturing the quiet moment of a trail break. Muted earth tones and high texture detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2qWd5MAxfBL3AVwgneI6wX84JR44eZSL3ebbUk_QB4Tpbw8smimk-nN0xVFqdpTbrgXFD6DYwARhN9y1Lx1QK13OnLOh2RR5J0yqNxOASRAJI5BzI3bcZ5C-wt88JUcAHD0sa14M5gN2M1K3rEhJa9Ra13dnhjuIXW9F0cFY4Vo02-Xx5rxg_Ad8xVINgVzlg4OlVi-v-zMLc5CsHUJhQpmoeN_Uw-SGi4-71mXhkE7wAs4xKevh9hPZRaN5C6wruWnGAIfB48cQ"/>
+</div>
+<div class="aspect-square rounded-lg bg-surface-container-highest flex items-center justify-center border-2 border-dashed border-outline-variant hover:bg-surface-variant transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-outline">add_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Expense Splitter (Bento Side) -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="bg-primary text-on-primary rounded-xl p-md shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none dhaka-pattern"></div>
+<h3 class="font-headline-md text-headline-md mb-2">Trail Ledger</h3>
+<div class="mb-6">
+<span class="text-sm opacity-80 uppercase tracking-widest font-bold">Total Group Spend</span>
+<div class="text-3xl font-display-lg">रू 24,500</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm items-center bg-white/10 p-3 rounded-lg">
+<span>Teahouse (Manaslu)</span>
+<span class="font-bold">रू 8,200</span>
+</div>
+<div class="flex justify-between text-sm items-center bg-white/10 p-3 rounded-lg">
+<span>Guide Tips (Shared)</span>
+<span class="font-bold">रू 12,000</span>
+</div>
+<div class="flex justify-between text-sm items-center bg-white/10 p-3 rounded-lg">
+<span>Snacks &amp; Water</span>
+<span class="font-bold">रू 4,300</span>
+</div>
+</div>
+<button class="w-full mt-6 bg-white text-primary py-3 rounded-lg font-bold hover:bg-surface transition-colors active:scale-95 duration-150">
+                            Split New Bill
+                        </button>
+</div>
+<!-- Personal Balance -->
+<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant/30">
+<h4 class="font-bold text-on-surface mb-4">Your Balance</h4>
+<div class="flex items-center justify-between mb-4">
+<span class="text-on-surface-variant">You are owed</span>
+<span class="text-secondary font-bold text-xl">रू 3,450</span>
+</div>
+<div class="space-y-4 pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Avatar of a male traveler." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3OhN11DJhBaFV-JGmV3I6xEQ2dN1Ksyp903TYo-5IbHBoV_pORumsDrDE75xwplD4TxhmjP_qci3L-AIu5J09MZQKdVMnaFUR97vGBopDP-p4U8ePtPAEh1cQaxju7BeORMRjVjg9BH5GRM5byeex-rid7gSvIe0HGrzoFSx_Vxxal8Djv17Vw2rCN4mS-1hQ6ogA9feVnzB4ooGJ3Are_njBnp-rNxfdNJhoZO-Gs_TiIKD_FtF5l0rKIKAuXVUAs2fCf5rNy9Q"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold">Arjun owes you</p>
+<p class="text-sm">रू 2,200 for Tea</p>
+</div>
+<button class="text-xs font-bold text-primary px-2 py-1 border border-primary rounded">Remind</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Avatar of a female traveler." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi9UZd3GJB4nmmqu6dlVZjmaVqXxB_smYPvkg7GuN2PE1_kDNpSP1GVk_5bXNbuho2PcZ78urN6_OWE66kQGTMDqnEm3xW7WN3VJ6mudVg8t64tuT68eO_-67ThD75exJATyXXFMQ12VKuYqQvBzQYMVYWvhCQY2o_ifM6rbo35GXl_XDhP3pKTMk6J8Kwhc5JiImAB9FYN04vqKiu_nwY7J-7WbBGT8H5ymUBZ6PmSig3OGXTRdRitm0uWq1TdMbalv255qb1-rU"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold">Sarah owes you</p>
+<p class="text-sm">रू 1,250 for Guide</p>
+</div>
+<button class="text-xs font-bold text-primary px-2 py-1 border border-primary rounded">Remind</button>
+</div>
+</div>
+</div>
+<!-- Group Discussion -->
+<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant/30 flex-1 flex flex-col">
+<h4 class="font-bold text-on-surface mb-4">Hearth Chat</h4>
+<div class="space-y-4 mb-4 flex-1 overflow-y-auto max-h-[250px] pr-2 custom-scrollbar">
+<div class="flex flex-col items-start">
+<span class="text-[10px] text-on-surface-variant mb-1 ml-2">Arjun • 10:24 AM</span>
+<div class="bg-surface-container-highest px-3 py-2 rounded-2xl rounded-tl-none text-sm max-w-[80%]">
+                                    Anyone seen my sunblock? Left it at breakfast maybe?
+                                </div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-on-surface-variant mb-1 mr-2">You • 10:26 AM</span>
+<div class="bg-secondary text-on-secondary px-3 py-2 rounded-2xl rounded-tr-none text-sm max-w-[80%]">
+                                    I think Sarah grabbed it! Check her bag at lunch.
+                                </div>
+</div>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-full py-3 px-5 text-sm focus:ring-2 focus:ring-secondary/20" placeholder="Speak to the group..." type="text"/>
+<button class="absolute right-2 top-1.5 w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-surface border-t border-outline-variant/20 shadow-[0_-4px_12px_rgba(179,40,33,0.05)] z-50">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm mt-1">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1.5 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined">terrain</span>
+<span class="font-label-sm text-label-sm mt-1">My Journey</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">local_mall</span>
+<span class="font-label-sm text-label-sm mt-1">Market</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</button>
+</nav>
+<!-- Interactive Layer / Floating Action -->
+<div class="fixed top-24 right-6 glass-morphism border border-primary/20 px-6 py-4 rounded-xl shadow-2xl translate-x-[150%] transition-transform duration-500 z-[60] max-w-sm" id="ping-notification">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined">location_searching</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Location Shared!</p>
+<p class="text-sm text-on-surface-variant">Your group can now see your active trail ping for the next 15 minutes.</p>
+</div>
+</div>
+</div>
+<script>
+        function pingGroup() {
+            const notification = document.getElementById('ping-notification');
+            notification.classList.remove('translate-x-[150%]');
+            notification.classList.add('translate-x-0');
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-0');
+                notification.classList.add('translate-x-[150%]');
+            }, 5000);
+        }
+
+        // Simple smooth scroll behavior for horizontal lists
+        const scrollContainers = document.querySelectorAll('.custom-scrollbar');
+        scrollContainers.forEach(container => {
+            container.addEventListener('wheel', (evt) => {
+                if (evt.deltaY !== 0) {
+                    evt.preventDefault();
+                    container.scrollLeft += evt.deltaY;
+                }
+            });
+        });
+    </script>
+</body></html>

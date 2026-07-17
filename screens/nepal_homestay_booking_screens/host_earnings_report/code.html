@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Host Earnings Report - Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#f0eee9",
+                      "on-primary-fixed": "#410001",
+                      "on-tertiary-fixed": "#001f2a",
+                      "on-secondary-fixed-variant": "#7c2e19",
+                      "on-secondary-container": "#742814",
+                      "on-background": "#1b1c19",
+                      "primary-fixed": "#ffdad5",
+                      "surface-dim": "#dbdad5",
+                      "surface-container-high": "#eae8e3",
+                      "secondary-fixed": "#ffdbd2",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f5f3ee",
+                      "surface-tint": "#b32821",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#8e706c",
+                      "secondary-fixed-dim": "#ffb4a1",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#fc9174",
+                      "on-primary-container": "#ffccc6",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e2dd",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "surface": "#fbf9f4",
+                      "surface-bright": "#fbf9f4",
+                      "on-surface": "#1b1c19",
+                      "tertiary-fixed": "#bde9ff",
+                      "secondary": "#9a442d",
+                      "outline-variant": "#e2beba",
+                      "primary-container": "#b32821",
+                      "on-tertiary-fixed-variant": "#134c61",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#e4e2dd",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#30312e",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#addff8",
+                      "background": "#fbf9f4",
+                      "on-primary-fixed-variant": "#910a0c",
+                      "tertiary-fixed-dim": "#9bcee6",
+                      "primary": "#900a0c",
+                      "on-surface-variant": "#5a413d",
+                      "inverse-primary": "#ffb4aa",
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#316479",
+                      "on-secondary-fixed": "#3c0800",
+                      "tertiary": "#134c61"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "20px",
+                      "base": "8px",
+                      "margin-mobile": "16px",
+                      "xl": "80px",
+                      "md": "24px",
+                      "margin-desktop": "64px",
+                      "sm": "12px",
+                      "xs": "4px",
+                      "lg": "48px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Be Vietnam Pro"],
+                      "label-sm": ["Manrope"],
+                      "display-lg-mobile": ["Be Vietnam Pro"],
+                      "display-lg": ["Be Vietnam Pro"],
+                      "body-lg": ["Manrope"],
+                      "body-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(#900a0c 0.5px, transparent 0.5px), radial-gradient(#900a0c 0.5px, #fbf9f4 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+        .line-chart-container svg {
+            filter: drop-shadow(0px 4px 8px rgba(144, 10, 12, 0.1));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="bg-surface dark:bg-surface-dim flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-150 p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="active:scale-95 duration-150 p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">account_circle</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-base mb-lg">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-xs">Earnings Report</h2>
+<p class="font-body-md text-on-surface-variant">Review your seasonal growth and payout history.</p>
+</div>
+<!-- Filter Segmented Control -->
+<div class="bg-surface-container-low p-1 rounded-xl flex items-center shadow-sm border border-outline-variant/30">
+<button class="px-6 py-2 rounded-lg font-label-sm text-label-sm bg-secondary-container text-on-secondary-container transition-all shadow-sm" id="filter-monthly">Monthly</button>
+<button class="px-6 py-2 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container-high transition-all" id="filter-yearly">Yearly</button>
+</div>
+</div>
+<!-- Total Earnings Bento Card -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg mb-lg">
+<div class="lg:col-span-2 relative overflow-hidden bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-lg shadow-[0_4px_24px_rgba(179,40,33,0.03)] group">
+<div class="absolute top-0 right-0 w-32 h-32 dhaka-pattern pointer-events-none opacity-10"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-lg relative z-10">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Total Earnings</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg text-on-background">₨ 142,850</span>
+<span class="font-body-md text-tertiary flex items-center">
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+                                12.5%
+                            </span>
+</div>
+</div>
+<div class="mt-base md:mt-0 flex gap-md">
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Avg. Nightly</p>
+<p class="font-headline-md text-headline-md text-on-background">₨ 4,200</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Occupancy</p>
+<p class="font-headline-md text-headline-md text-on-background">84%</p>
+</div>
+</div>
+</div>
+<!-- Line Chart Mockup -->
+<div class="w-full h-48 line-chart-container mt-lg">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 800 200">
+<!-- Grid Lines -->
+<line stroke="#e2beba" stroke-dasharray="4" x1="0" x2="800" y1="180" y2="180"></line>
+<line stroke="#e2beba" stroke-dasharray="4" x1="0" x2="800" y1="100" y2="100"></line>
+<line stroke="#e2beba" stroke-dasharray="4" x1="0" x2="800" y1="20" y2="20"></line>
+<!-- Area Chart Gradient -->
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#900a0c" stop-opacity="0.1"></stop>
+<stop offset="100%" stop-color="#900a0c" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,180 L0,140 C100,150 150,80 200,90 C300,105 350,160 400,130 C500,80 550,40 600,60 C700,90 750,20 800,40 L800,180 Z" fill="url(#chartGradient)"></path>
+<!-- Line -->
+<path d="M0,140 C100,150 150,80 200,90 C300,105 350,160 400,130 C500,80 550,40 600,60 C700,90 750,20 800,40" fill="none" stroke="#900a0c" stroke-linecap="round" stroke-width="3"></path>
+<!-- Data Points -->
+<circle cx="200" cy="90" fill="#900a0c" r="4"></circle>
+<circle cx="400" cy="130" fill="#900a0c" r="4"></circle>
+<circle cx="600" cy="60" fill="#900a0c" r="4"></circle>
+<circle cx="800" cy="40" fill="#900a0c" r="6"></circle>
+</svg>
+<div class="flex justify-between mt-sm font-label-sm text-label-sm text-on-surface-variant">
+<span>Jan</span>
+<span>Feb</span>
+<span>Mar</span>
+<span>Apr</span>
+<span>May</span>
+<span>Jun</span>
+</div>
+</div>
+</div>
+<!-- Side Card: Payout Account -->
+<div class="bg-secondary-container/10 border border-secondary/20 rounded-xl p-lg relative flex flex-col justify-between overflow-hidden">
+<div class="absolute -right-8 -bottom-8 w-48 h-48 rounded-full bg-secondary/5 blur-3xl"></div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-secondary-container mb-xs">Next Payout</h3>
+<p class="font-body-md text-on-secondary-container/80 mb-lg">Expected by Oct 12, 2023</p>
+<p class="font-display-lg-mobile text-display-lg-mobile text-on-secondary-container">₨ 12,400</p>
+</div>
+<div class="mt-lg">
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest rounded-lg border border-outline-variant/40">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface">Nabil Bank Ltd.</p>
+<p class="font-label-sm text-xs text-on-surface-variant">Ending in •••• 4821</p>
+</div>
+</div>
+<button class="w-full mt-base py-3 bg-primary text-on-primary font-label-sm text-label-sm rounded-lg hover:shadow-lg transition-all active:scale-95">Update Method</button>
+</div>
+</div>
+</div>
+<!-- Recent Payouts Table -->
+<section class="mt-xl">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-headline-md text-headline-md text-on-background">Recent Transactions</h3>
+<button class="font-label-sm text-label-sm text-primary flex items-center gap-1 hover:underline">
+                    Download CSV <span class="material-symbols-outlined text-sm">download</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/20">
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant">DATE</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant">GUEST</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant">STAY</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant">STATUS</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant text-right">AMOUNT</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Entry 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md font-body-md text-on-background">Sep 28, 2023</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A portrait of a smiling international traveler in their late 20s, with a warm sun-kissed complexion, wearing a simple organic cotton t-shirt. The style is natural and candid, shot with soft natural light in a mountain setting. Minimalist Himalayan aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKO_9l3npQhPUKaSNkYPSf5evcNq0pdHQU4XgisgOiU4ZfAOwn5lLG87DhDObRAOCajzzK6kxJfSCJcbdIo_8dSmbrURHAWsDMXvjWf4K5nz1pbbNuJmsAC7Ds74uJZDOLiDM8ckbzZHRPFGeEEq6EvaSJ9jezdFAiJo9VB2DBtzuJAyz3Bz9YP5uyMI5faONkQG3q4vPUva-sssQmeL-OLa7QeRHrihATaSr1ZQMsgsNVSddUvcYwqEReX8utLNoK0islz16iOZA"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Elena Rodriguez</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">3 Nights • Upper Terrace</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-tight">Paid</span>
+</td>
+<td class="px-lg py-md font-headline-md text-headline-md text-primary text-right">₨ 12,600</td>
+</tr>
+<!-- Entry 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md font-body-md text-on-background">Sep 22, 2023</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A high-quality close-up of a middle-aged male traveler with glasses, looking thoughtful and content. The image has a clean, airy feel with a blurred background of a traditional wooden Himalayan balcony. Professional photography style with a focus on authentic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMbGaMCkBk1adOm2lWiiKT5hLjD3Zq8JXi30PVgO-MlA_I099tcvAqmWqjroXvelrpTTqAEdMJkdL0EjX3nqr9qdV-sqTfg6wNKC9JzVrzOTHFrbXh2kDNaqIFtKP5A0FnYqo0tiVzLG8na4atDejNClVwt4oEztoXS2_oc_kM5FUS-X9DryMOojkNM1L9lLGW9Wp7OjFcornoGo3_iYU0kQjNmWBLVIQZn7JRYbnD3eR8D07GHGsz-C32HCyfJ6BUjqO70uptZ54"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Mark Steiner</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">5 Nights • Stone Cottage</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-tight">Paid</span>
+</td>
+<td class="px-lg py-md font-headline-md text-headline-md text-primary text-right">₨ 21,000</td>
+</tr>
+<!-- Entry 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md font-body-md text-on-background">Sep 15, 2023</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A warm and friendly portrait of a young couple from Japan, dressed in light trekking gear, smiling towards the camera. The background shows soft mountain peaks and a serene atmosphere. Light mode aesthetic with natural, earthy tones and soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBfkZT3QEtWE6PnL7rZXJeN6ukPoru7XaZ7VG4DHnx4k_f6Ksaux6-awsjHl91KqGiIOrWs8EmH2M5amZrsRGT9TIuAy-eOuZT_VFJPnptS_kLWARMQzQv-ptaUTOSktpXiNcI8EiJDl-zmyNAqI4yW3i4HnsLq4QxdPDeVVGw_DT-I6F-CjRYS48pR5BsIeLYi-jX9QaA6ZkQeWcy_i8pqwltcY1BNtzdQkr2Ux74s1Dd85aYgMaBWHy6-FLT-g4rDo8Ju59PqkI"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Yuki &amp; Kenji</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">2 Nights • Garden Room</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-tight">Paid</span>
+</td>
+<td class="px-lg py-md font-headline-md text-headline-md text-primary text-right">₨ 8,400</td>
+</tr>
+<!-- Entry 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-md font-body-md text-on-background">Sep 08, 2023</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A portrait of a solo female traveler with a backpack, looking out over a valley, only partially showing her profile. Soft sunrise light hits her face, creating a warm and peaceful glow. Artistic, high-end travel photography with rich textures and minimal processing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDArgXMoMAWgIyQbLrABjyAQLyl2u50xhcPPmvCb-of_7b8aaewHQPQ7I7BPabheobPjAMQfvyivuhgwoMaYT6QFTwUkY0l5fy0qiTD5WnvSUhSC0clHwciaU0dQ3NdfRs8UzL48IFQEoSoBoEKiBv-KUJK5ZXI9V3iM9zrkApy4UKVxEejNqRQgrwhhZtc2D_HQY6_88YO51gtOJE0T0KOw37rastLH1TQFVDG2VKWWIHW-KTazVl-IPJgtOsAxD7EiVzR0CHmp-k"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Sarah Jenkins</span>
+</div>
+</td>
+<td class="px-lg py-md font-body-md text-on-surface-variant">4 Nights • Upper Terrace</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-tight">Pending</span>
+</td>
+<td class="px-lg py-md font-headline-md text-headline-md text-primary text-right">₨ 16,800</td>
+</tr>
+</tbody>
+</table>
+<div class="px-lg py-md border-t border-outline-variant/20 bg-surface-container-low/30 text-center">
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">View All Transactions</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile only visibility logic handled by responsive hidden classes) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface-container-lowest dark:bg-surface-container-high shadow-[0_-1px_4px_rgba(179,40,33,0.05)] rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm mt-1">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for filter toggle
+        const btnMonthly = document.getElementById('filter-monthly');
+        const btnYearly = document.getElementById('filter-yearly');
+
+        function setActive(active, inactive) {
+            active.classList.add('bg-secondary-container', 'text-on-secondary-container', 'shadow-sm');
+            active.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+            
+            inactive.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'shadow-sm');
+            inactive.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high');
+        }
+
+        btnMonthly.addEventListener('click', () => setActive(btnMonthly, btnYearly));
+        btnYearly.addEventListener('click', () => setActive(btnYearly, btnMonthly));
+
+        // Simple scale effect on hover for table rows
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'translateX(4px)';
+                row.style.transition = 'transform 0.2s ease-out';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body></html>

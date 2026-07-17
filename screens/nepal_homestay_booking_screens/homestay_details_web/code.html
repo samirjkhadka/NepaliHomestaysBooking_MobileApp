@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen | Himalayan Hearth Homestay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&amp;family=Manrope:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1b1c19",
+                    "tertiary-container": "#134c61",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#ff998c",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "on-primary-fixed-variant": "#910b0c",
+                    "on-secondary-container": "#752814",
+                    "primary": "#680003",
+                    "on-secondary-fixed-variant": "#7c2e18",
+                    "inverse-on-surface": "#f2f1ec",
+                    "surface-container-highest": "#e4e2dd",
+                    "primary-fixed": "#ffdad5",
+                    "surface-container-high": "#eae8e3",
+                    "surface-dim": "#dbdad5",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e4e2dd",
+                    "on-surface-variant": "#5a413d",
+                    "surface-container": "#f0eee9",
+                    "impact-teal": "#316479",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#fbf9f4",
+                    "outline": "#8e706c",
+                    "on-tertiary-fixed-variant": "#144c61",
+                    "surface-grain": "#fbf9f4",
+                    "on-surface": "#1b1c19",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ffdbd2",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "secondary": "#9a442d",
+                    "surface-container-low": "#f5f3ee",
+                    "on-tertiary-container": "#8abbd4",
+                    "primary-container": "#900a0c",
+                    "tertiary": "#003546",
+                    "tertiary-fixed": "#bee9ff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#410001",
+                    "surface-tint": "#b32821",
+                    "on-secondary-fixed": "#3c0800",
+                    "surface": "#fbf9f4",
+                    "error": "#ba1a1a",
+                    "background": "#fbf9f4",
+                    "outline-variant": "#e2beba",
+                    "inverse-primary": "#ffb4aa",
+                    "dhaka-red": "#b32821",
+                    "secondary-container": "#fd9174",
+                    "tertiary-fixed-dim": "#9ccee7",
+                    "on-tertiary-fixed": "#001f2a",
+                    "earth-brown": "#5a413d",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "xl": "80px",
+                    "sm": "12px",
+                    "lg": "48px",
+                    "md": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "gutter": "20px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "body-md": ["Manrope"],
+                    "label-xs-bold": ["Manrope"],
+                    "body-sm-italic": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-xs-bold": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-sm-italic": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grainy-surface {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            background-repeat: repeat;
+        }
+        .dhaka-divider {
+            height: 4px;
+            background: repeating-linear-gradient(
+                45deg,
+                #b32821,
+                #b32821 10px,
+                #ffffff 10px,
+                #ffffff 20px
+            );
+            opacity: 0.3;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -10px rgba(179, 40, 33, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background grainy-surface font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base max-w-screen-xl mx-auto">
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-dhaka-red">Aama's Kitchen</div>
+<div class="hidden md:flex items-center space-x-md">
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors font-body-md text-body-md" href="#">Explore</a>
+<a class="text-dhaka-red font-bold border-b-2 border-dhaka-red pb-1 font-body-md text-body-md" href="#">Experiences</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors font-body-md text-body-md" href="#">Marketplace</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors font-body-md text-body-md" href="#">Community</a>
+</div>
+<div class="flex items-center space-x-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high/50 rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high/50 rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<button class="hidden md:block bg-dhaka-red text-on-primary px-md py-xs rounded-full font-label-sm text-label-sm hover:opacity-90 active:scale-95 transition-all">
+                    Book Now
+                </button>
+</div>
+</div>
+</nav>
+<main class="max-w-screen-xl mx-auto px-margin-mobile md:px-margin-desktop py-md">
+<!-- Masonry Gallery -->
+<section class="grid grid-cols-4 grid-rows-2 gap-sm h-[300px] md:h-[550px] rounded-xl overflow-hidden mb-lg">
+<div class="col-span-2 row-span-2 relative group overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A wide-angle landscape shot of a traditional Nepalese stone and wood cottage nestled on a verdant Himalayan hillside. Soft morning mist clings to the valley below as golden sunlight illuminates the hand-carved window frames. The aesthetic is warm, earthy, and serene, showcasing the Modern Heritage style with high-end photography qualities." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC97jfYJMQjd-S4R5El8uXk6L5sWVhzM3BR3tF7i6YSVSXxVU20ge8CXN9MLZr1O8Jj_R2gmnqHc7nYSu46SoaNzzL_YU9l8YKnBy3HFk_xQvW6dgGQ-15E_9OOzTcp3cAi3JxZnBW5ytE_iUkArtpfstKqpViwXUQG9W6opUSfVkSd9Onrd6yQvoZi0WjnHw9NL2rr-pu-0wkBweY2bBg-24Bc9Po0t32_vecf0gV3IdVMuriteKzQFX0R6_6S5hWNDJmsubUnSBo')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="col-span-1 row-span-1 relative group overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Close-up detail of a beautifully set traditional low wooden dining table in a Nepalese homestay. Copper plates are arranged neatly with organic textures of woven Dhaka fabric runners. The lighting is soft and ambient, highlighting the rich textures of the natural materials and the sophisticated earthy color palette." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0v_QyMTI6miaIFNxxYiXuL0BeFOWFtg3aqvxN6oOU7sWGZHxFUKIS5YbuKxUfkNTToR324C8DF-rt2ezBgDzvkePqx6kNHdPWn-uRz02UFdvFLZSaBwijFtVFFRvwOjk7LtPEVAeDqXNekawBCmj3v3eeOZT_wHN1TnlyhpvGa8YxnMA8M9rvs7sJ1LrZ9aQJ1-OfeKEh5JibVYcqmDwFKaCtAVk2OWqZKCQGBhYXOYb0aDY00HUzEt-DeF0HDjAPo9C8GwGxe00')"></div>
+</div>
+<div class="col-span-1 row-span-1 relative group overflow-hidden rounded-tr-xl">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A cozy interior shot of a mountain-view bedroom featuring organic cotton linens and a traditional Nepalese wool rug. Large wooden-framed windows offer a breathtaking view of snow-capped Himalayan peaks against a clear blue sky. The room is flooded with natural light, creating a bright and airy modern light-mode atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDpcgeIDX_OiGwuKd9D0d9h8_Fco-zKTzWrHlctCv0VEyFxsjmR0RxN9wScGVEPMeBUi5_SHvPPOIREaAuOo1FaBpwSVwRWhcweZBd_5bOsyGj2jZpppiPB_wruM22PFDPzfNkThBajKxl_CIaLuOJF1PCMlWiFlOuP1Y4c3U0yP7aiZmyS4xEcwxPr5ogvltIH2f_p0CYeByNUuLARbejRafaseI2BLbBHMOh3UZF_gN_ru6VleLRD6IkL57MVtcO4CPAyJg41G4s')"></div>
+</div>
+<div class="col-span-2 row-span-1 relative group overflow-hidden rounded-br-xl">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="An atmospheric evening shot of a stone patio with a small fire pit glowing warmly. Traditional lanterns hang from wooden beams, casting soft shadows on the textured stone floor. The backdrop shows the silhouette of majestic mountains under a twilight sky, evoking a sense of groundedness and luxury travel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxalK135eIFDelvpkCok9nWdlBWVvP7kMBQ_bC4hC8xSXxuXNQsXHVWs9BLKscH7ugD8l84pdidkgvK6GCkg8s8X-jjqY8OFqsUNs_PpJmt_if4RaLQ7n7OnnAkDHi8hYXXsQ6Ev34wICwVb3uu4VjitUUfnI7VuQHUjYQMyF9-zWKoPGryFqsym6Ili68VMXzZDq0k-p87jAkkNJKc-pHT6VBs7mnGP1cR8ISoMT1b34-ZwSVhXrD3hL4M-lC5JMxbexD9z-GA7A')"></div>
+<button class="absolute bottom-4 right-4 bg-surface-container-lowest/90 backdrop-blur px-md py-xs rounded-lg font-label-sm text-label-sm text-on-surface flex items-center gap-xs shadow-md border border-outline-variant/30 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+                    Show all photos
+                </button>
+</div>
+</section>
+<!-- Content Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Details -->
+<div class="lg:col-span-8 space-y-lg">
+<!-- Host Profile -->
+<div class="flex items-center justify-between pb-md border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="relative">
+<div class="w-16 h-16 rounded-full border-2 border-dhaka-red p-1">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="A portrait of Aama Dolma, a middle-aged Nepalese woman with a warm, welcoming smile. She is wearing traditional clothing with a beautifully patterned Dhaka shawl. The background is a soft-focus interior of her mountain kitchen, suggesting authentic cultural immersion and personal hospitality." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC5CDIJ4ondMCE9pPadUFhJnW-zT3Gth4wbfAM1bmkSH0xDfplj5uvus9QFx3Zu5J0bBidVcWgaFqGbwiKNoRGPL52ayLIqjGFs_aICP6QWWDiYKLv_pxIF_Lx9jcfCCwanpqfsYAbtNjoyKkRp2Lf-8Mwfc_lZ6UE0o9wAMxyHLQO6xOtpSRi7UqlNrE69mCh5jex9wTgYLwC8LuUQibCmCMYNjOJMf2zjttcJpMgP6bJGvx3QTP5KXzv5-1VPf-4eS32ZX2Ki6uE')"></div>
+</div>
+<span class="absolute -bottom-1 -right-1 bg-dhaka-red text-white p-xs rounded-full border-2 border-surface">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Hosted by Aama Dolma</h2>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Superhost · 12 years of heritage hospitality</p>
+</div>
+</div>
+<div class="hidden md:flex gap-base">
+<div class="bg-surface-container-low px-md py-xs rounded-xl border border-outline-variant/20 flex items-center gap-xs">
+<span class="material-symbols-outlined text-dhaka-red" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.98</span>
+</div>
+</div>
+</div>
+<!-- Morning Rituals Section -->
+<section class="space-y-sm">
+<div class="flex items-center gap-sm text-dhaka-red">
+<span class="material-symbols-outlined">wb_sunny</span>
+<h3 class="font-headline-md text-headline-md">Morning Rituals</h3>
+</div>
+<p class="text-on-surface-variant font-body-lg text-body-lg leading-relaxed">
+                        Every morning at the Himalayan Hearth begins with the scent of hand-roasted barley and fresh juniper incense. As the sun touches the Annapurna peaks, join Aama Dolma for a quiet tea ceremony followed by a workshop on traditional grain processing. This isn't just a stay; it's a rhythmic immersion into the soul of the mountain.
+                    </p>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-md pt-base">
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/30 custom-shadow">
+<span class="material-symbols-outlined text-tertiary">local_cafe</span>
+<span class="text-label-sm font-label-sm">Organic Butter Tea</span>
+</div>
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/30 custom-shadow">
+<span class="material-symbols-outlined text-tertiary">psychology</span>
+<span class="text-label-sm font-label-sm">Meditation Circle</span>
+</div>
+<div class="flex items-center gap-sm p-sm bg-surface-container-lowest rounded-xl border border-outline-variant/30 custom-shadow">
+<span class="material-symbols-outlined text-tertiary">agriculture</span>
+<span class="text-label-sm font-label-sm">Farming Insights</span>
+</div>
+</div>
+</section>
+<div class="dhaka-divider"></div>
+<!-- Amenities -->
+<section class="space-y-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">What this place offers</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">mountain_flag</span>
+<div>
+<p class="font-bold text-on-surface">Mountain View</p>
+<p class="text-label-sm text-on-surface-variant">Unobstructed Annapurna range vistas</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">wifi</span>
+<div>
+<p class="font-bold text-on-surface">Solar-Powered Connectivity</p>
+<p class="text-label-sm text-on-surface-variant">Eco-friendly High-speed internet</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">fireplace</span>
+<div>
+<p class="font-bold text-on-surface">Stone Hearth</p>
+<p class="text-label-sm text-on-surface-variant">Traditional indoor heating</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">restaurant</span>
+<div>
+<p class="font-bold text-on-surface">Authentic Kitchen Access</p>
+<p class="text-label-sm text-on-surface-variant">Shared organic meals with family</p>
+</div>
+</div>
+</div>
+<button class="text-dhaka-red font-bold underline hover:opacity-80 transition-opacity">Show all 24 amenities</button>
+</section>
+<!-- Reviews Bento -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">Guest Experiences</h3>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-dhaka-red">star</span>
+<span class="font-bold">4.98</span>
+<span class="text-on-surface-variant">· 128 reviews</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Review Card 1 -->
+<div class="p-md bg-surface-container-low rounded-2xl space-y-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-bold">Evelyn Harper</p>
+<p class="text-label-xs-bold text-on-surface-variant">October 2023</p>
+</div>
+</div>
+<p class="text-body-sm-italic text-body-sm-italic leading-relaxed">
+                                "Aama's warmth is unmatched. The morning rituals were the highlight of my trip. It's rare to find such high-end comfort paired with deep cultural authenticity."
+                            </p>
+</div>
+<!-- Review Card 2 -->
+<div class="p-md bg-surface-container-low rounded-2xl space-y-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-bold">Marcus Chen</p>
+<p class="text-label-xs-bold text-on-surface-variant">September 2023</p>
+</div>
+</div>
+<p class="text-body-sm-italic text-body-sm-italic leading-relaxed">
+                                "The digital sherpa tools were a lifesaver for navigating the local trails. The food is incredible, mostly sourced from the garden behind the cottage."
+                            </p>
+</div>
+</div>
+</section>
+<!-- Local Impact -->
+<section class="p-lg bg-tertiary-container text-white rounded-3xl space-y-md relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-base">
+<span class="material-symbols-outlined">eco</span>
+<h3 class="font-headline-md text-headline-md">Your Local Impact</h3>
+</div>
+<p class="text-body-lg font-body-lg opacity-90">By booking this experience, you directly contribute to the sustainability of the Gandruk village ecosystem.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-md mt-lg">
+<div class="p-md bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+<p class="text-display-lg-mobile font-display-lg-mobile mb-xs">15%</p>
+<p class="text-label-xs-bold uppercase tracking-widest">Village School Fund</p>
+</div>
+<div class="p-md bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+<p class="text-display-lg-mobile font-display-lg-mobile mb-xs">3kg</p>
+<p class="text-label-xs-bold uppercase tracking-widest">CO2 Offset (Solar)</p>
+</div>
+<div class="p-md bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+<p class="text-display-lg-mobile font-display-lg-mobile mb-xs">1:1</p>
+<p class="text-label-xs-bold uppercase tracking-widest">Local Artisan Support</p>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
+</section>
+</div>
+<!-- Right Column: Booking Card -->
+<div class="lg:col-span-4">
+<div class="sticky top-28 space-y-md">
+<!-- Booking Card -->
+<div class="bg-surface-container-lowest rounded-3xl p-lg custom-shadow border border-outline-variant/30">
+<div class="flex items-baseline justify-between mb-lg">
+<div>
+<span class="text-display-lg-mobile font-display-lg-mobile text-on-surface">$85</span>
+<span class="text-on-surface-variant font-label-sm">/ night</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant font-label-sm">
+<span class="material-symbols-outlined text-dhaka-red text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.98</span>
+<span>(128)</span>
+</div>
+</div>
+<!-- Form -->
+<div class="space-y-base mb-lg">
+<div class="grid grid-cols-2 rounded-xl border border-outline-variant overflow-hidden">
+<div class="p-sm border-r border-outline-variant hover:bg-surface-container transition-colors cursor-pointer">
+<p class="text-label-xs-bold uppercase text-on-surface-variant">Check-in</p>
+<p class="font-body-md">Oct 12, 2024</p>
+</div>
+<div class="p-sm hover:bg-surface-container transition-colors cursor-pointer">
+<p class="text-label-xs-bold uppercase text-on-surface-variant">Check-out</p>
+<p class="font-body-md">Oct 15, 2024</p>
+</div>
+</div>
+<div class="p-sm rounded-xl border border-outline-variant hover:bg-surface-container transition-colors cursor-pointer flex justify-between items-center">
+<div>
+<p class="text-label-xs-bold uppercase text-on-surface-variant">Guests</p>
+<p class="font-body-md">2 Adults, 1 Child</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<button class="w-full bg-dhaka-red text-on-primary py-md rounded-2xl font-bold text-headline-md shadow-lg shadow-dhaka-red/20 hover:scale-[0.98] active:scale-95 transition-all mb-md">
+                            Reserve Experience
+                        </button>
+<p class="text-center text-on-surface-variant text-label-sm mb-lg">You won't be charged yet</p>
+<div class="space-y-sm">
+<div class="flex justify-between font-body-md">
+<span class="underline text-on-surface-variant">3 nights x $85</span>
+<span>$255</span>
+</div>
+<div class="flex justify-between font-body-md">
+<span class="underline text-on-surface-variant">Organic meal plan</span>
+<span>$45</span>
+</div>
+<div class="flex justify-between font-body-md">
+<span class="underline text-on-surface-variant">Digital Sherpa Access</span>
+<span class="text-impact-teal">FREE</span>
+</div>
+<div class="dhaka-divider h-[1px] my-sm"></div>
+<div class="flex justify-between font-bold text-headline-md">
+<span>Total</span>
+<span>$300</span>
+</div>
+</div>
+</div>
+<!-- Digital Sherpa Summary -->
+<div class="bg-surface-container-high rounded-3xl p-md border border-outline-variant/30 space-y-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-dhaka-red">shield_with_heart</span>
+<h4 class="font-bold">Digital Sherpa Protected</h4>
+</div>
+<ul class="space-y-xs">
+<li class="flex items-center gap-xs text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-impact-teal">check_circle</span>
+                                Real-time altitude &amp; weather alerts
+                            </li>
+<li class="flex items-center gap-xs text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-impact-teal">check_circle</span>
+                                SOS satellite connectivity included
+                            </li>
+<li class="flex items-center gap-xs text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-impact-teal">check_circle</span>
+                                Verified local host background check
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-xl bg-surface-container-highest dark:bg-inverse-surface py-lg">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-screen-xl mx-auto space-y-md md:space-y-0">
+<div class="font-display-lg-mobile text-display-lg-mobile text-dhaka-red">Aama's Kitchen</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-colors" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-colors" href="#">Sustainability</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-colors" href="#">Host Login</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-colors" href="#">Contact</a>
+</div>
+<p class="text-on-surface-variant font-body-sm-italic text-body-sm-italic text-center md:text-right">
+                © 2024 Aama's Kitchen. Authentic Himalayan Hospitality.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple micro-interactions for the booking form
+        document.querySelectorAll('.hover\\:bg-surface-container').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.98)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = 'scale(1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'scale(1)';
+            });
+        });
+
+        // Sticky header behavior
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            nav.style.transition = 'transform 0.3s ease-in-out';
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>

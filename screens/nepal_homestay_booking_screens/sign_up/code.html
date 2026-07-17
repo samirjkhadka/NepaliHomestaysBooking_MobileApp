@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign Up | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .dhaka-pattern {
+            background-color: #fbf9f4;
+            background-image:  linear-gradient(30deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(150deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(30deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(150deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(60deg, #e2beba 25%, transparent 25.5%, transparent 75%, #e2beba 75.5%, #e2beba), linear-gradient(60deg, #e2beba 25%, transparent 25.5%, transparent 75%, #e2beba 75.5%, #e2beba);
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+            opacity: 0.08;
+        }
+
+        .hearth-glow {
+            box-shadow: 0 20px 50px rgba(179, 40, 33, 0.05);
+        }
+
+        .input-focus-ring:focus {
+            outline: none;
+            border-color: #9a442d; /* Secondary */
+            box-shadow: 0 0 0 3px rgba(154, 68, 45, 0.1);
+        }
+
+        .button-inner-glow:hover {
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "primary": "#900a0c",
+                        "outline-variant": "#e2beba",
+                        "on-primary-fixed-variant": "#910a0c",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-primary-container": "#ffccc6",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#30312e",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fbf9f4",
+                        "surface-container": "#f0eee9",
+                        "on-secondary-fixed": "#3c0800",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "inverse-primary": "#ffb4aa",
+                        "surface-container-high": "#eae8e3",
+                        "tertiary-fixed": "#bde9ff",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1b1c19",
+                        "surface-dim": "#dbdad5",
+                        "primary-container": "#b32821",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "on-secondary-container": "#742814",
+                        "tertiary": "#134c61",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410001",
+                        "surface": "#fbf9f4",
+                        "surface-tint": "#b32821",
+                        "on-surface": "#1b1c19",
+                        "secondary-container": "#fc9174",
+                        "surface-variant": "#e4e2dd",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "on-surface-variant": "#5a413d",
+                        "background": "#fbf9f4",
+                        "tertiary-container": "#316479",
+                        "secondary": "#9a442d",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdad5",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffdbd2",
+                        "surface-container-highest": "#e4e2dd",
+                        "outline": "#8e706c",
+                        "surface-container-low": "#f5f3ee",
+                        "on-tertiary-container": "#addff8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "gutter": "20px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden min-h-screen flex flex-col">
+<!-- Top AppBar Integration -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile py-xs md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform">menu</span>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a friendly hospitality concierge, smiling warmly against a soft-focus background of a rustic, high-end Nepalese resort interior. The lighting is golden and inviting, highlighting natural skin tones and traditional brass decor elements. The overall aesthetic is clean, modern, and trustworthy, with a soft blur that emphasizes the person's welcoming expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpN2s4nBJ3A97MiJXdK8ppO-DqA7r7Z8DhJOwe_vXOu_O80bpU-i6gHveZUzV2Hp0GJLMpMso7X7MmwbsLRP86QEpsrXDekDItkcb3g0B7o7KhYYgUs1vgP2wbTmBZPhekU8egoGoMaNaROBN4yzMWXvvuWsj4n-5bMnKscfXzhV4WsRfOHbPKnEmPYXKPvnJEj_jDF5OpuaRmG9qzZuZs7WwqFcq9f-09C8UvqPHXjNGLoQiRi2Lb5oSnPogG7k7cvcmcXmp0Cd0"/>
+</div>
+</header>
+<main class="flex-grow relative flex items-center justify-center py-xl px-margin-mobile">
+<!-- Atmospheric Background Elements -->
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="dhaka-pattern absolute inset-0"></div>
+<div class="absolute top-[-10%] right-[-10%] w-[40%] h-[60%] bg-primary opacity-5 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[60%] bg-secondary opacity-5 blur-[120px] rounded-full"></div>
+</div>
+<!-- Registration Card -->
+<div class="relative z-10 w-full max-w-lg bg-surface-container-lowest rounded-xl hearth-glow border border-surface-variant overflow-hidden">
+<!-- Decorative Header -->
+<div class="h-2 w-full bg-gradient-to-r from-primary via-secondary to-primary"></div>
+<div class="p-8 md:p-12">
+<div class="text-center mb-10">
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:text-headline-md text-on-surface mb-2">Join the Hearth</h2>
+<p class="text-on-surface-variant font-body-md">Begin your journey into authentic Himalayan flavors and home-stays.</p>
+</div>
+<form class="space-y-6" id="signup-form">
+<!-- Full Name -->
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1" for="full-name">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-body-md">person</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface border border-outline-variant rounded-lg font-body-md text-on-surface placeholder:text-surface-dim transition-all input-focus-ring" id="full-name" placeholder="Arjun Shrestha" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-body-md">mail</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface border border-outline-variant rounded-lg font-body-md text-on-surface placeholder:text-surface-dim transition-all input-focus-ring" id="email" placeholder="arjun@example.com" type="email"/>
+</div>
+</div>
+<!-- Phone -->
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1" for="phone">Phone Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-body-md">call</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface border border-outline-variant rounded-lg font-body-md text-on-surface placeholder:text-surface-dim transition-all input-focus-ring" id="phone" placeholder="+977 980-0000000" type="tel"/>
+</div>
+</div>
+<!-- Password -->
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-body-md">lock</span>
+<input class="w-full pl-10 pr-12 py-3 bg-surface border border-outline-variant rounded-lg font-body-md text-on-surface placeholder:text-surface-dim transition-all input-focus-ring" id="password" placeholder="••••••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Terms -->
+<div class="flex items-start gap-3 pt-2">
+<div class="mt-1">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-secondary cursor-pointer" id="terms" type="checkbox"/>
+</div>
+<label class="font-body-md text-on-surface-variant leading-tight" for="terms">
+                            I agree to the <a class="text-primary font-semibold hover:underline" href="#">Terms &amp; Conditions</a> and <a class="text-primary font-semibold hover:underline" href="#">Privacy Policy</a> of Aama's Kitchen.
+                        </label>
+</div>
+<!-- CTA -->
+<div class="pt-4">
+<button class="w-full py-4 bg-primary text-on-primary font-headline-md text-headline-md rounded-full transition-all active:scale-95 button-inner-glow hearth-glow" type="submit">
+                            Create Account
+                        </button>
+</div>
+</form>
+<div class="mt-8 pt-8 border-t border-surface-variant text-center">
+<p class="font-body-md text-on-surface-variant">
+                        Already part of the family? 
+                        <a class="text-secondary font-bold hover:text-primary transition-colors ml-1" href="#">Sign In</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Meta -->
+<footer class="py-base text-center text-on-surface-variant font-label-sm px-margin-mobile">
+<p>© 2024 Aama's Kitchen. Inspired by the Himalayan spirit.</p>
+</footer>
+<!-- Interactive Elements Script -->
+<script>
+        document.getElementById('signup-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Creating Account...';
+            btn.disabled = true;
+            btn.classList.add('opacity-80');
+            
+            setTimeout(() => {
+                alert('Namaste! Welcome to Aama\'s Kitchen family.');
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-80');
+            }, 1500);
+        });
+
+        // Toggle Password Visibility
+        const passToggle = document.querySelector('button[type="button"]');
+        const passInput = document.getElementById('password');
+        passToggle.addEventListener('click', () => {
+            const isPassword = passInput.type === 'password';
+            passInput.type = isPassword ? 'text' : 'password';
+            passToggle.querySelector('.material-symbols-outlined').innerText = isPassword ? 'visibility_off' : 'visibility';
+        });
+
+        // Focus Interaction
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

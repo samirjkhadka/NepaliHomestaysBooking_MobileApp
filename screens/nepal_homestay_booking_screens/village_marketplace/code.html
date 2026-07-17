@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Village Marketplace | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#316479",
+                    "error": "#ba1a1a",
+                    "secondary": "#9a442d",
+                    "primary-fixed": "#ffdad5",
+                    "surface-container": "#f0eee9",
+                    "on-primary-container": "#ffccc6",
+                    "surface-variant": "#e4e2dd",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "outline-variant": "#e2beba",
+                    "on-tertiary": "#ffffff",
+                    "background": "#fbf9f4",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#b32821",
+                    "on-background": "#1b1c19",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "surface-tint": "#b32821",
+                    "tertiary": "#134c61",
+                    "secondary-container": "#fc9174",
+                    "surface-dim": "#dbdad5",
+                    "on-secondary-container": "#742814",
+                    "secondary-fixed": "#ffdbd2",
+                    "inverse-primary": "#ffb4aa",
+                    "on-tertiary-container": "#addff8",
+                    "on-surface": "#1b1c19",
+                    "surface-container-highest": "#e4e2dd",
+                    "surface-bright": "#fbf9f4",
+                    "inverse-surface": "#30312e",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae8e3",
+                    "surface": "#fbf9f4",
+                    "on-surface-variant": "#5a413d",
+                    "inverse-on-surface": "#f2f1ec",
+                    "surface-container-low": "#f5f3ee",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "on-secondary-fixed": "#3c0800",
+                    "on-primary-fixed": "#410001",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#bde9ff",
+                    "outline": "#8e706c",
+                    "on-tertiary-fixed": "#001f2a",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "primary": "#900a0c",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#910a0c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "lg": "48px",
+                    "margin-mobile": "16px",
+                    "sm": "12px",
+                    "xl": "80px",
+                    "gutter": "20px",
+                    "md": "24px",
+                    "margin-desktop": "64px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Manrope"],
+                    "display-lg-mobile": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-color: #fbf9f4;
+            background-image:  repeating-linear-gradient(45deg, #e2beba 25%, transparent 25%, transparent 75%, #e2beba 75%, #e2beba), repeating-linear-gradient(45deg, #e2beba 25%, #fbf9f4 25%, #fbf9f4 75%, #e2beba 75%, #e2beba);
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
+            opacity: 0.05;
+        }
+        .glass-card {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Top Navigation -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile py-base md:px-margin-desktop">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-surface-variant transition-colors p-2 rounded-full active:scale-95 duration-150">menu</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary md:font-display-lg md:text-display-lg">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex gap-sm">
+<span class="text-on-surface-variant font-label-sm px-4 py-2 rounded-full hover:bg-surface-variant transition-colors cursor-pointer">Marketplace</span>
+<span class="text-on-surface-variant font-label-sm px-4 py-2 rounded-full hover:bg-surface-variant transition-colors cursor-pointer">Food Map</span>
+<span class="text-on-surface-variant font-label-sm px-4 py-2 rounded-full hover:bg-surface-variant transition-colors cursor-pointer">Community</span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="A warm, professional portrait of a Himalayan woman traveler, smiling softly with snow-capped peaks in the blurred background. She wears a traditional Dhaka-weave scarf in earthy reds and oranges. The lighting is golden hour, highlighting her features with a soft, natural glow that aligns with the premium heritage aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE7lb4nRI0vcgjWpXzz7-ljTdzFochFLD9sOCNEBROXbJ1GDKFQrwosiW_QpkhKZLaWra4wqGFQ87mLFIseRz6R30gUib0xdt0u1q57nue2oDLXkcQHCuy1em8fOivUgGsCkMm2EWxaQaHJwd2G9Wg8vlTcqmQ13JVHjNd5MYewW1JxdNDszuaCEn4H9aK-_BZdBpr2JVTf1P8iuf9IXkFuWSQEvVbFC3SEfzfc8L6naQTOxz-luqjtMGOZ_lPsiw_1K0OBEyY2RQ"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg space-y-xl">
+<!-- Search & Hero Section -->
+<section class="space-y-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div class="max-w-2xl">
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface">Village Marketplace</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Authentic Himalayan treasures, handpicked from the hearths of local artisans.</p>
+</div>
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all placeholder:text-outline" placeholder="Search crafts, spices, or tea..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Categories (Asymmetric Layout) -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-base md:gap-md">
+<div class="col-span-2 row-span-1 bg-primary-container rounded-xl p-md text-on-primary-container flex flex-col justify-between group cursor-pointer hover:shadow-lg transition-shadow overflow-hidden relative">
+<div class="dhaka-pattern absolute inset-0 pointer-events-none"></div>
+<h3 class="font-headline-md text-headline-md z-10">Handicrafts</h3>
+<div class="flex justify-between items-end z-10">
+<p class="font-label-sm opacity-80">Carvings &amp; Textiles</p>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<div class="bg-tertiary-container rounded-xl p-md text-on-tertiary-container flex flex-col justify-between group cursor-pointer hover:shadow-lg transition-shadow relative overflow-hidden">
+<h3 class="font-headline-md text-headline-md">Spices</h3>
+<div class="flex justify-between items-end">
+<p class="font-label-sm opacity-80">Mountain Heat</p>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<div class="bg-secondary-container rounded-xl p-md text-on-secondary-container flex flex-col justify-between group cursor-pointer hover:shadow-lg transition-shadow relative overflow-hidden">
+<h3 class="font-headline-md text-headline-md">Teas</h3>
+<div class="flex justify-between items-end">
+<p class="font-label-sm opacity-80">Ancient Brews</p>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- Featured Artisan (Bento Grid Moment) -->
+<section class="bg-surface-container rounded-xl overflow-hidden grid md:grid-cols-12 gap-0 border border-outline-variant">
+<div class="md:col-span-5 h-[300px] md:h-auto">
+<img class="w-full h-full object-cover" data-alt="A soulful, detailed photograph of an elderly Himalayan master artisan, Kanchha Sherpa, sitting in a sunlit wooden workshop. Dust motes dance in the warm golden light as he carves a traditional wooden mask. His hands are weathered and skilled, showing years of dedication. The background is filled with wood shavings and half-finished carvings in a rustic, mountain-home setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFZpEulaxWsnfREkxuWw8FNHdsJU4C0RtPxTWCIFc4p3uJ6rFNLagew6cOgO0bZKqsLAXl69hHMeS_YYK5I0Ecn7SHBDhSPFKXg77JonKvLTk2dJpM62sG_wxnuqOsjn0SpwnLTaod5EMm3x5d1xx6NPDYpuVRTqUBC7MGKuF6tX-ZIx4tsC0FquAPIV3wgqy3_hKg_noGysjt_KL0pOKdf8VMi_dXX2oEMGcR6VkgySgw1OQXNsuzxmZkrL7a0TKFqtavH7yZvFM"/>
+</div>
+<div class="md:col-span-7 p-md md:p-xl flex flex-col justify-center space-y-md bg-surface">
+<div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1 rounded-full w-fit">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1">stars</span>
+<span class="font-label-sm">FEATURED ARTISAN</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface">Meet Kanchha Sherpa</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic">"Every piece of wood carries the spirit of the mountain. My job is simply to help it find its face."</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Kanchha has been carving traditional Newari masks in the Solukhumbu region for over 45 years. Each piece supports his village school fund.</p>
+<button class="bg-primary text-white px-md py-sm rounded-lg font-label-sm w-fit hover:brightness-110 active:scale-95 transition-all">Shop His Collection</button>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="space-y-lg">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md">New Arrivals</h3>
+<button class="text-primary font-label-sm flex items-center gap-1 hover:underline">View All Collections <span class="material-symbols-outlined text-[18px]">trending_flat</span></button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Product 1 -->
+<div class="group space-y-sm bg-surface p-sm border border-outline-variant rounded-xl hover:shadow-md transition-all">
+<div class="aspect-[4/5] rounded-lg overflow-hidden relative bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-end, studio-lit photograph of a luxurious hand-woven Pashmina shawl draped elegantly over a weathered wooden bench. The fabric features intricate, traditional patterns in soft earthy tones of terracotta and cream. The texture is palpable, showing the fine, soft fibers of mountain goat wool. The atmosphere is serene and high-end, focusing on the heritage craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2iLk0qgltqGqy4WKq2ws9LasoIjBJD2xkLQaQgt_JY2EeFmTjCsRARtvKgtLDKkOQFybpuVi9pwzffQAv5jfhSnHCY102jVEeECfBikmv90TFskC80B6LQAz6oqf8NYUOaV3824Pbu09fKOmN6Ahmta0d8pK93nYMR-a89GVhay5pTJyTNXLkGNrPpYgGRc2KZJe0qTrfBQDReVaRQxNp33kWgyN4VqgpbTA0iqSFexNgCFv__nGTkQ6gUJNrXsHbg8ai4QnULfE"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-white/90 glass-card px-2 py-1 rounded text-primary font-label-sm border border-primary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1">verified</span> Support Local
+                            </span>
+</div>
+<button class="absolute bottom-3 right-3 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 active:scale-90">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start">
+<h4 class="font-body-lg text-body-lg font-bold">Pure Pashmina Shawl</h4>
+<p class="font-headline-md text-headline-md text-secondary">NPR 12,500</p>
+</div>
+<p class="text-on-surface-variant font-label-sm">Hand-woven in Mustang • 100% Chyangra Wool</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group space-y-sm bg-surface p-sm border border-outline-variant rounded-xl hover:shadow-md transition-all">
+<div class="aspect-[4/5] rounded-lg overflow-hidden relative bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up of a jar of wild Himalayan honey with pieces of honeycomb inside, set against a backdrop of wildflowers and blurred mountain peaks. The honey is a rich, dark amber color, glowing warmly in the sunlight. A rustic wooden honey dipper rests beside the jar. The style is organic and tactile, emphasizing the purity of the mountain product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUby3cE75XAEl7yfRsZAoDX2quFN600ymM4j2PkYJqX-byvUHz02fuq3k4bwQNS39cJ63hj2MmlLIOd56W4rGCF2E4eZU8pcNVsE-MD40IvwyCr8GEkBJlOdKWFN7U_L9tC3k2icZplloWDw0t0frOaQl4jKSs0aJ5aUfWkJDrA-1gQBHlOAf-vhymvJoduNEt8kc-9ahkGcx3dZOf2nq6UgQX6LeMecTft5MdN9IxN6FSmLoi3tJKjSkLt-yyicHBHrq1kEhY_K4"/>
+<div class="absolute top-3 left-3">
+<span class="bg-white/90 glass-card px-2 py-1 rounded text-primary font-label-sm border border-primary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1">eco</span> Sustainable
+                            </span>
+</div>
+<button class="absolute bottom-3 right-3 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 active:scale-90">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start">
+<h4 class="font-body-lg text-body-lg font-bold">Wild Cliff Honey</h4>
+<p class="font-headline-md text-headline-md text-secondary">NPR 2,800</p>
+</div>
+<p class="text-on-surface-variant font-label-sm">Harvested from Annapurna foothills • 500g Jar</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group space-y-sm bg-surface p-sm border border-outline-variant rounded-xl hover:shadow-md transition-all">
+<div class="aspect-[4/5] rounded-lg overflow-hidden relative bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A meticulously hand-carved wooden Newari mask representing a protective deity, displayed against a dark, textured stone wall. The mask is painted with vibrant traditional pigments of red, blue, and gold, slightly aged to show character. The craftsmanship is intricate, with deep carvings and expressive features. Lighting is dramatic, with side light highlighting the three-dimensional form." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZUsOJvnRxJ6J24N5vmfHtETdQch_dPFEL3Eo8ekE2ZYSxpZ41ZE3nO8nF_0ZdrbK-lkjxDs4AvSVx1waOOQDBejuClrTDOkSaIam2KkwMoARAXQU5VyNDWms_CAQGvIlO_kHY9eNZq1_kNVGTloQF-SN4IlVxGepSZ97YQuDfni-9OrFTSIuNnLUuSBIVe0XibLPKtEEOQzZmn1vo1tgLwS7guq1zuUpPuT4h08T1ga2eJahaksIwYuUP0kGBEThWPVd_9ungkN0"/>
+<div class="absolute top-3 left-3">
+<span class="bg-white/90 glass-card px-2 py-1 rounded text-primary font-label-sm border border-primary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1">verified</span> Support Local
+                            </span>
+</div>
+<button class="absolute bottom-3 right-3 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 active:scale-90">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start">
+<h4 class="font-body-lg text-body-lg font-bold">Hand-Carved Deity Mask</h4>
+<p class="font-headline-md text-headline-md text-secondary">NPR 8,400</p>
+</div>
+<p class="text-on-surface-variant font-label-sm">Carved by Kanchha Sherpa • Walnut Wood</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Footer Call to Action -->
+<section class="bg-surface-container-high rounded-xl p-md md:p-xl relative overflow-hidden border border-outline-variant text-center space-y-md">
+<div class="dhaka-pattern absolute inset-0 pointer-events-none"></div>
+<div class="relative z-10 max-w-xl mx-auto space-y-md">
+<span class="material-symbols-outlined text-primary text-5xl">mail</span>
+<h3 class="font-display-lg-mobile text-display-lg-mobile text-on-surface">Stay Connected to the Hills</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Get notified when we restock rare mountain spices and seasonal tea harvests.</p>
+<div class="flex flex-col sm:flex-row gap-base max-w-md mx-auto">
+<input class="flex-grow px-4 py-3 rounded-lg border border-outline focus:ring-2 focus:ring-primary outline-none" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-white px-md py-3 rounded-lg font-label-sm hover:brightness-110 transition-all">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile View) -->
+<nav class="md:hidden fixed bottom-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container border-t-0 rounded-t-xl shadow-sm z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<!-- Active Tab: Marketplace (Semantic shell mapping to Marketplace/Explore as closest match in JSON labels, but contextually this is Marketplace) -->
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<!-- FAB (Suppressed based on Marketplace context which is transactional/discovery focused) -->
+<script>
+        // Simple micro-interaction for active states
+        document.querySelectorAll('button, .cursor-pointer').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+
+        // Add subtle parallax-ish effect to product images
+        window.addEventListener('scroll', () => {
+            const images = document.querySelectorAll('img');
+            const scrollPos = window.pageYOffset;
+            images.forEach(img => {
+                if(img.parentElement.classList.contains('aspect-[4/5]')) {
+                    const rect = img.getBoundingClientRect();
+                    if(rect.top < window.innerHeight && rect.bottom > 0) {
+                        const shift = (scrollPos - rect.top) * 0.05;
+                        // Not strictly following instructions if I use arbitrary values, 
+                        // so I'll keep it simple with standard tailwind transitions.
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>

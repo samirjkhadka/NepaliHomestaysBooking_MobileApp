@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community Hearth | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(#900a0c 0.5px, transparent 0.5px), radial-gradient(#900a0c 0.5px, #fbf9f4 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+        .glass-blur {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#316479",
+                        "error": "#ba1a1a",
+                        "secondary": "#9a442d",
+                        "primary-fixed": "#ffdad5",
+                        "surface-container": "#f0eee9",
+                        "on-primary-container": "#ffccc6",
+                        "surface-variant": "#e4e2dd",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "outline-variant": "#e2beba",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fbf9f4",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#b32821",
+                        "on-background": "#1b1c19",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "surface-tint": "#b32821",
+                        "tertiary": "#134c61",
+                        "secondary-container": "#fc9174",
+                        "surface-dim": "#dbdad5",
+                        "on-secondary-container": "#742814",
+                        "secondary-fixed": "#ffdbd2",
+                        "inverse-primary": "#ffb4aa",
+                        "on-tertiary-container": "#addff8",
+                        "on-surface": "#1b1c19",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-bright": "#fbf9f4",
+                        "inverse-surface": "#30312e",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae8e3",
+                        "surface": "#fbf9f4",
+                        "on-surface-variant": "#5a413d",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container-low": "#f5f3ee",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-primary-fixed": "#410001",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#bde9ff",
+                        "outline": "#8e706c",
+                        "on-tertiary-fixed": "#001f2a",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "primary": "#900a0c",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#910a0c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "lg": "48px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "gutter": "20px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile py-base md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-variant transition-colors rounded-full active:scale-95 duration-150" data-icon="menu">menu</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-base">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hidden md:block" data-icon="search">search</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly young traveler with a warm smile, wearing outdoor gear, set against a blurred background of a cozy Himalayan mountain lodge interior with wood panels and soft golden lighting. The photo has a high-quality, authentic travel photography aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjYGugda18aaZic86kT06bs92mZCYg6dRE3CYFm2EcNforNf94nZpMwJoagIH889le33o2LaixUaKVkjp2M3rD_Cq5Tc8o9GyAopMzEwkCQXDBwZc0WfRJLyuocckjjMR10Va1xI6eP73F6Hb_tctJu8hlTPgA4AJfHarLwZHgUOshbhlocXo_QZAUeRftD-0_9HpUuXNTxaEewhPANdCyuyeLV7ZMLn9t_eBMdanCNgz7dANXbadkE5qa5iCzCdnN5zx379J0FjU"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto pb-32">
+<!-- Hero Section: Community Hearth Intro -->
+<section class="px-margin-mobile md:px-margin-desktop pt-lg pb-md">
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Gathering Space</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight">Community Hearth</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">Where every trail tells a story and every meal shares a memory. Connect with the souls of the mountains.</p>
+</div>
+</section>
+<!-- Host Stories Carousel -->
+<section class="mb-xl overflow-hidden">
+<div class="flex justify-between items-end px-margin-mobile md:px-margin-desktop mb-base">
+<h3 class="font-headline-md text-headline-md text-on-surface">Host Stories</h3>
+<button class="text-primary font-label-sm hover:underline">View All</button>
+</div>
+<div class="flex overflow-x-auto no-scrollbar gap-md px-margin-mobile md:px-margin-desktop py-4">
+<!-- Story Card 1 -->
+<div class="flex-shrink-0 w-[300px] md:w-[450px] group relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-64 md:h-80 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A warm, candid portrait of an elderly Nepali grandmother (Aama) in a traditional red and gold sari, sitting by a traditional clay oven in a rustic kitchen. Smoke curls gently in the warm morning light. The atmosphere is intimate and deeply authentic, capturing the heritage of Himalayan hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw1h0GCqQFrzoe9SK311shnMWYgz8PGS0GWqn8ib0Aj7rE76bEfd7KksGOHxEi5ZXZrsi-XrKO9fnPrNrUq7OGvWIcPbOir4En7YmmoCY0rGnmfhGHKY4I3uz7I-1c0DY7vzVxLB1UQOfNJleZ4XbVm1kZ0iwy0toFjDpvgHUW9nvQrVQx7yJqmo5U7vsvGNirRunIhTr4YM551fVc0Qs0p8W87jdpfoLMd5qT1HWTu3IOR5PbMivPdlnwm0WZJyYd0ZquBr7kpC8"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-md">
+<blockquote class="text-white italic font-body-lg mb-2">"The secret ingredient is never the spice, it is the mountain air and the love of the hand that stirs."</blockquote>
+<p class="text-white/80 font-label-sm">— Aama Maya, Ghandruk</p>
+</div>
+<div class="absolute top-0 left-0 w-full h-1 bg-primary opacity-80"></div>
+</div>
+<!-- Story Card 2 -->
+<div class="flex-shrink-0 w-[300px] md:w-[450px] group relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-64 md:h-80 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A middle-aged Sherpa man smiling proudly while holding a tray of freshly baked local bread. The background shows a stunning vista of snow-capped Everest peaks through a window. The lighting is crisp and natural, emphasizing the rugged textures of the mountain life and the warmth of the host." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlXOtm7S--DbKhkIiDdxLHI42huucKydfloOBpJwu_xuH3dVHY-rCdPGkfAhRpvtTokK4N1qljIDutM1zavBGtXkcq-3QBDYazi_6GjpaXQiXu-RAW993KOeEfA5042Ae5RIv_GWX2HNLcixtpP4vvD2yTApYAUEBsR_WxWaiduPkTyGzNjs6ogUPj6bL6nK4ByqFTTERcBXBQAUIv6PuVHNATuS-X-tgRyxiF7aItA5g6exUCZZS4mLvAAopX_m2Eg4_F6BrRpp4"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-md">
+<blockquote class="text-white italic font-body-lg mb-2">"We don't just share our rooms; we share our ancestors' paths and the strength of the peaks."</blockquote>
+<p class="text-white/80 font-label-sm">— Pasang Sherpa, Khumjung</p>
+</div>
+</div>
+<!-- Story Card 3 -->
+<div class="flex-shrink-0 w-[300px] md:w-[450px] group relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-64 md:h-80 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A young woman weaving a colorful Dhaka pattern on a traditional wooden loom. Sunlight streams into the workshop, highlighting the vibrant threads and her focused expression. The scene is rich in texture and cultural heritage, celebrating traditional Nepali craft." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLoDQs7xVa25muK6lOp8DKM0qEFrVzXPUAwm0T1Q9NbKVU3Ghw72W7WJDH60-ZWuNGjYCfg6rVmAbkOcs7QuWsM-FOGVgIoJbqpa_UYvSu2bmLU3VyZU3ZC10gHUv2vWxoDgx_xC3Wka2FLifOnK-ptX5yt3IyznpW7fe4A-UNV2ySuQkgof_JON4Sn_DlhaEIZc_EIu80QdRGAvoNhF-hJ7gILuI4pwOL9b9l2OVdTXIDpaa6oiIbIqq0MFfXbIVkbJlSSDECL-A"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-md">
+<blockquote class="text-white italic font-body-lg mb-2">"Every thread in our weave is a connection to a guest who became a part of our family."</blockquote>
+<p class="text-white/80 font-label-sm">— Sarita, Palpa</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Feed Grid -->
+<div class="px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Traveler Moments Feed (2 Columns on Desktop) -->
+<div class="lg:col-span-2 flex flex-col gap-md">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Traveler Moments</h3>
+<!-- Moment 1 (Bento style) -->
+<article class="bg-white rounded-xl border border-outline-variant p-md flex flex-col gap-md hover:border-secondary transition-colors group">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a smiling traveler face." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLXvmkGbIOU6DaEEzUV0gnFpnG_WQyIxQadusU57yJK_VFRi_3T1wnC6G9dZoo6ULPeLhXWhd8iu3f8QnED0NazEzdSoAYsdXrGvgIMIfuLO-vbODrIlQOXGCVrki4AcsmMAJnCaiVuypZPdBZKeW7xGWPmcngYMfYqF45mcvZMnG7LLiKZFIaKOOIWkC2RCXvfxhVRfWZQqyMWcoz9zT4SU6If161kIgQj2Z9xRFCxaSkyImc0-EVZlguhE-7530CQlD3YKH8DJk"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Elena Rodriguez</p>
+<p class="text-xs text-on-surface-variant">Stayed at Aama's Hilltop, Dhampus</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant" data-icon="more_vert">more_vert</button>
+</div>
+<p class="font-body-md text-on-surface">Finally mastered the art of making Sel Roti! It's harder than it looks, but Aama's patience was legendary. Best breakfast of my life with this view. 🏔️✨</p>
+<div class="grid grid-cols-2 gap-xs h-64">
+<div class="rounded-lg overflow-hidden h-full">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of golden, circular Sel Roti frying in a pan of hot oil, captured in a warm, traditional kitchen. The lighting is golden and inviting, showcasing the crispy texture of the traditional Nepali sweet bread." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRfwaY3N6Xyio891jAEwhs8NJq9AIao5DcBNkGc-BuNP66_mfL4n0daLdtH-P-hc0u_bv6A10y8Sg6HqD8kYwyRQsiIrJg3b24wNH1ZDiB4kkoHqYSyp9Bsa3Y8w3vkFABM_ep2damNyCsw0ZTLNcwnamyylMJ-fkV1Er92BK7KyNyjbE_vhQFsXGBCzZdIDJomb6ve3tHADQdbQ8gjJEGFewxt0JbwuqJWCtkGUPyHbdSIwo7LOifcTcif1deSBYQoQEc3gHwgU0"/>
+</div>
+<div class="rounded-lg overflow-hidden h-full">
+<img class="w-full h-full object-cover" data-alt="A wide landscape shot of a misty Himalayan morning with Annapurna South in the distance. Terraced fields are visible in the foreground with a soft blue haze. The mood is serene and epic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzjEiaZRBHU8ic-DXUJz2PQxSMcMrx1oCSdScdOPcbYCcgddsx5IeQvS-w29TU5fk1StBdv0orauc-8rckoRDv-OPngENYe84KD-0uSwaHsmVrf0nJW5wWY1SO8n6f74KhWxPuGdASJ6vjGV51kEi8X770UAf5jtxkNnL9CxqnUeiTcPPlAvnAWU5ipc2FGwmV90l7frDD-9MbfPqd539m4CaS1HmcvDxZsMTyN0e3EhJEVeD2rX0H0ARQlS5yg9lBliErZUHqZ1A"/>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-surface-variant">
+<div class="flex gap-md">
+<button class="flex items-center gap-1 group/btn active:scale-90 duration-150 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant group-hover/btn:text-primary transition-colors" data-icon="favorite">favorite</span>
+<span class="text-label-sm">124</span>
+</button>
+<button class="flex items-center gap-1 group/btn active:scale-90 duration-150 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant group-hover/btn:text-tertiary transition-colors" data-icon="comment">comment</span>
+<span class="text-label-sm">18</span>
+</button>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary" data-icon="share">share</button>
+</div>
+</article>
+<!-- Moment 2 (Portrait Style) -->
+<article class="bg-white rounded-xl border border-outline-variant p-md flex flex-col gap-md hover:border-secondary transition-colors group">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a male traveler with a beard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp8xYSIF4HYuH1-CLlHfsza0LPJ6kjL5yb9J9MtX_S1e9GGMBt9lcDT22UyT2LJnkzOGqFTeVs-eQzPZpEEy1R24Ki1R-7HMbf_Va-mpMavUAKn11l9Tvc_QIz87oJth1zjmUH7m18DyqumnFFjjLevhgIQkJ25RqUodBLHQJjUK3LuTlzYNE__-zm9qvEVVSZoZV3c7olBdi3jpMtJsIh2JRyYKkT-w1bb5WjJGaxB3vb0DtPI8xFJu5HeDnz7o6JLrdt6F85Lrk"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Mark J.</p>
+<p class="text-xs text-on-surface-variant">2 days ago • Mustang Trails</p>
+</div>
+</div>
+</div>
+<div class="h-96 w-full rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A vertical photo of a dusty, ancient trail in Upper Mustang, winding between ochre cliffs and dramatic rock formations. A solitary trekker is visible in the distance under a vast, cloudless blue sky. The colors are earthy and the atmosphere is silent and majestic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq_NJ6KQTQ04g-pP1d4ej8PkmWMGQnRrmGqHKx2VfQpI1eG5PCpFxdvyO5jSfBoFzxhXzLHLn9aZB_vVnFkUDOrGl1dq6teuEGl5ZYGMeFTocmhW0P2CiZ72HYXDFiAv4p5lMi6Xm8JOHmo5zD9CahlMqHfP0HwQN4XuFZ5EiLqtZJS-VPurja0R2e3EI2ADC1356EeyOBJjgfObhMXNTHeIz3uFAlMnOowOPOqvg0lI5b0lqg1JImyZnoJeXYg70AH5MkhZacVmM"/>
+</div>
+<p class="font-body-md text-on-surface">Found the "Hidden Gateway" Pasang told us about. The winds here tell different stories. Truly a spiritual experience.</p>
+<div class="flex gap-md">
+<button class="flex items-center gap-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="favorite">favorite</span>
+<span class="text-label-sm">89</span>
+</button>
+<button class="flex items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-label-sm">4</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Sidebar: Discussion Topics & Community Stats -->
+<aside class="flex flex-col gap-lg">
+<!-- Discussion Topics -->
+<section class="bg-surface-container rounded-xl p-md border border-outline-variant relative overflow-hidden">
+<div class="dhaka-pattern absolute inset-0 z-0 pointer-events-none"></div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Discussion Hub</h3>
+<div class="flex flex-col gap-sm">
+<button class="w-full text-left p-sm bg-white rounded-lg border border-outline-variant hover:bg-secondary-fixed transition-colors group">
+<span class="text-xs font-bold text-secondary block mb-1">TRENDING</span>
+<h4 class="font-bold text-on-surface group-hover:text-on-secondary-fixed transition-colors">Hidden Trails in Langtang</h4>
+<p class="text-xs text-on-surface-variant mt-1">42 active explorers</p>
+</button>
+<button class="w-full text-left p-sm bg-white rounded-lg border border-outline-variant hover:bg-secondary-fixed transition-colors group">
+<span class="text-xs font-bold text-tertiary block mb-1">CULTURE</span>
+<h4 class="font-bold text-on-surface group-hover:text-on-secondary-fixed transition-colors">Seasonal Festivals Guide</h4>
+<p class="text-xs text-on-surface-variant mt-1">12 new posts today</p>
+</button>
+<button class="w-full text-left p-sm bg-white rounded-lg border border-outline-variant hover:bg-secondary-fixed transition-colors group">
+<span class="text-xs font-bold text-outline block mb-1">PRACTICAL</span>
+<h4 class="font-bold text-on-surface group-hover:text-on-secondary-fixed transition-colors">Sustainable Packing List</h4>
+<p class="text-xs text-on-surface-variant mt-1">Updated 2h ago</p>
+</button>
+</div>
+<button class="mt-md w-full py-2 px-4 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all text-sm">Create New Topic</button>
+</div>
+</section>
+<!-- Community Contributors -->
+<section class="bg-white rounded-xl border border-outline-variant p-md">
+<h3 class="font-bold text-on-surface mb-md">Top Contributors</h3>
+<div class="flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-white text-xs">AM</div>
+<span class="font-label-sm">Aama Maya</span>
+</div>
+<span class="text-xs bg-surface-container-high px-2 py-1 rounded-full text-on-surface-variant">Host</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container text-xs">PS</div>
+<span class="font-label-sm">Pasang Sherpa</span>
+</div>
+<span class="text-xs bg-surface-container-high px-2 py-1 rounded-full text-on-surface-variant">Host</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container text-xs">TH</div>
+<span class="font-label-sm">Thomas H.</span>
+</div>
+<span class="text-xs bg-surface-container-high px-2 py-1 rounded-full text-on-surface-variant">Traveler</span>
+</div>
+</div>
+</section>
+</aside></div>
+</main>
+<!-- Post a Story FAB -->
+<button class="fixed bottom-24 right-6 md:right-12 z-50 bg-primary-container text-on-primary-container flex items-center gap-2 px-6 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="add_a_photo" style="font-variation-settings: 'FILL' 1;">add_a_photo</span>
+<span class="font-bold">Post a Story</span>
+</button>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container border-t-0 rounded-t-xl shadow-sm z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-all">
+<span class="material-symbols-outlined" data-icon="forum" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="font-label-sm text-label-sm">Forum</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for interaction buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                if (icon && icon.textContent === 'favorite') {
+                    const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+                    icon.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                    icon.classList.toggle('text-primary');
+                    
+                    // Simple animation
+                    this.classList.add('scale-125');
+                    setTimeout(() => this.classList.remove('scale-125'), 200);
+                }
+            });
+        });
+    </script>
+</body></html>

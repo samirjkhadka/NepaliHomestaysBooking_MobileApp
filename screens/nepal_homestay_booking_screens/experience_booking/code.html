@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Experiences | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&family=Manrope:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-color: #fbf9f4;
+            background-image:  linear-gradient(30deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba), linear-gradient(150deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba), linear-gradient(30deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba), linear-gradient(150deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba), linear-gradient(60deg, #e2beba77 25%, transparent 25.5%, transparent 75%, #e2beba77 75%, #e2beba77), linear-gradient(60deg, #e2beba77 25%, transparent 25.5%, transparent 75%, #e2beba77 75%, #e2beba77);
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+            opacity: 0.08;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#316479",
+                        "error": "#ba1a1a",
+                        "secondary": "#9a442d",
+                        "primary-fixed": "#ffdad5",
+                        "surface-container": "#f0eee9",
+                        "on-primary-container": "#ffccc6",
+                        "surface-variant": "#e4e2dd",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "outline-variant": "#e2beba",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fbf9f4",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#b32821",
+                        "on-background": "#1b1c19",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "surface-tint": "#b32821",
+                        "tertiary": "#134c61",
+                        "secondary-container": "#fc9174",
+                        "surface-dim": "#dbdad5",
+                        "on-secondary-container": "#742814",
+                        "secondary-fixed": "#ffdbd2",
+                        "inverse-primary": "#ffb4aa",
+                        "on-tertiary-container": "#addff8",
+                        "on-surface": "#1b1c19",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-bright": "#fbf9f4",
+                        "inverse-surface": "#30312e",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae8e3",
+                        "surface": "#fbf9f4",
+                        "on-surface-variant": "#5a413d",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container-low": "#f5f3ee",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-primary-fixed": "#410001",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#bde9ff",
+                        "outline": "#8e706c",
+                        "on-tertiary-fixed": "#001f2a",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "primary": "#900a0c",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#910a0c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "lg": "48px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "gutter": "20px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile py-base md:px-margin-desktop">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-surface-variant transition-colors p-2 rounded-full active:scale-95 duration-150">menu</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary">Aama's Kitchen</h1>
+</div>
+<nav class="hidden md:flex gap-lg">
+<a class="font-label-sm text-label-sm text-primary" href="#">Explore</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Bookings</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Saved</a>
+</nav>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A warm, professional headshot of a person with friendly eyes, set against a blurred background of a traditional Nepali kitchen with copper vessels and warm wooden textures. The lighting is soft and golden, reflecting the Modern Heritage brand aesthetic of trust and authenticity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD44fF1elI4shM1JwUZ7LDy7_Hol2Q39bvOzyE7Ao5sDNYLmncmwqoPnchi6yKt8JbegQoAnDciMhXNQGSTVwmw0yAfA8siyyl1Qp4-cML7feSb7jYkzue9QSJp6ozXd1hh--zOS-zRZlkf3ZHHCuUoSQhu_21oP8F5X49unVxVHmErISrwye-nSjYRDR9Ll1m7uC8pNVUX4aFEyjN6jPJEU0mNsL-Rj3TqhFlrWNxtOyTApdrM2ST1qgLeOcrxWD77EKh49F1U7ww"/>
+</div>
+</header>
+<main class="min-h-screen pb-32">
+<!-- Hero Section -->
+<section class="relative h-[530px] flex items-end px-margin-mobile md:px-margin-desktop pb-xl overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A panoramic, high-resolution view of the Himalayan foothills at dawn, with terraced rice fields and a small stone village nestled among the peaks. The sky is painted in soft terracotta and golden hues, reflecting a serene and spiritual atmosphere. The style is cinematic and atmospheric, emphasizing the vastness and heritage of the region." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxTA93_sB6oY8FKSycGyKzkfB4MUso6w4hNEAx6OtVE2P5QdRSfRYXtfWscbICUaAvkFG0dOxj_CJNZEj17L-qFUjdavRBcxNp6CIg1nWQomAFfFODyeC03R9dYYt_LJ83-27FKFJC8AnldV9yOb90C5iGKBAVwnvujWDJCbbuNXDmUgt92GJOakCJMs_z_8TAi3FA5fUmyXhUHPCgcww-PO7eykK8LXfwk6EQVcN3mGxhrQuLAVn14CooyR-tIxDa2MsgA8ynSV0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-2xl">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm mb-base">Cultural Heritage</span>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-md">Immersion Beyond Sightseeing.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Step into the heart of the mountains. Our workshops are designed to teach you the skills of our ancestors, from the clay of the hearth to the silk of the loom.</p>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="px-margin-mobile md:px-margin-desktop -mt-base sticky top-[72px] z-40 bg-background/80 backdrop-blur-md py-md">
+<div class="flex gap-sm overflow-x-auto pb-xs scrollbar-hide">
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm active:scale-95 transition-all">All Experiences</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-tertiary-container/10 text-tertiary font-label-sm text-label-sm hover:bg-tertiary-container/20 transition-all">Culinary Arts</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-tertiary-container/10 text-tertiary font-label-sm text-label-sm hover:bg-tertiary-container/20 transition-all">Craft & Weaving</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-tertiary-container/10 text-tertiary font-label-sm text-label-sm hover:bg-tertiary-container/20 transition-all">Spiritual Walks</button>
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-tertiary-container/10 text-tertiary font-label-sm text-label-sm hover:bg-tertiary-container/20 transition-all">Mountain Farming</button>
+</div>
+</section>
+<!-- Experience Catalog (Bento Grid Style) -->
+<section class="px-margin-mobile md:px-margin-desktop py-lg grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Experience Card 1: Main Feature -->
+<div class="md:col-span-8 group relative rounded-xl overflow-hidden border border-outline-variant bg-surface flex flex-col md:flex-row transition-all hover:shadow-md">
+<div class="w-full md:w-1/2 h-64 md:h-full relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up shot of a pair of weathered, experienced hands expertly shaping a traditional Sel Roti—a ring-shaped sweet fried bread—over a cast-iron pan on an open wood-fired hearth. The kitchen is filled with soft steam and warm embers, creating an intimate, tactile atmosphere that feels authentic and educational." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYW2iVXrVhKWYS0LoRLGJDnyqiQczCxjrdc3PqaX4VEa7C90ZSQTCjpGWMHwUoeK_tewzdwvbqteWbVgOmEIHO3b18oMN8-uX1hrKEVAF2EufDcOy7Zu-bUxyI1ZrVmOPlyXckolFBOIoWYCMlAc4Bzi5BkHxau7PZnGDDejTS_GdK6UYMmDLNht0v6zLfrlww-wtGLcJ-t4CgS6-ryu0E9CHz_WCzQ1-hOmQrSKnMbNSHFFk8m63UpxPtcBVC3Ckt26SfTSmgcRU"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 3 Hours
+                        </span>
+</div>
+</div>
+<div class="w-full md:w-1/2 p-md flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-sm">
+<img class="w-8 h-8 rounded-full border border-primary" data-alt="A friendly portrait of Aama Devi, an elderly Nepali woman with a warm, wrinkled face and a bright red tika, wearing a traditional Dhaka shawl. The background is a rustic mountain house interior, emphasizing her role as a master of local culinary arts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6oQbJjWpIP9XtQSX8XE9SlEUtGBs71u4i8cnR_SDlY69S2CFro8Q_WwgV2TLDRQZd5ldsOvHR451Sz1RQR1fPpf-Nyts2UnGxk8dXa2zWJgTmUsqVCbrmYAO5Vrbb86Vbt3-hG7lMbHHTL8cN8mbxvU5qKDQQTcihDOYDSYZx9gMJRTCNcM9ZLQaCFPb0LrWaj-JyNEXJ2Skl5O3oHjl7_mdgtEYw35ORHL5bckCQsTg0Bv6oJFizK1EGQqL00yRQnP-7gRoU3s4"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Host: Aama Devi</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">The Art of Sel Roti: Heritage Baking</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Learn the rhythmic pouring technique and the secret spice blend behind Nepal's most iconic festive bread.</p>
+<div class="bg-surface-container-low p-md rounded-lg mb-md relative overflow-hidden">
+<div class="dhaka-pattern absolute inset-0"></div>
+<h4 class="font-label-sm text-label-sm text-primary uppercase tracking-wider mb-2 relative z-10">What you will learn</h4>
+<ul class="space-y-1 relative z-10">
+<li class="font-body-md text-body-md flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Rice soaking & grinding process</li>
+<li class="font-body-md text-body-md flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Mastering the 'Ring' pour</li>
+</ul>
+</div>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">From</span>
+<span class="font-headline-md text-headline-md text-primary">$45 / person</span>
+</div>
+<button class="bg-primary text-on-primary px-lg py-3 rounded-full font-label-sm text-label-sm hover:shadow-lg hover:brightness-110 active:scale-95 transition-all">Book Now</button>
+</div>
+</div>
+</div>
+<!-- Experience Card 2 -->
+<div class="md:col-span-4 group relative rounded-xl overflow-hidden border border-outline-variant bg-surface flex flex-col transition-all hover:shadow-md">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautifully intricate handloom with colorful threads in shades of terracotta, ochre, and deep blue, set in a sunlit wooden workshop. A traditional Dhaka pattern is emerging from the loom, showcasing the craftsmanship of Nepal. The lighting is crisp and natural, highlighting the textures of the yarn and wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfuiWrd8HSAXg5IZ7CuKngfiSqrHmg_QAz9V5mpaWONYxdNWQ6X0vfmBVXXuHxmQKFFLoOmduUKX1gq22UBPT1aC5s4Sawjc6q3wf2T2cz3mbPnIPETX9hh6bIgO1zJl9H3UKzAtYbFALrzKYGpKqvL99Vnzs5mnDdZGYUxbTzBhIkdegP999aGt2ABDkogBxvp1PHN6gr6L8FgiLYHqOfDhetfcfJwEPfqaUkiXXEBwXnUWO86AuIrIvtDJe7VhDUblbm5X06iuI"/>
+<div class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 5 Hours
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Dhaka Weaving Workshop</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Join Maya in her hillside studio to learn the mathematical beauty of traditional loom patterns.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-primary">$72</span>
+<button class="bg-secondary text-on-secondary px-md py-2 rounded-full font-label-sm text-label-sm active:scale-95 transition-all">Details</button>
+</div>
+</div>
+</div>
+<!-- Experience Card 3 -->
+<div class="md:col-span-4 group relative rounded-xl overflow-hidden border border-outline-variant bg-surface flex flex-col transition-all hover:shadow-md">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A serene morning scene of a monk and a traveler walking along a high mountain ridge trail lined with colorful prayer flags fluttering in the wind. The backdrop is a clear blue sky and the jagged peaks of the Annapurna range. The mood is contemplative and peaceful, focusing on the spiritual journey." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTF6HicehTw1GaFAFOITpYXxMXoMvquaa1djiUH962U4Ub7_BOMg9ZSrpS9FxKqp6RbJ1KfUReTaSu_RyhRBilz7RNLwzsDEad8CrD48aF14xwT0zcEc4PUu3tiCRvt52MTT0lymno4e--n2qAWNxTD97xqwXMLhExYYBO_sRD_hVbGg62O5byaC4E5qwYKQALUDggJGlN2lYKxaMB2to1GlxwXwns0T2DvHLKtIYWX5CTsnC4yRZ6xgE6cEqKBNzQQc_vX5aoMfg"/>
+<div class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 4 Hours
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Monastery Silence Walk</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Experience the power of quiet contemplation on a guided trek to the hidden Namo Buddha ridge.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-primary">$35</span>
+<button class="bg-secondary text-on-secondary px-md py-2 rounded-full font-label-sm text-label-sm active:scale-95 transition-all">Details</button>
+</div>
+</div>
+</div>
+<!-- Experience Card 4: Secondary Feature -->
+<div class="md:col-span-8 group relative rounded-xl overflow-hidden border border-outline-variant bg-surface flex flex-col md:flex-row-reverse transition-all hover:shadow-md">
+<div class="w-full md:w-1/2 h-64 md:h-full relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant table spread in a rustic Nepali farmhouse, showing various clay bowls filled with fresh local ingredients: turmeric, green chilies, fermented greens (Gundruk), and steaming lentils. The setting is warm and inviting, lit by a large window overlooking a misty mountain valley, representing the farm-to-table ethos." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeikdL6ZRBtlQxRdyQ7NOzgtkkwkA-ozOR_fcy5BoLBpJicjlkJxd3oNMAkVyz5e8R0I0Ab6yRLcYMp80eKCXszI3Vh9LX6565-7MyCvSWIhdciDu9QZQ4IcHHZw7Cnd-vvdPEXpVcrUIuYNEBZAAHgxp5-7Q_bVsVfm0iaYgu3LrI5KJACJlWLWb6Wcf2cDdeaZlOrCQ95PidTJrqV8mWTKSgCNp_6j0J6yacHjUQRZegd9fSkuk_dPm_uA5wtHwtoZ1ratA15AI"/>
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 6 Hours
+                    </div>
+</div>
+<div class="w-full md:w-1/2 p-md flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-sm">
+<img class="w-8 h-8 rounded-full border border-primary" data-alt="Portrait of Kancha, a middle-aged Nepali farmer with a kind smile and sun-tanned skin, wearing a traditional topi (hat). He is standing in a lush green field, holding a bundle of freshly harvested herbs, embodying the connection to the land." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMRXg7QylKp3HDF9CTvB9gK7mPaQfNB6xDfwQya_PbYIX8d54m77_aDZuciWbINmYtWjPEl_DHdGSpvEh2YCADLtXPcGOVx03kZV4jsb3BPlndUg5QE0UTdxi66ctnMAVRLXgcbNUEOFNJOwfZcGe_eAT5Im7E4fuWJ3SGi7MUWha6ddTk8c3woVMP5hlaP_jADPLgILlHpjLNx28fdW0AzhjveDT3LNiq3qSG7WPY8qtkK_SH5L3ZOHBX0qDYOqUcXuAv1DzEkLw"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Host: Kancha the Farmer</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Farm-to-Pot: Himalayan Herbs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Harvest wild seasonal greens and learn to cook the legendary 'Gundruk' soup over a clay stove.</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-tertiary">
+<span class="material-symbols-outlined">eco</span> Organic Farm Experience
+                            </div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-tertiary">
+<span class="material-symbols-outlined">restaurant</span> Full Lunch Included
+                            </div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-md">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">From</span>
+<span class="font-headline-md text-headline-md text-primary">$55</span>
+</div>
+<button class="bg-primary text-on-primary px-lg py-3 rounded-full font-label-sm text-label-sm hover:shadow-lg active:scale-95 transition-all">Book Now</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="px-margin-mobile md:px-margin-desktop mb-xl">
+<div class="relative rounded-2xl bg-tertiary text-on-tertiary p-lg md:p-xl overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center gap-lg">
+<div class="relative z-10 flex-1">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg mb-md">Join the Community Forum</h2>
+<p class="font-body-lg text-body-lg text-on-tertiary-container mb-lg">Connect with other travelers and local hosts. Share your stories and learn more about Himalayan traditions before you arrive.</p>
+<button class="bg-surface text-tertiary px-xl py-3 rounded-full font-label-sm text-label-sm hover:bg-surface-variant transition-colors active:scale-95">Enter Forum</button>
+</div>
+<div class="relative z-10 w-full md:w-1/3 aspect-video md:aspect-square rounded-xl overflow-hidden shadow-2xl rotate-3">
+<img class="w-full h-full object-cover" data-alt="A group of diverse travelers and local Nepali hosts sitting together around a communal fire pit in the evening. They are sharing stories and laughter, with some holding cups of traditional butter tea. The scene is lit by the warm glow of the fire, creating a sense of global connection and shared heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAABTLjuDEuFUOL70L_2rvnI4UNIFEav6F6PoTLN9eNfNLo6LJw6n6QPZlP94j_m3CYV3XvmHN2uMtAW3UTTAlD0mvr6QGgY7G46JZfHDud0f4LSp0YFzantLIGT6cIUTWSkSroO80iRgFzUT2m6Mt_7eZlbWJw-Qrn4d1IjObA3R2QCEH66RODRsu8NdggBpPyjNccCLj2-1MZD2Gxj7moohLwx_7sNPmxF0q-bNfKRqbX2vMIFqZU3caDPd5Yn9Lfvyc5DfmCp0w"/>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl"></div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface-container/90 backdrop-blur-md flex justify-around items-center px-4 pb-4 pt-2 z-50 rounded-t-xl shadow-sm">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_activity</span>
+<span class="font-label-sm text-label-sm">Experiences</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- Interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth reveal on scroll for cards
+            const observerOptions = {
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.group').forEach(card => {
+                card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body></html>

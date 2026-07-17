@@ -1,0 +1,204 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Welcome to Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&amp;family=Manrope:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&amp;family=Manrope:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "primary": "#900a0c",
+                    "outline-variant": "#e2beba",
+                    "on-primary-fixed-variant": "#910a0c",
+                    "on-tertiary-fixed": "#001f2a",
+                    "on-primary-container": "#ffccc6",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbf9f4",
+                    "surface-container": "#f0eee9",
+                    "on-secondary-fixed": "#3c0800",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "inverse-primary": "#ffb4aa",
+                    "surface-container-high": "#eae8e3",
+                    "tertiary-fixed": "#bde9ff",
+                    "inverse-on-surface": "#f2f1ec",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1c19",
+                    "surface-dim": "#dbdad5",
+                    "primary-container": "#b32821",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "on-secondary-container": "#742814",
+                    "tertiary": "#134c61",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#410001",
+                    "surface": "#fbf9f4",
+                    "surface-tint": "#b32821",
+                    "on-surface": "#1b1c19",
+                    "secondary-container": "#fc9174",
+                    "surface-variant": "#e4e2dd",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "on-surface-variant": "#5a413d",
+                    "background": "#fbf9f4",
+                    "tertiary-container": "#316479",
+                    "secondary": "#9a442d",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdad5",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffdbd2",
+                    "surface-container-highest": "#e4e2dd",
+                    "outline": "#8e706c",
+                    "surface-container-low": "#f5f3ee",
+                    "on-tertiary-container": "#addff8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "sm": "12px",
+                    "gutter": "20px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "label-sm": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .dhaka-pattern {
+            background-image: radial-gradient(var(--tw-colors-primary) 0.5px, transparent 0.5px), radial-gradient(var(--tw-colors-primary) 0.5px, #fbf9f4 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at center, transparent 0%, rgba(144, 10, 12, 0.15) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<!-- Splash Screen Container -->
+<main class="relative h-screen w-full flex flex-col items-center justify-between overflow-hidden">
+<!-- Background Image Layer -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-surface-container-lowest/90 z-10"></div>
+<div class="w-full h-full bg-cover bg-center scale-105" data-alt="A breathtaking cinematic landscape of the Annapurna mountain range in Nepal at the precise moment of sunrise. The jagged peaks are kissed by soft golden and warm amber light, while the valleys remain in a deep, mystical purple haze. The sky is a gradient of soft peach and terracotta, mirroring the brand's primary colors. The overall aesthetic is serene, majestic, and high-quality, evoking a sense of ancient wisdom and welcoming warmth." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvmQhumFuHG7Ewn0l7CWgFxZoBQSlarLmf8psv5Pot3JQ_tI70WaXKLLfMorYhSWiTmWVofmJ8xxgCKI0JjDEgFPajrT3dt22sEj_5Tha_OLpdIGyu-eEM18FQ18p3--Xq5HN9sqL1EbvvfyFuBZSsCte7HBB0CnAOQafdmM4bu9-E6MIiQv9dz7mPN3CVrAsd6xnoBtJFtd79GybjPVjI04jYXP3ih7kezW25WX3qfLt8LrnM7RY6CFaB4XSZVUfdjfuHSk56IUA')">
+</div>
+</div>
+<!-- Subtle Dhaka Texture Overlay -->
+<div class="absolute inset-0 z-[5] dhaka-pattern pointer-events-none"></div>
+<!-- Top Branding Section (Implicit TopAppBar style alignment) -->
+<header class="relative z-20 w-full px-margin-mobile py-lg flex justify-center items-center fade-in" style="animation-delay: 0.2s;"><div class="flex flex-col items-center">
+  <img src="https://lh3.googleusercontent.com/aida/AP1WRLsyPdXytOyCS-fk3Ur1Dy-MuA4cEYomw1W0DllyeaNPtv5yZ3WaNZJA5gxRtzlg7donXpV1EL_zbz_FzVxy3SrZw0l2S6DcsXQi0V6ft1CqFmfSFxm3afyzGeecrgZeY91YXLlF2WsJpoxN-QCMXlSH-Xxs1OkjkPOalrSwrebPYkwtQDxSBZhxjpVjMvoWu_wwVgshvDvq1CcvrvWGoJJ8LHl4-xGWTIcy2-PWvCgpGBNMCLRWlikTAg" class="w-24 h-24 mx-auto" alt="Hearth Logo">
+</div></header>
+<!-- Central Content Area -->
+<section class="relative z-20 flex flex-col items-center text-center px-margin-mobile max-w-2xl fade-in" style="animation-delay: 0.5s;">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-white drop-shadow-lg mb-xs tracking-tight">
+                Aama's Kitchen
+            </h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-md drop-shadow-md">
+                Experience the warmth of a Himalayan home, one authentic stay at a time.
+            </p>
+<!-- Atmospheric Element -->
+<div class="mt-lg flex items-center gap-sm bg-white/10 backdrop-blur-md rounded-full px-md py-xs border border-white/20">
+<span class="material-symbols-outlined text-secondary-fixed text-sm">wb_twilight</span>
+<span class="font-label-sm text-label-sm text-white uppercase tracking-widest">Namaste from the Peaks</span>
+</div>
+</section>
+<!-- Bottom Action Area -->
+<footer class="relative z-20 w-full px-margin-mobile pb-xl flex flex-col items-center fade-in" style="animation-delay: 0.8s;">
+<button class="group relative w-full max-w-sm bg-primary text-on-primary py-md rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-sm shadow-xl active:scale-95 transition-all duration-300 hover:bg-primary-container overflow-hidden" onclick="handleStart()">
+<!-- Inner Glow Effect mentioned in Style Guidance -->
+<div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-tr from-white via-transparent to-white transition-opacity duration-500"></div>
+<span class="">Get Started</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</button>
+<p class="mt-md font-label-sm text-label-sm text-white/70">
+                Authentic Homestays • Cultural Discovery • Eco-Travel
+            </p>
+<!-- Decorative Organic Edge Indicator -->
+<div class="mt-lg w-12 h-1 bg-white/30 rounded-full"></div>
+</footer>
+<!-- Decorative Light Hearth Glow (Bottom Left) -->
+<div class="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none z-10"></div>
+</main>
+<script>
+        function handleStart() {
+            // Micro-interaction: visual feedback before "navigating"
+            const btn = document.querySelector('button');
+            btn.innerHTML = `
+                <span class="material-symbols-outlined animate-spin">progress_activity</span>
+                <span>Opening the Kitchen...</span>
+            `;
+            btn.classList.add('opacity-90');
+            
+            // Artificial delay to show intent
+            setTimeout(() => {
+                console.log("Redirecting to exploration phase...");
+                // In a real app: window.location.href = '/explore';
+            }, 800);
+        }
+
+        // Parallax Effect for Background
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            const bg = document.querySelector('.scale-105');
+            bg.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
+
+
+</body></html>

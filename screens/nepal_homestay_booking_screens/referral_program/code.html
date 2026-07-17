@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Invite a Friend | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700&family=Manrope:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(#b32821 0.5px, transparent 0.5px);
+            background-size: 12px 12px;
+            opacity: 0.1;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hearth-glow {
+            box-shadow: 0 0 40px 10px rgba(179, 40, 33, 0.08);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdbd2",
+                        "outline-variant": "#e2beba",
+                        "on-error-container": "#93000a",
+                        "outline": "#8e706c",
+                        "on-tertiary-fixed": "#001f2a",
+                        "primary-container": "#b32821",
+                        "on-background": "#1b1c19",
+                        "on-surface-variant": "#5a413d",
+                        "surface-container-high": "#eae8e3",
+                        "secondary-container": "#fc9174",
+                        "on-tertiary-container": "#addff8",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb4aa",
+                        "on-primary-container": "#ffccc6",
+                        "inverse-on-surface": "#f2f1ec",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#f0eee9",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "surface-tint": "#b32821",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "on-primary-fixed-variant": "#910a0c",
+                        "on-error": "#ffffff",
+                        "background": "#fbf9f4",
+                        "surface-dim": "#dbdad5",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-primary-fixed": "#410001",
+                        "on-surface": "#1b1c19",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#316479",
+                        "surface": "#fbf9f4",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "surface-container-low": "#f5f3ee",
+                        "secondary": "#9a442d",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "error": "#ba1a1a",
+                        "tertiary": "#134c61",
+                        "tertiary-fixed": "#bde9ff",
+                        "surface-container-highest": "#e4e2dd",
+                        "primary-fixed": "#ffdad5",
+                        "surface-variant": "#e4e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#900a0c",
+                        "on-secondary-container": "#742814",
+                        "inverse-surface": "#30312e",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fbf9f4",
+                        "primary-fixed-dim": "#ffb4aa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Top Navigation Header -->
+<header class="w-full top-0 sticky z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop py-base bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-base transition-all duration-150 active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</div>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A warm, close-up portrait of a friendly Sherpa woman in traditional Nepali dress, smiling gently at the camera. The lighting is soft and golden, suggesting a morning sun in the Himalayas. The background is a blurred domestic interior with copper kitchenware and wooden textures, maintaining a premium light-mode aesthetic with rich red accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDty4kmvQcpH2ktgjxAAJpI2lAs_KRhAAqaCwRlumS1nb6cc_bNKk37XK3MjfxORWzHsb9YFFn4DlVOJRP_a_8PATCx8k6X6RMKhupEMmZksGie8JNW7aP5eq6XiO6uCGtXMglUWO__8cXqQ0KOFaa_d9aX4KtOX5JFpF6mOz4OOIjkUJGqM5bWbpdYv6gExGVX6yLe1mFqhdVbV1s1D4_CJ-XadCQEMMutWYC-Wjdzf92Zb6nAnG--4zYTCXNmgnpWiikUJMzW_so"/>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg items-center">
+<!-- Left Column: Illustration & Narrative -->
+<div class="md:col-span-6 space-y-md">
+<div class="relative group">
+<div class="absolute -inset-4 dhaka-pattern rounded-xl -z-10 transition-opacity group-hover:opacity-20"></div>
+<div class="aspect-square w-full rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 hearth-glow">
+<img class="w-full h-full object-cover" data-alt="An artistic, modern heritage illustration of a traditional Nepali clay oven (chulo) with a gentle orange flame glowing inside. The scene is clean and minimalist, with organic hand-drawn lines. Around the oven are ceramic tea cups and a woven Dhaka placemat. The color palette uses deep reds, earthy terracottas, and warm creams, evoking the feeling of a cozy Himalayan home." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl3AyhSCGoLSQdQXYCThcxEuVJxPc07RZVhM-7ugC4Y22UOT4PXx44klAPFDYLD2xTRUpUn2xos7Ki8_5_eJh7emG7WTkFEUe2JHEDu8X5Xl9k6roYx9bWIulnA8W2I6JQ31_YKvnGCBmL1abj3AHarOFNopL_glrJt32-wvzn_TFS6mUpnwZPeftQ0uSCIgGzb5LjXu98LJ3wFymAee-fE7O-iEL0_lNnSVe6kBoTGt6XGx7SBOpNBG0OBudqzceCUSt2b5habRE"/>
+</div>
+</div>
+<div class="space-y-base">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tight">Share the Hearth</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+                        The warmth of a home is meant to be shared. Invite a friend to discover the authentic hospitality of Aama's Kitchen homestays across Nepal.
+                    </p>
+</div>
+</div>
+<!-- Right Column: Referral Action Card -->
+<div class="md:col-span-6">
+<div class="glass-card border border-outline-variant p-lg rounded-xl space-y-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+<div class="space-y-sm">
+<div class="flex items-center gap-xs text-primary font-label-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-[18px]">redeem</span>
+<span>The Reward</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Get NPR 2,500 Travel Credit</h3>
+<p class="text-on-surface-variant">When your friend completes their first mountain stay, you both receive travel credits for your next journey.</p>
+</div>
+<!-- Unique Code Section -->
+<div class="bg-surface-container-low border border-outline-variant/50 p-md rounded-lg space-y-sm">
+<label class="font-label-sm text-on-surface-variant block">YOUR UNIQUE REFERRAL CODE</label>
+<div class="flex items-center justify-between gap-base">
+<span class="font-headline-md text-primary tracking-[0.2em] select-all" id="referralCode">NAMASTE-2024</span>
+<button class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors active:scale-90 duration-150" onclick="copyCode()">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Social Sharing -->
+<div class="space-y-md">
+<p class="font-label-sm text-on-surface-variant text-center uppercase tracking-widest">Send Invite via</p>
+<div class="flex flex-wrap gap-base justify-center">
+<!-- WhatsApp -->
+<button class="flex flex-col items-center gap-xs p-base rounded-xl hover:bg-secondary-fixed/30 transition-all w-20 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<span class="font-label-sm text-[11px]">WhatsApp</span>
+</button>
+<!-- Facebook -->
+<button class="flex flex-col items-center gap-xs p-base rounded-xl hover:bg-secondary-fixed/30 transition-all w-20 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined">public</span>
+</div>
+<span class="font-label-sm text-[11px]">Facebook</span>
+</button>
+<!-- Email -->
+<button class="flex flex-col items-center gap-xs p-base rounded-xl hover:bg-secondary-fixed/30 transition-all w-20 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<span class="font-label-sm text-[11px]">Email</span>
+</button>
+<!-- SMS -->
+<button class="flex flex-col items-center gap-xs p-base rounded-xl hover:bg-secondary-fixed/30 transition-all w-20 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined">sms</span>
+</div>
+<span class="font-label-sm text-[11px]">SMS</span>
+</button>
+</div>
+</div>
+<p class="text-center text-on-surface-variant/70 font-label-sm">
+                        Terms & Conditions apply. Rewards are issued as credits for Aama's Kitchen booking platform.
+                    </p>
+</div>
+</div>
+</div>
+<!-- How it works section -->
+<div class="mt-xl pt-xl border-t border-outline-variant/30">
+<h4 class="font-headline-md text-center text-on-surface mb-lg">How to Share the Hearth</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="text-center space-y-base">
+<div class="w-12 h-12 bg-primary-fixed text-on-primary-fixed rounded-full flex items-center justify-center mx-auto mb-md">1</div>
+<h5 class="font-headline-md text-on-surface">Share Code</h5>
+<p class="text-on-surface-variant font-body-md">Send your unique invite code to friends who love culture and mountains.</p>
+</div>
+<div class="text-center space-y-base">
+<div class="w-12 h-12 bg-primary-fixed text-on-primary-fixed rounded-full flex items-center justify-center mx-auto mb-md">2</div>
+<h5 class="font-headline-md text-on-surface">Friend Books</h5>
+<p class="text-on-surface-variant font-body-md">They get an instant NPR 1,500 discount on their first homestay booking.</p>
+</div>
+<div class="text-center space-y-base">
+<div class="w-12 h-12 bg-primary-fixed text-on-primary-fixed rounded-full flex items-center justify-center mx-auto mb-md">3</div>
+<h5 class="font-headline-md text-on-surface">Get Rewards</h5>
+<p class="text-on-surface-variant font-body-md">Once their stay is complete, we drop NPR 2,500 into your travel wallet.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container border-t border-outline-variant/30 shadow-sm rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">redeem</span>
+<span class="font-label-sm text-label-sm">Rewards</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-sm text-label-sm">Inbox</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<!-- Copy Success Toast -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-lg py-sm rounded-full opacity-0 pointer-events-none transition-opacity duration-300 z-[100] flex items-center gap-base" id="toast">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span class="font-label-sm">Code copied to clipboard!</span>
+</div>
+<script>
+        function copyCode() {
+            const code = document.getElementById('referralCode').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.remove('opacity-0');
+                toast.classList.add('opacity-100');
+                
+                setTimeout(() => {
+                    toast.classList.remove('opacity-100');
+                    toast.classList.add('opacity-0');
+                }, 2000);
+            });
+        }
+
+        // Simple floating animation for the card
+        const card = document.querySelector('.glass-card');
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+            if (window.innerWidth > 768) {
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+    </script>
+</body></html>

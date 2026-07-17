@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen - Profile &amp; Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#bde9ff",
+                        "on-primary-fixed": "#410001",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "primary": "#900a0c",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#910a0c",
+                        "outline": "#8e706c",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae8e3",
+                        "surface": "#fbf9f4",
+                        "on-surface-variant": "#5a413d",
+                        "surface-container-highest": "#e4e2dd",
+                        "surface-bright": "#fbf9f4",
+                        "inverse-surface": "#30312e",
+                        "surface-container-low": "#f5f3ee",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "on-secondary-fixed": "#3c0800",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary-container": "#742814",
+                        "tertiary": "#134c61",
+                        "secondary-container": "#fc9174",
+                        "surface-dim": "#dbdad5",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "surface-tint": "#b32821",
+                        "primary-container": "#b32821",
+                        "on-background": "#1b1c19",
+                        "on-tertiary-container": "#addff8",
+                        "on-surface": "#1b1c19",
+                        "secondary-fixed": "#ffdbd2",
+                        "inverse-primary": "#ffb4aa",
+                        "surface-container": "#f0eee9",
+                        "on-primary-container": "#ffccc6",
+                        "secondary": "#9a442d",
+                        "primary-fixed": "#ffdad5",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#316479",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#e2beba",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fbf9f4",
+                        "surface-variant": "#e4e2dd",
+                        "secondary-fixed-dim": "#ffb4a1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .dhaka-pattern {
+            background-color: #fbf9f4;
+            background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #fbf9f4 10px ), repeating-linear-gradient( #e4e2dd55, #e4e2dd 1px );
+            opacity: 0.1;
+        }
+        .organic-shadow {
+            box-shadow: 0 10px 40px -10px rgba(179, 40, 33, 0.08);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md">
+<!-- Top AppBar (Mobile context) -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-w-7xl mx-auto">
+<button aria-label="Back" class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-highest transition-colors rounded-full">
+                arrow_back
+            </button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Profile</h1>
+<button aria-label="More" class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-highest transition-colors rounded-full">
+                more_vert
+            </button>
+</div>
+</header>
+<main class="max-w-3xl mx-auto px-margin-mobile pb-32">
+<!-- Profile Header Section -->
+<section class="mt-base mb-lg flex flex-col items-center text-center">
+<div class="relative group">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white organic-shadow overflow-hidden mb-md">
+<img class="w-full h-full object-cover" data-alt="A warm, professional portrait of a Nepalese man named Arjun Shrestha in his late 20s. He is wearing a traditional Dhaka topi and a modern dark red linen shirt. The background is a soft-focus Himalayan homestay interior with warm wooden beams and a glowing hearth. The lighting is soft and golden, creating a welcoming and authentic atmosphere consistent with the Aama's Kitchen brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkqNBckSxc55_NSj67gpRT-G6qV-VhVS37zbFPN2SPVjYbJOHRoE9N_jQMD5Ml12n8YuuahjX6cbutts8bvEq7R-Q7AS5fsfN00f31ul0cG6PVqhZiqVRsHU67j3FF0zslGrkEsAGQBcJDyaCUZc-_tx_ZTiQ8uuiE8nSnP-vU0DkG0CA_idoFcm3K3PCQD7ErRc5qDaEswRGfxtBnYPxT_rzqoBkujyaN_5SKiXVFFHvo5B8sPY6_-h70iTre2vOnpR5TVn39r80"/>
+</div>
+<button class="absolute bottom-6 right-0 bg-primary text-on-primary p-2 rounded-full shadow-lg hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Arjun Shrestha</h2>
+<p class="font-body-md text-on-surface-variant">Member since 2024</p>
+<!-- Quick Stats/Chips -->
+<div class="flex gap-sm mt-md">
+<div class="px-md py-xs bg-secondary-fixed text-on-secondary-fixed rounded-full text-label-sm font-label-sm border border-outline-variant">
+                    Host Partner
+                </div>
+<div class="px-md py-xs bg-tertiary-container/10 text-tertiary text-label-sm font-label-sm border border-tertiary/20 rounded-full">
+                    12 Trips
+                </div>
+</div>
+</section>
+<!-- Settings Groups -->
+<div class="space-y-lg">
+<!-- Group 1: Account Settings -->
+<div>
+<h3 class="text-label-sm font-label-sm text-outline uppercase tracking-widest px-xs mb-sm">Account Settings</h3>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant organic-shadow">
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container transition-colors active:bg-surface-container-high border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">person</span>
+<span class="font-body-lg text-body-lg text-on-surface">Personal Information</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container transition-colors active:bg-surface-container-high border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">shield</span>
+<span class="font-body-lg text-body-lg text-on-surface">Login &amp; Security</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container transition-colors active:bg-surface-container-high">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">payments</span>
+<span class="font-body-lg text-body-lg text-on-surface">Payments &amp; Payouts</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Group 2: Preferences -->
+<div>
+<h3 class="text-label-sm font-label-sm text-outline uppercase tracking-widest px-xs mb-sm">Preferences</h3>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant organic-shadow">
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container transition-colors active:bg-surface-container-high border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">accessibility_new</span>
+<span class="font-body-lg text-body-lg text-on-surface">Accessibility</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container transition-colors active:bg-surface-container-high">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">translate</span>
+<span class="font-body-lg text-body-lg text-on-surface">Translation</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Group 3: Support -->
+<div>
+<h3 class="text-label-sm font-label-sm text-outline uppercase tracking-widest px-xs mb-sm">Support</h3>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant organic-shadow">
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container transition-colors active:bg-surface-container-high border-b border-outline-variant/30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">help</span>
+<span class="font-body-lg text-body-lg text-on-surface">Help Center</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container transition-colors active:bg-surface-container-high">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary">feedback</span>
+<span class="font-body-lg text-body-lg text-on-surface">Give us feedback</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Logout Button -->
+<div class="pt-md pb-xl">
+<button class="w-full flex items-center justify-center gap-sm p-md text-error font-headline-md border border-error/20 rounded-xl hover:bg-error-container/20 transition-all active:scale-95 group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">logout</span>
+                    Logout
+                </button>
+<p class="text-center mt-lg text-outline text-label-sm font-label-sm opacity-50">Version 2.4.0 (Mountain Build)</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Fixed) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-lg border-t border-outline-variant/30 px-4 py-2 pb-safe shadow-sm md:hidden">
+<div class="flex justify-around items-center">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-4 py-1 transition-all">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-4 py-1 transition-all">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-4 py-1 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-sm text-label-sm">Updates</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</div>
+</nav>
+<!-- Decorative Corner Element -->
+<div class="fixed bottom-0 right-0 pointer-events-none z-0 overflow-hidden w-64 h-64 md:w-96 md:h-96 opacity-10">
+<div class="dhaka-pattern w-full h-full origin-bottom-right rotate-45 transform"></div>
+</div>
+<script>
+        // Micro-interactions for list items
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                this.classList.add('scale-[0.98]');
+            });
+            btn.addEventListener('touchend', function() {
+                this.classList.remove('scale-[0.98]');
+            });
+        });
+
+        // Simple animation on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const groups = document.querySelectorAll('div > h3 + div');
+            groups.forEach((group, index) => {
+                group.style.opacity = '0';
+                group.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    group.style.transition = 'all 0.4s ease-out';
+                    group.style.opacity = '1';
+                    group.style.transform = 'translateY(0)';
+                }, 100 * (index + 1));
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Help Center | Aama's Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#001f2a",
+            "on-secondary-fixed": "#3c0800",
+            "on-secondary-container": "#742814",
+            "surface-tint": "#b32821",
+            "error-container": "#ffdad6",
+            "surface-dim": "#dbdad5",
+            "inverse-primary": "#ffb4aa",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#30312e",
+            "surface-container": "#f0eee9",
+            "on-tertiary-fixed-variant": "#134c61",
+            "on-error": "#ffffff",
+            "surface-variant": "#e4e2dd",
+            "primary": "#900a0c",
+            "surface-bright": "#fbf9f4",
+            "on-primary-container": "#ffccc6",
+            "surface-variant": "#e4e2dd",
+            "on-surface-variant": "#5a413d",
+            "inverse-on-surface": "#f2f1ec",
+            "tertiary-container": "#316479",
+            "outline": "#8e706c",
+            "on-tertiary-container": "#addff8",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#9a442d",
+            "background": "#fbf9f4",
+            "secondary-container": "#fc9174",
+            "on-background": "#1b1c19",
+            "surface-container-high": "#eae8e3",
+            "on-primary-fixed-variant": "#910a0c",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#bde9ff",
+            "primary-fixed": "#ffdad5",
+            "surface": "#fbf9f4",
+            "primary-container": "#b32821",
+            "secondary-fixed": "#ffdbd2",
+            "outline-variant": "#e2beba",
+            "on-secondary-fixed-variant": "#7c2e19",
+            "on-primary-fixed": "#410001",
+            "error": "#ba1a1a",
+            "on-surface": "#1b1c19",
+            "tertiary": "#134c61",
+            "secondary-fixed-dim": "#ffb4a1",
+            "tertiary-fixed-dim": "#9bcee6",
+            "surface-container-low": "#f5f3ee",
+            "primary-fixed-dim": "#ffb4aa",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "16px",
+            "xs": "4px",
+            "md": "24px",
+            "xl": "80px",
+            "lg": "48px",
+            "sm": "12px",
+            "margin-desktop": "64px",
+            "base": "8px",
+            "gutter": "20px"
+          },
+          "fontFamily": {
+            "display-lg": ["Be Vietnam Pro"],
+            "body-md": ["Manrope"],
+            "body-lg": ["Manrope"],
+            "label-sm": ["Manrope"],
+            "display-lg-mobile": ["Be Vietnam Pro"],
+            "headline-md": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .dhaka-pattern {
+      background-color: #fbf9f4;
+      background-image:  linear-gradient(135deg, #e4e2dd 25%, transparent 25%), linear-gradient(225deg, #e4e2dd 25%, transparent 25%), linear-gradient(45deg, #e4e2dd 25%, transparent 25%), linear-gradient(315deg, #e4e2dd 25%, #fbf9f4 25%);
+      background-position:  10px 0, 10px 0, 0 0, 0 0;
+      background-size: 20px 20px;
+      background-repeat: repeat;
+      opacity: 0.1;
+    }
+    .glass-card {
+      background: rgba(251, 249, 244, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar Shell -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile py-xs md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<div class="cursor-pointer active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden cursor-pointer active:scale-95 transition-all">
+<img class="w-full h-full object-cover" data-alt="A warm, professional portrait of a traveler with a soft mountain landscape in the background, captured in high-key natural light with earthy red and soft beige tones. The image style is minimalist and elegant, reflecting the Modern Heritage aesthetic of the Aama's Kitchen design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvYy5OgslBhC4I1TGh2VoIGchIBV5F9jS9FvJSVq2kaL4dx4UDTQy8uCkoebW8QE6g1xF033X3beCePN1kDFk0C7-vKfn1GtcM9ONAdaPdthJ8lPbGPxYFX-HuSGwlXLn2teKSX9jatMuh9Za-ZbhSnpVhIKEt5kJHOr1H_rVS08QjTVVmYWeOqJxDSPFYgqq2khoD7c5Y4rcWCi8wzQ_c9M_G1BI5U6sBHM1NbE73aZ-6Js2ghSM_wgHPn22ALs0oFh2kC-0CyI4"/>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Hero / Search Section -->
+<section class="relative rounded-xl overflow-hidden mb-xl py-xl px-md text-center">
+<div class="absolute inset-0 dhaka-pattern -z-10"></div>
+<div class="max-w-2xl mx-auto">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-md">How can we help?</h2>
+<div class="relative group">
+<input class="w-full py-4 pl-14 pr-6 rounded-full border border-outline bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none shadow-sm text-body-lg" placeholder="Search for help articles..." type="text"/>
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary" data-icon="search">search</span>
+</div>
+</div>
+</section>
+<!-- Category Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl">
+<!-- Category Item -->
+<button class="flex flex-col items-center p-lg rounded-xl border border-outline-variant bg-surface-container-low hover:bg-surface transition-all duration-300 group active:scale-95 shadow-[0_2px_10px_rgba(179,40,33,0.02)]">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="payments">payments</span>
+</div>
+<span class="font-headline-md text-body-lg text-on-surface text-center">Booking &amp; Payments</span>
+</button>
+<button class="flex flex-col items-center p-lg rounded-xl border border-outline-variant bg-surface-container-low hover:bg-surface transition-all duration-300 group active:scale-95 shadow-[0_2px_10px_rgba(179,40,33,0.02)]">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="roofing">roofing</span>
+</div>
+<span class="font-headline-md text-body-lg text-on-surface text-center">Hosting on Aama's Kitchen</span>
+</button>
+<button class="flex flex-col items-center p-lg rounded-xl border border-outline-variant bg-surface-container-low hover:bg-surface transition-all duration-300 group active:scale-95 shadow-[0_2px_10px_rgba(179,40,33,0.02)]">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="verified_user">verified_user</span>
+</div>
+<span class="font-headline-md text-body-lg text-on-surface text-center">Safety &amp; Security</span>
+</button>
+<button class="flex flex-col items-center p-lg rounded-xl border border-outline-variant bg-surface-container-low hover:bg-surface transition-all duration-300 group active:scale-95 shadow-[0_2px_10px_rgba(179,40,33,0.02)]">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="manage_accounts">manage_accounts</span>
+</div>
+<span class="font-headline-md text-body-lg text-on-surface text-center">Account &amp; Profile</span>
+</button>
+</section>
+<!-- Popular Articles -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-lg border-b border-outline-variant pb-base">
+<h3 class="font-headline-md text-headline-md text-on-surface">Popular Articles</h3>
+<button class="text-primary font-label-sm hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="space-y-sm">
+<a class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant group" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="event_busy">event_busy</span>
+<span class="font-body-md text-on-surface">How do I cancel my booking?</span>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform group-hover:translate-x-1" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant group" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+<span class="font-body-md text-on-surface">What is the Nepali tea ceremony?</span>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform group-hover:translate-x-1" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant group" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="group">group</span>
+<span class="font-body-md text-on-surface">Inviting guests for dinner</span>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform group-hover:translate-x-1" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+<div class="space-y-sm">
+<a class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant group" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+<span class="font-body-md text-on-surface">How to find your host's home</span>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform group-hover:translate-x-1" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant group" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+<span class="font-body-md text-on-surface">Aama's Kitchen Trust &amp; Safety</span>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform group-hover:translate-x-1" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md rounded-lg bg-surface hover:bg-surface-container-high transition-colors border border-transparent hover:border-outline-variant group" href="#">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="history">history</span>
+<span class="font-body-md text-on-surface">Reviewing your stay history</span>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform group-hover:translate-x-1" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Footer Support Section -->
+<section class="bg-surface-container-high rounded-xl p-lg md:p-xl flex flex-col md:flex-row items-center justify-between gap-lg overflow-hidden relative">
+<div class="absolute top-0 right-0 w-32 h-32 dhaka-pattern opacity-10 rotate-12 -mr-16 -mt-16"></div>
+<div class="text-center md:text-left z-10">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Still have questions?</h4>
+<p class="font-body-md text-on-surface-variant">Our support team is available 24/7 to help you with your journey.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-md w-full md:w-auto z-10">
+<button class="px-lg py-sm bg-primary text-on-primary rounded-full font-label-sm hover:opacity-90 active:scale-95 transition-all shadow-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="support_agent">support_agent</span>
+          Contact Support
+        </button>
+<button class="px-lg py-sm bg-surface border border-outline text-on-surface rounded-full font-label-sm hover:bg-surface-container-lowest active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="forum">forum</span>
+          Community Forum
+        </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant shadow-[0_-2px_10px_rgba(179,40,33,0.05)] flex justify-around items-center px-4 py-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-90 transition-all duration-300 ease-out hover:text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-90 transition-all duration-300 ease-out hover:text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-90 transition-all duration-300 ease-out hover:text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Desktop Floating Nav Cluster -->
+<div class="hidden md:flex fixed bottom-base left-1/2 -translate-x-1/2 glass-card border border-outline-variant px-lg py-sm rounded-full shadow-lg items-center gap-lg z-50">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm">Explore</span>
+</a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-label-sm">Saved</span>
+</a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm">Bookings</span>
+</a>
+<a class="flex items-center gap-2 text-primary font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm">Profile</span>
+</a>
+</div>
+<script>
+    // Micro-interaction for category hover
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        // Simple subtle effect could be added here
+      });
+    });
+
+    // Handle search input focus glow
+    const searchInput = document.querySelector('input[type="text"]');
+    searchInput.addEventListener('focus', () => {
+      searchInput.parentElement.classList.add('scale-[1.01]');
+    });
+    searchInput.addEventListener('blur', () => {
+      searchInput.parentElement.classList.remove('scale-[1.01]');
+    });
+  </script>
+</body></html>

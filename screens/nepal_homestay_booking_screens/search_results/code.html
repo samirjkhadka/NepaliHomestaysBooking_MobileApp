@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(#900a0c 0.5px, transparent 0.5px);
+            background-size: 8px 8px;
+        }
+        .glass-card {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        .organic-shadow {
+            box-shadow: 0 10px 30px -5px rgba(179, 40, 33, 0.08);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "tertiary-fixed": "#bde9ff",
+                        "surface-variant": "#e4e2dd",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "secondary": "#9a442d",
+                        "on-primary-fixed": "#410001",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-container": "#b32821",
+                        "outline": "#8e706c",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#fc9174",
+                        "surface-tint": "#b32821",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "secondary-fixed": "#ffdbd2",
+                        "on-surface": "#1b1c19",
+                        "surface-container-high": "#eae8e3",
+                        "on-secondary": "#ffffff",
+                        "primary": "#900a0c",
+                        "on-tertiary-container": "#addff8",
+                        "on-surface-variant": "#5a413d",
+                        "surface-container-highest": "#e4e2dd",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-background": "#1b1c19",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "surface-container": "#f0eee9",
+                        "surface": "#fbf9f4",
+                        "on-secondary-fixed": "#3c0800",
+                        "outline-variant": "#e2beba",
+                        "on-secondary-container": "#742814",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dbdad5",
+                        "surface-bright": "#fbf9f4",
+                        "background": "#fbf9f4",
+                        "tertiary-container": "#316479",
+                        "inverse-primary": "#ffb4aa",
+                        "tertiary": "#134c61",
+                        "primary-fixed": "#ffdad5",
+                        "surface-container-low": "#f5f3ee",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-primary-container": "#ffccc6",
+                        "inverse-surface": "#30312e",
+                        "on-primary-fixed-variant": "#910a0c",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xl": "80px",
+                        "gutter": "20px",
+                        "md": "24px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile py-xs w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer active:scale-95 transition-transform">menu</span>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-auto" data-alt="A portrait of a smiling traveler with a warm, natural lighting. The person has a friendly expression, set against a soft-focus background of a traditional Nepali wooden window. The visual style is clean, modern, and trustworthy, using warm earthy tones from the brand palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1Ao733Ic-JOzGlMAd_fstLq5V0Eexu5hm3Okgrj1sFThXTj3-jMwVhlG8_beYYseAgJgeSq6Ks8uwv96uKrc_mi2nFfhxI2TtZNEgS-f4S7iMoYL_wWAc-r2pQ1WsjvSx4VrDls-T10x1AlPaCKqrCh3Fs4Xqkjc88ul1gxeqAdC9oqChH4VihCgfXPtT3Hvb61UQZhqB5TRGofUcI5pebTIrFI00yK3_2nl7ts36jf12UV9MKVqXfzA9sLrc4a5hl-60PIL78eU"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-base md:py-md">
+<!-- Search Summary -->
+<section class="mb-lg">
+<div class="flex flex-col gap-1">
+<span class="text-secondary font-label-sm uppercase tracking-widest">Pokhara, Nepal</span>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">15 homestays in Pokhara</h2>
+</div>
+<!-- Quick Filters (Chips) -->
+<div class="flex gap-2 mt-md overflow-x-auto pb-2 no-scrollbar">
+<button class="flex items-center gap-2 px-4 py-2 bg-tertiary-container/10 text-tertiary rounded-full font-label-sm border border-tertiary/20 whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filters
+                </button>
+<button class="px-4 py-2 bg-secondary-fixed text-on-secondary-fixed rounded-full font-label-sm whitespace-nowrap">Annapurna Views</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm whitespace-nowrap">Price Range</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm whitespace-nowrap">Lakeside</button>
+</div>
+</section>
+<!-- Search Results Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Featured Large Result -->
+<div class="md:col-span-12 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl organic-shadow bg-surface-container">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="h-64 md:h-[450px] relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A breathtaking view of Machhapuchhre mountain at dawn from a stone-walled balcony of a Pokhara homestay. Soft golden sunlight hits the peak, while the valley below remains in a cool blue shadow. The scene is serene, authentic, and high-resolution, featuring traditional Nepali architecture in the foreground." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGtgDOYB_mIVhyfrWh_qhaPTy4vfGZtI73RdQoOciOtWuWBoHZsU0Y6bXM9uPtlt2-Su2AqYrCJiIJYukNKqItEASjkAuP-2-63WIkMwFhSZcZp6eOgG1jR7__nqt32jeIYCw3IRo3raTy5rKk4q2SVLQeQXHSqgD_-KcNi92M3ButJdYkGnT__mdOg4VYMYHhlXEFLVzUBSRpwxxJ4ZC8IVb6KyB9ZNoCy9YRKjnSumcAqnpnvUOkrC_CDZZNDtEnJAAo3jRwOY0"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-primary font-label-sm">Top Rated</div>
+</div>
+<div class="p-md md:p-lg flex flex-col justify-center border-t md:border-t-0 md:border-l border-outline-variant">
+<div class="flex justify-between items-start mb-base">
+<div class="px-3 py-1 bg-tertiary text-on-tertiary rounded-full font-label-sm inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.9 (124 reviews)
+                                </div>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">favorite</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Mountain View Retreat</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Owned by Aama Devi, this authentic stone house offers panoramic views of the Annapurna range.</p>
+<div class="flex flex-wrap gap-2 mb-lg">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">local_dining</span> Learn to cook Dal Bhat
+                                </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm bg-surface-container-low px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm">park</span> Organic Garden
+                                </div>
+</div>
+<div class="mt-auto flex items-end justify-between">
+<div>
+<span class="text-primary font-bold text-2xl">$45</span>
+<span class="text-on-surface-variant font-label-sm">/ night</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-label-sm active:scale-95 transition-transform organic-shadow">Book Experience</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Horizontal Card 1 -->
+<div class="md:col-span-6 group cursor-pointer">
+<div class="h-full flex flex-col md:flex-row bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant hover:border-primary/30 transition-all organic-shadow">
+<div class="w-full md:w-48 h-48 md:h-auto shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cozy interior of a homestay bedroom in Pokhara, featuring hand-woven Dhaka fabric blankets and a large wooden window overlooking Phewa Lake. The lighting is warm and natural, creating an inviting mountainous cottage atmosphere. The room is minimal yet deeply textured with local materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6ApnqfHGfy5oMJexruMlitZPBrfIVRSbC0ItKw1owsXcJrdyt3aIzafMJwlvRcAuBxJUNzeTBi0VZpa2ZsciMIZMVe2HOCCR86BjXI4GtVeGDq0Z5oQP9qq_gVX_0NF1q3sSmoPEGfvNUkd_M_NVdjiIDCAVrG0Nesm0r4EdppvBTG20ZGacDuWfkry4iU5779GqU_s7vlkq0wi4U2dunEQGlV49oRrmzm4IUWKR1U7aXhWi6L5RGkAuU8_M2831fH1vYeqCXmcI"/>
+</div>
+<div class="p-md flex flex-col w-full">
+<div class="flex justify-between">
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Lakeside Sanctuary</h4>
+<span class="text-primary font-bold">$32</span>
+</div>
+<p class="text-on-surface-variant text-sm mt-1 mb-md">Steps away from the lake, hosted by the Gurung family.</p>
+<div class="mt-auto">
+<span class="text-xs font-label-sm px-2 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Weaving Workshop</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Horizontal Card 2 -->
+<div class="md:col-span-6 group cursor-pointer">
+<div class="h-full flex flex-col md:flex-row bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant hover:border-primary/30 transition-all organic-shadow">
+<div class="w-full md:w-48 h-48 md:h-auto shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A traditional Nepali kitchen setting with copper pots and a wood-fire stove. Warm firelight illuminates the rustic earthen walls and strings of dried corn. The scene conveys a sense of home, heritage, and authentic culinary tradition in the hills of Pokhara. High contrast and warm shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOE_Y2TSEfwJ1Yei_QSkDGCsEaAXbSWolo0yV8_vWh0DqQj4HepceuQifKdPOEOM84wHDG5AXaxm4b4CXOdiO466PD_1NxmJAefQtnekQ3eeJNeooK8Il26xeqHHwGa9fOehXpfqX6A-9EQkZstQL5Q5sP4KLTs9jzX_zBp-cil8qFWdF_davxKMWxQm_b8-G03cS0nxJ9UzAUgYOl7EyqrJf8MyEuw62nDNdwiJzDOE-78Rs1GGF7p8UmYe2Q6ftvYOFfzYVkBY4"/>
+</div>
+<div class="p-md flex flex-col w-full">
+<div class="flex justify-between">
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Heritage Kitchen Home</h4>
+<span class="text-primary font-bold">$28</span>
+</div>
+<p class="text-on-surface-variant text-sm mt-1 mb-md">A culinary focus stay with traditional clay oven cooking.</p>
+<div class="mt-auto">
+<span class="text-xs font-label-sm px-2 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Spice Grinding Class</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical Card 1 -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant hover:border-primary/30 transition-all organic-shadow h-full">
+<div class="h-56 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide shot of a traditional white-washed stone house in a Pokhara village, surrounded by terraced organic gardens. Bright morning sunlight highlights the textures of the stone and the greenery. In the background, the snow-capped peaks of the Himalayas are visible against a clear blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAICYlPhqwMAFl4ML9sw8UelukzFNhQ94iiZuRocnQ4I1th5nl60t18hb318JD0NSkSU9yyjHLCFOsDHrIC_DX1VT_0v1pRoLMKyVcmHARmsXE2vLSaS7kbGx3nQ4BDsoeJc4HUjXl3C1WBwLyddpQOXWiBQEdImjZwKaMcEhFdWxnbaKq5Vc4iuZOEyd-EvKKGyzwTog5N9moAkhi3UYDZrDNIccsJ5w_FKFpM1eRjMJ7t5w9ElsOwYemI5hx7D5uE8Oyn25nqepo"/>
+<div class="absolute bottom-2 left-2 bg-black/50 backdrop-blur px-2 py-1 rounded text-white text-[10px] uppercase font-bold">Rural Experience</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between mb-1">
+<h4 class="font-body-md font-bold text-on-surface">Hilltop Organic Farm</h4>
+<span class="text-primary font-bold">$38</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-md line-clamp-2">Immerse yourself in farming life with the Adhikari family.</p>
+<div class="mt-auto pt-2 border-t border-outline-variant flex items-center justify-between">
+<span class="text-on-surface-variant text-xs"><span class="material-symbols-outlined text-xs align-middle">location_on</span> Sarangkot</span>
+<span class="text-secondary font-label-sm">Milking Cows</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical Card 2 -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant hover:border-primary/30 transition-all organic-shadow h-full">
+<div class="h-56 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene view of a wooden patio with colorful floor cushions and a low tea table. A pot of traditional Nepali milk tea rests on the table. The background shows a lush garden with marigold flowers and a hint of the lake. The style is peaceful, tactile, and inviting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvHZ6OHaSgnoIT6aO8AltmBrSlJLF-JJLrpv7NMZ4rMYP594XLPF_2-K-Tc2eF3Yau2VIc1uTMJq7xMderrjBCAp7ICBVd3SIvYR9BhtB2tAoWnLTK2NZcjx01yzc6NY8dfp0Szi-QTg84r3_J_HcfZ9YAmOiyleP5_tsKS_yLKsm9esPqtoxBmMcH2bCHqXO4-OFIOPTgPaPPik8U1qrzx6-M7tV6O7vCfE9Fo2o94cl8Vgb35Cof-M5IGVhshJHdk5SUea-BsXs"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between mb-1">
+<h4 class="font-body-md font-bold text-on-surface">Zen Lake Garden</h4>
+<span class="text-primary font-bold">$35</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-md line-clamp-2">Peaceful garden stay perfect for morning meditation and tea.</p>
+<div class="mt-auto pt-2 border-t border-outline-variant flex items-center justify-between">
+<span class="text-on-surface-variant text-xs"><span class="material-symbols-outlined text-xs align-middle">location_on</span> Baidam</span>
+<span class="text-secondary font-label-sm">Yoga at Sunrise</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical Card 3 -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant hover:border-primary/30 transition-all organic-shadow h-full">
+<div class="h-56 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of a local artisan's hands working on a traditional handloom, weaving vibrant Dhaka patterns. The threads are rich reds, oranges, and greens. The image is warm and focuses on the craft and heritage. High detail and shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUya1XBk2tJI378GDSTOcQYaVzLrr84x70OFEJ3ev9ZYxsnkbq1JVsfJHVEQgh-6OA2f-41KW2Nnv-0HHRlMWE7QY6IKqEGiYEHNwMs1OiINTzAvKn56pj-3csV1IKNaFe2GpRVPUjkVVZa9ZF16IAUVAB3BpsUpIbCaMsVXHu3Sm3SuoA6bvqMDupBRH7JIg5Ex6_UPgEECeE-UL4mpGGA8DfJDVSCQP5SDNdTcX4xsF84jTxblIMDZxYszgR_WfJ6X1oK9Y98UI"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between mb-1">
+<h4 class="font-body-md font-bold text-on-surface">Artisan Cottage</h4>
+<span class="text-primary font-bold">$40</span>
+</div>
+<p class="text-on-surface-variant text-xs mb-md line-clamp-2">A creative hub where you can watch and learn local weaving.</p>
+<div class="mt-auto pt-2 border-t border-outline-variant flex items-center justify-between">
+<span class="text-on-surface-variant text-xs"><span class="material-symbols-outlined text-xs align-middle">location_on</span> Pame</span>
+<span class="text-secondary font-label-sm">Dyeing Wool</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination or Load More -->
+<div class="flex justify-center mt-xl mb-lg">
+<button class="px-8 py-3 border border-primary text-primary rounded-xl font-headline-md hover:bg-primary-fixed transition-colors">
+                Discover More Stays
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-container-lowest border-t border-outline-variant shadow-[0_-2px_10px_rgba(179,40,33,0.05)] flex justify-around items-center w-full px-4 py-2 pb-safe">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary active:scale-90 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Floating Map Button (Custom) -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-40">
+<button class="bg-inverse-surface text-inverse-on-surface px-6 py-3 rounded-full flex items-center gap-2 organic-shadow active:scale-95 transition-all">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm">Show Map</span>
+</button>
+</div>
+<script>
+        // Micro-interactions for chips
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(this.classList.contains('bg-surface-container-high')) {
+                    this.classList.toggle('bg-primary');
+                    this.classList.toggle('text-on-primary');
+                }
+            });
+        });
+
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

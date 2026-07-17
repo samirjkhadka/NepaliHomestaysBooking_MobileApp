@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flavor Map | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#316479",
+                    "error": "#ba1a1a",
+                    "secondary": "#9a442d",
+                    "primary-fixed": "#ffdad5",
+                    "surface-container": "#f0eee9",
+                    "on-primary-container": "#ffccc6",
+                    "surface-variant": "#e4e2dd",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "outline-variant": "#e2beba",
+                    "on-tertiary": "#ffffff",
+                    "background": "#fbf9f4",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#b32821",
+                    "on-background": "#1b1c19",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "surface-tint": "#b32821",
+                    "tertiary": "#134c61",
+                    "secondary-container": "#fc9174",
+                    "surface-dim": "#dbdad5",
+                    "on-secondary-container": "#742814",
+                    "secondary-fixed": "#ffdbd2",
+                    "inverse-primary": "#ffb4aa",
+                    "on-tertiary-container": "#addff8",
+                    "on-surface": "#1b1c19",
+                    "surface-container-highest": "#e4e2dd",
+                    "surface-bright": "#fbf9f4",
+                    "inverse-surface": "#30312e",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae8e3",
+                    "surface": "#fbf9f4",
+                    "on-surface-variant": "#5a413d",
+                    "inverse-on-surface": "#f2f1ec",
+                    "surface-container-low": "#f5f3ee",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "on-secondary-fixed": "#3c0800",
+                    "on-primary-fixed": "#410001",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#bde9ff",
+                    "outline": "#8e706c",
+                    "on-tertiary-fixed": "#001f2a",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "primary": "#900a0c",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#910a0c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "lg": "48px",
+                    "margin-mobile": "16px",
+                    "sm": "12px",
+                    "xl": "80px",
+                    "gutter": "20px",
+                    "md": "24px",
+                    "margin-desktop": "64px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Manrope"],
+                    "display-lg-mobile": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .dhaka-pattern {
+            background-image: radial-gradient(var(--tw-colors-outline-variant) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .map-marker-pulse::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(144, 10, 12, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .glass-panel {
+            background: rgba(251, 249, 244, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="bg-surface border-b border-outline-variant w-full top-0 sticky z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base transition-all">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-surface-variant p-2 rounded-full transition-colors active:scale-95 duration-150">menu</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="hidden md:flex items-center gap-xs px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors font-label-sm text-label-sm">
+<span class="material-symbols-outlined">search</span>
+                Search Flavors
+            </button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A portrait of a warm, smiling middle-aged woman from Nepal wearing a traditional Dhaka shawl, set against a soft, creamy background. The lighting is natural and atmospheric, reflecting the brand's heritage and hospitable warmth. High-end, commercial photography style with soft focus on the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8QYRngf6hpFY6Tvop27zdxwDyp2rgPPlicNvf5tPACkMjvxYVwKTQODZPFQtyVYyQyzpq6sPrb38-d9WlvjvGoynC3UTNa2UDJS2eREWDD3DwfmAXkLtUImhzNfWx7rWdMJaLHsi8OI8FkalRv7q-rzj3d-AcQGFxEr6kpRC0MLdXxXWtPmH2ivTAUSbm_3OMvLy8TxIgfUltqNcPnmR3JLVIpNrM_iwiRmGTXCe2N8-BhYTNmKaa4qf2ZGg-9aRH_g39PHlDQYU"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto pb-xl">
+<!-- Flavor Map Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-lg relative overflow-hidden">
+<div class="mb-lg">
+<h2 class="font-display-lg text-display-lg text-primary mb-xs">Explore Local Flavors</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl">From the spicy spices of the Terai to the butter teas of the Himalayas, discover the authentic culinary heart of Nepal.</p>
+</div>
+<!-- The Map Container -->
+<div class="relative bg-surface-container rounded-xl aspect-[16/9] overflow-hidden border border-outline-variant shadow-sm dhaka-pattern group">
+<!-- Map Background (Placeholder for Illustrated Nepal Map) -->
+<div class="absolute inset-0 grayscale opacity-40 mix-blend-multiply transition-all group-hover:grayscale-0 duration-700">
+<img class="w-full h-full object-cover" data-alt="A beautifully detailed, artistic, and vintage-style illustrated map of Nepal. The map features subtle topographical details like mountain peaks in the north and lush valleys in the center. The aesthetic is hand-drawn on parchment paper with organic textures and warm earthy tones of terracotta and cream, matching the brand's 'Modern Heritage' look." data-location="Nepal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy5_QldlByF1ByCaMSuWQLuOqWwcXQy3aCBXCBEMyPbF3B7PJ3rx030X4uD3dEV9s19acLRD90ZMltzsZnSkJAV2cFc0MY57qaQmS36yqjtR2q8B0YAYZ08h2QD-dxm_XWHnr0O_ih-2dCPvkFVmJ7Q8sums4aDFa_YOPoXDFHvidCnTAfe2oq-ySLATFLouNfw7p3_F9MzxeUpL6ZHbKajC6-SyGlZPv7y38JKk34RBrH1qzMvRLYFv3b05nb772aZpT8uUph4Bc"/>
+</div>
+<!-- Interactive Markers -->
+<!-- Mustang Region -->
+<button class="absolute top-[20%] left-[40%] group/marker" onclick="showRegion('mustang')">
+<div class="relative flex items-center justify-center">
+<div class="w-4 h-4 bg-primary rounded-full map-marker-pulse"></div>
+<div class="absolute bottom-full mb-2 bg-primary text-on-primary px-3 py-1 rounded-lg font-label-sm text-label-sm opacity-0 group-hover/marker:opacity-100 transition-opacity whitespace-nowrap shadow-md">Mustang: Thakali Cuisine</div>
+</div>
+</button>
+<!-- Kathmandu Valley -->
+<button class="absolute top-[45%] left-[55%] group/marker" onclick="showRegion('kathmandu')">
+<div class="relative flex items-center justify-center">
+<div class="w-4 h-4 bg-primary rounded-full map-marker-pulse"></div>
+<div class="absolute bottom-full mb-2 bg-primary text-on-primary px-3 py-1 rounded-lg font-label-sm text-label-sm opacity-0 group-hover/marker:opacity-100 transition-opacity whitespace-nowrap shadow-md">Kathmandu: Newari Delights</div>
+</div>
+</button>
+<!-- Janakpur Region -->
+<button class="absolute top-[70%] left-[65%] group/marker" onclick="showRegion('janakpur')">
+<div class="relative flex items-center justify-center">
+<div class="w-4 h-4 bg-primary rounded-full map-marker-pulse"></div>
+<div class="absolute bottom-full mb-2 bg-primary text-on-primary px-3 py-1 rounded-lg font-label-sm text-label-sm opacity-0 group-hover/marker:opacity-100 transition-opacity whitespace-nowrap shadow-md">Janakpur: Mithila Sweets</div>
+</div>
+</button>
+<!-- Zoom Controls -->
+<div class="absolute bottom-md right-md flex flex-col gap-2">
+<button class="bg-surface p-2 rounded-lg shadow-sm border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined">add</span></button>
+<button class="bg-surface p-2 rounded-lg shadow-sm border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined">remove</span></button>
+</div>
+</div>
+</section>
+<!-- Dish of the Day Bento Grid -->
+<section class="px-margin-mobile md:px-margin-desktop py-lg">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Spotlight Card -->
+<div class="md:col-span-8 relative rounded-xl overflow-hidden min-h-[400px] flex items-end p-lg group border border-outline-variant">
+<div class="absolute inset-0">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A visually stunning close-up of a traditional Thakali set served on a heavy bronze plate. It features a mound of fluffy white rice, creamy black lentil soup, spicy potato curry, sautéed greens, and home-made pickles. The lighting is warm and golden, highlighting the textures and vibrant colors of the food. High-contrast, appetizing, and culturally authentic photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0yCrncOlpIplQXoNd_XzPzG-l2Tore2k5OhQkOVbuZ0P2g2iJB-Hb9WDm93SBef4hqYNCWyhYtJo7mVteG-iH1FrNq9fS7PwTta3KNr7J-c6UU-G6kD8WRMiRWRi1-ptG-pLLbisrkLxiF2UVHwCHdw4MptxWEMnWYGEp8vc-5FsaJuBGzqtyK1-YGJ-X1qGA7jpEK2S87Qq7x842dsWfh4SqUDtoAhGZrrePwn1glbc6q78lAo9ouzK8cxsXMVIQloheGGI1liw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-xl">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-sm text-label-sm mb-base inline-block">Dish of the Day</span>
+<h3 class="font-display-lg text-display-lg text-white mb-base">Authentic Thakali Set</h3>
+<p class="text-white/90 font-body-lg text-body-lg mb-md">Savor the complex flavors of Mustang with our signature Thakali set, featuring slow-cooked black lentils and house-pressed ghee.</p>
+<div class="flex gap-md items-center">
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-sm text-label-sm flex items-center gap-2 hover:bg-primary/90 transition-transform active:scale-95">
+<span class="material-symbols-outlined">bookmark</span>
+                                Save to Favorites
+                            </button>
+<button class="text-white flex items-center gap-2 font-label-sm text-label-sm group">
+                                Explore Homestays <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Region Highlight Card -->
+<div class="md:col-span-4 bg-secondary-container/10 border border-secondary/20 rounded-xl p-lg flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-md">mountain_flag</span>
+<h4 class="font-headline-md text-headline-md text-secondary mb-base">Mustang Highlands</h4>
+<p class="text-on-surface-variant">Mustang's cuisine is defined by high-altitude crops like buckwheat and barley, paired with dried meat and fermented cheese.</p>
+</div>
+<div class="mt-lg">
+<h5 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-md">Local Specialties</h5>
+<ul class="space-y-sm">
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">restaurant</span>
+<span>Buckwheat Dhindo</span>
+</li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">restaurant</span>
+<span>Yak Butter Tea</span>
+</li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">restaurant</span>
+<span>Marpha Apple Brandy</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories & Exploration -->
+<section class="px-margin-mobile md:px-margin-desktop py-lg">
+<h3 class="font-headline-md text-headline-md mb-lg">Explore by Category</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-md">
+<!-- Category Item -->
+<button class="flex flex-col items-center gap-base p-md rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all border border-outline-variant hover:shadow-sm">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl">soup_kitchen</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Street Food</span>
+</button>
+<button class="flex flex-col items-center gap-base p-md rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all border border-outline-variant hover:shadow-sm">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl">bakery_dining</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Traditional Breads</span>
+</button>
+<button class="flex flex-col items-center gap-base p-md rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all border border-outline-variant hover:shadow-sm">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl">coffee</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Mountain Teas</span>
+</button>
+<button class="flex flex-col items-center gap-base p-md rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all border border-outline-variant hover:shadow-sm">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl">icecream</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Mithila Sweets</span>
+</button>
+<button class="flex flex-col items-center gap-base p-md rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all border border-outline-variant hover:shadow-sm">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl">set_meal</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Fermented Foods</span>
+</button>
+<button class="flex flex-col items-center gap-base p-md rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all border border-outline-variant hover:shadow-sm">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl">local_fire_department</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Terai Spices</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Region Details Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[60] flex items-center justify-center p-md hidden pointer-events-none" id="region-modal">
+<div class="absolute inset-0 bg-on-background/20 backdrop-blur-sm transition-opacity" onclick="closeRegion()"></div>
+<div class="relative w-full max-w-4xl bg-surface rounded-xl shadow-2xl overflow-hidden pointer-events-auto transform transition-all translate-y-8 opacity-0" id="modal-content">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="h-64 md:h-full">
+<img class="w-full h-full object-cover" data-alt="A detailed image of a local village scene in Nepal, with stone houses and colorful flags, representing the regional architecture and culinary setting. The morning light is soft and hazy, creating a serene and authentic atmosphere." id="region-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhG79QUZ6fx20szb6dAkzypUBbU7Idp_YO-gRaydhzChav5LJ1EZYr1v4MmceF_xETriyp0-MosVKTmg6s_1ZM1waadrKMiqAkpbZOVdna9COKepvCS6nMYhF6awaY59RHHIP1xrlPgm_ykyt_P67KvEjDV3adTgau5uvwSDdUb0PDYnCufsU6ZjJJCskFX1tkVrQkxRRxeFqWUATOpyKn0e5YOH5VdAw3m17Brc3WIufaSjIAn11izwmIw5rByRu46CsuFR74vfk"/>
+</div>
+<div class="p-lg">
+<button class="absolute top-4 right-4 p-2 rounded-full hover:bg-surface-variant transition-colors" onclick="closeRegion()"><span class="material-symbols-outlined">close</span></button>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest" id="region-subtitle">Mountain Region</span>
+<h2 class="font-display-lg-mobile text-display-lg-mobile mb-md" id="region-title">Mustang Region</h2>
+<p class="text-on-surface-variant mb-lg" id="region-description">Explore the unique high-altitude flavors of the forbidden kingdom. Known for its salt-butter tea and robust buckwheat dishes.</p>
+<div class="space-y-lg">
+<div>
+<h4 class="font-label-sm text-label-sm mb-md flex items-center gap-2"><span class="material-symbols-outlined text-secondary">restaurant_menu</span> Signature Dishes</h4>
+<div class="grid grid-cols-1 gap-sm" id="region-dishes">
+<!-- JS Injected Dishes -->
+</div>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm mb-md flex items-center gap-2"><span class="material-symbols-outlined text-secondary">home</span> Specialty Homestays</h4>
+<div class="grid grid-cols-1 gap-sm" id="region-homestays">
+<!-- JS Injected Homestays -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-container dark:bg-surface-dim rounded-t-xl shadow-sm flex justify-around items-center px-4 pb-4 pt-2 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm">Food Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        const regions = {
+            mustang: {
+                title: "Mustang Valley",
+                subtitle: "High-Altitude Heartland",
+                description: "Experience the unique 'Thakali' culinary culture, known for its incredible hospitality and perfectly balanced sets featuring mountain grains and ghee.",
+                dishes: ["Yak Butter Tea", "Black Lentil Soup (Kalo Daal)", "Dried Meat (Sukuti)", "Buckwheat Dhindo"],
+                homestays: ["Aama's House, Jomsom", "Marpha Heritage Home", "Thak Khola Guesthouse"],
+                color: "primary"
+            },
+            kathmandu: {
+                title: "Kathmandu Valley",
+                subtitle: "Newari Spice Capital",
+                description: "The Newari people of the valley have a rich food culture featuring dozens of distinct buffalo dishes, spicy vegetable salads, and festive rice wines.",
+                dishes: ["Yomari (Sweet Rice Cakes)", "Samay Baji", "Choila (Spiced Meat)", "Bara (Lentil Pancakes)"],
+                homestays: ["Newari Kitchen Stay, Patan", "Heritage Home Bhaktapur", "Vajra Guesthouse"],
+                color: "tertiary"
+            },
+            janakpur: {
+                title: "Janakpur & Mithila",
+                subtitle: "The Southern Sweets",
+                description: "Influenced by the Mithila culture, this region is famous for its intricate sweets, freshwater fish curries, and unique vegetable fritters.",
+                dishes: ["Janakpur Fish Curry", "Malpua (Sweet Pancakes)", "Thekua", "Taruwa (Veg Fritters)"],
+                homestays: ["Mithila Art Homestay", "Janaki Garden House", "Terai Heritage Inn"],
+                color: "secondary"
+            }
+        };
+
+        function showRegion(id) {
+            const data = regions[id];
+            const modal = document.getElementById('region-modal');
+            const content = document.getElementById('modal-content');
+            
+            document.getElementById('region-title').innerText = data.title;
+            document.getElementById('region-subtitle').innerText = data.subtitle;
+            document.getElementById('region-description').innerText = data.description;
+            
+            const dishContainer = document.getElementById('region-dishes');
+            dishContainer.innerHTML = data.dishes.map(dish => `
+                <div class="flex items-center justify-between p-base bg-surface-container rounded-lg border border-outline-variant">
+                    <span class="font-body-md">${dish}</span>
+                    <span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+                </div>
+            `).join('');
+
+            const homeContainer = document.getElementById('region-homestays');
+            homeContainer.innerHTML = data.homestays.map(home => `
+                <div class="flex items-center gap-md p-base hover:bg-surface-variant rounded-lg transition-colors cursor-pointer">
+                    <div class="w-10 h-10 rounded-lg bg-secondary-container/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary">bed</span>
+                    </div>
+                    <span class="font-body-md font-bold">${home}</span>
+                </div>
+            `).join('');
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('translate-y-8', 'opacity-0');
+            }, 50);
+        }
+
+        function closeRegion() {
+            const modal = document.getElementById('region-modal');
+            const content = document.getElementById('modal-content');
+            content.classList.add('translate-y-8', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+</body></html>

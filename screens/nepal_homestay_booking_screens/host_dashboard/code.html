@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen - Host Dashboard</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Design System Implementation -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-dim": "#dbdad5",
+                "surface-container-lowest": "#ffffff",
+                "primary-container": "#b32821",
+                "on-secondary-container": "#742814",
+                "primary": "#900a0c",
+                "tertiary": "#134c61",
+                "surface-container-high": "#eae8e3",
+                "surface": "#fbf9f4",
+                "inverse-surface": "#30312e",
+                "error": "#ba1a1a",
+                "secondary-fixed-dim": "#ffb4a1",
+                "primary-fixed-dim": "#ffb4aa",
+                "on-primary-fixed-variant": "#910a0c",
+                "on-surface-variant": "#5a413d",
+                "secondary": "#9a442d",
+                "error-container": "#ffdad6",
+                "outline": "#8e706c",
+                "secondary-fixed": "#ffdbd2",
+                "inverse-on-surface": "#f2f1ec",
+                "on-tertiary": "#ffffff",
+                "outline-variant": "#e2beba",
+                "on-error-container": "#93000a",
+                "on-primary": "#ffffff",
+                "secondary-container": "#fc9174",
+                "background": "#fbf9f4",
+                "on-tertiary-fixed-variant": "#134c61",
+                "on-surface": "#1b1c19",
+                "on-secondary": "#ffffff",
+                "on-error": "#ffffff",
+                "inverse-primary": "#ffb4aa",
+                "tertiary-container": "#316479",
+                "surface-variant": "#e4e2dd",
+                "on-secondary-fixed-variant": "#7c2e19",
+                "on-primary-container": "#ffccc6",
+                "tertiary-fixed-dim": "#9bcee6",
+                "primary-fixed": "#ffdad5",
+                "on-tertiary-container": "#addff8",
+                "on-background": "#1b1c19",
+                "tertiary-fixed": "#bde9ff",
+                "surface-tint": "#b32821",
+                "on-tertiary-fixed": "#001f2a",
+                "surface-container": "#f0eee9",
+                "surface-bright": "#fbf9f4",
+                "on-secondary-fixed": "#3c0800",
+                "surface-container-low": "#f5f3ee",
+                "on-primary-fixed": "#410001",
+                "surface-container-highest": "#e4e2dd"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xs": "4px",
+                "sm": "12px",
+                "margin-mobile": "16px",
+                "md": "24px",
+                "xl": "80px",
+                "margin-desktop": "64px",
+                "lg": "48px",
+                "gutter": "20px",
+                "base": "8px"
+            },
+            "fontFamily": {
+                "display-lg-mobile": ["Be Vietnam Pro"],
+                "body-lg": ["Manrope"],
+                "display-lg": ["Be Vietnam Pro"],
+                "body-md": ["Manrope"],
+                "headline-md": ["Be Vietnam Pro"],
+                "label-sm": ["Manrope"]
+            },
+            "fontSize": {
+                "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-color: #fbf9f4;
+            background-image:  linear-gradient(135deg, #e2beba 25%, transparent 25%), linear-gradient(225deg, #e2beba 25%, transparent 25%), linear-gradient(45deg, #e2beba 25%, transparent 25%), linear-gradient(315deg, #e2beba 25%, #fbf9f4 25%);
+            background-position:  10px 0, 10px 0, 0 0, 0 0;
+            background-size: 20px 20px;
+            background-repeat: repeat;
+            opacity: 0.05;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(142, 112, 108, 0.2);
+        }
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scroll-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile py-xs">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform" data-icon="menu">menu</span>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container rounded-full p-1 border border-outline-variant">
+<button class="px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm transition-all">Hosting</button>
+<button class="px-4 py-1.5 rounded-full text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-all">Traveling</button>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary cursor-pointer active:scale-95 transition-all">
+<img class="w-full h-full object-cover" data-alt="A warm, professional portrait of a middle-aged Nepali woman with a welcoming smile, wearing a traditional Dhaka print scarf. The background is a soft-focus interior of a clean, sun-lit kitchen with wooden accents and copper vessels. The lighting is warm and natural, evoking a sense of trust, hospitality, and authentic local connection in a modern light-mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaDF5V8G2mUOK-8Oedw1Kr6Wr2HZOJDCrqF8M4DAgZPWowvDjjO_SSw3tJCqpYNgpyCY-EvNY3avFrhMAOp8G-EIEOBLpTKFQ6njkqjoRsmaTDa9TdFXOlPmU0grnI6zg5hR3qJkN7a1P6SYsRr5s-6N1PolpSWCrLojCodf8SpK2n18ez0jCZZaxu2wT4kxuaygry5vkl5duqELBTWwsS1keuJ_SZ4Tg803XxQKUMm6_gYBzf4OAqM_AWxEPccpgmjGD-fqaZQzw"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-base space-y-lg">
+<!-- Welcome Header -->
+<section class="mt-md">
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface">Namaste, Host</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg mt-xs">Your kitchen is the heart of the community today.</p>
+</section>
+<!-- Performance Overview (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-1 bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex flex-col justify-between hover:shadow-[0_4px_20px_rgba(179,40,33,0.08)] transition-all">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">This Month's Earnings</span>
+<div class="flex items-baseline gap-2 mt-sm">
+<span class="text-headline-md font-headline-md text-primary">NPR 42,850</span>
+<span class="text-label-sm font-label-sm text-tertiary">+12% vs last month</span>
+</div>
+</div>
+<div class="h-16 mt-md relative overflow-hidden rounded-lg">
+
+</div>
+</div>
+<div class="md:col-span-1 bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex flex-col justify-between hover:shadow-[0_4px_20px_rgba(179,40,33,0.08)] transition-all">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Average Rating</span>
+<div class="flex items-center gap-2 mt-sm">
+<span class="text-headline-md font-headline-md text-on-surface">4.92</span>
+<div class="flex text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-md">24 new reviews this month</p>
+</div>
+<div class="md:col-span-1 bg-primary text-on-primary p-md rounded-xl flex flex-col justify-between shadow-lg relative overflow-hidden">
+<div class="dhaka-pattern absolute inset-0"></div>
+<div class="relative z-10">
+<span class="text-label-sm font-label-sm opacity-80 uppercase tracking-widest">Total Bookings</span>
+<div class="text-headline-md font-headline-md mt-sm">18 Active</div>
+</div>
+<div class="relative z-10 flex items-center gap-2 text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span>Demand is high in your area</span>
+</div>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="grid grid-cols-2 md:grid-cols-3 gap-sm">
+<button class="flex flex-col items-center justify-center gap-sm p-lg bg-surface-container-low border border-outline-variant rounded-xl hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-sm text-label-sm text-on-surface">Manage Calendar</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-sm p-lg bg-surface-container-low border border-outline-variant rounded-xl hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="edit_note">edit_note</span>
+<span class="font-label-sm text-label-sm text-on-surface">Edit Listing</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-sm p-lg bg-surface-container-low border border-outline-variant rounded-xl hover:bg-surface-container-high active:scale-95 transition-all md:col-span-1 col-span-2">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="chat">chat</span>
+<span class="font-label-sm text-label-sm text-on-surface">Message Guests</span>
+</button>
+</section>
+<!-- Active Bookings -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">Upcoming Guests</h3>
+<a class="text-label-sm font-label-sm text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="flex overflow-x-auto gap-md pb-4 scroll-hide -mx-margin-mobile px-margin-mobile">
+<!-- Booking Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md items-center cursor-pointer hover:border-primary transition-colors">
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait of a cheerful young traveler couple from Europe, carrying light backpacks, with a blurred background of a traditional Kathmandu street. The image should be brightly lit with natural morning sun, featuring high contrast and rich textures. The style is professional lifestyle photography that fits a premium homestay booking application, emphasizing friendliness and curiosity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAekM6azr3G2h274OzsKIJciRhGzka2s_gFDJplB9g9YJcZDp6J-D7sB2phz9saNqx0hxXU5Ip4fOYt2wkdIv__GRXPkgWsEa_LITtjrVBCx4KV6QIbn71ZiBcStBbS9jLkvEGv59AOP492fA0W8igvFyJzh8CdaR_-dz5bnN-DymJm-zFZUBAXTu1nYNEClJuGEwMp50t6jZM1NSf58c935lNh07beg_mXkbvea-cYtcykoX6LM7SXebvDMAiRIjpx-wJpvxaV13A"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-label-sm text-label-sm text-on-surface">The Miller Family</h4>
+<span class="text-[10px] px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full font-bold uppercase tracking-tighter">Arriving Tomorrow</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Oct 12 - Oct 15</p>
+<p class="text-label-sm font-label-sm text-tertiary mt-1">Authentic Thali Experience</p>
+</div>
+</div>
+<!-- Booking Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md items-center cursor-pointer hover:border-primary transition-colors">
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A vibrant portrait of a solo female traveler from Japan, wearing glasses and a sun hat, smiling broadly. She is holding a small notebook, suggesting an interest in local culture. The background is a soft, warm interior of a Nepali homestay with textile wall hangings. Lighting is soft and cinematic, creating a cozy and welcoming vibe for a high-end dashboard interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWvqbls3EzuRyqNjkKDq81MRTQHaU65IsFzygAyZ9Py8_9UYpVAFL_RI4caJg5viAWUZENl-wm8F5OAH-2vBWef6uPF8ABQ_JjD_37seMYpHfCK6gR2q5ae8tB5ma3V3cCrWwpdqFDIJSiprQcMTSLYxmrP_o16OGuA_QG_2FKSEkZVbRc6Fj5p-DfZ9h4BhaazTeDiejRHNWRcqq4sSH0ED-8afzXFVGGaw-uwVIPn68N0K6xKImYIymNTOl7MLYcZr_T_NFXm84"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-label-sm text-label-sm text-on-surface">Yuki Tanaka</h4>
+<span class="text-[10px] px-2 py-0.5 bg-surface-variant text-on-surface-variant rounded-full font-bold uppercase tracking-tighter">In 3 Days</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Oct 14 - Oct 20</p>
+<p class="text-label-sm font-label-sm text-tertiary mt-1">Mountain View Suite</p>
+</div>
+</div>
+<!-- Booking Card 3 -->
+<div class="min-w-[280px] md:min-w-[320px] bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md items-center cursor-pointer hover:border-primary transition-colors">
+<div class="w-16 h-16 rounded-full overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait of two friends, young men from India, dressed in outdoor gear, looking excited and ready for adventure. They are standing near a wooden doorway with intricate carvings. The lighting is crisp and clear, highlighting the textures of their clothing and the wood. The overall aesthetic is adventurous yet warm, reflecting the spirit of exploration in the Himalayas." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArVTQr7CriKR881b4ssiZghsPphUG7G4989jaGqXOjG3MkTlmM3DW24_dX3rVfEjwSxRuV3TrJZkFZmXofF6NIn3lYZMZnbEq4bF9nx957jphugorO2eU49LbcIPzLJ79FVWGbVoxMISBZ0bCGAP0WBovOStBdM3OVS4s2bruvqxOoRJXYw9k5p712XwTJYBEw0nu3Ixg0_KtFg15kvsOIc4GxrJ-6ZQQi3MrFG1K2imUBdG07ZtHhiGoIL0XisruOliWp3EMvBYk"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-label-sm text-label-sm text-on-surface">Raj &amp; Amit</h4>
+<span class="text-[10px] px-2 py-0.5 bg-surface-variant text-on-surface-variant rounded-full font-bold uppercase tracking-tighter">In 5 Days</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Oct 16 - Oct 18</p>
+<p class="text-label-sm font-label-sm text-tertiary mt-1">Cooking Masterclass</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Host Insights -->
+<section class="bg-tertiary-container text-on-tertiary-container p-md rounded-xl flex items-start gap-md relative overflow-hidden">
+<div class="absolute -right-10 -top-10 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="bg-on-tertiary-container/20 p-sm rounded-lg shrink-0">
+<span class="material-symbols-outlined text-on-tertiary" data-icon="tips_and_updates">tips_and_updates</span>
+</div>
+<div class="relative z-10">
+<h4 class="font-label-sm text-label-sm font-bold uppercase tracking-wider mb-1">Host Pro-tip</h4>
+<p class="font-body-md text-body-md">Updating your availability for Tihar festival increases bookings by 20%. Travelers are already searching for authentic celebrations!</p>
+<button class="mt-md text-label-sm font-label-sm font-bold flex items-center gap-2 hover:underline">
+                    Update Calendar <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant shadow-[0_-2px_10px_rgba(179,40,33,0.05)] flex justify-around items-center px-4 py-2 pb-safe">
+<!-- Dashboard (Active) -->
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</div>
+<!-- Explore -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary active:scale-90 transition-all duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<!-- Bookings -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary active:scale-90 transition-all duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</div>
+<!-- Profile -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 hover:text-primary active:scale-90 transition-all duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<!-- Micro-interactions Script -->
+<script>
+        // Toggle Hosting/Traveling on mobile if needed, though this UI is primarily Host Dashboard
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Subtle feedback for all buttons
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+
+        // Add a subtle scroll reveal effect for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

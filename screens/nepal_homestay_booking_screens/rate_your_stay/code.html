@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Your Stay | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Manrope:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-color: #fbf9f4;
+            background-image:  linear-gradient(30deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(150deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(30deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(150deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(60deg, #e2beba 25%, transparent 25.5%, transparent 75%, #e2beba 75%, #e2beba), linear-gradient(60deg, #e2beba 25%, transparent 25.5%, transparent 75%, #e2beba 75%, #e2beba);
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+            opacity: 0.05;
+        }
+        .star-rating .star.active {
+            font-variation-settings: 'FILL' 1;
+            color: #900a0c;
+        }
+        .glass-card {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(142, 112, 108, 0.2);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#ffb4a1",
+                      "primary": "#900a0c",
+                      "outline-variant": "#e2beba",
+                      "on-primary-fixed-variant": "#910a0c",
+                      "on-tertiary-fixed": "#001f2a",
+                      "on-primary-container": "#ffccc6",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#30312e",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#fbf9f4",
+                      "surface-container": "#f0eee9",
+                      "on-secondary-fixed": "#3c0800",
+                      "tertiary-fixed-dim": "#9bcee6",
+                      "inverse-primary": "#ffb4aa",
+                      "surface-container-high": "#eae8e3",
+                      "tertiary-fixed": "#bde9ff",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-primary": "#ffffff",
+                      "on-background": "#1b1c19",
+                      "surface-dim": "#dbdad5",
+                      "primary-container": "#b32821",
+                      "on-tertiary-fixed-variant": "#134c61",
+                      "on-secondary-fixed-variant": "#7c2e19",
+                      "on-secondary-container": "#742814",
+                      "tertiary": "#134c61",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#410001",
+                      "surface": "#fbf9f4",
+                      "surface-tint": "#b32821",
+                      "on-surface": "#1b1c19",
+                      "secondary-container": "#fc9174",
+                      "surface-variant": "#e4e2dd",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "on-surface-variant": "#5a413d",
+                      "background": "#fbf9f4",
+                      "tertiary-container": "#316479",
+                      "secondary": "#9a442d",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#ffdad5",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#ffdbd2",
+                      "surface-container-highest": "#e4e2dd",
+                      "outline": "#8e706c",
+                      "surface-container-low": "#f5f3ee",
+                      "on-tertiary-container": "#addff8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "sm": "12px",
+                      "gutter": "20px",
+                      "base": "8px",
+                      "lg": "48px",
+                      "xl": "80px",
+                      "md": "24px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Manrope"],
+                      "display-lg": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "display-lg-mobile": ["Be Vietnam Pro"],
+                      "label-sm": ["Manrope"],
+                      "body-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile md:px-margin-desktop py-xs">
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim cursor-pointer active:scale-95 transition-transform" data-icon="close">close</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A warm, professional portrait of a traveler with a friendly smile, set against a soft-focus background of a traditional Nepali wooden window frame. The lighting is natural and golden, emphasizing the 'Modern Heritage' aesthetic with high-quality textures and warm skin tones consistent with the Aama's Kitchen brand colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp7b01P_gIVBM_Blk9ShY9_ecOii-t_OKsSn1gFpF7kFDVKYtmVUvZKhZCesB0Pg-a6oo42uWb8RFms1VUzj7AlIUJzmOky93EvNYKwgG29Tx08xDlQEPenFUywMPiENL8MtBwhEPetQ9gNa60wip74JESnq2uoNWmnS4hGjhMHfoCRV19ezCIeL1As3ByLVDqGYtMVPQtgzu31A9VOGGVnGj7cj8a4NMhBFBqWUa9h4rSDuECGGYeOBlYFVcjOcjuW4jGIcbQmiU"/>
+</div>
+</header>
+<main class="flex-grow relative overflow-hidden">
+<!-- Atmospheric Background Pattern -->
+<div class="absolute inset-0 dhaka-pattern pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-margin-mobile py-lg relative z-10">
+<!-- Header Section -->
+<div class="mb-xl text-center md:text-left">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-xs">How was your stay?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Your feedback helps Aama improve and allows future travelers to find the perfect authentic experience.</p>
+</div>
+<!-- Review Content: Bento-ish Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Host Identity & Rating Card -->
+<div class="md:col-span-5 flex flex-col gap-gutter">
+<div class="glass-card rounded-xl p-md shadow-[0_-2px_10px_rgba(179,40,33,0.05)] border-t-2 border-primary">
+<div class="flex items-center gap-md mb-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-secondary-container">
+<img class="w-full h-full object-cover" data-alt="A high-resolution, intimate photo of a smiling elderly Nepali woman, an 'Aama', wearing a traditional Dhaka shawl and gold jewelry. She is standing in a sun-drenched rustic kitchen with copper pots in the background. The mood is welcoming, authentic, and captures the essence of Himalayan hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxvANH1nSm8QvgvOzIJrdUe9UxrBVJ59JK8wp2Bfl7Q44T2UDegzY5cBF-Bsm1RVPI_ikS7-RdjqP8UytSNygEGPSk8w4c75isJaIJPDQCQao_R3PHH_K31A0xEIEfJp4v3ahHGFDtio4Ev8TDuCGa1ZS_pQYPW8VQBxaItMnmmEWLLuQ2_99zKcaAqUnIkItCvoFTjtQiWcNsqsuaJP1aBFKjvvIaOvmbjlujR3DZWaTiqZm-R1bDeaDsiGm7lVUvreFzcN2h3m8"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Stayed with Aama Pema</h3>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Namche Bazaar, Solu-Khumbu</p>
+</div>
+</div>
+<div class="space-y-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Overall Experience</p>
+<div class="flex justify-between items-center bg-surface-container-low p-sm rounded-lg star-rating" id="starContainer">
+<span class="material-symbols-outlined text-4xl cursor-pointer hover:scale-110 transition-transform star" data-icon="star" data-index="1">star</span>
+<span class="material-symbols-outlined text-4xl cursor-pointer hover:scale-110 transition-transform star" data-icon="star" data-index="2">star</span>
+<span class="material-symbols-outlined text-4xl cursor-pointer hover:scale-110 transition-transform star" data-icon="star" data-index="3">star</span>
+<span class="material-symbols-outlined text-4xl cursor-pointer hover:scale-110 transition-transform star" data-icon="star" data-index="4">star</span>
+<span class="material-symbols-outlined text-4xl cursor-pointer hover:scale-110 transition-transform star" data-icon="star" data-index="5">star</span>
+</div>
+</div>
+</div>
+<!-- Category Sliders (Modern Minimalist) -->
+<div class="glass-card rounded-xl p-md space-y-md">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase">Specific Ratings</h4>
+<div class="space-y-sm">
+<div class="flex justify-between text-body-md font-body-md"><span>Cleanliness</span><span class="text-primary font-bold" id="clean-val">5.0</span></div>
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="5" min="1" step="0.5" type="range" value="5"/>
+<div class="flex justify-between text-body-md font-body-md pt-xs"><span>Authenticity</span><span class="text-primary font-bold">4.8</span></div>
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="5" min="1" step="0.5" type="range" value="4.8"/>
+<div class="flex justify-between text-body-md font-body-md pt-xs"><span>Value for Money</span><span class="text-primary font-bold">5.0</span></div>
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="5" min="1" step="0.5" type="range" value="5"/>
+</div>
+</div>
+</div>
+<!-- Text Area & Photos -->
+<div class="md:col-span-7 space-y-gutter">
+<div class="glass-card rounded-xl p-md">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-sm">Write your review</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-md font-body-md text-on-surface focus:ring-2 focus:ring-secondary focus:border-secondary transition-all placeholder:text-on-surface-variant/50" placeholder="Tell us about the kitchen, the mountains, and your time with Aama..." rows="6"></textarea>
+</div>
+<div class="glass-card rounded-xl p-md">
+<div class="flex justify-between items-center mb-md">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Add Photos</label>
+<span class="text-xs text-on-surface-variant">Max 4 photos</span>
+</div>
+<div class="grid grid-cols-4 gap-sm">
+<div class="aspect-square bg-surface-container-high rounded-lg border-2 border-dashed border-outline-variant flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="add_a_photo">add_a_photo</span>
+<span class="text-[10px] mt-xs font-label-sm uppercase">Upload</span>
+</div>
+<!-- Empty states/Uploaded previews -->
+<div class="aspect-square bg-surface-container rounded-lg relative overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="A POV close-up photo of a traditional steaming bowl of Thukpa (noodle soup) served in a ceramic bowl on a wooden table. The steam is visible against a soft morning light coming through a window. The style is warm, earthy, and highly detailed, representing the culinary experience of the homestay." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0OEjGWTwoMmvYMxbcHw2jxfaPH6UsS1blgUm1sd2VE-_uHPuZlQXgxGnW5Xp6QsgIzb1nZpuL6tiy35-MEdiV7x-lDx_8a4rFhIor1wtQeCEt7m7hWIXCatza3SQtt0UGGEIg0zCz9PRvSEv6jsYejorGWDQvbZbIveOS0FVSbizCUPbdAlBy7cug9ZqtXrIzjPgiDBICtGww6eloK6ZBr7l5WDP1iGbTDdZYzGRKbaTeh9tdunwpBzMJ0yJ8l3P83LwQ2QepgdY"/>
+<button class="absolute top-1 right-1 bg-on-surface/50 text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xs" data-icon="close">close</span>
+</button>
+</div>
+<div class="aspect-square bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant/50" data-icon="image">image</span>
+</div>
+<div class="aspect-square bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant/50" data-icon="image">image</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="mt-xl flex flex-col md:flex-row gap-md items-center justify-end">
+<button class="w-full md:w-auto px-xl py-md font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">Skip for now</button>
+<button class="w-full md:w-auto px-xl py-md font-label-sm text-label-sm uppercase tracking-widest bg-primary text-on-primary rounded-full shadow-lg hover:shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Submit Review</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Only for top-level context, but visible here as persistent shell) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-container-lowest border-t border-outline-variant shadow-[0_-2px_10px_rgba(179,40,33,0.05)] flex justify-around items-center px-4 py-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary transition-all duration-300 cursor-pointer active:scale-90">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm mt-1">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary transition-all duration-300 cursor-pointer active:scale-90">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm mt-1">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary transition-all duration-300 cursor-pointer active:scale-90">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</div>
+</nav>
+<script>
+        // Interactive Star Rating Logic
+        const stars = document.querySelectorAll('.star');
+        const container = document.getElementById('starContainer');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-index'));
+                updateStars(rating);
+            });
+
+            star.addEventListener('mouseenter', () => {
+                const rating = parseInt(star.getAttribute('data-index'));
+                highlightStars(rating);
+            });
+        });
+
+        container.addEventListener('mouseleave', () => {
+            const currentRating = parseInt(container.getAttribute('data-rating') || '0');
+            updateStars(currentRating);
+        });
+
+        function highlightStars(count) {
+            stars.forEach((s, idx) => {
+                if (idx < count) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+        }
+
+        function updateStars(count) {
+            container.setAttribute('data-rating', count);
+            stars.forEach((s, idx) => {
+                if (idx < count) {
+                    s.classList.add('active');
+                    s.style.fontVariationSettings = "'FILL' 1";
+                } else {
+                    s.classList.remove('active');
+                    s.style.fontVariationSettings = "'FILL' 0";
+                }
+            });
+        }
+
+        // Initialize with default 5 star highlight if desired, or keep 0
+        updateStars(0);
+
+        // Micro-interaction for sliders
+        document.querySelectorAll('input[type="range"]').forEach(input => {
+            input.addEventListener('input', (e) => {
+                const valSpan = e.target.previousElementSibling.querySelector('span:last-child');
+                if(valSpan) valSpan.innerText = parseFloat(e.target.value).toFixed(1);
+            });
+        });
+    </script>
+</body></html>

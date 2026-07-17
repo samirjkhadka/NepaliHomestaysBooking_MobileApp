@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen - Secure Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Manrope:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#ffb4a1",
+                      "primary": "#900a0c",
+                      "outline-variant": "#e2beba",
+                      "on-primary-fixed-variant": "#910a0c",
+                      "on-tertiary-fixed": "#001f2a",
+                      "on-primary-container": "#ffccc6",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#30312e",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#fbf9f4",
+                      "surface-container": "#f0eee9",
+                      "on-secondary-fixed": "#3c0800",
+                      "tertiary-fixed-dim": "#9bcee6",
+                      "inverse-primary": "#ffb4aa",
+                      "surface-container-high": "#eae8e3",
+                      "tertiary-fixed": "#bde9ff",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-primary": "#ffffff",
+                      "on-background": "#1b1c19",
+                      "surface-dim": "#dbdad5",
+                      "primary-container": "#b32821",
+                      "on-tertiary-fixed-variant": "#134c61",
+                      "on-secondary-fixed-variant": "#7c2e19",
+                      "on-secondary-container": "#742814",
+                      "tertiary": "#134c61",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#410001",
+                      "surface": "#fbf9f4",
+                      "surface-tint": "#b32821",
+                      "on-surface": "#1b1c19",
+                      "secondary-container": "#fc9174",
+                      "surface-variant": "#e4e2dd",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "on-surface-variant": "#5a413d",
+                      "background": "#fbf9f4",
+                      "tertiary-container": "#316479",
+                      "secondary": "#9a442d",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#ffdad5",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#ffdbd2",
+                      "surface-container-highest": "#e4e2dd",
+                      "outline": "#8e706c",
+                      "surface-container-low": "#f5f3ee",
+                      "on-tertiary-container": "#addff8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "sm": "12px",
+                      "gutter": "20px",
+                      "base": "8px",
+                      "lg": "48px",
+                      "xl": "80px",
+                      "md": "24px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Manrope"],
+                      "display-lg": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "display-lg-mobile": ["Be Vietnam Pro"],
+                      "label-sm": ["Manrope"],
+                      "body-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(#900a0c 0.5px, transparent 0.5px), radial-gradient(#900a0c 0.5px, #fbf9f4 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.03;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile py-xs md:px-margin-desktop h-16">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 hover:bg-surface-container-low transition-colors duration-200 rounded-full text-on-surface-variant cursor-pointer active:scale-95">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center text-on-surface-variant gap-2 text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-primary">lock</span>
+                SECURE CHECKOUT
+            </div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant overflow-hidden cursor-pointer active:scale-95 transition-transform">
+<img class="w-full h-full object-cover" data-alt="A warm and friendly portrait of a middle-aged Nepali woman with a welcoming smile, wearing a traditional red Dhaka shawl and small gold earrings. The background is a soft-focus interior of a rustic kitchen with wooden beams and sunlight streaming through a window, creating a soft, warm mountain home atmosphere consistent with the Aama's Kitchen brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiC1trA09bYvlv0kVzgdAoFzKYSZMoGkJCPbh0DAxWXDxygjqyGfHA6wSl0xW9ASzTPlNcJLacfyJdqdG7XG5_ik6Y47k0hnYjGaVuQFC-d3Cp63xneeE6BViqCK3Wur9u_nZAm9A-5IMsI6yi_6B3IWo4cJPzBk5sYk620JuLMOTu-V8BnZxSVSJGP5Zg1sY0kNmF4fKSEgRRuvWD8KwsqCHqPuEzsAiMOcM6ilGUBqMdGMBUoZivndqofJw0nG6WKt5lqQkKwDw"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-base md:py-lg grid grid-cols-1 lg:grid-cols-12 gap-gutter relative">
+<!-- Left Column: Payment Methods (Bento Style) -->
+<div class="lg:col-span-7 space-y-md">
+<div class="flex flex-col gap-xs mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Payment Method</h2>
+<p class="text-on-surface-variant text-body-md">Choose your preferred way to pay for your authentic experience.</p>
+</div>
+<!-- Payment Options Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-base">
+<!-- eSewa -->
+<div class="payment-card border border-outline-variant rounded-xl p-md bg-surface-container-lowest hover:border-secondary transition-all cursor-pointer relative overflow-hidden group" onclick="selectPayment(this, 'esewa')">
+<div class="absolute top-2 right-2 opacity-0 group-[.active]:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center gap-md mb-sm">
+<div class="w-12 h-12 rounded-lg bg-[#60BB46] flex items-center justify-center text-white font-bold text-xl">e</div>
+<div>
+<p class="font-bold text-on-surface">eSewa</p>
+<p class="text-xs text-on-surface-variant">Nepal's 1st Digital Wallet</p>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant">Instant payment via eSewa mobile app or web portal.</p>
+</div>
+<!-- Khalti -->
+<div class="payment-card border border-outline-variant rounded-xl p-md bg-surface-container-lowest hover:border-secondary transition-all cursor-pointer relative overflow-hidden group" onclick="selectPayment(this, 'khalti')">
+<div class="absolute top-2 right-2 opacity-0 group-[.active]:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center gap-md mb-sm">
+<div class="w-12 h-12 rounded-lg bg-[#5C2D91] flex items-center justify-center text-white font-bold text-xl">K</div>
+<div>
+<p class="font-bold text-on-surface">Khalti</p>
+<p class="text-xs text-on-surface-variant">Fast & Secure Payments</p>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant">Pay using Khalti wallet or linked bank accounts.</p>
+</div>
+<!-- Card Payment (Full Width on md) -->
+<div class="payment-card md:col-span-2 border border-outline-variant rounded-xl p-md bg-surface-container-lowest active-method border-secondary transition-all cursor-pointer relative overflow-hidden group active" onclick="selectPayment(this, 'card')">
+<div class="absolute top-2 right-2 opacity-100 group-[.active]:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-3xl">credit_card</span>
+<div>
+<p class="font-bold text-on-surface">Debit / Credit Card</p>
+<p class="text-xs text-on-surface-variant">Visa, Mastercard, or UnionPay</p>
+</div>
+</div>
+<div class="flex gap-2 opacity-60">
+<span class="material-symbols-outlined">payments</span>
+</div>
+</div>
+<!-- Card Details Form (Only visible when Card is active) -->
+<div class="space-y-sm mt-md">
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Card Number</label>
+<input class="bg-surface border border-outline-variant rounded-lg p-sm focus:border-secondary outline-none transition-colors w-full" placeholder="xxxx xxxx xxxx xxxx" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Expiry Date</label>
+<input class="bg-surface border border-outline-variant rounded-lg p-sm focus:border-secondary outline-none transition-colors w-full" placeholder="MM/YY" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant">CVV</label>
+<input class="bg-surface border border-outline-variant rounded-lg p-sm focus:border-secondary outline-none transition-colors w-full" placeholder="***" type="password"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="pt-lg flex flex-wrap items-center justify-center md:justify-start gap-lg opacity-60 grayscale hover:grayscale-0 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">verified_user</span>
+<span class="text-label-sm font-label-sm">SSL SECURED</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">security</span>
+<span class="text-label-sm font-label-sm">PCI DSS COMPLIANT</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">shield</span>
+<span class="text-label-sm font-label-sm">NEPAL RASTRA BANK APPROVED</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="lg:col-span-5">
+<div class="sticky top-24">
+<div class="bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden shadow-sm relative">
+<div class="dhaka-pattern absolute inset-0 pointer-events-none"></div>
+<div class="p-md md:p-lg relative z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Summary</h3>
+<!-- Property Preview -->
+<div class="flex gap-md pb-md border-b border-outline-variant mb-md">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A cozy, authentic Himalayan homestay bedroom with warm, sun-drenched lighting. The room features hand-woven Dhaka pattern textiles on the bed, dark wooden mountain-style architecture, and a small window overlooking terraced hills. The overall mood is peaceful, clean, and traditionally Nepali with high-key light-mode tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtEFQWB7-KlbAhU40y0gbtRWQiZQfMqFGtBlYmAiF2yi3p7yWN1fCNVJWUfy005ABcwA8a8-ZPyRQG00f0U5-qv-bCZF9F__PgaoHqZdZ-ishNhknO_BqdY9hpdHcByN8cBsVz-rz2Yquhdp3P8dEY8kBfqZSAmEe__d-5Wz9WF2Lbsx9nIBCkf4GpWmfpR8x6Hr8IyKhfdfrgm8n1Vilhniambm9C7299OR0MgP20qLo0NSn1q-3C9sGMbnVgjyFL8sMfz-NUbSs"/>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Riverside Aama's Cottage</h4>
+<p class="text-sm text-on-surface-variant">Pokhara, Nepal</p>
+<div class="flex items-center gap-1 text-secondary mt-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9 (120 reviews)</span>
+</div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="space-y-sm text-body-md">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">2 Nights × NPR 4,500</span>
+<span class="text-on-surface">NPR 9,000</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Authentic Breakfast (Daily)</span>
+<span class="text-on-surface text-tertiary">Included</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Service Fee</span>
+<span class="text-on-surface">NPR 450</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">VAT (13%)</span>
+<span class="text-on-surface">NPR 1,228</span>
+</div>
+<div class="pt-md mt-md border-t border-outline-variant flex justify-between items-end">
+<div>
+<p class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Total Amount</p>
+<p class="text-3xl font-display-lg text-primary">NPR 10,678</p>
+</div>
+<div class="text-right text-xs text-on-surface-variant">
+                                    All taxes included
+                                </div>
+</div>
+</div>
+<!-- Pay Button -->
+<button class="w-full mt-lg bg-primary text-on-primary py-md rounded-full font-bold text-lg flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all hover:bg-primary-container relative overflow-hidden group">
+<span class="shimmer absolute inset-0 pointer-events-none opacity-20"></span>
+<span class="material-symbols-outlined">lock</span>
+                            Pay Now Securely
+                        </button>
+<p class="text-center text-xs text-on-surface-variant mt-md flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs">shield_lock</span>
+                            Your transaction is encrypted and protected
+                        </p>
+</div>
+</div>
+<!-- Cancellation Policy Card -->
+<div class="mt-md p-md bg-tertiary-container text-on-tertiary-container rounded-xl flex gap-md">
+<span class="material-symbols-outlined">info</span>
+<div>
+<p class="font-bold text-sm">Free Cancellation</p>
+<p class="text-xs opacity-90">Cancel before 24 hours of check-in for a full refund. Standard terms apply.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Success Message (Hidden by default) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center hidden" id="successModal">
+<div class="absolute inset-0 bg-on-background/40 backdrop-blur-sm"></div>
+<div class="bg-surface rounded-2xl p-xl max-w-md w-full mx-4 shadow-2xl relative z-10 text-center animate-in zoom-in duration-300">
+<div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-lg">
+<span class="material-symbols-outlined text-white text-5xl">check</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-sm">Payment Successful!</h2>
+<p class="text-on-surface-variant mb-xl">Dhanyabad! Your stay at Aama's Kitchen has been confirmed. A receipt has been sent to your email.</p>
+<button class="w-full border-2 border-primary text-primary py-md rounded-full font-bold hover:bg-primary hover:text-on-primary transition-colors" onclick="hideSuccess()">
+                Back to Bookings
+            </button>
+</div>
+</div>
+<script>
+        function selectPayment(element, method) {
+            // Remove active class from all cards
+            document.querySelectorAll('.payment-card').forEach(card => {
+                card.classList.remove('active', 'border-secondary', 'bg-surface-container-low');
+                card.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+                // Target the check icon
+                const icon = card.querySelector('.group-\\[\\.active\\]\\:opacity-100');
+                if(icon) icon.style.opacity = '0';
+            });
+
+            // Add active class to clicked card
+            element.classList.add('active', 'border-secondary', 'bg-surface-container-low');
+            element.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+            const icon = element.querySelector('.group-\\[\\.active\\]\\:opacity-100');
+            if(icon) icon.style.opacity = '1';
+
+            console.log("Selected payment method:", method);
+        }
+
+        const payButton = document.querySelector('button.bg-primary');
+        payButton.addEventListener('click', () => {
+            payButton.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...';
+            payButton.disabled = true;
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                document.getElementById('successModal').classList.remove('hidden');
+            }, 1500);
+        });
+
+        function hideSuccess() {
+            document.getElementById('successModal').classList.add('hidden');
+            payButton.innerHTML = '<span class="material-symbols-outlined">lock</span> Pay Now Securely';
+            payButton.disabled = false;
+        }
+    </script>
+</body></html>

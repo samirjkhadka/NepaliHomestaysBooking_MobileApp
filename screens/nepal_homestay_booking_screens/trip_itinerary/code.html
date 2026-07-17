@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trip Itinerary - Aama's Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f0eee9",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#ffb4aa",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "on-background": "#1b1c19",
+                    "on-surface": "#1b1c19",
+                    "on-primary-fixed": "#410001",
+                    "on-primary-fixed-variant": "#910a0c",
+                    "primary": "#900a0c",
+                    "outline": "#8e706c",
+                    "on-tertiary-container": "#addff8",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f5f3ee",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "on-primary-container": "#ffccc6",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#b32821",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "surface-dim": "#dbdad5",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#fc9174",
+                    "inverse-surface": "#30312e",
+                    "surface-tint": "#b32821",
+                    "tertiary-fixed": "#bde9ff",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#ffdad5",
+                    "surface-variant": "#e4e2dd",
+                    "surface-bright": "#fbf9f4",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "tertiary-container": "#316479",
+                    "surface": "#fbf9f4",
+                    "on-secondary-fixed": "#3c0800",
+                    "outline-variant": "#e2beba",
+                    "secondary": "#9a442d",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "on-tertiary-fixed": "#001f2a",
+                    "tertiary": "#134c61",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#ffdbd2",
+                    "on-secondary-container": "#742814",
+                    "surface-container-highest": "#e4e2dd",
+                    "surface-container-high": "#eae8e3",
+                    "inverse-on-surface": "#f2f1ec",
+                    "background": "#fbf9f4",
+                    "on-surface-variant": "#5a413d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "gutter": "20px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Be Vietnam Pro"],
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "body-md": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "label-sm": ["Manrope"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .dhaka-pattern {
+            background-color: #fbf9f4;
+            background-image:  linear-gradient(30deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(150deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(30deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(150deg, #e4e2dd 12%, transparent 12.5%, transparent 87%, #e4e2dd 87.5%, #e4e2dd), linear-gradient(60deg, #e2beba 25%, transparent 25.5%, transparent 75%, #e2beba 75%, #e2beba), linear-gradient(60deg, #e2beba 25%, transparent 25.5%, transparent 75%, #e2beba 75%, #e2beba);
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+            opacity: 0.05;
+        }
+        .organic-shadow {
+            box-shadow: 0 20px 40px -15px rgba(179, 40, 33, 0.08);
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 24px;
+            bottom: 0;
+            width: 2px;
+            background: repeating-linear-gradient(to bottom, #8e706c, #8e706c 4px, transparent 4px, transparent 8px);
+        }
+        .timeline-item:last-child .timeline-line::before {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile py-xs">
+<div class="flex items-center gap-4">
+<button class="cursor-pointer active:scale-95 transition-transform text-primary">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="cursor-pointer active:scale-95 transition-transform">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A warm, professional portrait of a guest with a friendly smile, set against a blurred background of a traditional Nepali mountain home interior. The lighting is soft and golden, evoking a sense of hospitality and cultural connection. The overall aesthetic is clean and modern, following the Himalayan Hearth design principles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE1m2KsxuhaMFY2WrDFSBzliP4R4vM7Po3DSzZZCmUqv-TsDeZQW3_vkVEJweGan_TRKLUFZd1zJnH1p1ZvTws-EpFwlYkLwrA0A886etNjIMfV-hKxVA9v25Wz1qS9QeVa4d5hnMPyohjaDzrSe4brza-EIU_PNYuJ9HjPLwKjfly-WszMxpp91b4pL8Vv7uS5IV5WO_hyfC9K2W9119UCQSZ_6cQK7u56gSO3ll8iaiKGTXwTpgwIw3sM8EgVJ9aLw6mGEsbAmA"/>
+</div>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto pb-32">
+<!-- Hero Section -->
+<section class="px-margin-mobile pt-base lg:pt-lg">
+<div class="relative w-full h-[265px] lg:h-[353px] rounded-xl overflow-hidden mb-md organic-shadow border border-outline-variant">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A breathtaking view of a traditional stone and wood homestay nestled in the Annapurna foothills. The house features red-painted windows and a terracotta roof. Lush terraced fields surround the property, and the distant Himalayan peaks are visible under a clear morning sky. High-key, authentic photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy8wte6lyoPwj-ylRTluV9oNAL04Age8ZWihfGt9m2xG70tpmptSSlM49j5MAChNXJ8zSQCJf-__PUiEmgtK_8rUj6D2MkSAWHL1d0zobn5IVMCz0vpmqfZ8NDGD_rIAzjsEHYCzRDGLihdDdCrxI9ScXLQ0Q0bjxIRslMu8Njf-Q7mdtDSP_lPCU9Yko0AtdVAuUNii9A-wBalrEJXwCk8FjXWkQ5na7qiO0ejZQIupEJ5KQ9kjMxOlZY_QSCgdxGn4eQrVXpWTU"/>
+<div class="absolute bottom-0 left-0 p-md z-20 text-white">
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1 rounded-full mb-2 inline-block">Upcoming Stay</span>
+<h2 class="font-headline-md text-headline-md lg:text-[32px] leading-tight">Ghale Gaun Cultural Homestay</h2>
+<p class="font-body-md opacity-90">Oct 24 — Oct 28, 2024</p>
+</div>
+</div>
+</section>
+<!-- Quick Info Bar -->
+<section class="px-margin-mobile mb-lg">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm">
+<div class="bg-surface-container-low border border-outline-variant p-sm rounded-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div>
+<p class="font-label-sm text-on-surface-variant">Location</p>
+<p class="font-body-md font-bold">Lamjung, Nepal</p>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-sm rounded-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">person</span>
+<div>
+<p class="font-label-sm text-on-surface-variant">Host</p>
+<p class="font-body-md font-bold">Aama Devi</p>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-sm rounded-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">home</span>
+<div>
+<p class="font-label-sm text-on-surface-variant">Stay Type</p>
+<p class="font-body-md font-bold">Private Room</p>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-sm rounded-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">door_front</span>
+<div>
+<p class="font-label-sm text-on-surface-variant">Access</p>
+<p class="font-body-md font-bold">Self Check-in</p>
+</div>
+</div>
+</div>
+</section>
+<div class="flex flex-col lg:flex-row gap-lg px-margin-mobile">
+<!-- Timeline Content -->
+<div class="lg:w-2/3">
+<h3 class="font-headline-md text-headline-md mb-md text-on-surface">Your Itinerary</h3>
+<div class="space-y-0">
+<!-- Day 1 -->
+<div class="timeline-item relative pl-12 pb-lg timeline-line">
+<div class="absolute left-0 top-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white z-10">
+<span class="font-bold">1</span>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-md organic-shadow overflow-hidden relative">
+<div class="absolute top-0 right-0 w-24 h-24 dhaka-pattern pointer-events-none"></div>
+<p class="font-label-sm text-primary mb-1 uppercase tracking-wider">Thursday, Oct 24</p>
+<h4 class="font-headline-md text-headline-md mb-sm">Arrival &amp; Welcome</h4>
+<p class="text-on-surface-variant mb-md">Settle into your cozy mountain room and experience the warm hospitality of Ghale Gaun.</p>
+<div class="space-y-sm">
+<div class="flex gap-sm p-sm bg-surface-container-low rounded-lg items-start">
+<span class="material-symbols-outlined text-secondary mt-1">coffee</span>
+<div>
+<p class="font-bold">Traditional Welcome Tea</p>
+<p class="text-sm text-on-surface-variant">Served upon arrival with local organic honey and corn snacks.</p>
+</div>
+</div>
+<div class="flex gap-sm p-sm bg-surface-container-low rounded-lg items-start">
+<span class="material-symbols-outlined text-secondary mt-1">meeting_room</span>
+<div>
+<p class="font-bold">Settling In</p>
+<p class="text-sm text-on-surface-variant">Room orientation and meeting your host family.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 2 -->
+<div class="timeline-item relative pl-12 pb-lg timeline-line">
+<div class="absolute left-0 top-0 w-10 h-10 bg-surface-container-highest border border-primary text-primary rounded-full flex items-center justify-center z-10">
+<span class="font-bold">2</span>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-md organic-shadow overflow-hidden relative">
+<p class="font-label-sm text-primary mb-1 uppercase tracking-wider">Friday, Oct 25</p>
+<h4 class="font-headline-md text-headline-md mb-sm">Cultural Experience</h4>
+<p class="text-on-surface-variant mb-md">Deep dive into local traditions through hands-on learning and exploration.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm mb-md">
+<img class="w-full h-32 object-cover rounded-lg border border-outline-variant" data-alt="A warm, close-up shot of hands preparing traditional Nepalese Momos. Flour dusts a rustic wooden table. The lighting is low and atmospheric, emphasizing the textures of the dough and the steam from a nearby pot. Aama's Kitchen brand colors of deep red and warm neutrals are subtly present." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVsm0v0qEuVNq-mheAEDDRjeJSBIMvsXgx7exT8rAfpX9M0RI7QThoda0sCmFPA0gXKcq9d_6xjAv1_0axWtnuqcxq1LjSCDwg9teGwecruRgxFYGCiOYkrHDUvre4qJ47KoRBrTt5bToCzGt2rqRbHB910fckdlV4-OqDnDyell_W7N2dwmtlU_mcIIORzXjPAW-1AkmwjnI64jd_SqzswgV18CdMDtOZ-iDM4Q7YkVdEkhmyldKnXTOL7C-X7gfMDIJKAB9gqs0"/>
+<img class="w-full h-32 object-cover rounded-lg border border-outline-variant" data-alt="A group of travelers walking through a traditional stone-paved Gurung village alleyway. Colorful Dhaka fabrics hang from balconies. The morning sun casts long, soft shadows. The overall mood is peaceful and culturally rich." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwAfFuDHBDmo4iuNMP6oYYiylZv-1oMoJUJs1AJcu_Q-J-nJ6iBka6yZBhIQXhk6PnOFDcQ7_kESwJdAeOrMM7JT91XOWF5OXakLUqSHW00VT2PRAlGY_TQnCb6O8487BJNJIdb48dO8Tq5EOkZfqDuEDY9ujZ2IBumYpD4v1RPwycP70obBFyxfeojG2sSImuNqIlyCH1Vb-z9zbdHskpAgZqhGeewdIy5O9XqrCkNp0quz0cN0rtGlX523e5Ai4eA894zDEGwhA"/>
+</div>
+<div class="space-y-sm">
+<div class="flex gap-sm p-sm bg-surface-container-low rounded-lg items-start">
+<span class="material-symbols-outlined text-secondary mt-1">skillet</span>
+<div>
+<p class="font-bold">Dal Bhat Cooking Class</p>
+<p class="text-sm text-on-surface-variant">10:00 AM — Learn the secrets of Aama's spice blends.</p>
+</div>
+</div>
+<div class="flex gap-sm p-sm bg-surface-container-low rounded-lg items-start">
+<span class="material-symbols-outlined text-secondary mt-1">hiking</span>
+<div>
+<p class="font-bold">Neighborhood Heritage Walk</p>
+<p class="text-sm text-on-surface-variant">03:00 PM — Guided tour of the village and local monastery.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 3 -->
+<div class="timeline-item relative pl-12 pb-lg timeline-line">
+<div class="absolute left-0 top-0 w-10 h-10 bg-surface-container-highest border border-primary text-primary rounded-full flex items-center justify-center z-10">
+<span class="font-bold">3</span>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-md organic-shadow overflow-hidden relative">
+<p class="font-label-sm text-primary mb-1 uppercase tracking-wider">Saturday, Oct 26</p>
+<h4 class="font-headline-md text-headline-md mb-sm">Local Exploration</h4>
+<p class="text-on-surface-variant mb-md">Venture further into the natural beauty and craftsmanship of the region.</p>
+<div class="space-y-sm">
+<div class="flex gap-sm p-sm bg-surface-container-low rounded-lg items-start">
+<span class="material-symbols-outlined text-secondary mt-1">landscape</span>
+<div>
+<p class="font-bold">Guided Sunrise Trek</p>
+<p class="text-sm text-on-surface-variant">05:30 AM — Hike to the viewpoint for Annapurna panoramas.</p>
+</div>
+</div>
+<div class="flex gap-sm p-sm bg-surface-container-low rounded-lg items-start">
+<span class="material-symbols-outlined text-secondary mt-1">palette</span>
+<div>
+<p class="font-bold">Weaving Workshop</p>
+<p class="text-sm text-on-surface-variant">02:00 PM — Try your hand at traditional handloom weaving.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 4 -->
+<div class="timeline-item relative pl-12 pb-md">
+<div class="absolute left-0 top-0 w-10 h-10 bg-surface-container-highest border border-primary text-primary rounded-full flex items-center justify-center z-10">
+<span class="font-bold">4</span>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-md organic-shadow overflow-hidden relative">
+<p class="font-label-sm text-primary mb-1 uppercase tracking-wider">Sunday, Oct 27</p>
+<h4 class="font-headline-md text-headline-md mb-sm">Departure</h4>
+<p class="text-on-surface-variant mb-md">A final farewell breakfast before your journey continues.</p>
+<div class="space-y-sm">
+<div class="flex gap-sm p-sm bg-surface-container-low rounded-lg items-start">
+<span class="material-symbols-outlined text-secondary mt-1">breakfast_dining</span>
+<div>
+<p class="font-bold">Farewell Breakfast</p>
+<p class="text-sm text-on-surface-variant">Last meal with the family and gift exchange.</p>
+</div>
+</div>
+<div class="flex gap-sm p-sm bg-surface-container-low rounded-lg items-start">
+<span class="material-symbols-outlined text-secondary mt-1">logout</span>
+<div>
+<p class="font-bold">Checkout</p>
+<p class="text-sm text-on-surface-variant">By 11:00 AM — Safe travels!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Sidebar -->
+<div class="lg:w-1/3">
+<div class="sticky top-24 space-y-md">
+<!-- Host Info Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md organic-shadow">
+<div class="flex items-center gap-md mb-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="A portrait of Aama Devi, a warm and elderly Nepali woman with a kind face, wearing traditional clothing and a red tika. She is standing in front of her wooden kitchen. The image radiates maternal warmth and hospitality, consistent with the brand's 'Mountain Home' philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVvMjRVUwTUFpY6RjrD3wFQKP4LY2NFaBbjaqnu8iqE2A5YzngG5bryRRuPaLO7Ih7syGXXIzgSOxUR0Jd-DRzNhJpWlSqsyNr2lcOoFy1LONQyhjMLW2iK4V3CK1AAlP91zgHVWc4Vodaznv9KuzxPPkLl0Uta59dXYI7M03j88q1n6Xi5pCLDoWQ55HXhCqQ9UEVrvTUR8nxpPMCIRgVVlMFeIhAgD0EBLj3U01GlvLQfd6_KN8kll53trHMYCKmrKq5GxKcspI"/>
+</div>
+<div>
+<h4 class="font-bold text-lg">Aama Devi</h4>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.98 (124 reviews)
+                                </p>
+</div>
+</div>
+<div class="space-y-sm">
+<button class="w-full bg-primary text-white py-3 rounded-full font-bold active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">chat</span>
+                                Message Host
+                            </button>
+<button class="w-full bg-surface-container text-primary border border-outline-variant py-3 rounded-full font-bold active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">call</span>
+                                Call Aama
+                            </button>
+</div>
+</div>
+<!-- Directions Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md organic-shadow overflow-hidden">
+<h4 class="font-bold mb-sm">Location Details</h4>
+<div class="w-full h-32 rounded-lg bg-surface-container mb-md overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A stylized, clean map showing the Ghale Gaun village area with a prominent red marker at the homestay location. The map uses a warm color palette with topographical lines to suggest mountain terrain, matching the Himalayan Hearth aesthetic." data-location="Lamjung, Nepal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnugA3so09lpJTZ4TwvqGIxe-AdHtftAIojcESeD_WtE7tmIlrvP79-1gxx15xvO1mY5-G6aSdwaHLWbzBvcSrJ3LJEEkEGSpTlC_GGl-68GnbhKyK7CJXUdywaXxVKWYXe5rdlLU3WEkmJcLI8o4Q_IlMLLV4_NFQPtYYl-g0jRexuXXNavq2KIrPLluozIFUSkWjrNjrntWAFHvyPX6Oe-zxbQnjQtSdxMhOMDm7IoCfBLYS8jkFGtIa3Jh-hRz_pRI6EHWYQW8"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/80 backdrop-blur-sm p-xs rounded-full shadow-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-md">House #42, Main Square, Ghale Gaun, Lamjung 33600</p>
+<button class="w-full bg-surface-container-highest text-on-surface py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-outline-variant transition-colors">
+<span class="material-symbols-outlined">directions</span>
+                            Get Directions
+                        </button>
+</div>
+<!-- Important Information -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md organic-shadow">
+<h4 class="font-bold mb-sm">Essential Info</h4>
+<ul class="space-y-sm text-sm text-on-surface-variant">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                Please bring comfortable hiking shoes.
+                            </li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                Evenings get chilly; a warm jacket is recommended.
+                            </li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                Limited Wi-Fi, perfect for digital detox.
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-container-lowest border-t border-outline-variant shadow-[0_-2px_10px_rgba(179,40,33,0.05)] md:hidden">
+<div class="flex justify-around items-center w-full px-4 py-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</div>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('.active\\:scale-95').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Simple scroll reveal for timeline items
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(item);
+        });
+    </script>
+</body></html>

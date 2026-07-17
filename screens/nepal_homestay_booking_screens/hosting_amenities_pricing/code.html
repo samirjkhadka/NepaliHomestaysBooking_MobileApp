@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen - Host a Home: Amenities &amp; Pricing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Be+Vietnam+Pro:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "primary": "#900a0c",
+                    "outline-variant": "#e2beba",
+                    "on-primary-fixed-variant": "#910a0c",
+                    "on-tertiary-fixed": "#001f2a",
+                    "on-primary-container": "#ffccc6",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbf9f4",
+                    "surface-container": "#f0eee9",
+                    "on-secondary-fixed": "#3c0800",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "inverse-primary": "#ffb4aa",
+                    "surface-container-high": "#eae8e3",
+                    "tertiary-fixed": "#bde9ff",
+                    "inverse-on-surface": "#f2f1ec",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1c19",
+                    "surface-dim": "#dbdad5",
+                    "primary-container": "#b32821",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "on-secondary-container": "#742814",
+                    "tertiary": "#134c61",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#410001",
+                    "surface": "#fbf9f4",
+                    "surface-tint": "#b32821",
+                    "on-surface": "#1b1c19",
+                    "secondary-container": "#fc9174",
+                    "surface-variant": "#e4e2dd",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "on-surface-variant": "#5a413d",
+                    "background": "#fbf9f4",
+                    "tertiary-container": "#316479",
+                    "secondary": "#9a442d",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdad5",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffdbd2",
+                    "surface-container-highest": "#e4e2dd",
+                    "outline": "#8e706c",
+                    "surface-container-low": "#f5f3ee",
+                    "on-tertiary-container": "#addff8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "sm": "12px",
+                    "gutter": "20px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "label-sm": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(circle at 2px 2px, #e2beba 1px, transparent 0);
+            background-size: 16px 16px;
+        }
+        .organic-shadow {
+            box-shadow: 0 10px 30px -5px rgba(179, 40, 33, 0.05);
+        }
+        input:focus {
+            outline: none;
+            border-color: #9a442d !important;
+        }
+        .amenity-card.active {
+            border-color: #900a0c;
+            background-color: #fef2f2;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile md:px-margin-desktop py-xs">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform">close</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="hidden md:flex gap-base">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly Nepali host, smiling warmly against a blurred background of a traditional brick wall and wooden windows. The lighting is soft and natural, emphasizing a welcoming, trustworthy atmosphere in line with the 'Modern Heritage' brand identity. Subtle warm tones and high-key brightness dominate the composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGKtJE1d60pU5R6HjVM0OZyfBhW_YkpjmP693rp5QNvTEv_9yYNzN8u47KZYyEjGDBm0kWz7RPxjiJR_Qmxtx8zChBdORSm-dTuANGixYl9hE1fnFKdPVC8889JogTBta8tTzwrx1-ZBfDig7HRknxqvhmvq5CoZYXwIQc2mZrER8hHX4LseY6oafs4uzlj5JVSfXXJQR2zLAUVFvbTojP7e_BnYiS5rxvDAX9wzxugNaFLZg8HNEwbZbKC33lgxjXV9VP91MYL4w"/>
+</div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Step Indicator -->
+<div class="mb-lg">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-sm text-label-sm text-secondary">STEP 2 OF 3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Amenities &amp; Pricing</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="w-2/3 h-full bg-primary transition-all duration-700 ease-in-out"></div>
+</div>
+</div>
+<!-- Section: Amenities -->
+<section class="mb-xl">
+<div class="mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">What does your kitchen offer?</h2>
+<p class="text-on-surface-variant">Select the amenities that make your homestay special. Guests love traditional touches.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Amenity Items -->
+<button class="amenity-card group p-md border border-outline-variant rounded-xl flex flex-col items-start gap-sm transition-all duration-200 hover:bg-surface-container-low active:scale-95" onclick="this.classList.toggle('active')">
+<span class="material-symbols-outlined text-primary text-[32px]">wifi</span>
+<span class="font-body-md text-on-surface">High-speed Wifi</span>
+</button>
+<button class="amenity-card group p-md border border-outline-variant rounded-xl flex flex-col items-start gap-sm transition-all duration-200 hover:bg-surface-container-low active:scale-95" onclick="this.classList.toggle('active')">
+<span class="material-symbols-outlined text-primary text-[32px]">oven_gen</span>
+<span class="font-body-md text-on-surface">Kitchen Access</span>
+</button>
+<button class="amenity-card group p-md border border-outline-variant rounded-xl flex flex-col items-start gap-sm transition-all duration-200 hover:bg-surface-container-low active:scale-95" onclick="this.classList.toggle('active')">
+<span class="material-symbols-outlined text-primary text-[32px]">park</span>
+<span class="font-body-md text-on-surface">Organic Garden</span>
+</button>
+<button class="amenity-card group p-md border border-outline-variant rounded-xl flex flex-col items-start gap-sm transition-all duration-200 hover:bg-surface-container-low active:scale-95" onclick="this.classList.toggle('active')">
+<span class="material-symbols-outlined text-primary text-[32px]">local_fire_department</span>
+<span class="font-body-md text-on-surface">Traditional Hearth</span>
+</button>
+<button class="amenity-card group p-md border border-outline-variant rounded-xl flex flex-col items-start gap-sm transition-all duration-200 hover:bg-surface-container-low active:scale-95" onclick="this.classList.toggle('active')">
+<span class="material-symbols-outlined text-primary text-[32px]">hot_tub</span>
+<span class="font-body-md text-on-surface">Hot Shower</span>
+</button>
+<button class="amenity-card group p-md border border-outline-variant rounded-xl flex flex-col items-start gap-sm transition-all duration-200 hover:bg-surface-container-low active:scale-95" onclick="this.classList.toggle('active')">
+<span class="material-symbols-outlined text-primary text-[32px]">coffee</span>
+<span class="font-body-md text-on-surface">Nepali Tea/Coffee</span>
+</button>
+<button class="amenity-card group p-md border border-outline-variant rounded-xl flex flex-col items-start gap-sm transition-all duration-200 hover:bg-surface-container-low active:scale-95" onclick="this.classList.toggle('active')">
+<span class="material-symbols-outlined text-primary text-[32px]">mountain_flag</span>
+<span class="font-body-md text-on-surface">Mountain View</span>
+</button>
+<button class="amenity-card group p-md border border-outline-variant rounded-xl flex flex-col items-start gap-sm transition-all duration-200 hover:bg-surface-container-low active:scale-95" onclick="this.classList.toggle('active')">
+<span class="material-symbols-outlined text-primary text-[32px]">directions_walk</span>
+<span class="font-body-md text-on-surface">Guided Treks</span>
+</button>
+</div>
+</section>
+<!-- Section: Pricing -->
+<section class="bg-surface-container-low rounded-xl p-lg border-t-2 border-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 dhaka-pattern opacity-10 -mr-16 -mt-16 rounded-full"></div>
+<div class="mb-md relative z-10">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Set your price</h2>
+<p class="text-on-surface-variant">Recommended price for your location: NPR 2,500 - 4,000</p>
+</div>
+<div class="max-w-sm relative z-10">
+<div class="relative group">
+<span class="absolute left-md top-1/2 -translate-y-1/2 font-bold text-on-surface-variant">NPR</span>
+<input class="w-full bg-surface border-2 border-outline-variant rounded-lg py-lg pl-xl pr-md text-[40px] font-bold text-primary focus:border-secondary transition-all" placeholder="0.00" type="number" value="3200"/>
+</div>
+<p class="mt-sm text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Per night, including taxes</p>
+</div>
+<div class="mt-lg grid grid-cols-1 md:grid-cols-2 gap-md relative z-10">
+<div class="bg-surface p-md rounded-lg border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">GUEST PAYS</p>
+<p class="font-body-lg text-body-lg font-bold">NPR 3,680</p>
+<p class="text-[12px] text-on-surface-variant mt-xs">Includes service fees &amp; local VAT</p>
+</div>
+<div class="bg-primary-container text-on-primary-container p-md rounded-lg">
+<p class="font-label-sm text-label-sm text-on-primary-container/80 mb-xs">YOU EARN</p>
+<p class="font-body-lg text-body-lg font-bold">NPR 2,944</p>
+<p class="text-[12px] text-on-primary-container/70 mt-xs">After 8% platform fee</p>
+</div>
+</div>
+</section>
+<!-- Dynamic Tip Modal Pattern (In-flow) -->
+<div class="mt-lg p-md bg-tertiary-container/10 border border-tertiary-container rounded-lg flex gap-md items-start">
+<span class="material-symbols-outlined text-tertiary">lightbulb</span>
+<div>
+<p class="font-bold text-tertiary">Pro-Tip for New Hosts</p>
+<p class="text-body-md text-on-surface-variant mt-xs leading-snug">Hosts who include breakfast in their pricing see 40% more bookings in the first month. Authentic honey and local grains are highly rated!</p>
+</div>
+</div>
+</main>
+<!-- Navigation Shell (Fixed Bottom) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-container-lowest border-t border-outline-variant shadow-[0_-2px_10px_rgba(179,40,33,0.05)] px-margin-mobile md:px-margin-desktop py-md">
+<div class="max-w-4xl mx-auto flex justify-between items-center">
+<button class="px-md py-sm font-bold text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors active:scale-95">Back</button>
+<div class="flex items-center gap-md">
+<span class="hidden md:block text-on-surface-variant font-label-sm">Almost there...</span>
+<button class="bg-primary text-on-primary px-xl py-sm rounded-full font-bold organic-shadow hover:brightness-110 active:scale-95 transition-all">Continue to Review</button>
+</div>
+</div>
+</nav>
+<!-- Side Decoration (Large Screen only) -->
+<div class="hidden xl:block fixed left-base top-1/2 -translate-y-1/2 opacity-10 pointer-events-none">
+<div class="w-1 bg-primary h-64 rounded-full"></div>
+</div>
+<script>
+        // Micro-interaction for price input focus
+        const priceInput = document.querySelector('input[type="number"]');
+        priceInput.addEventListener('focus', () => {
+            priceInput.parentElement.parentElement.classList.add('scale-[1.02]');
+        });
+        priceInput.addEventListener('blur', () => {
+            priceInput.parentElement.parentElement.classList.remove('scale-[1.02]');
+        });
+
+        // Toggle Active state for amenities on click
+        document.querySelectorAll('.amenity-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                if (this.classList.contains('active')) {
+                    icon.style.fontVariationSettings = "'FILL' 1";
+                } else {
+                    icon.style.fontVariationSettings = "'FILL' 0";
+                }
+            });
+        });
+    </script>
+</body></html>

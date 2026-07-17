@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Details - Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(var(--tw-colors-outline-variant) 0.5px, transparent 0.5px);
+            background-size: 8px 8px;
+        }
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            background: rgba(251, 249, 244, 0.8);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-secondary-container": "#742814",
+                        "surface-tint": "#b32821",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dbdad5",
+                        "inverse-primary": "#ffb4aa",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#30312e",
+                        "surface-container": "#f0eee9",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e4e2dd",
+                        "primary": "#900a0c",
+                        "surface-bright": "#fbf9f4",
+                        "on-primary-container": "#ffccc6",
+                        "surface-variant": "#e4e2dd",
+                        "on-surface-variant": "#5a413d",
+                        "inverse-on-surface": "#f2f1ec",
+                        "tertiary-container": "#316479",
+                        "outline": "#8e706c",
+                        "on-tertiary-container": "#addff8",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#9a442d",
+                        "background": "#fbf9f4",
+                        "secondary-container": "#fc9174",
+                        "on-background": "#1b1c19",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary-fixed-variant": "#910a0c",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#bde9ff",
+                        "primary-fixed": "#ffdad5",
+                        "surface": "#fbf9f4",
+                        "primary-container": "#b32821",
+                        "secondary-fixed": "#ffdbd2",
+                        "outline-variant": "#e2beba",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "on-primary-fixed": "#410001",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1c19",
+                        "tertiary": "#134c61",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "surface-container-low": "#f5f3ee",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile py-xs md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform p-2 hover:bg-surface-container-low rounded-full">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly user for a profile avatar. The lighting is soft and warm, set against a blurred background of a modern mountain lodge in Nepal. The style is clean and high-fidelity, following a premium travel platform aesthetic with natural, earthy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKJFyoyudvoWc3vtPfJUOEnxBn_-tc7iXFhv3rb_gk42KUheviu4ZmTXsOLl-JU_XWmq3uYcFqictSLUkOq9_e63BFJAwM0LYPX6ThH3MUwb20KSxxdMFge-mUZHeOcp8PSUKGVqRaPkV4i-ftizMWWEgB9ieIFUquNmizSqphT2xi1orkAFz-I3p_d_yk3ELDeBX3PmMKyr5iHbOB5PwQnAEXGPpb8gxqrS4_G5HCV7w_drT8x9aKY3POaN_Q0q6BmGOm3p6AFPg"/>
+</div>
+</header>
+<main class="max-w-screen-md mx-auto px-margin-mobile py-lg md:py-xl">
+<!-- Review Header Card -->
+<section class="bg-surface-container-lowest rounded-xl p-md border-t-2 border-primary shadow-[0_4px_20px_rgba(179,40,33,0.03)] mb-lg">
+<div class="flex items-center justify-between mb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-secondary-fixed shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a cheerful traveler with a genuine smile. She is wearing a light wool scarf with traditional Nepali patterns. The background is a soft-focus mountain landscape at sunrise, bathing the scene in a warm, golden Himalayan glow. High-quality travel photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5WUdBh5TkTdQ2iEp-Vvb6rX5TeNNHIqobjgSt_m6rPKum_R8-4sYWHLUW_wfTUqiTwrSzT8NLDtdWLZOHGyBuOLXXkl4gJTBWzHpUD5ZriceyKqEL96qBKQypNSGpTigj2V_2a9oWy5ljx_L-vEVu_Ss-dDyGuLI_7wNIgEEC2OWGCGGX3I-su7DpnK0MI9CiHGF6_eGb4II4juUTIQuMk_b1pze0bnJI241uD9JBDvHXahx08GyG9LJWlTHABpccc7xKrBHE-kE"/>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight">Sarah Jenkins</h2>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Verified Traveler</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Stayed Oct 2023</span>
+</div>
+</div>
+<h3 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-secondary mb-md italic">
+                "An unforgettable stay with Aama Kamala"
+            </h3>
+<div class="space-y-md text-on-surface-variant leading-relaxed font-body-lg">
+<p>
+                    Staying with Aama Kamala was the highlight of our trek through the Annapurna region. From the moment we arrived, we were treated like family, not just guests. The hospitality is deeply rooted in local tradition, and you can feel the warmth in every corner of her beautiful home. 
+                </p>
+<p>
+                    Every evening, we gathered around the hearth for what I can honestly say was the best <strong>Dal Bhat</strong> I've ever tasted. The lentils were perfectly seasoned, and the local greens were so fresh they must have been picked that afternoon. We ate until we were full, and Aama still insisted on "just one more scoop!"
+                </p>
+<p>
+                    The views from the terrace are simply breathtaking. Waking up to the sunrise over the Machhapuchhre peak while sipping ginger tea is a memory I will cherish forever. If you want an authentic, soulful experience in Nepal, look no further.
+                </p>
+</div>
+</section>
+<!-- Image Gallery (Bento Style) -->
+<section class="mb-lg">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-base">Guest Gallery</h4>
+<div class="grid grid-cols-12 gap-base h-[400px]">
+<div class="col-span-8 h-full rounded-lg overflow-hidden group relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A panoramic view of the snow-capped Himalayan mountains at dawn, seen from a rustic wooden balcony. Wisps of clouds dance between the peaks of Machhapuchhre. The lighting is cold blue mixing with warm orange sunlight. Fine details of the wooden railing and a steaming cup of tea in the foreground." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj53s8VuBlFNodHNeJC9DJHustdU9uEWJVI-0pi1vDUBCZh-5a5wBOYQexK6mSkNHZGMoIO8Lz4yEaQxejKcCDHJz-VdLaRrjX6ePaSf5VEBiMKZyu1vXqBbKt5uju13T6667vy-utUYF0nhvOAXwr3bmdXKwAWbdmjZ0NuTKoK45GQ7pEvre3XznkHXL4GtCynit5-SqUPLahOajwnn85h6CFSW63Jr-UEUgt8nxLlYlGpA7jx7VDpO7lQh07-MADiAlyE-GzORE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+<div class="col-span-4 flex flex-col gap-base h-full">
+<div class="h-1/2 rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A top-down shot of a traditional Nepali Dal Bhat set served on a polished brass plate. The meal includes steaming rice, thick lentil soup, spiced spinach, and spicy pickles. The lighting is warm and domestic, emphasizing the rich textures and vibrant colors of the food. Himalayan hearth aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7phwdtZH8cTB8r3cWrZomIUpr8jH5MLpU88dhKX3nlhbzFJUFhY6I3shFnIU3Si-s9M2za2o2HNE1t0qF7xl7CAjKm8ScEVjpfXQQWgv3ohjBL8RM18RuaPCQB1onrMY52yBqZbf_HD4EIaQ4KxxaFOf-CsHXFVsQJ4lOyXVTYk7emPA9SH8-ulCLGmI6ZJpj4436kzR1aAoqaDOQVpfldsNCqjXqj4sfhPKyU0mVVHSoutAexDWBw_UMY87CS_rQKzmO9BheS4I"/>
+</div>
+<div class="h-1/2 rounded-lg overflow-hidden group relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Interior of a cozy Nepali homestay bedroom. Sunlight filters through a small window onto a bed covered with a colorful, hand-woven Dhaka pattern blanket. The walls are smooth mud-plastered, and a small wooden table holds a clay pot. Peaceful, serene mountain home atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGzq6snyuuN3sF5TGYrgE2XgVSEBNs4DMF11srbDT3NlvXBHFcZMUp1p7oJPBbwo-RDQKtPZ75Pzvl11mQcE7hT4lrP2_SvbFqRDAVDpz_U9mmK5NkqFfOiGM_SvfC6t54XZwzBJVbOcRmn4S03nYRZEKJSe9_q0xYJ5qcTa9cvH2EJODY-8q_Nn6VutcmGxewQQUOS28uqdMRIAys4t_KOdWKVFYYmEeaWtE-QnYI5auXuZJFGua3crmNjcFsxcHh9HimJbq7hak"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Aama's Response -->
+<section class="bg-tertiary-container/10 rounded-xl p-md border-l-4 border-tertiary mb-xl relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[120px] text-tertiary">format_quote</span>
+</div>
+<div class="flex items-center gap-sm mb-base">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed">temple_hindu</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[18px] text-on-tertiary-fixed">Aama's Response</h4>
+<span class="font-label-sm text-[11px] text-tertiary uppercase">Replied 2 days later</span>
+</div>
+</div>
+<p class="font-body-md text-on-tertiary-fixed italic leading-relaxed">
+                "Namaste Sarah! My heart is full reading your kind words. It was such a joy to share my kitchen and stories with you. You are always welcome back to our home in the mountains. May your journey ahead be as bright as the sunrise over Annapurna. Dhanyabaad!"
+            </p>
+</section>
+<!-- Interaction Footer -->
+<footer class="flex flex-col sm:flex-row items-center justify-between py-md border-t border-outline-variant gap-md">
+<div class="flex items-center gap-sm">
+<button class="flex items-center gap-2 px-md py-sm bg-surface-container-high rounded-full hover:bg-outline-variant transition-colors group">
+<span class="material-symbols-outlined text-primary group-active:scale-125 transition-transform" style="font-variation-settings: 'FILL' 0;">thumb_up</span>
+<span class="font-label-sm text-on-surface">Helpful (24)</span>
+</button>
+<button class="p-sm rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">share</span>
+</button>
+</div>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-error transition-colors px-md py-sm">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+<span class="font-label-sm">Report Review</span>
+</button>
+</footer>
+</main>
+<!-- BottomNavBar (Suppressed for Detail Page - but added for shell continuity if navigating back) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant shadow-[0_-2px_10px_rgba(179,40,33,0.05)] md:hidden">
+<div class="flex justify-around items-center w-full px-4 py-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-90 transition-all">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-90 transition-all">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 active:scale-90 transition-all">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for the 'Helpful' button
+        const helpfulBtn = document.querySelector('button .material-symbols-outlined[style*="thumb_up"]');
+        let clicked = false;
+        
+        helpfulBtn.parentElement.addEventListener('click', function() {
+            if(!clicked) {
+                this.querySelector('span:last-child').innerText = "Helpful (25)";
+                helpfulBtn.style.fontVariationSettings = "'FILL' 1";
+                this.classList.add('bg-secondary-container/20');
+                clicked = true;
+            } else {
+                this.querySelector('span:last-child').innerText = "Helpful (24)";
+                helpfulBtn.style.fontVariationSettings = "'FILL' 0";
+                this.classList.remove('bg-secondary-container/20');
+                clicked = false;
+            }
+        });
+    </script>
+</body></html>

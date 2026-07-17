@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Identity Verification | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background: repeating-linear-gradient(
+                45deg,
+                #b32821,
+                #b32821 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            height: 2px;
+            width: 100%;
+            opacity: 0.2;
+        }
+        .grainy-surface {
+            background-color: #fbf9f4;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .step-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .active-step-line {
+            transition: width 0.6s ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdad5",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#752814",
+                        "surface-dim": "#dbdad5",
+                        "on-tertiary-fixed": "#001f2a",
+                        "inverse-surface": "#30312e",
+                        "background": "#fbf9f4",
+                        "surface-tint": "#b32821",
+                        "tertiary-fixed-dim": "#9ccee7",
+                        "primary": "#680003",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-tertiary-fixed-variant": "#144c61",
+                        "secondary-container": "#fd9174",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "on-primary-fixed": "#410001",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bee9ff",
+                        "impact-teal": "#316479",
+                        "surface-container": "#f0eee9",
+                        "primary-container": "#900a0c",
+                        "surface-bright": "#fbf9f4",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb4aa",
+                        "tertiary": "#003546",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container-low": "#f5f3ee",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-tertiary-container": "#8abbd4",
+                        "surface-variant": "#e4e2dd",
+                        "outline-variant": "#e2beba",
+                        "tertiary-container": "#134c61",
+                        "on-tertiary": "#ffffff",
+                        "dhaka-red": "#b32821",
+                        "surface-grain": "#fbf9f4",
+                        "on-surface": "#1b1c19",
+                        "surface": "#fbf9f4",
+                        "on-secondary-fixed-variant": "#7c2e18",
+                        "secondary-fixed": "#ffdbd2",
+                        "on-primary-fixed-variant": "#910b0c",
+                        "surface-container-high": "#eae8e3",
+                        "on-surface-variant": "#5a413d",
+                        "earth-brown": "#5a413d",
+                        "secondary": "#9a442d",
+                        "on-primary-container": "#ff998c",
+                        "outline": "#8e706c",
+                        "on-background": "#1b1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "gutter": "20px",
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "label-xs-bold": ["Manrope"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-sm-italic": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-xs-bold": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-sm-italic": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="grainy-surface text-on-surface min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar (Suppressed for transactional flow as per guidance, but using a simplified version for brand anchor) -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-base max-w-screen-xl mx-auto h-16">
+<div class="font-display-lg text-dhaka-red cursor-pointer" onclick="window.location.reload()">Aama's Kitchen</div>
+<div class="flex items-center space-x-md">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Safe &amp; Secure</span>
+<span class="material-symbols-outlined text-dhaka-red" data-icon="lock">lock</span>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-start py-lg px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl w-full">
+<!-- Header Section -->
+<div class="text-center mb-lg">
+<h1 class="font-display-lg text-display-lg text-earth-brown mb-xs">Identity Verification</h1>
+<p class="text-on-surface-variant max-w-lg mx-auto">To ensure the safety of our Himalayan community, we require a one-time verification. Your data is encrypted and handled with care.</p>
+</div>
+<!-- Progress Indicator -->
+<div class="mb-xl relative">
+<div class="flex justify-between items-center relative z-10">
+<div class="flex flex-col items-center group cursor-pointer" id="step-node-1" onclick="goToStep(1)">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-dhaka-red text-white font-bold mb-2 shadow-md transition-transform group-hover:scale-110">1</div>
+<span class="font-label-sm text-label-sm text-dhaka-red">Govt. ID</span>
+</div>
+<div class="flex flex-col items-center group cursor-pointer" id="step-node-2" onclick="goToStep(2)">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-highest text-on-surface-variant font-bold mb-2 transition-transform group-hover:scale-110">2</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Face Match</span>
+</div>
+<div class="flex flex-col items-center group cursor-pointer" id="step-node-3" onclick="goToStep(3)">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-highest text-on-surface-variant font-bold mb-2 transition-transform group-hover:scale-110">3</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Heritage</span>
+</div>
+</div>
+<!-- Progress Line Background -->
+<div class="absolute top-5 left-0 w-full h-[2px] bg-surface-container-highest -z-0"></div>
+<!-- Active Progress Line -->
+<div class="active-step-line absolute top-5 left-0 h-[2px] bg-dhaka-red -z-0" id="progress-line" style="width: 0%;"></div>
+</div>
+<!-- Content Canvas -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden relative min-h-[500px]">
+<div class="dhaka-pattern"></div>
+<div class="p-lg">
+<!-- Step 1: Government ID -->
+<div class="step-transition" id="step-1">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+<div class="space-y-md">
+<h2 class="font-headline-md text-headline-md text-earth-brown">Upload Government ID</h2>
+<p class="text-on-surface-variant">Please upload a clear photo of your Passport, Driver's License, or National ID. Ensure all four corners are visible and details are legible.</p>
+<div class="space-y-sm">
+<div class="flex items-center space-x-sm p-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer border border-transparent hover:border-outline-variant transition-all">
+<span class="material-symbols-outlined text-dhaka-red" data-icon="id_card">id_card</span>
+<span class="font-label-sm text-label-sm text-earth-brown">National Identity Card</span>
+</div>
+<div class="flex items-center space-x-sm p-sm rounded-lg bg-surface-container hover:bg-surface-container-high cursor-pointer border border-transparent hover:border-outline-variant transition-all">
+<span class="material-symbols-outlined text-dhaka-red" data-icon="travel_explore">travel_explore</span>
+<span class="font-label-sm text-label-sm text-earth-brown">International Passport</span>
+</div>
+</div>
+<button class="w-full py-md bg-dhaka-red text-on-primary font-label-sm text-label-sm rounded-lg shadow-sm hover:opacity-90 active:scale-95 transition-all mt-md" onclick="nextStep()">
+                                    Continue to Photo
+                                </button>
+</div>
+<div class="flex justify-center">
+<div class="w-full max-w-[320px] aspect-[3/2] border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center p-lg bg-surface-container-low text-center group hover:border-dhaka-red transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-md group-hover:text-dhaka-red" data-icon="cloud_upload">cloud_upload</span>
+<p class="font-label-sm text-label-sm text-earth-brown">Drop your ID image here or click to browse</p>
+<p class="text-[10px] text-on-surface-variant mt-2">JPG, PNG or PDF (Max 5MB)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 2: Face Match (Hidden by Default) -->
+<div class="step-transition hidden opacity-0 translate-x-12" id="step-2">
+<div class="flex flex-col items-center text-center space-y-md">
+<h2 class="font-headline-md text-headline-md text-earth-brown">Live Face Match</h2>
+<p class="text-on-surface-variant max-w-md">We need a quick selfie to ensure it matches your ID. Please look directly at the camera in a well-lit area.</p>
+<div class="relative w-64 h-64 rounded-full border-4 border-dhaka-red overflow-hidden bg-surface-container shadow-xl">
+<img class="w-full h-full object-cover grayscale-[0.3]" data-alt="A high-end, professionally lit selfie of a diverse person smiling softly, framed within a circular UI element. The background is a warm, cream-colored minimalist interior typical of Aama's Kitchen branding. The lighting is soft and flattering, highlighting clear skin and approachable features, symbolizing trust and authenticity in a modern digital identity verification context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmEoAV3PBI0w83ZWJGzFP_VD1CqPwYfg3DHMdQg-5_AXQMesUnH_AUKL6tEo9Z3ATqmbgDQe3iq7F6f70uiX4i52i8kO3meW9UolVzRq7FnUKEirTXAHl9xZfCP9rYJmc61_aycXXuUI2SIZLCsnY8NSZiIkSDmjz8omVuIi2PquBjkRFX6aF-bc5cs-q_PW6pSkHRaGDoAnzmo6CVIHpfy9bbjSdw0BbGT_-WuGFkiveSmGB0v65bhpUAaWJmi2rO2qnjrOzkhAE"/>
+<div class="absolute inset-0 border-[16px] border-white/20 rounded-full animate-pulse"></div>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-dhaka-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Live</div>
+</div>
+<div class="flex space-x-md w-full max-w-md">
+<button class="flex-1 py-sm border border-outline-variant text-on-surface-variant font-label-sm text-label-sm rounded-lg hover:bg-surface-container transition-all" onclick="prevStep()">
+                                    Back
+                                </button>
+<button class="flex-[2] py-sm bg-dhaka-red text-on-primary font-label-sm text-label-sm rounded-lg shadow-sm hover:opacity-90 active:scale-95 transition-all" onclick="nextStep()">
+                                    Take Photo
+                                </button>
+</div>
+</div>
+</div>
+<!-- Step 3: Heritage Verification (Hidden by Default) -->
+<div class="step-transition hidden opacity-0 translate-x-12" id="step-3">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-md">
+<h2 class="font-headline-md text-headline-md text-earth-brown">Heritage &amp; Interest</h2>
+<p class="text-on-surface-variant">Aama's Kitchen is built on authentic connection. Tell us a bit about your interest in Himalayan heritage to help us curate your experience.</p>
+<div class="space-y-sm">
+<label class="block">
+<span class="text-label-sm font-label-sm text-earth-brown">Primary interest in the region?</span>
+<select class="mt-1 block w-full rounded-lg border-outline-variant bg-surface-container focus:ring-dhaka-red focus:border-dhaka-red text-body-md py-sm">
+<option>Traditional Culinary Arts</option>
+<option>Mountain Craftsmanship</option>
+<option>Spiritual Wellness</option>
+<option>Community Volunteering</option>
+</select>
+</label>
+<label class="block">
+<span class="text-label-sm font-label-sm text-earth-brown">Previous Himalayan experience?</span>
+<textarea class="mt-1 block w-full rounded-lg border-outline-variant bg-surface-container focus:ring-dhaka-red focus:border-dhaka-red text-body-md" placeholder="e.g., I've visited Mustang, or I'm a student of Newari art..." rows="3"></textarea>
+</label>
+</div>
+<button class="w-full py-md bg-dhaka-red text-on-primary font-label-sm text-label-sm rounded-lg shadow-lg hover:opacity-90 active:scale-95 transition-all mt-md" onclick="completeVerification()">
+                                    Submit for Verification
+                                </button>
+</div>
+<div class="hidden md:block">
+<div class="relative h-full w-full rounded-xl overflow-hidden shadow-sm group">
+<img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of a traditional Nepalese Dhaka loom with vibrant red and geometric patterns being woven by hand. The scene is bathed in golden afternoon light, emphasizing the rich textures and craftsmanship. The style is tactile and heritage-focused, with a shallow depth of field that blurs the background of a rustic mountain workshop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqk_ZZO008pUF6_4gSKWXCDLhpDN6JcRZE3xPT1lzC3AP_-zW2_ykiyRCcqBoPXr3cFQpvnUrkSR8gyNsL-YNHynmUO0hD31TZet4FxiU2-I_UOR5kvky-4y4D7HBlTPrLK2pZrbWuSOoAPy2juwvBYhRgfOdbWMcC9y9o6mc76lH6p0HqDFEuRFVDAPnn7W4ZJNo9RPn9U6U89HUzT_uzTNJLa-TxMv-ffr7Ds2NOBR7a-IAIC3tzoNT3zH0VriAY6xYJhPjRdr8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-earth-brown/80 to-transparent flex items-end p-md">
+<p class="text-white text-body-sm-italic font-body-sm-italic">"We believe every guest carries a story. Thank you for sharing yours with our kitchen."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Success State (Hidden) -->
+<div class="step-transition hidden opacity-0 scale-95" id="success-state">
+<div class="flex flex-col items-center justify-center text-center space-y-lg py-lg">
+<div class="w-24 h-24 rounded-full bg-dhaka-red/10 flex items-center justify-center text-dhaka-red">
+<span class="material-symbols-outlined text-6xl" data-icon="verified_user">verified_user</span>
+</div>
+<div class="space-y-sm">
+<h2 class="font-display-lg text-headline-md text-earth-brown">Verification Submitted!</h2>
+<p class="text-on-surface-variant max-w-sm">Aama's team will review your identity within the next 24 hours. You'll receive a notification once you're cleared for the full experience.</p>
+</div>
+<button class="px-xl py-md bg-dhaka-red text-on-primary font-label-sm text-label-sm rounded-lg shadow-sm hover:opacity-90 active:scale-95 transition-all">
+                                Explore Marketplace
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="mt-lg grid grid-cols-2 md:grid-cols-4 gap-md opacity-70">
+<div class="flex flex-col items-center space-y-1">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="encrypted">encrypted</span>
+<span class="text-[10px] font-label-xs-bold uppercase tracking-widest text-on-surface-variant">256-bit SSL</span>
+</div>
+<div class="flex flex-col items-center space-y-1">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="policy">policy</span>
+<span class="text-[10px] font-label-xs-bold uppercase tracking-widest text-on-surface-variant">Privacy First</span>
+</div>
+<div class="flex flex-col items-center space-y-1">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="support_agent">support_agent</span>
+<span class="text-[10px] font-label-xs-bold uppercase tracking-widest text-on-surface-variant">24/7 Trust Team</span>
+</div>
+<div class="flex flex-col items-center space-y-1">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="gpp_good">gpp_good</span>
+<span class="text-[10px] font-label-xs-bold uppercase tracking-widest text-on-surface-variant">Verified Host</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg bg-surface-container-highest border-t border-dhaka-red/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-screen-xl mx-auto space-y-md md:space-y-0">
+<div class="font-display-lg-mobile text-dhaka-red">Aama's Kitchen</div>
+<div class="font-body-sm-italic text-on-surface-variant">© 2024 Aama's Kitchen. Authentic Himalayan Hospitality.</div>
+<nav class="flex space-x-md text-body-sm-italic">
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Terms of Service</a>
+</nav>
+</div>
+</footer>
+<script>
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function updateStepUI() {
+            // Update Canvas Visibility
+            for (let i = 1; i <= totalSteps; i++) {
+                const el = document.getElementById(`step-${i}`);
+                if (i === currentStep) {
+                    el.classList.remove('hidden');
+                    setTimeout(() => {
+                        el.classList.remove('opacity-0', 'translate-x-12');
+                    }, 50);
+                } else {
+                    el.classList.add('opacity-0', 'translate-x-12');
+                    setTimeout(() => {
+                        el.classList.add('hidden');
+                    }, 400);
+                }
+            }
+
+            // Update Progress Bar
+            const progressLine = document.getElementById('progress-line');
+            progressLine.style.width = `${((currentStep - 1) / (totalSteps - 1)) * 100}%`;
+
+            // Update Nodes
+            for (let i = 1; i <= totalSteps; i++) {
+                const node = document.getElementById(`step-node-${i}`);
+                const circle = node.querySelector('div');
+                const label = node.querySelector('span');
+
+                if (i <= currentStep) {
+                    circle.classList.replace('bg-surface-container-highest', 'bg-dhaka-red');
+                    circle.classList.replace('text-on-surface-variant', 'text-white');
+                    label.classList.replace('text-on-surface-variant', 'text-dhaka-red');
+                } else {
+                    circle.classList.replace('bg-dhaka-red', 'bg-surface-container-highest');
+                    circle.classList.replace('text-white', 'text-on-surface-variant');
+                    label.classList.replace('text-dhaka-red', 'text-on-surface-variant');
+                }
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateStepUI();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepUI();
+            }
+        }
+
+        function goToStep(step) {
+            if (step < currentStep || (step === currentStep + 1)) { // Simplified logic for demo
+                currentStep = step;
+                updateStepUI();
+            }
+        }
+
+        function completeVerification() {
+            // Hide navigation dots/steps
+            document.getElementById('step-3').classList.add('hidden');
+            
+            // Show Success State
+            const success = document.getElementById('success-state');
+            success.classList.remove('hidden');
+            setTimeout(() => {
+                success.classList.remove('opacity-0', 'scale-95');
+            }, 50);
+
+            // Confetti or visual flair could go here
+        }
+
+        // Initial UI state
+        updateStepUI();
+    </script>
+</body></html>

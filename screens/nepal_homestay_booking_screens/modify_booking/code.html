@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modify Booking - Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        /* Dhaka Pattern Texture Overlay */
+        .dhaka-pattern {
+            background-color: transparent;
+            background-image:  linear-gradient(30deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba),
+            linear-gradient(150deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba),
+            linear-gradient(30deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba),
+            linear-gradient(150deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba),
+            linear-gradient(60deg, #e2beba77 25%, transparent 25.5%, transparent 75%, #e2beba77 75%, #e2beba77),
+            linear-gradient(60deg, #e2beba77 25%, transparent 25.5%, transparent 75%, #e2beba77 75%, #e2beba77);
+            background-size: 20px 35px;
+            background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+            opacity: 0.15;
+        }
+
+        .glass-panel {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .paper-grain {
+            position: relative;
+        }
+        .paper-grain::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(15%) sepia(85%) saturate(4500%) hue-rotate(350deg) brightness(90%) contrast(105%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdbd2",
+                        "outline-variant": "#e2beba",
+                        "on-error-container": "#93000a",
+                        "outline": "#8e706c",
+                        "on-tertiary-fixed": "#001f2a",
+                        "primary-container": "#b32821",
+                        "on-background": "#1b1c19",
+                        "on-surface-variant": "#5a413d",
+                        "surface-container-high": "#eae8e3",
+                        "secondary-container": "#fc9174",
+                        "on-tertiary-container": "#addff8",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb4aa",
+                        "on-primary-container": "#ffccc6",
+                        "inverse-on-surface": "#f2f1ec",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#f0eee9",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "surface-tint": "#b32821",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "on-primary-fixed-variant": "#910a0c",
+                        "on-error": "#ffffff",
+                        "background": "#fbf9f4",
+                        "surface-dim": "#dbdad5",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-primary-fixed": "#410001",
+                        "on-surface": "#1b1c19",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#316479",
+                        "surface": "#fbf9f4",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "surface-container-low": "#f5f3ee",
+                        "secondary": "#9a442d",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "error": "#ba1a1a",
+                        "tertiary": "#134c61",
+                        "tertiary-fixed": "#bde9ff",
+                        "surface-container-highest": "#e4e2dd",
+                        "primary-fixed": "#ffdad5",
+                        "surface-variant": "#e4e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#900a0c",
+                        "on-secondary-container": "#742814",
+                        "inverse-surface": "#30312e",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fbf9f4",
+                        "primary-fixed-dim": "#ffb4aa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen paper-grain">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface border-b border-outline-variant z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop py-base">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:bg-primary-fixed/10 p-2 rounded-full transition-colors active:scale-95 duration-150">arrow_back</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Modify Booking</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="hidden md:block font-label-sm text-on-surface-variant">Booking ID: #AMA-9921</span>
+<div class="w-10 h-10 rounded-full bg-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a smiling traveler with a warm, natural look, set against a soft-focus background of the Himalayas. The person is wearing a traditional Nepali hand-woven Dhaka scarf, emphasizing the 'Modern Heritage' aesthetic. Lighting is warm and golden-hour inspired, casting a gentle glow on the subject's face. The overall mood is authentic, trustworthy, and welcoming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAihIQ3gzR4Hpk31mImfEWNIsyiN2g4KLPIMqWqtz_9aiavWQgSreRn9ntUHm6b0pJnH-ztLgbMPRkkaqEQD2D2z5UTV5S3BMs8pjEUqJdCR3FsM-K3-ThIrB9z-bYlta8nUj_P409BPa3uUrEnokAK53tUOY_STBCy-kZ9ZNSHJtARvhht7ng8f3P_XrnY6vmdxQ8NwHKDrJABOpZTYAT6XV6ukyzoUahZUneWhzVU4NEX086GxgFuH4LZtjB7WsE61l_Ej3r3VWY"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg pb-32">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Left Column: Modification Form -->
+<div class="lg:col-span-7 space-y-lg">
+<!-- Property Overview -->
+<section class="flex flex-col md:flex-row gap-base md:items-center bg-surface-container-low rounded-xl p-md border border-outline-variant/30">
+<div class="w-full md:w-32 h-24 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A beautiful traditional Himalayan cottage made of stone and wood, nestled along a serene turquoise mountain river. The architecture features intricate wood carvings and a slate roof. The surrounding landscape is lush green with terraced fields and snow-capped peaks in the distance. The atmosphere is peaceful and evokes a sense of 'Modern Heritage' through warm, natural tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUXHPnm16MkgeWvZdAmp7UC43-4zK5juFEvbHHG6BrCDL52uAqU4KcUtTWpG04lAvxVrnOvtpLMR-p_DWaEO9-LcOTVV_Dg-kAWkZ5ud7fR1b4rwQyDp92UyIUpxNqyxZrrN4dO7va9sswpXAv2dhH4XiVFBj7834O-R-daWprkQO3dR8naT4ZEerVQHm5XFaMoKhcpdO6TcpMG1DP8w9lej6790nnjkXiiZ2ev8GzEf_3m8mZCzJMpyXn18gp_CtHDI4qhSont6U"/>
+</div>
+<div>
+<h2 class="font-headline-md text-primary">Riverside Aama's Cottage</h2>
+<p class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                            Sindhupalchok, Nepal
+                        </p>
+<div class="mt-2 flex gap-2">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-0.5 rounded-full text-label-sm">Standard Room</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-0.5 rounded-full text-label-sm">Half-Board</span>
+</div>
+</div>
+</section>
+<!-- Date Selection -->
+<section class="space-y-md">
+<h3 class="font-headline-md text-on-surface">Change Dates</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-background px-1 text-label-sm text-secondary font-bold">Check-in</label>
+<div class="flex items-center border border-outline rounded-lg p-4 bg-surface-container-lowest focus-within:border-secondary transition-colors">
+<span class="material-symbols-outlined text-outline mr-3">calendar_month</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface" type="date" value="2023-11-15"/>
+</div>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-background px-1 text-label-sm text-secondary font-bold">Check-out</label>
+<div class="flex items-center border border-outline rounded-lg p-4 bg-surface-container-lowest focus-within:border-secondary transition-colors">
+<span class="material-symbols-outlined text-outline mr-3">event_busy</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface" type="date" value="2023-11-18"/>
+</div>
+</div>
+</div>
+<p class="text-label-sm text-on-surface-variant italic px-2">Current selection: 3 nights</p>
+</section>
+<!-- Guest Count -->
+<section class="space-y-md">
+<h3 class="font-headline-md text-on-surface">Adjust Guests</h3>
+<div class="flex items-center justify-between p-4 border border-outline rounded-lg bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">Adults</span>
+<span class="text-label-sm text-on-surface-variant">Ages 13 or above</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary-fixed/20 active:scale-90 transition-all">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="font-headline-md w-8 text-center">2</span>
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary-fixed/20 active:scale-90 transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 border border-outline rounded-lg bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">Children</span>
+<span class="text-label-sm text-on-surface-variant">Ages 2 - 12</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary-fixed/20 active:scale-90 transition-all">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="font-headline-md w-8 text-center">1</span>
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary-fixed/20 active:scale-90 transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Add-ons/Services -->
+<section class="space-y-md">
+<h3 class="font-headline-md text-on-surface">Optional Add-ons</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-base">
+<label class="flex items-start gap-3 p-4 rounded-xl border border-outline-variant hover:bg-surface-container transition-all cursor-pointer">
+<input class="mt-1 rounded text-primary focus:ring-primary border-outline" type="checkbox"/>
+<div>
+<p class="font-bold text-on-surface">Traditional Cooking Class</p>
+<p class="text-label-sm text-on-surface-variant">Learn to make Sel Roti &amp; Dal Bhat</p>
+<p class="text-secondary font-bold mt-1">+$15 / person</p>
+</div>
+</label>
+<label class="flex items-start gap-3 p-4 rounded-xl border border-outline-variant hover:bg-surface-container transition-all cursor-pointer">
+<input checked="" class="mt-1 rounded text-primary focus:ring-primary border-outline" type="checkbox"/>
+<div>
+<p class="font-bold text-on-surface">Guided River Walk</p>
+<p class="text-label-sm text-on-surface-variant">Morning hike with local guide</p>
+<p class="text-secondary font-bold mt-1">+$10 / session</p>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Column: Price Summary Sticky -->
+<div class="lg:col-span-5">
+<aside class="sticky top-28 bg-white rounded-2xl border border-outline-variant p-md shadow-sm overflow-hidden">
+<!-- Top Texture -->
+<div class="absolute top-0 left-0 w-full h-2 dhaka-pattern"></div>
+<h3 class="font-headline-md text-on-surface mb-6 mt-2">Price Summary</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center pb-4 border-b border-outline-variant/30">
+<div>
+<p class="text-on-surface-variant">Original Booking</p>
+<p class="text-xs text-outline italic">3 nights, 2 adults</p>
+</div>
+<span class="font-bold">$180.00</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">New stay duration (+1 night)</span>
+<span class="text-on-surface">+$60.00</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Additional child guest</span>
+<span class="text-on-surface">+$25.00</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Guided River Walk</span>
+<span class="text-on-surface">+$10.00</span>
+</div>
+<div class="flex justify-between text-body-md text-error">
+<span class="italic">Modification Fee</span>
+<span>Waived</span>
+</div>
+</div>
+<div class="pt-6 border-t-2 border-dashed border-outline-variant">
+<div class="flex justify-between items-end mb-1">
+<span class="font-headline-md text-on-surface">New Total</span>
+<span class="font-display-lg text-primary">$275.00</span>
+</div>
+<p class="text-right text-label-sm text-on-surface-variant">Amount due now: $95.00</p>
+</div>
+</div>
+<!-- Policy Info -->
+<div class="mt-8 p-4 bg-surface-container rounded-lg flex gap-3">
+<span class="material-symbols-outlined text-tertiary">info</span>
+<p class="text-label-sm text-on-tertiary-fixed-variant leading-relaxed">
+                            Modifications made more than 48 hours before check-in are free of charge. Your original deposit of $180.00 will be applied to the new total.
+                        </p>
+</div>
+<button class="w-full mt-8 bg-primary text-on-primary py-4 rounded-full font-headline-md hover:bg-on-primary-fixed-variant transition-all shadow-lg active:scale-[0.98] flex items-center justify-center gap-2 group">
+                        Confirm Changes
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full mt-3 text-on-surface-variant py-2 font-label-sm hover:underline">
+                        Cancel Modification
+                    </button>
+</aside>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container shadow-sm rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">redeem</span>
+<span class="text-label-sm">Rewards</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('input[type="date"]').forEach(picker => {
+            picker.addEventListener('change', (e) => {
+                // Mimic price recalculation visual
+                const summary = document.querySelector('aside');
+                summary.style.opacity = '0.5';
+                summary.style.transition = 'opacity 0.3s ease';
+                setTimeout(() => {
+                    summary.style.opacity = '1';
+                }, 400);
+            });
+        });
+
+        // Toggle hover effect on property card
+        const propCard = document.querySelector('section.flex-col');
+        propCard.addEventListener('mouseenter', () => {
+            propCard.classList.add('shadow-md');
+            propCard.style.transform = 'translateY(-2px)';
+            propCard.style.transition = 'all 0.3s ease';
+        });
+        propCard.addEventListener('mouseleave', () => {
+            propCard.classList.remove('shadow-md');
+            propCard.style.transform = 'translateY(0)';
+        });
+    </script>
+</body></html>

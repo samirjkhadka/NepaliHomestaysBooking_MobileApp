@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen - Cultural Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Manrope:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f0eee9",
+                        "on-primary-fixed": "#410001",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-secondary-fixed-variant": "#7c2e19",
+                        "on-secondary-container": "#742814",
+                        "on-background": "#1b1c19",
+                        "primary-fixed": "#ffdad5",
+                        "surface-dim": "#dbdad5",
+                        "surface-container-high": "#eae8e3",
+                        "secondary-fixed": "#ffdbd2",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "surface-tint": "#b32821",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#8e706c",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fc9174",
+                        "on-primary-container": "#ffccc6",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e2dd",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "surface": "#fbf9f4",
+                        "surface-bright": "#fbf9f4",
+                        "on-surface": "#1b1c19",
+                        "tertiary-fixed": "#bde9ff",
+                        "secondary": "#9a442d",
+                        "outline-variant": "#e2beba",
+                        "primary-container": "#b32821",
+                        "on-tertiary-fixed-variant": "#134c61",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e4e2dd",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#30312e",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#addff8",
+                        "background": "#fbf9f4",
+                        "on-primary-fixed-variant": "#910a0c",
+                        "tertiary-fixed-dim": "#9bcee6",
+                        "primary": "#900a0c",
+                        "on-surface-variant": "#5a413d",
+                        "inverse-primary": "#ffb4aa",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#316479",
+                        "on-secondary-fixed": "#3c0800",
+                        "tertiary": "#134c61"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .dhaka-pattern {
+            background-color: transparent;
+            background-image:  linear-gradient(135deg, #b32821 25%, transparent 25%), linear-gradient(225deg, #b32821 25%, transparent 25%), linear-gradient(45deg, #b32821 25%, transparent 25%), linear-gradient(315deg, #b32821 25%, transparent 25%);
+            background-position:  10px 0, 10px 0, 0 0, 0 0;
+            background-size: 20px 20px;
+            background-repeat: repeat;
+            opacity: 0.03;
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            opacity: 0.4;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .article-shadow {
+            box-shadow: 0 10px 30px -5px rgba(179, 40, 33, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+<div class="grain-overlay"></div>
+<!-- Navigation Shell -->
+<header class="bg-surface dark:bg-surface-dim sticky top-0 z-[60] flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full article-shadow">
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Explore</a>
+<a class="font-label-sm text-label-sm text-primary border-b-2 border-primary pb-1" href="#">Cultural Guides</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Homestays</a>
+</div>
+<button class="hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">account_circle</span>
+</button>
+</header>
+<main class="relative max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg md:py-xl">
+<!-- Breadcrumb -->
+<nav class="mb-lg flex items-center gap-2 text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Guides</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-sm text-label-sm">Traditions</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-sm text-label-sm text-primary">Sel Roti</span>
+</nav>
+<!-- Hero Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg lg:gap-xl items-end mb-xl">
+<div class="lg:col-span-8">
+<div class="relative overflow-hidden rounded-xl h-[353px] md:h-[530px] article-shadow">
+<img class="w-full h-full object-cover" data-alt="A warm, atmospheric photo of a traditional Nepalese kitchen at golden hour. A local woman with ornate bracelets is skillfully pouring fermented rice batter into a deep iron wok of bubbling oil, forming a perfect circular Sel Roti. The scene is rich with steam, golden lighting, and earthy textures of stone walls and wooden utensils, reflecting the Aama's Kitchen heritage aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8IBk-1ipaqga2hSeuM_3b5sp5MI97ThdloRBxpogWcvv4eq5WkM0p-7hKiUHY19r7K06mHyqcb-eLQKVvryh3odvQWTDpz0nIQmVoI4nJmvjILU41RkqKAoNEP73J57ErVe5mQJiDydCo0S9ZXVgsf3jNbPTUSmwJN7Uj4z6-d7X3w92HE5SZgVDTw9yy1b-ZQ3I6amPF2F5T62oZY3IT0Ac50vao9RBjuRhH1s5tJn5mXoo7rquCGDdvLiekzjSjqdp--MBY_ng"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-base left-base md:bottom-lg md:left-lg text-white">
+<span class="inline-block bg-primary px-3 py-1 rounded-full font-label-sm text-label-sm mb-sm">Living Traditions</span>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg leading-tight">The Sacred Circle: The Art of Sel Roti</h2>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 lg:mb-base">
+<div class="bg-surface-container-low p-lg rounded-xl relative overflow-hidden border border-outline-variant/30">
+<div class="dhaka-pattern absolute inset-0"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary mb-sm" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Did you know?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Sel Roti is the only bread in the world made primarily from fermented rice flour. Its unique ring shape symbolizes the cycle of life and continuity in Nepalese culture.</p>
+<hr class="border-outline-variant/50 mb-md"/>
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary">timer</span>
+<span class="font-label-sm text-label-sm">Prep: 12 Hours (Soaking)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Article Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg lg:gap-xl">
+<!-- Main Article Body -->
+<article class="lg:col-span-8 space-y-lg">
+<section>
+<h3 class="font-headline-md text-headline-md text-primary mb-md flex items-center gap-sm">
+<span class="w-8 h-[2px] bg-primary"></span> History & Origins
+                    </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-base">
+                        The origins of Sel Roti are as ancient as the hills themselves. Historically served during the Tihar festival—the festival of lights—this crispy, sweet ring-shaped bread has been a staple in Nepalese households for generations. It is more than just food; it is a spiritual offering, a gift for travelers, and a symbol of hospitality.
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        In the high-altitude villages, the preparation begins with soaking local 'Taichin' rice. The slow fermentation process in the cool mountain air gives Sel Roti its distinct tangy-sweet profile that cannot be replicated by modern rapid-baking methods.
+                    </p>
+</section>
+<div class="grid grid-cols-2 gap-md py-base">
+<div class="rounded-lg overflow-hidden h-48 article-shadow border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="Close-up of raw ingredients for Sel Roti: a bowl of soaked white rice, a small dish of ghee, and granules of sugar on a textured wooden table. The lighting is soft and natural, emphasizing the organic textures of the grains and the warmth of the wood, consistent with the minimalist heritage style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx4_RV-c4hyZ6wzXqVZ-9rZoCFl_-0SorRt4_JDnhI3w428cifQQtQpIVRp6_gRg39L_XHc-ekiRkRyTWrX7qfAoL5FO7heFlM5_whbI2GZ49ofx3R7rc9Vn_gdzzvrOMoSqcDTmsB-740d9vKniz14WjneP30t-8eb7I-gDnVcWq-xNQ8NfarJ8U4RijditX4KqQfC1UFLuTCWZUmk3TOUplgV7qgu5wVNnoOQzBGJYVZqkYciUJlV2lyPH0dvUbkTh44LSH7vbk"/>
+</div>
+<div class="rounded-lg overflow-hidden h-48 article-shadow border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="A row of freshly fried, golden-brown Sel Roti cooling on a traditional hand-woven bamboo tray (Nanglo). The rings are perfectly uniform and slightly glistening, shot with a shallow depth of field against a rustic stone wall background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcRLDLRc98YQTh_cCueRttkegFnNb_3sEQwuZ41o-fKhMxNppiBt-ik9FmFpxSDiX9zf_SGN86iuuCkobffuPM1tIlYtU58SHcoHqzhg_kbZnz94DsPQED2S5GgoPnxFRx3EBi4TP5IkZrZhgNBwh0sn34FSMfa3pWq1QxjunJCLMZ6oYqS0w1ihunIlA7l1wJmzbpEObgY4O9seoiyDmQvxvhTAB3_p0ZCobtKBmRvBkq8xDNf3MeTcDU7MnskH4tSdAPoQn4M3Q"/>
+</div>
+</div>
+<section>
+<h3 class="font-headline-md text-headline-md text-primary mb-md flex items-center gap-sm">
+<span class="w-8 h-[2px] bg-primary"></span> Cultural Significance
+                    </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-base">
+                        For a Nepalese mother, or 'Aama', making Sel Roti is a meditative ritual. During weddings and religious ceremonies, the kitchen becomes a sanctuary where the skill of pouring the batter is passed down from mother to daughter.
+                    </p>
+<div class="bg-surface-container-highest p-lg rounded-xl border-l-4 border-primary my-lg">
+<p class="italic font-body-lg text-body-lg text-on-surface-variant">
+                            "The shape of the Sel Roti is a reminder that no matter how far we travel, our traditions bring us back to our roots. It is the circle of home."
+                        </p>
+<p class="mt-base font-label-sm text-label-sm text-primary">— Aama Devi, Dhulikhel Homestay</p>
+</div>
+</section>
+<section class="bg-surface-container rounded-2xl p-lg border border-outline-variant/40">
+<h3 class="font-headline-md text-headline-md text-secondary mb-lg">How to Participate</h3>
+<div class="space-y-md">
+<div class="flex gap-lg">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold">1</div>
+<div>
+<h4 class="font-headline-md text-[18px] text-on-surface">Book a Workshop</h4>
+<p class="font-body-md text-on-surface-variant">Join a morning session at any 'Aama's Kitchen' certified homestay. You'll learn to grind the rice and master the circular pour.</p>
+</div>
+</div>
+<div class="flex gap-lg">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold">2</div>
+<div>
+<h4 class="font-headline-md text-[18px] text-on-surface">The Tihar Experience</h4>
+<p class="font-body-md text-on-surface-variant">Visit during October/November to see the tradition in its full festive glory, with thousands of rotis being made across the village.</p>
+</div>
+</div>
+<div class="flex gap-lg">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold">3</div>
+<div>
+<h4 class="font-headline-md text-[18px] text-on-surface">Village Tasting Tours</h4>
+<p class="font-body-md text-on-surface-variant">Go on a curated food walk to sample different regional variations, from the thick, soft rotis of the plains to the crispy ones of the hills.</p>
+</div>
+</div>
+</div>
+<button class="mt-lg w-full bg-primary text-on-primary py-4 rounded-xl font-headline-md hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-base">
+                        Book a Workshop Session
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+</article>
+<!-- Sidebar / Related -->
+<aside class="lg:col-span-4 space-y-lg">
+<div class="sticky top-24 space-y-lg">
+<!-- Related Guide Card -->
+<div class="bg-white p-base rounded-xl article-shadow border border-outline-variant/20 hover:border-primary/40 transition-colors group cursor-pointer">
+<div class="h-40 rounded-lg overflow-hidden mb-base">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A top-down view of a traditional Nepali brass plate (Thali) filled with various colorful lentil soups, curries, and pickles. The plate sits on a rustic jute mat. The composition is clean and organized, with rich saturation in the food colors, against a warm, neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBClvBym5HX2OPSaC3QJKVmwWtR0mS5jk2fMshvGJ5MijzRKcQSplMV1f7pdJen1QOTrjsLk2i1Db3W1iU0k1dAyPilt7ZZ4qN3fYS3ql8miMxR28MBIBGI_5wRdEjvuRkEEf-ju31xuqmD66rue0O7R5flyKvIEEPgVydzeshR69T9AFTAG3EZ_tckBFUHDZH1ICGXWrUDSamOjguFUXWLDX79CVCTyE-Yy2P5V1LIrRnh9LnNmn3yLcH14vD1PxBD6fehXbnFZSM"/>
+</div>
+<div class="px-sm pb-sm">
+<span class="font-label-sm text-label-sm text-secondary">NEXT GUIDE</span>
+<h4 class="font-headline-md text-[20px] text-on-surface mt-xs">The Secrets of Dal Bhat</h4>
+<p class="font-body-md text-on-surface-variant mt-sm">Understand why this 'power meal' is the fuel of the Himalayas.</p>
+</div>
+</div>
+<!-- Community Stats -->
+<div class="bg-tertiary-container text-on-tertiary-container p-lg rounded-xl relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">groups</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-md">Join the Circle</h4>
+<p class="font-body-md mb-lg">Over 1,200 travelers have learned the art of Sel Roti through our homestays this year.</p>
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-dim"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-dim"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-dim"></div>
+<div class="w-10 h-10 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center font-label-sm text-[12px]">+1k</div>
+</div>
+</div>
+<!-- Social Share -->
+<div class="flex flex-col gap-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant">SHARE THIS TRADITION</p>
+<div class="flex gap-base">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">share</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">bookmark_add</span>
+</button>
+<button class="flex-grow rounded-full border border-outline-variant flex items-center justify-center gap-base font-label-sm text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">print</span>
+                                Print Guide
+                            </button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer Space -->
+<div class="h-24"></div>
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface-container-lowest dark:bg-surface-container-high shadow-[0_-1px_4px_rgba(179,40,33,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm mt-1">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm text-label-sm mt-1">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for scroll depth indicator
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            const progress = document.createElement('div');
+            progress.id = 'scroll-progress';
+            if(!document.getElementById('scroll-progress')) {
+                progress.className = 'fixed top-16 left-0 h-1 bg-primary z-[70] transition-all duration-100';
+                document.body.appendChild(progress);
+            }
+            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+        });
+
+        // Simple fade-in effect for article sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, aside > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

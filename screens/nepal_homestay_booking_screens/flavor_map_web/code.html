@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flavor Map | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Manrope:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdad5",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#752814",
+                        "surface-dim": "#dbdad5",
+                        "on-tertiary-fixed": "#001f2a",
+                        "inverse-surface": "#30312e",
+                        "background": "#fbf9f4",
+                        "surface-tint": "#b32821",
+                        "tertiary-fixed-dim": "#9ccee7",
+                        "primary": "#680003",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-tertiary-fixed-variant": "#144c61",
+                        "secondary-container": "#fd9174",
+                        "secondary-fixed-dim": "#ffb4a1",
+                        "on-primary-fixed": "#410001",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bee9ff",
+                        "impact-teal": "#316479",
+                        "surface-container": "#f0eee9",
+                        "primary-container": "#900a0c",
+                        "surface-bright": "#fbf9f4",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb4aa",
+                        "tertiary": "#003546",
+                        "inverse-on-surface": "#f2f1ec",
+                        "surface-container-low": "#f5f3ee",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#3c0800",
+                        "on-tertiary-container": "#8abbd4",
+                        "surface-variant": "#e4e2dd",
+                        "outline-variant": "#e2beba",
+                        "tertiary-container": "#134c61",
+                        "on-tertiary": "#ffffff",
+                        "dhaka-red": "#b32821",
+                        "surface-grain": "#fbf9f4",
+                        "on-surface": "#1b1c19",
+                        "surface": "#fbf9f4",
+                        "on-secondary-fixed-variant": "#7c2e18",
+                        "secondary-fixed": "#ffdbd2",
+                        "on-primary-fixed-variant": "#910b0c",
+                        "surface-container-high": "#eae8e3",
+                        "on-surface-variant": "#5a413d",
+                        "earth-brown": "#5a413d",
+                        "secondary": "#9a442d",
+                        "on-primary-container": "#ff998c",
+                        "outline": "#8e706c",
+                        "on-background": "#1b1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "gutter": "20px",
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "label-xs-bold": ["Manrope"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-sm-italic": ["Manrope"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-xs-bold": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-sm-italic": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grainy-surface {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .dhaka-pattern-border {
+            border-top: 4px solid transparent;
+            border-image: repeating-linear-gradient(45deg, #b32821, #b32821 10px, #ffffff 10px, #ffffff 20px) 1;
+        }
+        .map-container {
+            height: calc(100vh - 80px);
+        }
+        .pin-hover:hover {
+            transform: scale(1.2) translateY(-4px);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .side-panel-transition {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2beba;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface grainy-surface min-h-screen overflow-hidden">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-base max-w-screen-xl mx-auto">
+<div class="flex items-center gap-lg">
+<h1 class="font-display-lg text-dhaka-red tracking-tight">Aama's Kitchen</h1>
+<div class="hidden md:flex items-center gap-md">
+<a class="text-dhaka-red font-bold border-b-2 border-dhaka-red pb-1 font-body-md text-body-md" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors font-body-md text-body-md" href="#">Experiences</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors font-body-md text-body-md" href="#">Marketplace</a>
+<a class="text-on-surface-variant hover:text-dhaka-red transition-colors font-body-md text-body-md" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative group">
+<button class="flex items-center justify-center p-xs rounded-full hover:bg-surface-container-high/50 transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+</div>
+<div class="relative group">
+<button class="flex items-center justify-center p-xs rounded-full hover:bg-surface-container-high/50 transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-md py-sm rounded-lg hover:opacity-90 active:scale-95 transition-all">
+                    Book Now
+                </button>
+</div>
+</div>
+</nav>
+<main class="relative flex overflow-hidden">
+<!-- Sidebar Navigation (Icons Only View on Map) -->
+<aside class="hidden md:flex flex-col p-md space-y-sm bg-surface-container-low border-r border-outline-variant/20 h-screen w-20 items-center">
+<button class="p-sm text-on-secondary-container bg-secondary-container rounded-lg font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined">event_available</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</aside>
+<!-- Interactive Map Section -->
+<div class="flex-grow relative map-container overflow-hidden bg-[#e4e2dd]">
+<!-- Map Placeholder with data-location -->
+<div class="w-full h-full relative" id="nepal-map">
+<img class="w-full h-full object-cover opacity-80" data-alt="A stylized, high-fidelity topographical map of Nepal rendered in a vintage Himalayan Hearth aesthetic. The map uses warm earthy tones, ivory plateaus, and deep brown mountain ranges. Subtle textures like natural paper grain are visible across the landscape. The lighting is soft and ambient, highlighting the rugged terrain of the Himalayas in the north and the lush Terai plains in the south. The overall mood is sophisticated, educational, and adventurous." data-location="Nepal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2zhf8mrvLzH0BJRYMJyVzMOh-UmhFDkoJ9LxvbMONjcCgQlWTPfGddlM4sVdCHLwZwXg0JgdBVbLjGV0aQHY3X8xMt7C_QHVsENKggO4PNiqtZdzM0_sxVywl94TeYQsPyOGIifV85Hbae_kJHz1ntCROTmRfGHfhHMw5vkujzH7ok_aw1jpxryJ9S1W5OBFkGQi5iivcKT7snB_c5elRqROlsi-4Gh0ykNoFjKD9Bh1CVAgLfCuBj2Mr9XxqGZTjZ2Z0D5AO0hE"/>
+<!-- Custom Interactive Pins -->
+<!-- Thakali Pin (Mustang Region) -->
+<button class="absolute top-[30%] left-[45%] pin-hover group z-10" onclick="openPanel('thakali')">
+<div class="flex flex-col items-center">
+<div class="bg-dhaka-red text-white p-2 rounded-full shadow-lg border-2 border-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="mt-1 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<p class="font-label-sm text-label-sm text-primary">Thakali</p>
+</div>
+</div>
+</button>
+<!-- Newari Pin (Kathmandu Valley) -->
+<button class="absolute top-[50%] left-[55%] pin-hover group z-10" onclick="openPanel('newari')">
+<div class="flex flex-col items-center">
+<div class="bg-dhaka-red text-white p-2 rounded-full shadow-lg border-2 border-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="mt-1 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<p class="font-label-sm text-label-sm text-primary">Newari</p>
+</div>
+</div>
+</button>
+<!-- Sherpa Pin (Everest Region) -->
+<button class="absolute top-[35%] left-[70%] pin-hover group z-10" onclick="openPanel('sherpa')">
+<div class="flex flex-col items-center">
+<div class="bg-dhaka-red text-white p-2 rounded-full shadow-lg border-2 border-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="mt-1 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<p class="font-label-sm text-label-sm text-primary">Sherpa</p>
+</div>
+</div>
+</button>
+<!-- Map Legend -->
+<div class="absolute bottom-md left-md bg-surface-container-lowest/90 backdrop-blur-md p-md rounded-xl shadow-md border border-outline-variant/30 max-w-xs dhaka-pattern-border">
+<h3 class="font-headline-md text-headline-md text-dhaka-red mb-sm">The Flavor Map</h3>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant mb-md">Journey through Nepal’s diverse culinary landscape, from the peaks of the Sherpa highlands to the valley of the Newars.</p>
+<div class="space-y-sm">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 bg-dhaka-red rounded-full"></span>
+<span class="font-label-sm text-label-sm">Culinary Heritage Hubs</span>
+</div>
+<div class="flex items-center gap-sm opacity-60">
+<span class="w-3 h-3 bg-impact-teal rounded-full"></span>
+<span class="font-label-sm text-label-sm">Partner Homestays</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Detail Side Panel (Initially Hidden) -->
+<div class="absolute top-0 right-0 h-full w-full md:w-[450px] bg-surface-container-lowest shadow-2xl z-40 transform translate-x-full side-panel-transition flex flex-col border-l border-outline-variant/20" id="detail-panel">
+<div class="p-md flex justify-between items-center bg-surface-container-low border-b border-outline-variant/10">
+<button class="flex items-center text-primary hover:text-dhaka-red gap-xs" onclick="closePanel()">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-sm text-label-sm">Back to Map</span>
+</button>
+<button class="p-base rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<div class="flex-grow overflow-y-auto custom-scrollbar p-md space-y-lg" id="panel-content">
+<!-- Dynamic Content Injected Here -->
+<div id="dynamic-body">
+<!-- Placeholder State -->
+</div>
+</div>
+<div class="p-md border-t border-outline-variant/20 bg-surface-container-low">
+<button class="w-full bg-primary text-on-primary py-md rounded-xl font-label-sm text-label-sm flex items-center justify-center gap-sm hover:opacity-90 transition-opacity">
+                        Plan My Culinary Journey
+                        <span class="material-symbols-outlined">explore</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Suppressed for focused map experience, but layout logic kept for potential scrolling sections) -->
+<footer class="hidden"></footer>
+<script>
+        const regionalData = {
+            thakali: {
+                title: "Thakali Heritage",
+                region: "Mustang / Mustang District",
+                image: "placeholder",
+                imageAlt: "A beautifully arranged Thakali Thali set on a rustic wooden table in a traditional Mustang home. The meal includes fluffy white rice, creamy black lentil dal, spicy mutton curry, local mustard greens, and fermented radish pickle (gundruk). The lighting is warm and golden, coming from a nearby hearth. The aesthetic is tactile and authentic, reflecting the Modern Heritage design language with earthy reds and browns.",
+                description: "Originating from the Thak Khola region of Mustang, Thakali cuisine is renowned across Nepal for its balance of flavors and high-quality ingredients. Historically, the Thakali people were traders on the salt route, which influenced their access to diverse spices and fine grains.",
+                ingredients: ["Jimbu (Wild Himalayan Allium)", "Buckwheat (Fapar)", "Dried Yak Meat (Sukuti)", "Timmur (Szechuan Pepper)", "Ghee"],
+                homestays: [
+                    { name: "Nilgiri View Lodge", loc: "Marpha", rating: 4.8 },
+                    { name: "Aama's Mustang Hearth", loc: "Jomsom", rating: 4.9 }
+                ]
+            },
+            newari: {
+                title: "Newari Gastronomy",
+                region: "Kathmandu Valley",
+                image: "placeholder",
+                imageAlt: "An elaborate Samay Baji set, a traditional Newari feast. The arrangement includes beaten rice, roasted buffalo meat (Choila), black soybeans, ginger, garlic, and local aila (liquor) in a small clay pot. The setting is an old Kathmandu courtyard with intricate wood carvings in the background. The color palette features deep reds, charcoal blacks, and golden ochre, reflecting the vibrant cultural legacy of the Newar people.",
+                description: "The Newars of Kathmandu Valley have one of the most sophisticated culinary traditions in South Asia. Their food is deeply tied to religious festivals and agricultural cycles, featuring a wide variety of fermented foods and slow-cooked buffalo meats.",
+                ingredients: ["Beaten Rice (Chiura)", "Buffalo Meat", "Black Soybeans", "Mustard Oil", "Himalayan Rock Salt"],
+                homestays: [
+                    { name: "Patn Heritage Home", loc: "Lalitpur", rating: 4.7 },
+                    { name: "Bhaktapur Cultural Stay", loc: "Bhaktapur", rating: 4.9 }
+                ]
+            },
+            sherpa: {
+                title: "Sherpa Mountain Fare",
+                region: "Solu-Khumbu (Everest)",
+                image: "placeholder",
+                imageAlt: "A steaming bowl of Sherpa Stew (Thenduk) served in a traditional hand-painted Tibetan ceramic bowl. The stew features hand-pulled noodles, winter vegetables, and bits of yak meat in a rich, savory broth. The background shows a cozy mountain hut with a wood-burning stove and views of snow-capped peaks through a window. The lighting is low-key and intimate, emphasizing the warmth of mountain hospitality.",
+                description: "High-altitude Sherpa cuisine is designed for endurance and warmth. It relies heavily on hearty grains like barley and potatoes, which are staples of the Himalayan highlands, providing the energy needed for mountain life.",
+                ingredients: ["Barley Flour (Tsampa)", "Yak Cheese (Chhurpi)", "Potatoes", "Radish", "Buckwheat Noodles"],
+                homestays: [
+                    { name: "Namche Hearth", loc: "Namche Bazaar", rating: 5.0 },
+                    { name: "Khumbu Valley Inn", loc: "Phakding", rating: 4.6 }
+                ]
+            }
+        };
+
+        function openPanel(regionKey) {
+            const data = regionalData[regionKey];
+            const panel = document.getElementById('detail-panel');
+            const content = document.getElementById('dynamic-body');
+
+            content.innerHTML = `
+                <div class="space-y-md">
+                    <div class="relative w-full h-64 rounded-xl overflow-hidden shadow-sm">
+                        <img src="${data.image}" data-alt="${data.imageAlt}" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/60 to-transparent">
+                            <span class="bg-dhaka-red text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-widest mb-1 inline-block">Regional Specialty</span>
+                            <h2 class="text-white font-display-lg-mobile text-display-lg-mobile">${data.title}</h2>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-sm text-on-surface-variant">
+                        <span class="material-symbols-outlined text-dhaka-red">location_on</span>
+                        <span class="font-label-sm text-label-sm">${data.region}</span>
+                    </div>
+
+                    <div class="space-y-sm">
+                        <h4 class="font-headline-md text-headline-md text-primary">The Heritage</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${data.description}</p>
+                    </div>
+
+                    <div class="space-y-sm">
+                        <h4 class="font-headline-md text-headline-md text-primary">Signature Ingredients</h4>
+                        <div class="flex flex-wrap gap-xs">
+                            ${data.ingredients.map(ing => `
+                                <span class="bg-surface-container-high px-sm py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30">
+                                    ${ing}
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="space-y-sm">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-headline-md text-headline-md text-primary">Featured Homestays</h4>
+                            <a href="#" class="text-dhaka-red font-label-sm text-label-sm underline">View All</a>
+                        </div>
+                        <div class="space-y-sm">
+                            ${data.homestays.map(stay => `
+                                <div class="flex items-center justify-between p-sm bg-white rounded-xl border border-outline-variant/20 hover:shadow-md transition-shadow cursor-pointer">
+                                    <div class="flex items-center gap-sm">
+                                        <div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-primary">home</span>
+                                        </div>
+                                        <div>
+                                            <p class="font-label-sm text-label-sm text-on-surface font-bold">${stay.name}</p>
+                                            <p class="text-[12px] text-on-surface-variant">${stay.loc}</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center text-primary">
+                                        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="font-label-xs-bold text-label-xs-bold ml-1">${stay.rating}</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            panel.classList.remove('translate-x-full');
+        }
+
+        function closePanel() {
+            const panel = document.getElementById('detail-panel');
+            panel.classList.add('translate-x-full');
+        }
+
+        // Close panel when clicking outside on the map
+        document.getElementById('nepal-map').addEventListener('click', function(e) {
+            if (e.target.id === 'nepal-map' || e.target.tagName === 'IMG') {
+                closePanel();
+            }
+        });
+    </script>
+</body></html>

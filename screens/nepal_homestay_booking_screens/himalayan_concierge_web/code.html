@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Himalayan Concierge | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#ffdad5",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#752814",
+                    "surface-dim": "#dbdad5",
+                    "on-tertiary-fixed": "#001f2a",
+                    "inverse-surface": "#30312e",
+                    "background": "#fbf9f4",
+                    "surface-tint": "#b32821",
+                    "tertiary-fixed-dim": "#9ccee7",
+                    "primary": "#680003",
+                    "surface-container-highest": "#e4e2dd",
+                    "on-tertiary-fixed-variant": "#144c61",
+                    "secondary-container": "#fd9174",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "on-primary-fixed": "#410001",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#bee9ff",
+                    "impact-teal": "#316479",
+                    "surface-container": "#f0eee9",
+                    "primary-container": "#900a0c",
+                    "surface-bright": "#fbf9f4",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#ffb4aa",
+                    "tertiary": "#003546",
+                    "inverse-on-surface": "#f2f1ec",
+                    "surface-container-low": "#f5f3ee",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#3c0800",
+                    "on-tertiary-container": "#8abbd4",
+                    "surface-variant": "#e4e2dd",
+                    "outline-variant": "#e2beba",
+                    "tertiary-container": "#134c61",
+                    "on-tertiary": "#ffffff",
+                    "dhaka-red": "#b32821",
+                    "surface-grain": "#fbf9f4",
+                    "on-surface": "#1b1c19",
+                    "surface": "#fbf9f4",
+                    "on-secondary-fixed-variant": "#7c2e18",
+                    "secondary-fixed": "#ffdbd2",
+                    "on-primary-fixed-variant": "#910b0c",
+                    "surface-container-high": "#eae8e3",
+                    "on-surface-variant": "#5a413d",
+                    "earth-brown": "#5a413d",
+                    "secondary": "#9a442d",
+                    "on-primary-container": "#ff998c",
+                    "outline": "#8e706c",
+                    "on-background": "#1b1c19"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "margin-mobile": "16px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "base": "8px",
+                    "gutter": "20px",
+                    "margin-desktop": "64px",
+                    "xs": "4px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-xs-bold": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "body-sm-italic": ["Manrope"],
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "label-xs-bold": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm-italic": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .dhaka-divider {
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #b32821, #b32821 10px, transparent 10px, transparent 20px);
+            opacity: 0.3;
+        }
+        .grainy-surface {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .emergency-pulse {
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(179, 40, 33, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(179, 40, 33, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(179, 40, 33, 0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface grainy-surface min-h-screen font-body-md overflow-x-hidden">
+<!-- Side Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant/20 flex flex-col p-md space-y-sm z-40 hidden md:flex">
+<div class="mb-lg">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-dhaka-red">Aama's Kitchen</h1>
+</div>
+<div class="flex flex-col space-y-xs">
+<a class="flex items-center space-x-sm p-sm bg-secondary-container text-on-secondary-container rounded-lg font-bold translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-label-sm text-label-sm">My Bookings</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Favorites</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-sm text-label-sm">Messages</span>
+</a>
+<a class="flex items-center space-x-sm p-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</div>
+<div class="mt-auto pt-lg border-t border-outline-variant/20">
+<div class="flex items-center space-x-sm mb-md">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-dhaka-red">
+<img class="w-full h-full object-cover" data-alt="A portrait of a weathered yet friendly traveler with a salt-and-pepper beard, wearing a rustic wool scarf and a modern outdoor jacket. The lighting is warm and golden, as if from a high-altitude sunset. The background shows a soft-focus mountain peak in a sophisticated stone-grey and madder-red color grade." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBauy0MWalxfjSBLchGaEWT1tDwGurtfX-NkARIxua8DFcyyLS5noZeqoPTRl-VDRPEh3niHuE4nkSgSmmdyzFZTlaOXioul6MbBXrMPjNgPq_kRCOA03qbSyZNeY-itxJlxuTCSai0OwbS0t2cvKXJTVPsq8Sq5XKsWEsfbm1YIBSCbv59Im8_F3fm5oVLWQ6oRHroVH965npNkyYLn-07IwBLi4ofrQHVMhB62INxgBzrE2FAWICCBUG558S6lAk7qRo8rtHkzQw"/>
+</div>
+<div>
+<p class="font-label-sm text-label-sm font-bold text-on-surface">Welcome, Traveler</p>
+<p class="text-[10px] text-on-surface-variant opacity-70">Himalayan Hearth Member</p>
+</div>
+</div>
+<button class="w-full py-sm px-md bg-surface-container-highest text-dhaka-red font-bold rounded-lg hover:bg-dhaka-red hover:text-white transition-all text-label-sm">
+                Switch to Host Mode
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 min-h-screen">
+<!-- Top Nav -->
+<header class="sticky top-0 w-full z-30 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base max-w-screen-xl mx-auto">
+<div class="md:hidden">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-dhaka-red">Aama's Kitchen</h1>
+</div>
+<div class="hidden md:flex items-center space-x-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Explore</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Experiences</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Marketplace</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-dhaka-red transition-colors" href="#">Community</a>
+</div>
+<div class="flex items-center space-x-sm">
+<button class="material-symbols-outlined text-on-surface-variant p-xs hover:bg-surface-container-high/50 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant p-xs hover:bg-surface-container-high/50 rounded-full transition-all">account_circle</button>
+<a class="px-md py-xs bg-dhaka-red text-white rounded-full font-label-sm text-label-sm scale-95 active:scale-90 transition-transform shadow-md" href="#">Book Now</a>
+</div>
+</div>
+</header>
+<!-- Dashboard Body -->
+<div class="px-margin-mobile md:px-margin-desktop py-md max-w-screen-xl mx-auto space-y-md">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-sm md:space-y-0">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Concierge Dashboard</h2>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80">Namaste. Your Himalayan journey, synchronized.</p>
+</div>
+<div class="emergency-pulse flex items-center space-x-sm bg-dhaka-red/10 border border-dhaka-red p-sm rounded-xl">
+<span class="material-symbols-outlined text-dhaka-red" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+<a class="font-label-sm text-label-sm text-dhaka-red font-bold uppercase tracking-widest" href="#">Emergency S.O.S.</a>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Altitude & Map (Large) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(179,40,33,0.05)] border border-outline-variant/30 overflow-hidden relative min-h-[400px]">
+<div class="absolute top-0 left-0 w-full h-1 dhaka-divider"></div>
+<div class="p-md flex justify-between items-center bg-surface-container-low/50 border-b border-outline-variant/20">
+<div class="flex items-center space-x-sm">
+<span class="material-symbols-outlined text-dhaka-red">explore</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">Live Altitude Tracking: Sagarmatha Region</span>
+</div>
+<div class="bg-dhaka-red text-white px-sm py-xs rounded-full font-label-xs-bold text-label-xs-bold">LIVE</div>
+</div>
+<div class="relative h-[300px] w-full">
+<div class="absolute inset-0 bg-stone-200" data-location="Khumbu Valley, Nepal" style="">
+<img class="w-full h-full object-cover" data-alt="A sophisticated topographic 3D map of the Khumbu Valley in Nepal. The map uses a minimalist aesthetic with stone-grey mountain silhouettes and a single highlighted madder-red trail path. Soft atmospheric fog hangs between the valleys, and golden hour lighting creates long, elegant shadows. The visual style is tactile, reminiscent of a high-end physical architectural model." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQXUS0tntUVdw5zhPGaPvh1WzDwNoTfb4OhUg3AiRac6kR7iRhtYtfR6_73rKkQyrAkStB2K9qynEARpuMZ9mPNVSvEqnO6c70gkRumM9ZfTVlMyvHYOE8hwWqshjJv1L2lrtbucKO1oXdzoksskIlVXbgPlkunH2bnj_O2U1ybMwG3lHNSIpcPZqgTSZTN1nnxqfK7_AbKRXaBCmCrz8XMsmT9lwNs0AJMK9gNPzVsxOupfDUbti1vk0j1MaTSJacA6TE6F-iRbI"/>
+</div>
+<!-- UI Overlay on Map -->
+<div class="absolute bottom-md left-md bg-white/90 backdrop-blur-md p-md rounded-xl shadow-lg border border-outline-variant/30 flex flex-col space-y-base">
+<div class="flex items-baseline space-x-xs">
+<span class="font-display-lg text-display-lg text-dhaka-red">5,364</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">m</span>
+</div>
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase tracking-widest opacity-60">Current Altitude (EBC)</p>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-dhaka-red h-full w-[64%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Weather (Small) -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(179,40,33,0.05)] border border-outline-variant/30 p-md flex flex-col space-y-md">
+<div class="flex items-center space-x-sm">
+<span class="material-symbols-outlined text-impact-teal">ac_unit</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">Namche Weather</span>
+</div>
+<div class="flex-1 flex flex-col justify-center items-center text-center space-y-sm">
+<span class="material-symbols-outlined text-[64px] text-dhaka-red" style="font-variation-settings: 'FILL' 0;">cloudy_snowing</span>
+<h3 class="font-display-lg text-display-lg text-on-surface">-12°C</h3>
+<p class="font-body-md text-body-md text-on-surface-variant italic">Heavy snow expected by dusk. Winds at 25km/h NW.</p>
+</div>
+<div class="grid grid-cols-3 gap-xs border-t border-outline-variant/20 pt-sm">
+<div class="text-center">
+<p class="text-label-xs-bold font-label-xs-bold opacity-60">TUE</p>
+<span class="material-symbols-outlined text-on-surface-variant">sunny</span>
+<p class="font-label-sm text-label-sm">-8°</p>
+</div>
+<div class="text-center">
+<p class="text-label-xs-bold font-label-xs-bold opacity-60">WED</p>
+<span class="material-symbols-outlined text-on-surface-variant">partly_cloudy_day</span>
+<p class="font-label-sm text-label-sm">-5°</p>
+</div>
+<div class="text-center">
+<p class="text-label-xs-bold font-label-xs-bold opacity-60">THU</p>
+<span class="material-symbols-outlined text-on-surface-variant">cloud</span>
+<p class="font-label-sm text-label-sm">-10°</p>
+</div>
+</div>
+</div>
+<!-- Digital Sherpa Tips (Medium) -->
+<div class="md:col-span-6 bg-tertiary-container text-white rounded-xl p-lg space-y-md relative overflow-hidden group">
+
+<div class="relative z-10 space-y-sm">
+<div class="inline-flex items-center space-x-sm bg-white/10 px-sm py-xs rounded-full">
+<span class="material-symbols-outlined text-tertiary-fixed">psychology</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Digital Sherpa Tip</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Acclimatization is Key</h4>
+<p class="font-body-md text-body-md text-tertiary-fixed opacity-90">"Climb high, sleep low." If you feel a headache behind the eyes, descend 300m immediately. Drink garlic soup at Aama's—it's nature's best remedy for thin air.</p>
+<button class="flex items-center space-x-sm font-label-sm text-label-sm font-bold hover:translate-x-1 transition-transform group/btn">
+<span>Read All Tips</span>
+<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_right_alt</span>
+</button>
+</div>
+</div>
+<!-- Landmark Directions (Medium) -->
+<div class="md:col-span-6 bg-surface-container-high rounded-xl p-md border border-outline-variant/30 flex flex-col space-y-md">
+<div class="flex items-center space-x-sm">
+<span class="material-symbols-outlined text-dhaka-red">assistant_direction</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant">Landmark Directions</span>
+</div>
+<div class="space-y-sm overflow-y-auto max-h-[180px] pr-sm">
+<div class="flex items-start space-x-md p-sm bg-surface-container-lowest rounded-lg border border-outline-variant/20">
+<div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">temple_buddhist</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm font-bold">Tengboche Monastery</p>
+<p class="text-[12px] text-on-surface-variant">Keep the Mani stones on your right. Follow the steep ascent for 2km.</p>
+</div>
+</div>
+<div class="flex items-start space-x-md p-sm bg-surface-container-lowest/50 rounded-lg border border-outline-variant/10 opacity-70">
+<div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">water_full</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm font-bold">Imja Khola Bridge</p>
+<p class="text-[12px] text-on-surface-variant">3.5km descend from current location. Watch for yak trains.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Impact / Journey Stats -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-gutter pt-md">
+<div class="bg-surface-container-low p-md rounded-xl text-center space-y-xs border border-outline-variant/20">
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase tracking-tighter">Oxygen Level</p>
+<p class="font-display-lg text-display-lg text-on-surface">58%</p>
+<div class="journey-tracker bg-surface-container-highest h-1 w-full rounded-full mt-sm">
+<div class="bg-impact-teal h-full w-[58%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-md rounded-xl text-center space-y-xs border border-outline-variant/20">
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase tracking-tighter">Steps Today</p>
+<p class="font-display-lg text-display-lg text-on-surface">14.2k</p>
+<p class="font-label-sm text-label-sm text-impact-teal">+12% vs Avg</p>
+</div>
+<div class="bg-surface-container-low p-md rounded-xl text-center space-y-xs border border-outline-variant/20">
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase tracking-tighter">Heart Rate</p>
+<p class="font-display-lg text-display-lg text-dhaka-red">102 <span class="text-body-md">bpm</span></p>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">High Altitude Steady</p>
+</div>
+<div class="bg-surface-container-low p-md rounded-xl text-center space-y-xs border border-outline-variant/20">
+<p class="font-label-xs-bold text-label-xs-bold text-on-surface-variant uppercase tracking-tighter">Local Time</p>
+<p class="font-display-lg text-display-lg text-on-surface">16:42</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">GMT +5:45</p>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full py-lg mt-xl bg-surface-container-highest dark:bg-inverse-surface border-t border-dhaka-red/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-screen-xl mx-auto space-y-md md:space-y-0">
+<div class="text-center md:text-left">
+<h5 class="font-display-lg-mobile text-display-lg-mobile text-dhaka-red mb-base">Aama's Kitchen</h5>
+<p class="font-body-sm-italic text-body-sm-italic text-on-surface-variant">© 2024 Aama's Kitchen. Authentic Himalayan Hospitality.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-opacity" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-opacity" href="#">Sustainability</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-opacity" href="#">Host Login</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-opacity" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-dhaka-red font-body-sm-italic text-body-sm-italic transition-opacity" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Interactive script for some lightweight micro-interactions -->
+<script>
+        // Simulate real-time altitude updates slightly
+        let altitude = 5364;
+        const altitudeEl = document.querySelector('.font-display-lg.text-dhaka-red');
+        setInterval(() => {
+            if (altitudeEl) {
+                const fluctuation = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+                altitude += fluctuation;
+                altitudeEl.textContent = altitude.toLocaleString();
+            }
+        }, 5000);
+
+        // Emergency S.O.S Button feedback
+        const sosBtn = document.querySelector('.emergency-pulse');
+        if (sosBtn) {
+            sosBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const confirmRes = confirm("Are you sure you want to trigger an Emergency S.O.S.? Local rescue services and your emergency contacts will be notified with your current coordinates (5,364m).");
+                if (confirmRes) {
+                    alert("Signal transmitted. Please stay in your current location if it is safe to do so. A rescue specialist will message you shortly.");
+                }
+            });
+        }
+    </script>
+</body></html>

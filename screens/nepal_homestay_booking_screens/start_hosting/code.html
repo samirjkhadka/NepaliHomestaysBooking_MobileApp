@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Host a Home - Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Manrope:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "primary": "#900a0c",
+                    "outline-variant": "#e2beba",
+                    "on-primary-fixed-variant": "#910a0c",
+                    "on-tertiary-fixed": "#001f2a",
+                    "on-primary-container": "#ffccc6",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbf9f4",
+                    "surface-container": "#f0eee9",
+                    "on-secondary-fixed": "#3c0800",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "inverse-primary": "#ffb4aa",
+                    "surface-container-high": "#eae8e3",
+                    "tertiary-fixed": "#bde9ff",
+                    "inverse-on-surface": "#f2f1ec",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1c19",
+                    "surface-dim": "#dbdad5",
+                    "primary-container": "#b32821",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "on-secondary-container": "#742814",
+                    "tertiary": "#134c61",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#410001",
+                    "surface": "#fbf9f4",
+                    "surface-tint": "#b32821",
+                    "on-surface": "#1b1c19",
+                    "secondary-container": "#fc9174",
+                    "surface-variant": "#e4e2dd",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "on-surface-variant": "#5a413d",
+                    "background": "#fbf9f4",
+                    "tertiary-container": "#316479",
+                    "secondary": "#9a442d",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdad5",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffdbd2",
+                    "surface-container-highest": "#e4e2dd",
+                    "outline": "#8e706c",
+                    "surface-container-low": "#f5f3ee",
+                    "on-tertiary-container": "#addff8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "sm": "12px",
+                    "gutter": "20px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "label-sm": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+
+      .dhaka-pattern {
+        background-color: #fbf9f4;
+        background-image:  linear-gradient(30deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba), linear-gradient(150deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba), linear-gradient(30deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba), linear-gradient(150deg, #e2beba 12%, transparent 12.5%, transparent 87%, #e2beba 87.5%, #e2beba), linear-gradient(60deg, #e2beba 25%, transparent 25.5%, transparent 75%, #e2beba 75%, #e2beba), linear-gradient(60deg, #e2beba 25%, transparent 25.5%, transparent 75%, #e2beba 75%, #e2beba);
+        background-size: 40px 70px;
+        background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+        opacity: 0.05;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(226, 190, 186, 0.3);
+      }
+
+      .hero-gradient {
+        background: linear-gradient(to bottom, rgba(27, 28, 25, 0) 0%, rgba(27, 28, 25, 0.8) 100%);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop py-xs">
+<div class="flex items-center gap-base">
+<button class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform p-xs hover:bg-surface-container-low rounded-full" data-icon="menu">menu</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-md">
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Explore</a>
+<a class="font-label-sm text-label-sm text-primary font-bold" href="#">Host a Home</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">My Trips</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden cursor-pointer active:scale-95 transition-transform">
+<img class="w-full h-full object-cover" data-alt="A warm and inviting portrait of a professional traveler or host, with a soft-focus background of a Nepalese mountain village. The lighting is golden hour, highlighting a friendly and welcoming expression. The overall style is clean, modern, and aligned with a premium travel brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG9vzImWWbpUMb0wdE7G54mRuwK-PzExhogVIopSSiYJgZv66ebElgyExneQ-B3S2SBx3ixOxQH6wmKiRg9LPAwja43z14BsR7IlRmptGDQI2r-XMj39tD4DZsOuHH5ciuSwRAAPwJoYCTqE65_g1DByHsxTd9CpnXiMGzpLBwsehHejwy8GyRyc-PVOyFIlF7DmptLgtlwANIL1NqWSRS4varPKw_re2bboB1_cMUYZN_T1IZVhhr_sF98IcmTQHEiGnD8RVXFyI"/>
+</div>
+</div>
+</header>
+<main class="pb-xl">
+<!-- Hero Section -->
+<section class="relative h-[707px] md:h-[618px] flex items-end overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 hero-gradient z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-1000 hover:scale-105" data-alt="A breathtaking, wide-angle interior shot of a traditional Newari home in Kathmandu Valley. Sunbeams stream through intricately carved wooden windows (Anjhyā), illuminating a rustic but clean living space with hand-woven Dhaka cushions, brass kitchenware, and low-seated wooden tables. The mood is tranquil, authentic, and high-end, featuring warm earthy tones of terracotta and aged timber." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdeQMlBzyFo6IZnKmKuXcLfr-8lN5dNAN1HYIfv25pJQHj3UDXnMkBhNB4791GJRxOx0ybl9uc9VeW2m33ePzjm5giRWwROAxlaPblC-mC0XQokp2MSqW8B2miUOaBFsIsP3itOOkZl190JzP035dAn9KTvo0YQZhgMXeA1XRtyRGG1T45HD5DtFUfnj3KHTlaYw2QM6jwOAxEwDpYvb6peOV30xpEGBoy6hdCe4daiIUFWgSae3afVs58OIYzNwUnlUxIPD8q2c8')">
+</div>
+</div>
+<div class="relative z-20 w-full px-margin-mobile md:px-margin-desktop pb-xl max-w-7xl mx-auto">
+<div class="max-w-2xl text-white">
+<span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container rounded-full text-label-sm font-label-sm mb-md">Host with Heart</span>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-base">Turn your home into a heritage experience.</h2>
+<p class="font-body-lg text-body-lg text-white/90 mb-lg">Share the warmth of your kitchen and the soul of your home with travelers seeking the true Nepal.</p>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="bg-primary text-on-primary px-xl py-md rounded-full font-headline-md text-headline-md shadow-lg active:scale-95 transition-all hover:bg-primary-container">
+                            Become a Host
+                        </button>
+<button class="glass-card text-on-surface-variant px-xl py-md rounded-full font-headline-md text-headline-md hover:bg-white/90 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+                            See Stories
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Bento Grid -->
+<section class="px-margin-mobile md:px-margin-desktop mt-xl max-w-7xl mx-auto">
+<div class="text-center mb-xl">
+<h3 class="font-headline-md text-headline-md text-secondary mb-xs">Why Host on Aama's Kitchen?</h3>
+<div class="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter lg:grid-rows-2 h-auto md:h-[600px]">
+<!-- Card 1: Preservation -->
+<div class="md:col-span-2 md:row-span-1 glass-card rounded-xl p-lg flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-lg opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" data-icon="temple_hindu">temple_hindu</span>
+</div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary mb-md" data-icon="history_edu">history_edu</span>
+<h4 class="font-headline-md text-headline-md mb-base">Preserve Your Heritage</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">By hosting, you're not just providing a bed; you're keeping traditional Nepali hospitality and architectural legacy alive for the next generation.</p>
+</div>
+</div>
+<!-- Card 2: Income -->
+<div class="md:col-span-1 md:row-span-2 bg-primary-container text-on-primary-container rounded-xl p-lg flex flex-col justify-between border border-outline group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary-fixed mb-md" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<h4 class="font-headline-md text-headline-md mb-base text-white">Empower Your Household</h4>
+<p class="font-body-md text-body-md text-white/80">Earn a premium income that supports your family and community while sharing your daily lifestyle with appreciative guests.</p>
+</div>
+<div class="mt-lg rounded-lg overflow-hidden h-48">
+<img class="w-full h-full object-cover" data-alt="A focused macro shot of a pair of weathered but gentle hands carefully arranging colorful traditional spices into small clay bowls in a rustic Nepali kitchen. The depth of field is shallow, emphasizing the texture of the terracotta and the vibrant reds and yellows of the spices. The lighting is soft and natural, coming from a nearby window." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm7DPFfeg0nJ48npEI6-bJYQpleKeTgual8HmSJ7ABJsWRTdphfe5cv-8MwUOoAnKVEFNiM1OrVjIRfw41KKjkkxYBnF2QdwiNOV5LVgrmHwOnglSXVdsdBrRhcemYH1uqxweCZttMRCGtMgrqVRuUVNGBiHuMNwVkq9jB8LzZbNkA3qG9ABnz6-ynPD-WJYFrjDCArdAs8axvrqoemS0I2voticauKDzigPURK37eNabbOxorz3H2teMqs_YZQ-HVPGCsg4EoMnQ"/>
+</div>
+</div>
+<!-- Card 3: Support -->
+<div class="md:col-span-1 md:row-span-1 bg-surface-container-high rounded-xl p-lg flex flex-col gap-base group">
+<span class="material-symbols-outlined text-secondary" data-icon="support_agent">support_agent</span>
+<h4 class="font-headline-md text-headline-md">24/7 Local Support</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">We're with you at every step, from photography and listing setup to guest communication and insurance.</p>
+</div>
+<!-- Card 4: Community -->
+<div class="md:col-span-1 md:row-span-1 border border-outline-variant rounded-xl p-lg flex flex-col gap-base relative group overflow-hidden">
+<div class="dhaka-pattern absolute inset-0 pointer-events-none"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-tertiary" data-icon="diversity_3">diversity_3</span>
+<h4 class="font-headline-md text-headline-md">Global Connections</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Welcome travelers from around the world into your kitchen. Exchange stories, cultures, and recipes that last a lifetime.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote / Testimonial Section -->
+<section class="py-xl bg-surface-container-low mt-xl">
+<div class="max-w-4xl mx-auto px-margin-mobile text-center">
+<span class="material-symbols-outlined text-primary text-display-lg" data-icon="format_quote">format_quote</span>
+<p class="font-display-lg-mobile md:font-headline-md text-display-lg-mobile md:text-headline-md italic text-on-surface mb-lg">
+                    "Hosting with Aama's Kitchen allowed me to fix our family's ancestral roof while meeting people who truly value our culture. It's more than business; it's pride."
+                </p>
+<div class="flex items-center justify-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A warm, smiling portrait of an elderly Nepalese woman with traditional jewelry and a red bindi. She is sitting in a sunlit courtyard with traditional architecture in the background. Her face is full of character and kindness, representing the 'Aama' (Mother) figure of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY_TJ3CSJj0sewe5xtdh9yu5oSOTnLdB58agQrfx267xxZEBso2CI87KrCSGlBL1stD09hBT6rQhhB86YgrJ2Q9P-yNNJ3tNvt1MDxk4fQz9_yAvkPvMR91hYC-eRT3Cn3XYaaFZlswtzKY7-EV8zAHNtGhzSHYw2D_9n2XK8XHc4-DgaRJsF_ZI5dLBDX2Fbe2qSFgmCVRGotlzd1OHmBjW0avpG1DVKB2bPiVUrXTtjq6WEGZ0gn2_CSoGkLipo1vhB726Vbivo"/>
+</div>
+<div class="text-left">
+<p class="font-body-md text-body-md font-bold">Aama Kamala</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Host in Bhaktapur since 2021</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="px-margin-mobile md:px-margin-desktop py-xl">
+<div class="bg-secondary rounded-2xl p-lg md:p-xl text-center text-white relative overflow-hidden max-w-7xl mx-auto">
+<div class="absolute inset-0 opacity-10 mix-blend-overlay">
+<div class="dhaka-pattern w-full h-full"></div>
+</div>
+<div class="relative z-10 flex flex-col items-center">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-md">Ready to share your story?</h2>
+<p class="font-body-lg text-body-lg mb-xl max-w-2xl text-white/80">Join our community of hosts today. We'll guide you through the simple setup to get your home ready for guests.</p>
+<button class="bg-white text-secondary px-xl py-md rounded-full font-headline-md text-headline-md hover:bg-surface-bright transition-all active:scale-95 shadow-lg">
+                        Get Started Today
+                    </button>
+<p class="mt-md font-label-sm text-label-sm text-white/60">It takes less than 15 minutes to start your profile.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant shadow-[0_-2px_10px_rgba(179,40,33,0.05)] flex justify-around items-center px-4 py-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 cursor-pointer active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 cursor-pointer active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 cursor-pointer active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="add_home">add_home</span>
+<span class="font-label-sm text-label-sm">Host</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 cursor-pointer active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple Micro-interactions
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card, .bg-primary-container, .border-outline-variant').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

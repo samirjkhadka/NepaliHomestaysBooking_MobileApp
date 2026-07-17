@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Himalayan Concierge | Aama's Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Be+Vietnam+Pro:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#8e706c",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f2f1ec",
+                    "secondary": "#9a442d",
+                    "outline-variant": "#e2beba",
+                    "on-tertiary-container": "#addff8",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "surface": "#fbf9f4",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "on-secondary": "#ffffff",
+                    "primary": "#900a0c",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#ffb4aa",
+                    "surface-container-highest": "#e4e2dd",
+                    "primary-fixed": "#ffdad5",
+                    "on-tertiary-fixed": "#001f2a",
+                    "on-surface": "#1b1c19",
+                    "tertiary-fixed": "#bde9ff",
+                    "on-primary-container": "#ffccc6",
+                    "surface-container-low": "#f5f3ee",
+                    "surface-tint": "#b32821",
+                    "background": "#fbf9f4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#910a0c",
+                    "on-error": "#ffffff",
+                    "surface-container": "#f0eee9",
+                    "secondary-fixed": "#ffdbd2",
+                    "tertiary-container": "#316479",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fbf9f4",
+                    "on-primary-fixed": "#410001",
+                    "primary-container": "#b32821",
+                    "on-background": "#1b1c19",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "tertiary": "#134c61",
+                    "inverse-surface": "#30312e",
+                    "surface-dim": "#dbdad5",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "secondary-container": "#fc9174",
+                    "surface-variant": "#e4e2dd",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#5a413d",
+                    "on-secondary-fixed": "#3c0800",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "surface-container-high": "#eae8e3",
+                    "on-secondary-container": "#742814"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "gutter": "20px",
+                    "margin-mobile": "16px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "margin-desktop": "64px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "label-sm": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "display-lg-mobile": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dhaka-pattern {
+            background-image: radial-gradient(#9a442d 0.5px, transparent 0.5px), radial-gradient(#9a442d 0.5px, #fbf9f4 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(142, 112, 108, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- Top Navigation Anchor -->
+<header class="w-full top-0 sticky bg-surface border-b border-outline-variant/30 z-40 flex justify-between items-center px-margin-mobile py-sm">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant/50">
+<img class="w-full h-full object-cover" data-alt="A portrait of a serene Himalayan traveler in warm outdoor gear, set against a soft morning light with the blurred silhouette of snow-capped peaks in the background. The aesthetic is clean and modern, using the brand's warm neutral palette and high-quality photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV7uUKVlfz9AQarpBZ9uKqPKdKa0XALUz7xCQqrt93TfhAu44vERoxDNU5aJUDsQKPiiZpEAbpjTPD0nJvRY8n0sPa6UcvFrTtQlMxn9h4QpW1o43puqdXqBfBy9m7GT_0vRsYvUu1mwPshKmDGihVdpzHj-qWdHHMjbPQXt-AiFnTiv9XCwOMzU3my7-st-w1l1bpRAKVqate2Gvw_EhpZ4J7Ywy_qOITWNgMdZ-9zplglnFiHLJvI2Kwh9l5cdJej2hDLH1VB8E"/>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-md space-y-md">
+<!-- Hero Section: Assistance -->
+<section class="relative overflow-hidden rounded-xl bg-primary-container p-lg text-on-primary-container shadow-lg flex flex-col md:flex-row items-center justify-between gap-md">
+<div class="absolute inset-0 dhaka-pattern pointer-events-none"></div>
+<div class="relative z-10 space-y-xs max-w-md">
+<h2 class="font-headline-md text-headline-md text-white">Namaste, James.</h2>
+<p class="font-body-md text-on-primary-container/90">Your mountain support team is standing by. How can we guide your path today?</p>
+</div>
+<button class="relative z-10 bg-surface-container-lowest text-primary px-xl py-md rounded-full font-headline-md text-headline-md shadow-sm hover:shadow-md transition-all active:scale-95 group flex items-center gap-sm">
+                Need Help?
+                <span class="material-symbols-outlined text-[32px] group-hover:translate-x-1 transition-transform">support_agent</span>
+</button>
+</section>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Progress & Tips -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Trek Progress Widget -->
+<article class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/30 space-y-md shadow-[0_4px_20px_rgba(179,40,33,0.03)]">
+<div class="flex justify-between items-center">
+<h3 class="font-label-sm text-label-sm uppercase text-outline">Trek Progress</h3>
+<span class="material-symbols-outlined text-secondary">terrain</span>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<p class="font-display-lg-mobile text-display-lg-mobile text-on-surface">3,440<span class="text-body-md ml-xs">m</span></p>
+<p class="font-body-md text-on-surface-variant">Namche Bazaar</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-secondary">0°C</p>
+<p class="font-body-md text-on-surface-variant">Clear Skies</p>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[65%] rounded-full"></div>
+</div>
+<p class="font-label-sm text-label-sm text-center text-on-surface-variant">65% of today's path completed</p>
+</article>
+<!-- Daily Tips Widget -->
+<article class="bg-tertiary-container text-on-tertiary-container p-md rounded-xl border-t-2 border-secondary overflow-hidden relative">
+<div class="absolute top-0 right-0 p-base opacity-20">
+<span class="material-symbols-outlined text-[80px]">lightbulb</span>
+</div>
+<div class="relative z-10 space-y-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-tertiary-fixed">tips_and_updates</span>
+<h3 class="font-label-sm text-label-sm uppercase">Host's Daily Tip</h3>
+</div>
+<p class="font-body-lg text-body-lg italic">"Hydrate with butter tea today. The altitude at Namche can be dry, and the fats will keep you warm for the climb ahead."</p>
+<div class="flex items-center gap-sm pt-xs">
+<div class="w-8 h-8 rounded-full border border-tertiary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up photograph of a smiling local Sherpa host with weathered features, wearing traditional Himalayan clothing. The background is a warm, rustic kitchen setting with copper pots and sunlight streaming through a small window." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADA-tinmWyYZhRyU2dD0Iami5ns7-qkAJlbnV6F9L3SCNfhNp5t1P-Q30cdZlaBBuBoU0GCwFv7jO8Mq2fwZ3wlZrW_GI3FuLodRJ2DcGUCnUzPDu9EsPaTatPwaLsF2pPD5QBxXRQOtQyx2Xqm_eYa2jKsKPNJVF_NJLkK2YtkZ4cyA8ubm5_zqSzxkaLQLhueax86QEHNixkm2RVmLVjWiFeTY6RrCBGmuWXBIApWi3aGXDuGpWRvTCgVu6ZAxjueu0tuTSR0KI"/>
+</div>
+<p class="font-label-sm text-label-sm">— Aama Tsering</p>
+</div>
+</div>
+</article>
+</div>
+<!-- Right Column: Quick Actions & Maps -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Quick Action Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-sm">
+<button class="flex flex-col items-center justify-center p-md bg-surface-container-lowest rounded-xl border border-outline-variant/30 hover:bg-surface-container transition-colors active:scale-95 gap-xs">
+<span class="material-symbols-outlined text-primary text-[32px]">call</span>
+<span class="font-label-sm text-label-sm">Call Guide</span>
+</button>
+<button class="flex flex-col items-center justify-center p-md bg-error-container text-on-error-container rounded-xl border border-error/20 hover:bg-error/10 transition-colors active:scale-95 gap-xs">
+<span class="material-symbols-outlined text-error text-[32px]">emergency</span>
+<span class="font-label-sm text-label-sm">S.O.S.</span>
+</button>
+<button class="flex flex-col items-center justify-center p-md bg-surface-container-lowest rounded-xl border border-outline-variant/30 hover:bg-surface-container transition-colors active:scale-95 gap-xs">
+<span class="material-symbols-outlined text-tertiary text-[32px]">explore</span>
+<span class="font-label-sm text-label-sm">Pathfinding</span>
+</button>
+<button class="flex flex-col items-center justify-center p-md bg-surface-container-lowest rounded-xl border border-outline-variant/30 hover:bg-surface-container transition-colors active:scale-95 gap-xs">
+<span class="material-symbols-outlined text-secondary text-[32px]">thermostat</span>
+<span class="font-label-sm text-label-sm">Weather</span>
+</button>
+</div>
+<!-- Live Map Section -->
+<div class="relative rounded-xl overflow-hidden h-[400px] border border-outline-variant/30 shadow-md">
+<div class="absolute inset-0 bg-surface-container-highest" data-alt="A detailed topographic mountain map illustration of the Everest region, showing contour lines, trekking paths in red, and 3D-shaded peaks like Ama Dablam. The map has a warm, vintage parchment feel combined with clean digital icons for waypoints and current location." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8EmwfNYWW41s_PIjIRfOecj15VLYD1FTr01wubYe4WDhtQsrV77JajTYzhESHEUA1uhjzjaPyqLD5gERCDXVnUXXx35u5BxrGxSOM_ova5tJcttOfxuWLWh5PQBXQO9ad5twIEtAo5uPFaCduIw65rRMX70JdH08Z49QhM81juTOX9o8ljTxkK9t4XY7KvROdC8f1d6toWSjZstnleG6mYeeIUOChspzgZGN_w4PXU30qJAGLYlL-rD150XoqEp33SJo6YD3j48A')"></div>
+<!-- Map Overlays -->
+<div class="absolute top-4 left-4 flex flex-col gap-xs">
+<div class="glass-card px-md py-sm rounded-lg flex items-center gap-sm">
+<span class="w-3 h-3 bg-secondary rounded-full animate-pulse"></span>
+<p class="font-label-sm text-label-sm text-on-surface">You are here: Phakding Pass</p>
+</div>
+</div>
+<div class="absolute bottom-4 right-4">
+<div class="flex flex-col gap-xs">
+<button class="w-10 h-10 glass-card rounded-lg flex items-center justify-center text-on-surface hover:bg-white active:scale-90 transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-10 h-10 glass-card rounded-lg flex items-center justify-center text-on-surface hover:bg-white active:scale-90 transition-all">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="w-10 h-10 glass-card rounded-lg flex items-center justify-center text-primary hover:bg-white active:scale-90 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Support History / Notifications -->
+<section class="space-y-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Recent Updates</h3>
+<div class="space-y-sm">
+<div class="flex items-start gap-md p-md bg-surface-container-low rounded-xl border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary mt-1">info</span>
+<div>
+<p class="font-body-md text-on-surface font-bold">Route Alteration</p>
+<p class="font-body-md text-on-surface-variant">The traditional route through the Khumbu glacier is icy today. Use the upper bypass trail for safer footing.</p>
+<p class="font-label-sm text-label-sm text-outline mt-xs">10 minutes ago</p>
+</div>
+</div>
+<div class="flex items-start gap-md p-md bg-surface-container-lowest rounded-xl border border-outline-variant/20 opacity-80">
+<span class="material-symbols-outlined text-tertiary mt-1">check_circle</span>
+<div>
+<p class="font-body-md text-on-surface">Supplies Delivered</p>
+<p class="font-body-md text-on-surface-variant">Your extra oxygen canister has been dropped off at the Dingboche lodge by porter Mingma.</p>
+<p class="font-label-sm text-label-sm text-outline mt-xs">2 hours ago</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-surface border-t border-outline-variant/20 shadow-[0_-4px_12px_rgba(179,40,33,0.05)] z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1.5" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terrain</span>
+<span class="font-label-sm text-label-sm">My Journey</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">local_mall</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        // Simple ripple-like effect on "Need Help" button
+        const helpBtn = document.querySelector('button');
+        if(helpBtn) {
+            helpBtn.addEventListener('mouseenter', () => {
+                helpBtn.classList.add('scale-[1.02]');
+            });
+            helpBtn.addEventListener('mouseleave', () => {
+                helpBtn.classList.remove('scale-[1.02]');
+            });
+        }
+
+        // Simulating a real-time data update
+        setInterval(() => {
+            const timeEl = document.querySelector('.text-outline.mt-xs');
+            if(timeEl) {
+                // Just keeping the UI dynamic
+            }
+        }, 60000);
+    </script>
+</body></html>

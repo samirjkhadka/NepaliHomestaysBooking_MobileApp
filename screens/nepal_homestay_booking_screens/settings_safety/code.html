@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aama's Kitchen - Accessibility &amp; Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdbd2",
+                    "outline-variant": "#e2beba",
+                    "on-error-container": "#93000a",
+                    "outline": "#8e706c",
+                    "on-tertiary-fixed": "#001f2a",
+                    "primary-container": "#b32821",
+                    "on-background": "#1b1c19",
+                    "on-surface-variant": "#5a413d",
+                    "surface-container-high": "#eae8e3",
+                    "secondary-container": "#fc9174",
+                    "on-tertiary-container": "#addff8",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#ffb4aa",
+                    "on-primary-container": "#ffccc6",
+                    "inverse-on-surface": "#f2f1ec",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#f0eee9",
+                    "tertiary-fixed-dim": "#9bcee6",
+                    "surface-tint": "#b32821",
+                    "on-tertiary-fixed-variant": "#134c61",
+                    "on-primary-fixed-variant": "#910a0c",
+                    "on-error": "#ffffff",
+                    "background": "#fbf9f4",
+                    "surface-dim": "#dbdad5",
+                    "on-secondary-fixed": "#3c0800",
+                    "on-primary-fixed": "#410001",
+                    "on-surface": "#1b1c19",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#316479",
+                    "surface": "#fbf9f4",
+                    "on-secondary-fixed-variant": "#7c2e19",
+                    "surface-container-low": "#f5f3ee",
+                    "secondary": "#9a442d",
+                    "secondary-fixed-dim": "#ffb4a1",
+                    "error": "#ba1a1a",
+                    "tertiary": "#134c61",
+                    "tertiary-fixed": "#bde9ff",
+                    "surface-container-highest": "#e4e2dd",
+                    "primary-fixed": "#ffdad5",
+                    "surface-variant": "#e4e2dd",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#900a0c",
+                    "on-secondary-container": "#742814",
+                    "inverse-surface": "#30312e",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#fbf9f4",
+                    "primary-fixed-dim": "#ffb4aa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "gutter": "20px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "xl": "80px",
+                    "sm": "12px",
+                    "lg": "48px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Be Vietnam Pro"],
+                    "body-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "display-lg-mobile": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .dhaka-pattern {
+        background-color: #fbf9f4;
+        background-image:  linear-gradient(135deg, #e2beba 25%, transparent 25%), linear-gradient(225deg, #e2beba 25%, transparent 25%), linear-gradient(45deg, #e2beba 25%, transparent 25%), linear-gradient(315deg, #e2beba 25%, #fbf9f4 25%);
+        background-position:  10px 0, 10px 0, 0 0, 0 0;
+        background-size: 20px 20px;
+        background-repeat: repeat;
+        opacity: 0.05;
+      }
+      .glass-card {
+        background: rgba(251, 249, 244, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface border-b border-outline-variant z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop py-base">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-primary-fixed/10 transition-colors active:scale-95 duration-150 rounded-full">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary tracking-tight">Aama's Kitchen</h1>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio headshot of a friendly man in his 30s with a warm smile, set against a soft-focus Himalayan mountain landscape. The lighting is warm and natural, following a light-mode aesthetic with soft shadows and high-key brightness. The style is clean, modern, and trustworthy, reflecting the brand's 'Modern Heritage' philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs-1xG1Hd6_jAb42yPXEuqxvL6vZDRXgXVHSgWdD_ud9L1KkDsQtQ7T2GLMhkYpuB8IEmbjGHQblu5EjnKks5hbcmeoJfBSG2-gwAZIRGtQGAGT5rft9lu9rkDS77K8o7cGHx5leYh7RJ2HuSQeMhw1GatTShD9HJqKG0RwhfJLyoThGYTlGTuJ4HMAFqxE61Z6sHfgNxQPDnNaHF-uz0r6n5AQ-V_rP7XT-pXP6erId639RFTiDNNYmsbuNn8C5pdx2nwDcQcVA4"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg pb-32">
+<!-- Header Section -->
+<div class="mb-lg">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-xs">Settings</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Tailor your experience to your needs. Adjust localization, accessibility, and find essential safety information.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Localization Card (Bento Item) -->
+<section class="lg:col-span-8 bg-surface-container-low rounded-xl border border-outline-variant p-md relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 dhaka-pattern pointer-events-none"></div>
+<div class="flex items-center gap-3 mb-md">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">language</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Localization</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Language Selection -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Primary Language</label>
+<div class="flex flex-wrap gap-2">
+<button class="flex items-center gap-2 px-md py-sm bg-primary text-on-primary rounded-lg transition-all duration-200 active:scale-95 shadow-sm">
+<span>English</span>
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</button>
+<button class="flex items-center gap-2 px-md py-sm bg-surface text-on-surface border border-outline hover:bg-secondary-fixed/20 rounded-lg transition-all duration-200 active:scale-95">
+<span>Nepali (नेपाली)</span>
+</button>
+</div>
+</div>
+<!-- Currency Selection -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Currency</label>
+<select class="bg-surface border border-outline rounded-lg px-4 py-3 focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors outline-none font-body-md">
+<option>NPR - Nepalese Rupee (Rs.)</option>
+<option>USD - US Dollar ($)</option>
+<option>EUR - Euro (€)</option>
+<option>GBP - British Pound (£)</option>
+</select>
+</div>
+</div>
+<div class="mt-lg pt-md border-t border-outline-variant/50">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md text-on-surface font-semibold">Automatic Timezone</p>
+<p class="font-label-sm text-on-surface-variant">Set based on your current location in Nepal</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Accessibility Card (Bento Item) -->
+<section class="lg:col-span-4 bg-surface-container-low rounded-xl border border-outline-variant p-md flex flex-col gap-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">accessibility_new</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Accessibility</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">text_increase</span>
+<span class="font-body-md text-on-surface">Large Text</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">contrast</span>
+<span class="font-body-md text-on-surface">High Contrast</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">motion_photos_off</span>
+<span class="font-body-md text-on-surface">Reduce Motion</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">screen_search_desktop</span>
+<span class="font-body-md text-on-surface">Screen Reader Support</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+<div class="mt-auto pt-md">
+<button class="w-full py-sm bg-tertiary text-on-tertiary rounded-lg font-label-sm hover:opacity-90 transition-opacity">
+                        View Detailed Accessibility Guide
+                    </button>
+</div>
+</section>
+<!-- Emergency Contacts Section (Bento Item) -->
+<section class="lg:col-span-12 bg-error-container text-on-error-container rounded-xl p-lg border border-error/20 relative overflow-hidden">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md relative z-10">
+<div class="flex items-start gap-4">
+<div class="bg-error text-on-error p-3 rounded-xl">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-xs">Emergency Contacts</h3>
+<p class="font-body-md opacity-90">Local safety numbers and support services in Nepal. Call these numbers in case of immediate danger.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-md w-full md:w-auto">
+<a class="flex flex-col items-center justify-center p-md bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-all border border-white/30" href="tel:100">
+<span class="font-headline-md text-3xl mb-xs">100</span>
+<span class="font-label-sm uppercase tracking-wider">Police</span>
+</a>
+<a class="flex flex-col items-center justify-center p-md bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-all border border-white/30" href="tel:101">
+<span class="font-headline-md text-3xl mb-xs">101</span>
+<span class="font-label-sm uppercase tracking-wider">Fire Dept</span>
+</a>
+<a class="flex flex-col items-center justify-center p-md bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-all border border-white/30" href="tel:102">
+<span class="font-headline-md text-3xl mb-xs">102</span>
+<span class="font-label-sm uppercase tracking-wider">Ambulance</span>
+</a>
+</div>
+</div>
+<div class="mt-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter relative z-10">
+<div class="bg-white/40 p-md rounded-lg flex items-center gap-3 hover:bg-white/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">tour</span>
+<div class="flex flex-col">
+<span class="font-label-sm font-bold">Tourist Police</span>
+<span class="font-body-md">+977 1144</span>
+</div>
+</div>
+<div class="bg-white/40 p-md rounded-lg flex items-center gap-3 hover:bg-white/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">mountain_flag</span>
+<div class="flex flex-col">
+<span class="font-label-sm font-bold">Himalayan Rescue</span>
+<span class="font-body-md">+977 1-4440292</span>
+</div>
+</div>
+<div class="bg-white/40 p-md rounded-lg flex items-center gap-3 hover:bg-white/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">support_agent</span>
+<div class="flex flex-col">
+<span class="font-label-sm font-bold">Aama's Support</span>
+<span class="font-body-md">24/7 Priority</span>
+</div>
+</div>
+<div class="bg-white/40 p-md rounded-lg flex items-center gap-3 hover:bg-white/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">share_location</span>
+<div class="flex flex-col">
+<span class="font-label-sm font-bold">Share Location</span>
+<span class="font-body-md">Active Safety</span>
+</div>
+</div>
+</div>
+<!-- Abstract Decorative Element -->
+<div class="absolute -bottom-12 -right-12 w-64 h-64 bg-error rounded-full blur-3xl opacity-10"></div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container border-t border-outline-variant/30 shadow-sm rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">redeem</span>
+<span class="font-label-sm text-label-sm">Rewards</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-sm text-label-sm">Inbox</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Floating Toast for Save Confirmation (Micro-interaction) -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-lg py-sm rounded-full shadow-lg flex items-center gap-3 opacity-0 translate-y-8 transition-all duration-300 pointer-events-none z-[100]" id="save-toast">
+<span class="material-symbols-outlined text-sm">check</span>
+<span class="font-label-sm">Settings updated successfully</span>
+</div>
+<script>
+        // Simple interaction to simulate saving settings
+        const controls = document.querySelectorAll('select, input[type="checkbox"], button:not(header button)');
+        const toast = document.getElementById('save-toast');
+
+        controls.forEach(control => {
+            control.addEventListener('change', showToast);
+            if (control.tagName === 'BUTTON' && !control.closest('nav')) {
+                control.addEventListener('click', showToast);
+            }
+        });
+
+        function showToast() {
+            toast.classList.remove('opacity-0', 'translate-y-8');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-8');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 3000);
+        }
+    </script>
+</body></html>
