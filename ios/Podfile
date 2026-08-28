@@ -1,5 +1,7 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '13.0'
+# firebase_core requires iOS 15.0 or higher. This must stay in step with
+# IPHONEOS_DEPLOYMENT_TARGET in Runner.xcodeproj and MinimumOSVersion in
+# Flutter/AppFrameworkInfo.plist — all three are set to 15.0.
+platform :ios, '15.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -39,5 +41,14 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
+
+    # Belt and braces: a transitive pod can carry its own lower deployment target,
+    # which does not fail here but surfaces later as a link or archive error.
+    target.build_configurations.each do |config|
+      current = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+      if current.nil? || current.to_f < 15.0
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+      end
+    end
   end
 end

@@ -692,6 +692,22 @@ class ApiRepository {
     }
   }
 
+  Future<Map<String, dynamic>> getHomeContent() => getPublicSetting('home-content');
+
+  Future<Map<String, dynamic>> getImpactStats() async {
+    try {
+      return await _get(
+        '/stats/impact',
+        (d) => Map<String, dynamic>.from(d as Map? ?? {}),
+      );
+    } catch (_) {
+      return {};
+    }
+  }
+
+  Future<Map<String, dynamic>> getMarketingPage(String page) =>
+      getPublicSetting(page);
+
   Future<List<Map<String, dynamic>>> getNewsFeed() async {
     try {
       return await _get('/news/feed', (d) {
